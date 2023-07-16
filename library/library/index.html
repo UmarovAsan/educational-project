@@ -15,7 +15,7 @@
       <nav class="header-nav">
         <ul class="header-list">
           <li class="header-item">
-            <a href="#" class="header-link">About</a>
+            <a href="#About" class="header-link">About</a>
             <a href="#" class="header-link">Favorites</a>
             <a href="#" class="header-link">Coffee Shop</a>
             <a href="#" class="header-link">Contacts</a>
@@ -23,8 +23,18 @@
           </li>
         </ul>
       </nav>
-      <div class="icon">
-        <img src="./img/icon_profile.jpg" class="icon-menu" alt="Menu">
+      <div class="button-icon">
+        <svg
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" fill="white"
+          />
+        </svg>
       </div>
     </div>
     <main class="main-section">
@@ -37,11 +47,9 @@
           </div>
         </div>
       </section>
-      <section class="about">
+      <section class="about" id="About">
         <div class="about-box">
-          <div class="about-box-title">
-            <h2 class="about-box-title-section">About</h2>
-          </div>
+            <h2 class="about-box-title">About</h2>
         </div>
         <div class="about-line">
         </div>
@@ -50,28 +58,46 @@
             The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside
           </p>
         </div>
+        <div class="image-gallery">
+          <img src="./img/image1.jpg" class="image-gallery-potho" alt="">
+          <img src="./img/image2.jpg" class="image-gallery-potho" alt="">
+          <img src="./img/image3.jpg" class="image-gallery-potho" alt="">
+        </div>
+        <div class="button-control">
+          <button type="button" class="buttom-control-container">
+            <span class="button-control-left"></span>
+          </button>
+          <button type="button" class="buttom-control-container">
+            <span class="button-control-center"></span>
+          </button>
+          <button type="button" class="buttom-control-container">
+            <span class="button-control-right"></span>
+          </button>
+        </div>
       </section>
-      <section class="favorites">
-        <h2 class="favorites-title">Favorites</h2>
+      <section class="favorites" id="Favorites">
+        <div class="favorites-box">
+          <h2 class="favorites-box-title">Favorites</h2>
+        </div>
+        <div class="favorites-line">
+        </div>
+        <div class="favorites-text">
+          <p>Pick favorites of season</p>
+        </div>
+        <div class="button-favorites">
+          
+        </div>
       </section>
-      <section class="coffee-shop">
+      <section class="coffee-shop" id="Coffee-Shop">
         <h2 class="coffee_shop-title">Coffee Shop</h2>
         <P>In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation.
           You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.
         </P>
-        <ul>
-          <li>
-          </li>
-        </ul>
-        <ul>
-          <li>
-          </li>
-        </ul>
       </section>
-      <section class="our-contacts">
+      <section class="our-contacts" id="Our-Contacts">
         <h2 class="our-contacts-title">Our Contacts</h2>
       </section>
-      <section class="digital-library-cards">
+      <section class="digital-library-cards" id="Digital-Library-Cards">
         <h2 class="digital-library-cards-title">Digital Library Cards</h2>
       </section>
     </main>  

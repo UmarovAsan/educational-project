@@ -40,7 +40,7 @@ body {
   width: 100%;
   border: 1px solid slategray;
   word-wrap: break-word;
-  background: #FFF;
+  background-color: #FFF;
 }
 
 .header-container {
@@ -107,6 +107,7 @@ body {
   background-position: center;
   background-size: contain;
   margin-left: -40px;
+  cursor: pointer;
 }
 
 .icon-menu {
@@ -156,10 +157,11 @@ body {
   text-transform: uppercase;
 }
 
+/*about section */
 .about {
   max-width: 1440px;
   height: 837px;
-  background: #FFF;
+  background-color: #FFF;
 }
 
 .about-box-title {
@@ -228,60 +230,72 @@ body {
 }
 
 .button-control{
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 76px;
-  height: 26px;
+  justify-content: space-between;
+  background-color: #FFF;
+  width: 68px;
+  height: 16px;
+  padding: 0px 0px;
   margin: 40px 686px;
   flex-shrink: 0;
   outline: none;
   border: none;
 }
 
-.button-control-container {
+.transparent-container {
   width: 26px;
   height: 26px;
-  border-color: #FFF;
-  cursor: pointer;
-  margin: 0px 0px;
-  padding: 0px 0px;
-  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   outline: none;
+  border: none;
+  margin-right: 10px;
+}
+
+.transparent-container:last-child {
+  margin-right: 0px;
 }
 
 .button-control-left {
   width: 16px;
   height: 16px;
-  color: #BB945F;
-  cursor: pointer;
   padding: 5px 5px;
-  justify-content: flex-start;
-  border-color: #BB945F;
-  border-radius: 5px;
+  border-radius: 50%;
+  background: #BB945F;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .button-control-center {
   width: 16px;
   height: 16px;
-  color: #0C0C0E;
-  cursor: pointer;
   padding: 5px 5px;
-  border-color: #0C0C0E;
-  border-radius: 5px;
+  border-radius: 50%;
+  background: #0C0C0E;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .button-control-right {
   width: 16px;
   height: 16px;
-  color: #0C0C0E;
-  cursor: pointer;
   padding: 5px 5px;
-  border-color: #0C0C0E;
-  border-radius: 5px;
+  border-radius: 50%;
+  background: #0C0C0E;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
+/* favoit section */
 .favorites {
   width: 1440px;
   height: 1439px;
@@ -326,7 +340,7 @@ body {
   font-weight: 700;
   line-height: normal;
   margin-left: 20px;
-  margin-top: 121px;
+  margin-top: 40px;
 }
 .button-favorites {
   width: 700px;
@@ -335,4 +349,143 @@ body {
   margin-left: 20px;
   margin-top: 40px;
   margin-bottom: 40px;
+  white-space: nowrap;
+}
+
+.button-favorites form {
+  display: inline-block;
+  margin-right: 90px;
+}
+
+.button-favorites form:last-child {
+  margin-right: 0px;
+}
+
+.container-winter {
+  width: 104px;
+  height: 24px;
+  flex-shrink: 0;
+  padding: 5px 5px;
+  cursor: pointer;
+}
+
+.container-winter input[type="radio"]
+.container-Spring input[type="radio"]
+.container-Summer input[type="radio"]
+.container-Autumn input[type="radio"] {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.container-winter label[for="Winter"]
+.container-Spring label[for="Spring"]
+.container-Summer label[for="Summer"]
+.container-Autumn label[for="Autumn"] {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.container-Spring {
+  width: 99px;
+  height: 24px;
+  flex-shrink: 0;
+  padding: 5px 5px;
+  cursor: pointer;
+}
+
+.container-Summer {
+  width: 116px;
+  height: 24px;
+  flex-shrink: 0;
+  padding: 5px 5px;
+  cursor: pointer;
+}
+
+.container-Autumn {
+  width: 111px;
+  height: 24px;
+  flex-shrink: 0;
+  padding: 5px 5px;
+  cursor: pointer;
+}
+
+.first-book {
+  width: 550px;
+  height: 555px;
+  flex-shrink: 0;
+  border: 1px solid #000;
+  background: #FFF;
+}
+
+.pick-book {
+  width: 102px;
+  height: 40px;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Forum;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 200% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  white-space: nowrap;
+  margin: 15px 428px 0px 20px;
+}
+
+.boock-line {
+  width: 60px;
+  height: 1px;
+  background: #BB945F;
+  margin: 0px 470px 20px 20px;
+}
+
+
+
+
+
+
+
+
+
+/* coffee section */ 
+.coffee-shop {
+  display: flex;
+  width: 1440px;
+  padding: 20px 20px 40px 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  background: #FFF;
+}
+
+/* our-contacts section */ 
+.our-contacts {
+  display: flex;
+  width: 1440px;
+  height: 515px;
+  padding: 20px 20px 40px 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  background: #FFF;
+}
+
+/* digital-library-cards section */ 
+.digital-library-cards{
+  width: 1440px;
+  height: 614px;
+  background: #FFF;
+}
+
+/* footer section */ 
+.footer {
+  width: 1440px;
+  height: 250px;
+  background: #0C0C0E;
 }

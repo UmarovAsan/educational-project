@@ -51,9 +51,10 @@
         <div class="about-box">
             <h2 class="about-box-title">About</h2>
         </div>
-        <div class="about-line">
+        <div>
+          <hr class="about-line">
         </div>
-        <div  class="about-paragraf">
+        <div class="about-paragraf">
           <p>
             The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside
           </p>
@@ -64,15 +65,15 @@
           <img src="./img/image3.jpg" class="image-gallery-potho" alt="">
         </div>
         <div class="button-control">
-          <button type="button" class="buttom-control-container">
-            <span class="button-control-left"></span>
-          </button>
-          <button type="button" class="buttom-control-container">
-            <span class="button-control-center"></span>
-          </button>
-          <button type="button" class="buttom-control-container">
-            <span class="button-control-right"></span>
-          </button>
+          <div class="transparent-container">
+            <button type="button" class="button-control-left"></button>
+          </div>
+          <div class="transparent-container">
+            <button type="button" class="button-control-center"></button>
+          </div>
+          <div class="transparent-container">
+            <button type="button" class="button-control-right"></button>
+          </div>
         </div>
       </section>
       <section class="favorites" id="Favorites">
@@ -85,7 +86,30 @@
           <p>Pick favorites of season</p>
         </div>
         <div class="button-favorites">
-          
+          <form class="container-winter">
+            <input type="radio" name="Winter" id="Winter">
+            <label for="Winter">Winter</label>
+          </form>
+          <form class="container-Spring">
+            <input type="radio" name="Spring" id="Spring">
+            <label for="Spring">Spring</label>
+          </form>
+          <form class="container-Summer">
+            <input type="radio" name="Summer" id="Summer">
+            <label for="Summer">Summer</label>
+          </form>
+          <form class="container-Autumn">
+            <input type="radio" name="Autumn" id="Autumn">
+            <label for="Autumn">Autumn</label>
+          </form>
+        </div>
+        <div class="first-book">
+          <div class="pick-book">
+            <p>Staff Picks</p>
+          </div>
+          <div>
+            <hr class="boock-line">
+          </div>
         </div>
       </section>
       <section class="coffee-shop" id="Coffee-Shop">

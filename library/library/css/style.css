@@ -21,6 +21,9 @@ html {
 }
 
 * {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -29,37 +32,35 @@ html {
 }
 
 /* header style */
-body {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1440px;
+.container {
+  display: block;
+  background-color: #FFF;
   margin: 0 auto;
   padding: 0;
-  min-height: 100%;
-  width: 100%;
-  border: 1px solid slategray;
-  word-wrap: break-word;
-  background-color: #FFF;
 }
 
-.header-container {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #0C0C0E;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  display: flex;
-  height: 50px;
-  padding: 20px;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  height: 90px;
   gap: 247px;
+}
+
+.header-logo {
+  width: 294px;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 0px;
 }
 
 .header_logo_title {
   color: #FFF;
-  text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-family: Forum;
   font-size: 30px;
   font-style: normal;
@@ -68,11 +69,17 @@ body {
   letter-spacing: 0.6px;
 }
 
-.header-list {
-  display: flex;
+.header-nav {
+  display: inline-flex;
   align-items: flex-start;
   gap: 30px;
-  padding-left: 0px;
+  width: 584px;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
+  white-space: nowrap;
 }
 
 .header-link {
@@ -106,15 +113,25 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  margin-left: -40px;
+  border-radius: 50%;
   cursor: pointer;
+  margin-top: 31px;
+  margin-right: 20px;
+  margin-bottom: 31px;
+  margin-left: -40px;
 }
 
-.icon-menu {
+.button-icon {
   background-image: url(./svg/icon_profile.svg);
 }
 
+/* main section */
 /* welcome style */
+.main {
+  background-color: #FFF;
+  flex-shrink: 0;
+}
+
 .welcome {
   max-width: 1440px;
   height: 600px;
@@ -222,11 +239,12 @@ body {
   width: 450px;
   height: 560px;
   flex-shrink: 0;
-  padding-right: 20px;
+  margin-left: 0px;
+  margin-right: 20px;
 }
 
 .image-gallery-potho:last-child {
-  padding-right: 0;
+  margin-right: 0px;
 }
 
 .button-control{
@@ -365,7 +383,7 @@ body {
   width: 104px;
   height: 24px;
   flex-shrink: 0;
-  padding: 5px 5px;
+  padding: 5px;
   cursor: pointer;
 }
 
@@ -394,7 +412,7 @@ body {
   width: 99px;
   height: 24px;
   flex-shrink: 0;
-  padding: 5px 5px;
+  padding: 5px;
   cursor: pointer;
 }
 
@@ -402,7 +420,7 @@ body {
   width: 116px;
   height: 24px;
   flex-shrink: 0;
-  padding: 5px 5px;
+  padding: 5px;
   cursor: pointer;
 }
 
@@ -410,8 +428,21 @@ body {
   width: 111px;
   height: 24px;
   flex-shrink: 0;
-  padding: 5px 5px;
+  padding: 5px;
   cursor: pointer;
+}
+
+.container-book {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 1400px;
+  height: 1150px;
+  flex-shrink: 0;
+  background: #FFF;
+  margin-right: 20px;
+  margin-bottom: 40px;
+  margin-left: 20px;
 }
 
 .first-book {
@@ -420,6 +451,38 @@ body {
   flex-shrink: 0;
   border: 1px solid #000;
   background: #FFF;
+  margin-left: 0px;
+  margin-bottom: 40px;
+}
+
+.three-book {
+  width: 550px;
+  height: 555px;
+  flex-shrink: 0;
+  border: 1px solid #000;
+  background: #FFF;
+  margin-left: 0px;
+  margin-bottom: 40px;
+}
+
+.two-book {
+  width: 550px;
+  height: 555px;
+  flex-shrink: 0;
+  border: 1px solid #000;
+  background: #FFF;
+  margin-left: 220px;
+  margin-bottom: 40px;
+}
+
+.four-book {
+  width: 550px;
+  height: 555px;
+  flex-shrink: 0;
+  border: 1px solid #000;
+  background: #FFF;
+  margin-left: 220px;
+  margin-bottom: 40px;
 }
 
 .pick-book {
@@ -445,18 +508,114 @@ body {
   margin: 0px 470px 20px 20px;
 }
 
+.book-name {
+  width: 168px;
+  height: 80px;
+  color: #000000;
+  margin-right: 362px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
 
+.book-name-text {
+  color: #000;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
 
+.book-description {
+  width: 355px;
+  height: 320px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
 
+.book-description-text {
+  color: #000;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 266.667% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
 
+.button-buy {
+  width: 75px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  background-color: #FFF;
+  margin-right: 455px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  cursor: pointer;
+  width: 21px;
+  height: 12px;
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 4px 27px 9px;
+  padding: 5px;
+}
 
+.button-own {
+  display: inline-block;
+  width: 75px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  border: 1px solid #BB945F;
+  background-color: #FFF;
+  margin-right: 455px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  width: 25px;
+  height: 12px;
+  color: #BB945F;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  margin: 4px 25px 9px;
+  padding: 5px;
+}
 
+.book-cover {
+  width: 200px;
+  height: 300px;
+  flex-shrink: 0;
+  margin-top: -294px;
+  margin-left: 390px;
+}
+
+.book-cover{
+  background-repeat: no-repeat;
+  color: lightgray 50%;
+}
 
 
 /* coffee section */ 
 .coffee-shop {
   display: flex;
   width: 1440px;
+  height: 781px;
   padding: 20px 20px 40px 20px;
   flex-direction: column;
   align-items: center;
@@ -464,10 +623,57 @@ body {
   background: #FFF;
 }
 
+.coffee-shop-box {
+  width: 220px;
+  height: 40px;
+  margin-top: 20px;
+  margin-left: 610px;
+  margin-right: 610px;
+}
+
+.coffee_shop-title {
+  color: #0C0C0E;
+  font-family: Forum;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 100% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.coffee-shop-line {
+  width: 50px;
+  height: 1px;
+  flex-shrink: 0;
+  background: #0C0C0E;
+  margin-top: 0px;
+  margin-left: 85px;
+  margin-right: 85px;
+  margin-bottom: 0px;
+}
+
+.coffee-shop-paragraf {
+  width: 1400px;
+  height: 120px;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 200% */
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  margin-top: 0px;
+  margin-bottom: 40px;
+}
+
 /* our-contacts section */ 
 .our-contacts {
   display: flex;
-  width: 1440px;
+  width: 100%;
   height: 515px;
   padding: 20px 20px 40px 20px;
   flex-direction: column;
@@ -478,14 +684,25 @@ body {
 
 /* digital-library-cards section */ 
 .digital-library-cards{
-  width: 1440px;
+  width: 100%;
   height: 614px;
   background: #FFF;
 }
 
 /* footer section */ 
 .footer {
-  width: 1440px;
+  width: 100%;
   height: 250px;
   background: #0C0C0E;
+}
+
+.coffee-shop {
+  display: flex;
+  width: 1400px;
+  height: 781px;
+  padding: 20px 20px 40px 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  background: #FFF;
 }

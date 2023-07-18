@@ -47,16 +47,12 @@ html {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 100%;
   height: 90px;
-  gap: 247px;
 }
 
 .header-logo {
   width: 294px;
   height: 50px;
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  margin-right: 0px;
+  margin: 20px 0px 20px 20px;
 }
 
 .header_logo_title {
@@ -69,17 +65,12 @@ html {
   letter-spacing: 0.6px;
 }
 
-.header-nav {
+.header-navigation {
   display: inline-flex;
   align-items: flex-start;
-  gap: 30px;
-  width: 584px;
+  width: 612px;
   height: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 0px;
-  margin-right: 0px;
-  white-space: nowrap;
+  margin: 20px 40px 20px 375px;
 }
 
 .header-link {
@@ -106,19 +97,23 @@ html {
   list-style: none;
 }
 
+.header-menu {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0px;
+  margin: 31px 20px 31px -40px;
+}
+
 .button-icon {
   width: 28px;
   height: 28px;
+  flex-shrink: 0px;
   display: block;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   border-radius: 50%;
   cursor: pointer;
-  margin-top: 31px;
-  margin-right: 20px;
-  margin-bottom: 31px;
-  margin-left: -40px;
 }
 
 .button-icon {
@@ -140,13 +135,18 @@ html {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.welcome-back {
-  height: 220px;
+.welcome-overlay {
+  max-width: 1440px;
+  height: 300px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.10) 100%);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  padding: 255px 880px 160px 0px;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
 }
 
 .welcome-box {
@@ -158,10 +158,12 @@ html {
   align-items: center;
   flex-shrink: 0;
   background: #0C0C0E;
+  margin: -80px 840px 160px 0px;
 }
 
 .welcome-title {
   width: 520px;
+  height: 150px;
   flex-shrink: 0;
   color: #FFF;
   text-align: center;
@@ -227,7 +229,7 @@ html {
 
 .image-gallery {
   display: flex;
-  width: 1400px;
+  max-width: 1400px;
   height: 560px;
   flex-shrink: 0;
   margin-left: 25px;

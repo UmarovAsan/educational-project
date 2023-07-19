@@ -117,7 +117,7 @@ html {
 }
 
 .button-icon {
-  background-image: url(./svg/icon_profile.svg);
+  background-image: url(../svg/icon_profile.svg);
 }
 
 /* main section */
@@ -615,6 +615,7 @@ html {
 
 /* coffee section */ 
 .coffee-shop {
+  display: flex;
   width: 1400px;
   height: 781px;
   padding: 20px 20px 40px 20px;
@@ -625,9 +626,10 @@ html {
 }
 
 .coffee-shop-box {
-  width: 220px;
+  width: 222px;
   height: 61px;
-  margin: 20px 610px 0px;
+  margin-left: 610px;
+  margin-right: 610px;
 }
 
 .coffee_shop-title {
@@ -639,7 +641,6 @@ html {
   line-height: 40px; /* 100% */
   letter-spacing: 2px;
   text-transform: capitalize;
-  white-space: nowrap;
 }
 
 .coffee-shop-line {
@@ -647,7 +648,9 @@ html {
   height: 1px;
   flex-shrink: 0;
   background: #0C0C0E;
-  margin: 0px 695px 40px;
+  margin-left: 85px;
+  margin-right: 85px;
+  margin-top: 20px;
 }
 
 .coffee-shop-paragraf {
@@ -662,8 +665,6 @@ html {
   line-height: 40px; /* 200% */
   letter-spacing: 2px;
   text-transform: lowercase;
-  margin-top: 0px;
-  margin-bottom: 40px;
 }
 
 .coffee-shop-menu {
@@ -673,13 +674,13 @@ html {
 }
 
 .coffe_and_tea-menu {
-  width: 445px;
+  width: 438px;
   height: 520px;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-left: 20px;
+  gap: 40px;
 }
 
 .coffe_and_tea-menu-name {
@@ -693,7 +694,7 @@ html {
   line-height: 40px; /* 100% */
   letter-spacing: 2px;
   text-transform: capitalize;
-  margin: 0px 203px 40px 0px;
+  margin: 0px 203px 0px 0px;
 }
 
 .drink {
@@ -703,10 +704,11 @@ html {
   justify-content: center;
   align-items: center;
   gap: 60px;
-  margin-bottom: 40px;
 }
 
 .drink-name {
+  width: 199px;
+  height: 40px;
   color: #000;
   font-family: Inter;
   font-size: 20px;
@@ -724,6 +726,8 @@ html {
 }
 
 .drink-price {
+  width: 21px;
+  height: 40px;
   color: #000;
   font-family: Forum;
   font-size: 20px;
@@ -735,14 +739,14 @@ html {
 }
 
 .deserts-menu {
+  display: flex;
   width: 482px;
   height: 520px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  margin-top: 0px;
-  margin-right: 20px;
-  margin-left: 448px;
+  gap: 40px;
+  margin-left: 480px;
 }
 
 .deserts-menu-name {
@@ -756,21 +760,20 @@ html {
   line-height: 40px; /* 100% */
   letter-spacing: 2px;
   text-transform: capitalize;
-  margin: 0px 0px 40px 165px;
+  margin-right: 165px;
 }
 
 .deserts {
-  width: 411px;
+  width: 482px;
   height: 40px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   gap: 60px;
-  margin: 0px 0px 40px 71px;
 }
 
 .deserts-name {
-  width: 160px;
+  width: 210px;
   height: 40px;
   color: #000;
   font-family: Inter;
@@ -789,7 +792,7 @@ html {
 }
 
 .deserts-price {
-  width: 30px;
+  width: 31px;
   height: 40px;
   color: #000;
   font-family: Forum;
@@ -804,7 +807,7 @@ html {
 /* our-contacts section */ 
 .our-contacts {
   display: flex;
-  width: 100%;
+  width: 1400px;
   height: 515px;
   padding: 20px 20px 40px 20px;
   flex-direction: column;
@@ -812,6 +815,179 @@ html {
   gap: 40px;
   background: #FFF;
 }
+
+.our-contacts-box {
+  width: 242px;
+  height: 61px;
+  margin-left: 600px;
+  margin-right: 600px;
+}
+
+.our-contacts-title {
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Forum;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 100% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.our-contacts-line {
+  width: 50px;
+  height: 1px;
+  flex-shrink: 0;
+  background: #0C0C0E;
+  margin-top: 20px;
+  margin-left: 95px;
+  margin-right: 95px;
+}
+
+.our-contacts-info {
+  width: 1400px;
+  height: 414px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 201px;
+}
+
+.text-info {
+  width: 503px;
+  height: 380px;
+  margin-bottom: 34px;
+}
+
+.text-info-contact {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px; /* 200% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  margin-right: 221px;
+  margin-bottom: 40px;
+}
+
+.Phone-info {
+  width: 505px;
+  height: 160px;
+  flex-shrink: 0;
+  margin-bottom: 40px;
+}
+
+.phone-gap {
+  margin-bottom: 20px;
+}
+
+.phone-gap:last-child {
+  margin-bottom: 0px;
+}
+
+.Phone-info-call {
+  width: 306px;
+  height: 40px;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 200% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.Phone-info-call-service {
+  width: 505px;
+  height: 40px;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 200% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.Phone-info-call-library {
+  width: 393px;
+  height: 40px;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 200% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.senior-staff {
+  width: 351px;
+  height: 100px;
+  flex-shrink: 0;
+  margin-right: 152px;
+}
+
+.senior-staff-info {
+  width: 138px;
+  height: 40px;
+  margin-bottom: 20px;
+  margin-right: 213px;
+}
+
+.senior-staff-info-name {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px; /* 200% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.senior-staff-email {
+  width: 351px;
+  height: 40px;
+}
+
+.senior-staff-email {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 200% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+
+.maps {
+  width: 696px;
+  height: 414px;
+}
+
+.maps {
+  background: url(../img/Rectangle4.jpg), lightgray 50% / cover no-repeat;
+}
+
 
 /* digital-library-cards section */ 
 .digital-library-cards{

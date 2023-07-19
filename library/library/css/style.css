@@ -615,8 +615,7 @@ html {
 
 /* coffee section */ 
 .coffee-shop {
-  display: flex;
-  width: 1440px;
+  width: 1400px;
   height: 781px;
   padding: 20px 20px 40px 20px;
   flex-direction: column;
@@ -627,10 +626,8 @@ html {
 
 .coffee-shop-box {
   width: 220px;
-  height: 40px;
-  margin-top: 20px;
-  margin-left: 610px;
-  margin-right: 610px;
+  height: 61px;
+  margin: 20px 610px 0px;
 }
 
 .coffee_shop-title {
@@ -650,10 +647,7 @@ html {
   height: 1px;
   flex-shrink: 0;
   background: #0C0C0E;
-  margin-top: 0px;
-  margin-left: 85px;
-  margin-right: 85px;
-  margin-bottom: 0px;
+  margin: 0px 695px 40px;
 }
 
 .coffee-shop-paragraf {
@@ -670,6 +664,141 @@ html {
   text-transform: lowercase;
   margin-top: 0px;
   margin-bottom: 40px;
+}
+
+.coffee-shop-menu {
+  display: flex;
+  width: 1400px;
+  height: 520px;
+}
+
+.coffe_and_tea-menu {
+  width: 445px;
+  height: 520px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 20px;
+}
+
+.coffe_and_tea-menu-name {
+  width: 235px;
+  height: 40px;
+  color: #BB945F;
+  font-family: Forum;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 100% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  margin: 0px 203px 40px 0px;
+}
+
+.drink {
+  width: 445px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 40px;
+}
+
+.drink-name {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 200% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.menu-line {
+  width: 100px;
+  height: 1px;
+  background: #BB945F;
+}
+
+.drink-price {
+  color: #000;
+  font-family: Forum;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 200% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.deserts-menu {
+  width: 482px;
+  height: 520px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 0px;
+  margin-right: 20px;
+  margin-left: 448px;
+}
+
+.deserts-menu-name {
+  width: 317px;
+  height: 40px;
+  color: #BB945F;
+  font-family: Forum;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 100% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  margin: 0px 0px 40px 165px;
+}
+
+.deserts {
+  width: 411px;
+  height: 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 60px;
+  margin: 0px 0px 40px 71px;
+}
+
+.deserts-name {
+  width: 160px;
+  height: 40px;
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 200% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.menu-line {
+  width: 100px;
+  height: 1px;
+  background: #BB945F;
+}
+
+.deserts-price {
+  width: 30px;
+  height: 40px;
+  color: #000;
+  font-family: Forum;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 200% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
 }
 
 /* our-contacts section */ 
@@ -696,15 +825,4 @@ html {
   width: 100%;
   height: 250px;
   background: #0C0C0E;
-}
-
-.coffee-shop {
-  display: flex;
-  width: 1400px;
-  height: 781px;
-  padding: 20px 20px 40px 20px;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  background: #FFF;
 }

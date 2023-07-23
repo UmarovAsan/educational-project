@@ -124,6 +124,11 @@ html {
   text-decoration: none;
 }
 
+.header__list-link:hover, .header__list-link:active, .header__list-link:focus {
+  opacity: 50%;
+  cursor: pointer;
+}
+
 .header__list:last-child {
   margin-right: 0;
 }
@@ -174,7 +179,7 @@ html {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.welcome-overlay {
+.welcome__overlay {
   max-width: 1440px;
   height: 300px;
   flex-shrink: 0;
@@ -188,7 +193,7 @@ html {
   z-index: 1;
 }
 
-.welcome-box {
+.welcome__box {
   display: flex;
   width: 520px;
   height: 150px;
@@ -200,7 +205,7 @@ html {
   margin: -80px 840px 160px 0px;
 }
 
-.welcome-title {
+.welcome__box-title {
   width: 520px;
   height: 150px;
   flex-shrink: 0;
@@ -222,7 +227,7 @@ html {
   background-color: #FFF;
 }
 
-.about-box-title {
+.about__box-title {
   width: 106px;
   height: 61px;
   flex-shrink: 0;
@@ -238,10 +243,13 @@ html {
   justify-content: center;
   text-align: center;
   white-space: nowrap;
-  margin: 20px 667px 0px 667px;
+  padding-top: 20px;
+  margin-left: 667px;
+  margin-right: 667px;
+  margin-bottom: 0px;
 }
 
-.about-line {
+.about__line {
   display: block;
   justify-content: center;
   align-items: center;
@@ -252,7 +260,7 @@ html {
   margin: 0px 695px;
 }
 
-.about-paragraf {
+.about__paragraf {
   align-items: center;
   color: #000;
   text-align: center;
@@ -266,7 +274,7 @@ html {
   margin-bottom: 20px;
 }
 
-.image-gallery {
+.about__image-gallery {
   display: flex;
   max-width: 1400px;
   height: 560px;
@@ -276,7 +284,7 @@ html {
   background: #FFF;
 }
 
-.image-gallery-potho {
+.image-gallery-photo {
   width: 450px;
   height: 560px;
   flex-shrink: 0;
@@ -284,11 +292,11 @@ html {
   margin-right: 20px;
 }
 
-.image-gallery-potho:last-child {
+.about__image-gallery-potho:last-child {
   margin-right: 0px;
 }
 
-.button-control{
+.about__button-control {
   display: flex;
   justify-content: space-between;
   background-color: #FFF;
@@ -301,7 +309,20 @@ html {
   border: none;
 }
 
-.transparent-container {
+.transparent-container-left {
+  width: 26px;
+  height: 26px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  margin-left: -13px;
+  margin-right: 10px;
+}
+
+.transparent-container-center {
   width: 26px;
   height: 26px;
   background-color: transparent;
@@ -313,8 +334,15 @@ html {
   margin-right: 10px;
 }
 
-.transparent-container:last-child {
-  margin-right: 0px;
+.transparent-container-right {
+  width: 26px;
+  height: 26px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
 }
 
 .button-control-left {
@@ -324,8 +352,6 @@ html {
   border-radius: 50%;
   background: #BB945F;
   border: none;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
 }
 
@@ -336,8 +362,6 @@ html {
   border-radius: 50%;
   background: #0C0C0E;
   border: none;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
 }
 
@@ -348,8 +372,6 @@ html {
   border-radius: 50%;
   background: #0C0C0E;
   border: none;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
 }
 
@@ -373,7 +395,11 @@ html {
   letter-spacing: 2px;
   text-transform: capitalize;
   white-space: nowrap;
-  margin: 20px 640px 20px 640px;
+  padding-top: 20px;
+  margin-right: 640px;
+  margin-bottom: 20px;
+  margin-left: 640px;
+
 }
 
 .favorites-line {
@@ -400,6 +426,7 @@ html {
   margin-left: 20px;
   margin-top: 40px;
 }
+
 .button-favorites {
   width: 700px;
   height: 24px;
@@ -420,7 +447,7 @@ html {
 }
 
 .container-winter {
-  width: 104px;
+  width: 94px;
   height: 24px;
   flex-shrink: 0;
   padding: 5px;
@@ -434,6 +461,8 @@ html {
   width: 17px;
   height: 17px;
   flex-shrink: 0;
+  stroke-width: 2px;
+  stroke: #000;
 }
 
 .container-winter label[for="Winter"]
@@ -448,8 +477,16 @@ html {
   line-height: normal;
 }
 
+.button-favorites form label {
+  margin-left: 20px;
+}
+
+.button-favorites input[type="radio"]:checked + label::before {
+  background-color: black;
+}
+
 .container-Spring {
-  width: 99px;
+  width: 89px;
   height: 24px;
   flex-shrink: 0;
   padding: 5px;
@@ -457,7 +494,7 @@ html {
 }
 
 .container-Summer {
-  width: 116px;
+  width: 106px;
   height: 24px;
   flex-shrink: 0;
   padding: 5px;
@@ -465,7 +502,7 @@ html {
 }
 
 .container-Autumn {
-  width: 111px;
+  width: 101px;
   height: 24px;
   flex-shrink: 0;
   padding: 5px;
@@ -1301,12 +1338,16 @@ input[type="number"] {
 
 /* footer section */ 
 .footer__container {
+  overflow: hidden;
+}
+
+.footer__container {
   max-width: 1440px;
   height: 250px;
   background: #0C0C0E;
 }
 
-.footer__frame6 {
+.footer__container-frame6 {
   display: flex;
   width: 1400px;
   height: 90px;
@@ -1390,13 +1431,13 @@ input[type="number"] {
 }
 
 
-.footer__line {
+.footer__container-line {
   width: 1400px;
   height: 1px;
   background: #FFF;
 }
 
-.footer__link {
+.footer__container-link {
   display: inline-flex;
   width: 1400px;
   height: 22px;
@@ -1409,6 +1450,7 @@ input[type="number"] {
   height: 20px;
   margin-left: 0px;
   margin-right: 0px;
+  text-align: left;
 }
 
 .footer__link-date {
@@ -1430,7 +1472,6 @@ input[type="number"] {
   justify-content: center;
   text-align: center;
   flex-shrink: 0;
-  margin-left: 494px;
   margin-right: 0px;
 }
 
@@ -1451,6 +1492,7 @@ input[type="number"] {
   height: 22px;
   flex-direction: column;
   justify-content: center;
+  text-align: right;
   flex-shrink: 0;
   margin-right: 0px;
 }

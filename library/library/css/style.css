@@ -125,7 +125,8 @@ html {
 }
 
 .header__list-link:hover, .header__list-link:active, .header__list-link:focus {
-  opacity: 50%;
+  opacity: 75%;
+  color: #BB945F;
   cursor: pointer;
 }
 
@@ -493,8 +494,8 @@ html {
   margin-left: 20px;
 }
 
-.button-favorites input[type="radio"]:checked + label::before {
-  background-color: black;
+input[type="radio"]:checked + label {
+  color:#BB945F
 }
 
 .container-Spring {

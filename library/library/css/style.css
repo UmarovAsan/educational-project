@@ -33,7 +33,7 @@ html {
 
 /* header style */
 .container {
-  max-width: 1440px;
+  width: 1440px;
   display: block;
   background-color: #FFF;
   margin: 0 auto;
@@ -172,15 +172,25 @@ html {
 }
 
 .welcome {
-  max-width: 1440px;
+  position: relative;
+  width: 100%;
   height: 600px;
   align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.welcome-background {
+  width: 100%;
+  position: absolute;
   background: url(../img/Welcome.jpg), lightgray 50% / cover no-repeat;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin: 0;
+  padding: 0;
 }
 
 .welcome__overlay {
-  max-width: 1440px;
+  width: 100%;
   height: 300px;
   flex-shrink: 0;
   background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.10) 100%);
@@ -225,6 +235,7 @@ html {
   max-width: 1440px;
   height: 837px;
   background-color: #FFF;
+  margin: 0 auto;
 }
 
 .about__box-title {
@@ -380,6 +391,7 @@ html {
   max-width: 1440px;
   height: 1439px;
   flex-shrink: 0;
+  margin: 0 auto;
 }
 
 .favorites-box-title {
@@ -399,7 +411,6 @@ html {
   margin-right: 640px;
   margin-bottom: 20px;
   margin-left: 640px;
-
 }
 
 .favorites-line {
@@ -520,6 +531,7 @@ html {
   margin-right: 20px;
   margin-bottom: 40px;
   margin-left: 20px;
+  word-wrap: break-word;
 }
 
 .first-book {
@@ -610,6 +622,7 @@ html {
   height: 320px;
   margin-left: 20px;
   margin-bottom: 15px;
+  word-wrap: break-word;
 }
 
 .book-description-text {
@@ -621,6 +634,7 @@ html {
   line-height: 40px; /* 266.667% */
   letter-spacing: 2px;
   text-transform: capitalize;
+  word-wrap: break-word;
 }
 
 .button-buy {
@@ -703,6 +717,7 @@ html {
   align-items: center;
   gap: 40px;
   background: #FFF;
+  margin: 0 auto;
 }
 
 .coffee-shop-box {
@@ -894,6 +909,7 @@ html {
   align-items: center;
   gap: 40px;
   background: #FFF;
+  margin: 0 auto;
 }
 
 .our-contacts-box {
@@ -1076,6 +1092,7 @@ html {
   flex-wrap: wrap;
   background: #FFF;
   position: relative;
+  margin: 0 auto;
 }
 
 .digital-library-box {

@@ -21,7 +21,7 @@ html {
 }
 
 * {
-  max-width: 1440px;
+  width: 1440px;
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
@@ -31,9 +31,13 @@ html {
   box-sizing: inherit;
 }
 
+.body {
+  margin: 0 auto;
+  padding: 0;
+}
+
 /* header style */
 .container {
-  width: 1440px;
   display: block;
   background-color: #FFF;
   margin: 0 auto;
@@ -46,7 +50,7 @@ html {
   align-items: center;
   background: #0C0C0E;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  max-width: 1440px;
+  width: 1440px;
   height: 90px;
 }
 
@@ -79,7 +83,13 @@ html {
   margin-bottom: 20px;
 }
 
+.header__nav {
+  width: 597px;
+  height: 50px;
+}
 .header__list {
+  width: 597px;
+  height: 50px;
   display: flex;
   gap: 30px;
 }
@@ -174,25 +184,21 @@ html {
 
 .welcome {
   position: relative;
-  width: 100%;
+  width: 1440px;
   height: 600px;
   align-items: center;
-  margin: 0;
-  padding: 0;
 }
 
 .welcome-background {
-  width: 100%;
+  width: 1440px;
   position: absolute;
   background: url(../img/Welcome.jpg), lightgray 50% / cover no-repeat;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin: 0;
-  padding: 0;
   background-size: cover;
 }
 
 .welcome__overlay {
-  width: 100%;
+  width: 1440px;
   height: 300px;
   flex-shrink: 0;
   background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.10) 100%);
@@ -206,7 +212,6 @@ html {
 }
 
 .welcome__box {
-  display: flex;
   width: 520px;
   height: 150px;
   padding: 35px 40px;
@@ -234,7 +239,7 @@ html {
 
 /*about section */
 .about {
-  max-width: 1440px;
+  width: 1440px;
   height: 837px;
   background-color: #FFF;
   margin: 0 auto;
@@ -390,7 +395,7 @@ html {
 
 /* favoit section */
 .favorites {
-  max-width: 1440px;
+  width: 1440px;
   height: 1439px;
   flex-shrink: 0;
   margin: 0 auto;
@@ -441,6 +446,7 @@ html {
 }
 
 .button-favorites {
+  display: inline-flex;
   width: 700px;
   height: 24px;
   flex-shrink: 0;
@@ -448,10 +454,12 @@ html {
   margin-top: 40px;
   margin-bottom: 40px;
   white-space: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .button-favorites form {
-  display: inline-block;
+  display: inline-flex;
   margin-right: 90px;
 }
 
@@ -460,34 +468,31 @@ html {
 }
 
 .container-winter {
-  width: 94px;
+  width: 114px;
   height: 24px;
   flex-shrink: 0;
-  padding: 5px;
-  cursor: pointer;
+  align-items: center;
 }
 
-.container-winter input[type="radio"]
-.container-Spring input[type="radio"]
-.container-Summer input[type="radio"]
-.container-Autumn input[type="radio"] {
+.radio-size {
   width: 17px;
   height: 17px;
   flex-shrink: 0;
   stroke-width: 2px;
   stroke: #000;
+  padding: 5px;
+  cursor: pointer;
+  align-items: center;
 }
 
-.container-winter label[for="Winter"]
-.container-Spring label[for="Spring"]
-.container-Summer label[for="Summer"]
-.container-Autumn label[for="Autumn"] {
+.radio-text {
   color: #000;
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  align-items: center;
 }
 
 .button-favorites form label {
@@ -498,28 +503,28 @@ input[type="radio"]:checked + label {
   color:#BB945F
 }
 
-.container-Spring {
-  width: 89px;
+.container-spring {
+  width: 99px;
   height: 24px;
   flex-shrink: 0;
-  padding: 5px;
   cursor: pointer;
+  align-items: center;
 }
 
-.container-Summer {
-  width: 106px;
+.container-summer {
+  width: 116px;
   height: 24px;
   flex-shrink: 0;
-  padding: 5px;
   cursor: pointer;
+  align-items: center;
 }
 
-.container-Autumn {
-  width: 101px;
+.container-autumn {
+  width: 111px;
   height: 24px;
   flex-shrink: 0;
-  padding: 5px;
   cursor: pointer;
+  align-items: center;
 }
 
 .container-book {
@@ -620,6 +625,7 @@ input[type="radio"]:checked + label {
 }
 
 .book-description {
+  display: flex;
   width: 355px;
   height: 320px;
   margin-left: 20px;
@@ -696,6 +702,7 @@ input[type="radio"]:checked + label {
 }
 
 .book-cover {
+  display: flex;
   width: 200px;
   height: 300px;
   flex-shrink: 0;
@@ -712,7 +719,7 @@ input[type="radio"]:checked + label {
 /* coffee section */ 
 .coffee-shop {
   display: flex;
-  max-width: 1400px;
+  width: 1400px;
   height: 781px;
   padding: 20px 20px 40px 20px;
   flex-direction: column;
@@ -730,6 +737,7 @@ input[type="radio"]:checked + label {
 }
 
 .coffee_shop-title {
+  width: 222px;
   color: #0C0C0E;
   font-family: Forum;
   font-size: 40px;
@@ -751,6 +759,11 @@ input[type="radio"]:checked + label {
 }
 
 .coffee-shop-paragraf {
+  width: 1400px;
+  height: 120px;
+}
+
+.coffee-shop-paragraf-text {
   width: 1400px;
   height: 120px;
   color: #000;
@@ -783,6 +796,12 @@ input[type="radio"]:checked + label {
 .coffe_and_tea-menu-name {
   width: 235px;
   height: 40px;
+  margin: 0px 203px 0px 0px;
+}
+
+.coffe_and_tea-menu-name-text {
+  width: 235px;
+  height: 40px;
   color: #BB945F;
   font-family: Forum;
   font-size: 40px;
@@ -791,7 +810,6 @@ input[type="radio"]:checked + label {
   line-height: 40px; /* 100% */
   letter-spacing: 2px;
   text-transform: capitalize;
-  margin: 0px 203px 0px 0px;
 }
 
 .drink {
@@ -860,6 +878,19 @@ input[type="radio"]:checked + label {
   margin-right: 165px;
 }
 
+.deserts-menu-name-text {
+  width: 317px;
+  height: 40px;
+  color: #BB945F;
+  font-family: Forum;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 100% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
 .deserts {
   width: 482px;
   height: 40px;
@@ -904,7 +935,7 @@ input[type="radio"]:checked + label {
 /* our-contacts section */ 
 .our-contacts {
   display: flex;
-  max-width: 1400px;
+  width: 1400px;
   height: 515px;
   padding: 20px 20px 40px 20px;
   flex-direction: column;
@@ -922,6 +953,8 @@ input[type="radio"]:checked + label {
 }
 
 .our-contacts-title {
+  width: 242px;
+  display: flex;
   color: #0C0C0E;
   text-align: center;
   font-family: Forum;
@@ -943,7 +976,7 @@ input[type="radio"]:checked + label {
   margin-right: 95px;
 }
 
-.our-contacts-info {
+.our-contacts-block {
   width: 1400px;
   height: 414px;
   display: flex;
@@ -952,15 +985,22 @@ input[type="radio"]:checked + label {
   gap: 201px;
 }
 
-.text-info {
+.block-info {
   width: 503px;
   height: 380px;
   margin-bottom: 34px;
 }
 
-.text-info-contact {
+.block-info-contact {
+  width: 282px;
+  height: 40px;
+  margin-right: 221px;
+  margin-bottom: 40px;
+}
+
+.text--info-contact {
+  width: 282px;
   color: #000;
-  text-align: center;
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
@@ -968,8 +1008,6 @@ input[type="radio"]:checked + label {
   line-height: 40px; /* 200% */
   letter-spacing: 2px;
   text-transform: capitalize;
-  margin-right: 221px;
-  margin-bottom: 40px;
 }
 
 .Phone-info {
@@ -980,16 +1018,15 @@ input[type="radio"]:checked + label {
 }
 
 .phone-gap {
+  width: 308px;
+  height: 40px;
+  margin-right: 195px;
   margin-bottom: 20px;
-}
-
-.phone-gap:last-child {
-  margin-bottom: 0px;
+  margin-left: 0px;
 }
 
 .Phone-info-call {
-  width: 306px;
-  height: 40px;
+  width: 308px;
   color: #000;
   text-align: center;
   font-family: Inter;
@@ -1000,6 +1037,14 @@ input[type="radio"]:checked + label {
   letter-spacing: 2px;
   text-transform: capitalize;
   text-decoration: none;
+}
+
+.phone-gap2 {
+  width: 505px;
+  height: 40px;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  margin-left: 0px;
 }
 
 .Phone-info-call-service {
@@ -1017,8 +1062,20 @@ input[type="radio"]:checked + label {
   text-decoration: none;
 }
 
+.phone-gap3 {
+  width: 395px;
+  height: 40px;
+  margin-right: 108px;
+  margin-bottom: 20px;
+  margin-left: 0px;
+}
+
+.phone-gap3:last-child {
+  margin-bottom: 0px;
+}
+
 .Phone-info-call-library {
-  width: 393px;
+  width: 395px;
   height: 40px;
   color: #000;
   text-align: center;
@@ -1039,7 +1096,7 @@ input[type="radio"]:checked + label {
   margin-right: 152px;
 }
 
-.senior-staff-info {
+.senior-staff-block-name {
   width: 138px;
   height: 40px;
   margin-bottom: 20px;
@@ -1047,8 +1104,8 @@ input[type="radio"]:checked + label {
 }
 
 .senior-staff-info-name {
+  width: 138px;
   color: #000;
-  text-align: center;
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
@@ -1058,14 +1115,14 @@ input[type="radio"]:checked + label {
   text-transform: capitalize;
 }
 
-.senior-staff-email {
+.senior-staff-block-email {
   width: 351px;
   height: 40px;
 }
 
 .senior-staff-email {
+  width: 351px;
   color: #000;
-  text-align: center;
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
@@ -1088,7 +1145,7 @@ input[type="radio"]:checked + label {
 
 /* digital-library-cards section */ 
 .digital-library-cards{
-  max-width: 1440px;
+  width: 1440px;
   height: 614px;
   display: flex;
   flex-wrap: wrap;
@@ -1105,8 +1162,8 @@ input[type="radio"]:checked + label {
 }
 
 .digital-library-title {
+  width: 374px;
   color: #0C0C0E;
-  text-align: center;
   font-family: Forum;
   font-size: 40px;
   font-style: normal;
@@ -1139,6 +1196,7 @@ input[type="radio"]:checked + label {
 }
 
 .digital-library-card-box-text {
+  width: 326px;
   color: #000;
   font-family: Inter;
   font-size: 30px;
@@ -1178,6 +1236,7 @@ input[type="radio"]:checked + label {
 }
 
 .card-gold-box-text {
+  width: 294px;
   color: #000;
   font-family: Forum;
   font-size: 30px;
@@ -1268,14 +1327,13 @@ input[type="number"] {
   background-color: #BB945F;
 }
 
-.digital-library-box-reader {
+.digital__library-box-reader {
   width: 456px;
   height: 253px;
   flex-shrink: 0;
   position: absolute;
   top: 121px;
   right: 0px;
-  display: flex;
   flex-direction: column;
   align-items: flex-end;
   margin-right: 20px;
@@ -1283,38 +1341,46 @@ input[type="number"] {
   margin-left: 344px;
 }
 
-.reader-card {
+.digital__library-box-reader-card {
   width: 222px;
   height: 33px;
-  color: #000;
-  align-items: center;
-  font-family: Forum;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 0.6px;
-  margin-right: 20px;
+  margin-right: 0px;
   margin-bottom: 35px;
   margin-left: 236px;
+  .reader-card-text {
+    width: 222px;
+    color: #000;
+    font-family: Forum;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.6px;
+    margin-right: 0px;
+  }
 }
 
-.reader-card-info {
+.digital__library-box-reader-card-info {
   width: 456px;
   height: 120px;
-  color: #000;
-  text-align: right;
-  font-family: Inter;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 40px; /* 200% */
-  letter-spacing: 0.4px;
-  margin-right: 20px;
+  margin-right: 0px;
   margin-bottom: 35px;
+  margin-left: 0px;
+  .reader-card-info {
+    width: 456px;
+    color: #000;
+    text-align: right;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 200% */
+    letter-spacing: 0.4px;
+    word-wrap: break-word;
+  }
 }
 
-.button-sign {
+.digital__library-button-sign {
   display: flex;
   width: 456px;
   height: 30px;
@@ -1356,12 +1422,17 @@ input[type="number"] {
 
 
 /* footer section */ 
+.footer {
+  width: 1440px;
+  height: 250px;
+  background: #0C0C0E;
+}
 .footer__container {
   overflow: hidden;
 }
 
 .footer__container {
-  max-width: 1440px;
+  width: 1440px;
   height: 250px;
   background: #0C0C0E;
 }
@@ -1432,7 +1503,12 @@ input[type="number"] {
   gap: 15px;
 }
 
-.frame4_social-img {
+.frame4_social-link{
+  width: 24px;
+  height: 24px;
+}
+
+.frame4__social-img {
   width: 24px;
   height: 24px;
 }
@@ -1448,7 +1524,6 @@ input[type="number"] {
   font-weight: 400;
   line-height: 20px; /* 133.333% */
 }
-
 
 .footer__container-line {
   width: 1400px;
@@ -1473,8 +1548,8 @@ input[type="number"] {
 }
 
 .footer__link-date {
+  width: 56px;
   color: #FFF;
-  text-align: center;
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
@@ -1489,12 +1564,12 @@ input[type="number"] {
   height: 22px;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
   flex-shrink: 0;
   margin-right: 0px;
 }
 
 .footer__link-chool {
+  width: 302px;
   color: #FFF;
   font-family: Inter;
   font-size: 20px;
@@ -1517,8 +1592,8 @@ input[type="number"] {
 }
 
 .footer__link-github {
+  width: 148px;
   color: #FFF;
-  text-align: center;
   font-family: Inter;
   font-size: 20px;
   font-style: normal;

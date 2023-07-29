@@ -706,7 +706,7 @@ input[type="radio"]:checked + label {
   width: 200px;
   height: 300px;
   flex-shrink: 0;
-  margin-top: -294px;
+  margin-top: -293px;
   margin-left: 390px;
 }
 
@@ -736,7 +736,7 @@ input[type="radio"]:checked + label {
   margin-right: 610px;
 }
 
-.coffee_shop-title {
+.coffee-shop-title {
   width: 222px;
   color: #0C0C0E;
   font-family: Forum;
@@ -783,7 +783,7 @@ input[type="radio"]:checked + label {
   height: 520px;
 }
 
-.coffe_and_tea-menu {
+.coffee-and-tea-menu {
   width: 438px;
   height: 520px;
   display: inline-flex;
@@ -793,13 +793,13 @@ input[type="radio"]:checked + label {
   gap: 40px;
 }
 
-.coffe_and_tea-menu-name {
+.coffee-and-tea-menu-name {
   width: 235px;
   height: 40px;
   margin: 0px 203px 0px 0px;
 }
 
-.coffe_and_tea-menu-name-text {
+.coffee-and-tea-menu-name-text {
   width: 235px;
   height: 40px;
   color: #BB945F;
@@ -998,7 +998,7 @@ input[type="radio"]:checked + label {
   margin-bottom: 40px;
 }
 
-.text--info-contact {
+.text-info-contact {
   width: 282px;
   color: #000;
   font-family: Inter;
@@ -1327,7 +1327,7 @@ input[type="number"] {
   background-color: #BB945F;
 }
 
-.digital__library-box-reader {
+.digital-library-box-reader {
   width: 456px;
   height: 253px;
   flex-shrink: 0;
@@ -1341,7 +1341,7 @@ input[type="number"] {
   margin-left: 344px;
 }
 
-.digital__library-box-reader-card {
+.digital-library-box-reader-card {
   width: 222px;
   height: 33px;
   margin-right: 0px;
@@ -1360,7 +1360,7 @@ input[type="number"] {
   }
 }
 
-.digital__library-box-reader-card-info {
+.digital-library-box-reader-card-info {
   width: 456px;
   height: 120px;
   margin-right: 0px;
@@ -1380,7 +1380,7 @@ input[type="number"] {
   }
 }
 
-.digital__library-button-sign {
+.digital-library-button-sign {
   display: flex;
   width: 456px;
   height: 30px;
@@ -1503,7 +1503,7 @@ input[type="number"] {
   gap: 15px;
 }
 
-.frame4_social-link{
+.frame4__social-link{
   width: 24px;
   height: 24px;
 }
@@ -1565,6 +1565,7 @@ input[type="number"] {
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
+  margin-left: 494px;
   margin-right: 0px;
 }
 
@@ -1582,7 +1583,7 @@ input[type="number"] {
 
 .footer__link-form-link {
   display: flex;
-  width: 148px;
+  width: 111px;
   height: 22px;
   flex-direction: column;
   justify-content: center;
@@ -1592,7 +1593,7 @@ input[type="number"] {
 }
 
 .footer__link-github {
-  width: 148px;
+  width: 113px;
   color: #FFF;
   font-family: Inter;
   font-size: 20px;

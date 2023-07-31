@@ -76,7 +76,7 @@ html {
 
 .header__navigation {
   align-items: center;
-  width: 597px;
+  width: 587px;
   height: 50px;
   margin-top: 20px;
   margin-right: 40px;
@@ -84,9 +84,10 @@ html {
 }
 
 .header__nav {
-  width: 597px;
+  width: 587px;
   height: 50px;
 }
+
 .header__list {
   width: 597px;
   height: 50px;
@@ -119,7 +120,7 @@ html {
 }
 
 .header__list-item5 {
-  width: 128px;
+  width: 118px;
   height: 50px;
   margin: 0px 0px;
 }
@@ -157,6 +158,8 @@ html {
   margin-right: 20px;
   margin-bottom: 31px;
   margin-left: 0px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .header__menu-icon {
@@ -168,12 +171,18 @@ html {
   background-position: center;
   background-size: contain;
   border-radius: 50%;
-  cursor: pointer;
 }
 
+.header__menu-icon:hover .header__menu-icon:active .header__menu-icon:focus {
+  opacity: 75%;
+  color: #BB945F;
+  cursor: pointer;
+}
+/*
 .header__menu-icon {
   background-image: url(../svg/icon_profile.svg);
 }
+*/
 
 /* main section */
 /* welcome style */
@@ -316,7 +325,7 @@ html {
 
 .about__button-control {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   background-color: #FFF;
   width: 68px;
   height: 16px;
@@ -325,72 +334,43 @@ html {
   flex-shrink: 0;
   outline: none;
   border: none;
+  border-radius: 50%;
+  gap: 10px;
 }
 
-.transparent-container-left {
+.transparent-container {
+  display: flex;
+  position: relative;
   width: 26px;
   height: 26px;
   background-color: transparent;
-  display: flex;
-  justify-content: center;
   align-items: center;
   outline: none;
   border: none;
-  margin-left: -13px;
-  margin-right: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  
 }
 
-.transparent-container-center {
-  width: 26px;
-  height: 26px;
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  outline: none;
+.transparent-container button {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
   border: none;
-  margin-right: 10px;
-}
-
-.transparent-container-right {
-  width: 26px;
-  height: 26px;
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  outline: none;
-  border: none;
+  cursor: pointer;
 }
 
 .button-control-left {
-  width: 16px;
-  height: 16px;
-  padding: 5px 5px;
-  border-radius: 50%;
   background: #BB945F;
-  border: none;
-  cursor: pointer;
 }
 
 .button-control-center {
-  width: 16px;
-  height: 16px;
-  padding: 5px 5px;
-  border-radius: 50%;
   background: #0C0C0E;
-  border: none;
-  cursor: pointer;
 }
 
 .button-control-right {
-  width: 16px;
-  height: 16px;
-  padding: 5px 5px;
-  border-radius: 50%;
   background: #0C0C0E;
-  border: none;
-  cursor: pointer;
 }
 
 /* favoit section */
@@ -403,7 +383,7 @@ html {
 
 .favorites-box-title {
   width: 160px;
-  height: 61px;
+  height: 41px;
   flex-shrink: 0;
   color: #0C0C0E;
   font-family: Forum;
@@ -452,6 +432,7 @@ html {
   flex-shrink: 0;
   margin-left: 20px;
   margin-top: 40px;
+  margin-right: 720px;
   margin-bottom: 40px;
   white-space: nowrap;
   justify-content: center;
@@ -468,7 +449,7 @@ html {
 }
 
 .container-winter {
-  width: 114px;
+  width: 104px;
   height: 24px;
   flex-shrink: 0;
   align-items: center;
@@ -479,13 +460,14 @@ html {
   height: 17px;
   flex-shrink: 0;
   stroke-width: 2px;
-  stroke: #000;
-  padding: 5px;
-  cursor: pointer;
+  color: #000;
   align-items: center;
+  background-color: #0C0C0E;
+  cursor: pointer;
+  padding: 5px;
 }
 
-.radio-text {
+.radio-label {
   color: #000;
   font-family: Inter;
   font-size: 20px;
@@ -507,7 +489,6 @@ input[type="radio"]:checked + label {
   width: 99px;
   height: 24px;
   flex-shrink: 0;
-  cursor: pointer;
   align-items: center;
 }
 
@@ -515,7 +496,6 @@ input[type="radio"]:checked + label {
   width: 116px;
   height: 24px;
   flex-shrink: 0;
-  cursor: pointer;
   align-items: center;
 }
 
@@ -523,8 +503,12 @@ input[type="radio"]:checked + label {
   width: 111px;
   height: 24px;
   flex-shrink: 0;
-  cursor: pointer;
   align-items: center;
+}
+
+.radio-size + .radio-label {
+  cursor: pointer;
+  padding: 5px;
 }
 
 .container-book {
@@ -543,7 +527,7 @@ input[type="radio"]:checked + label {
 
 .first-book {
   width: 550px;
-  height: 555px;
+  height: 552.3px;
   flex-shrink: 0;
   border: 1px solid #000;
   background: #FFF;
@@ -553,7 +537,7 @@ input[type="radio"]:checked + label {
 
 .three-book {
   width: 550px;
-  height: 555px;
+  height: 552.3px;
   flex-shrink: 0;
   border: 1px solid #000;
   background: #FFF;
@@ -563,7 +547,7 @@ input[type="radio"]:checked + label {
 
 .two-book {
   width: 550px;
-  height: 555px;
+  height: 552.3px;
   flex-shrink: 0;
   border: 1px solid #000;
   background: #FFF;
@@ -573,7 +557,7 @@ input[type="radio"]:checked + label {
 
 .four-book {
   width: 550px;
-  height: 555px;
+  height: 552.3px;
   flex-shrink: 0;
   border: 1px solid #000;
   background: #FFF;
@@ -706,7 +690,7 @@ input[type="radio"]:checked + label {
   width: 200px;
   height: 300px;
   flex-shrink: 0;
-  margin-top: -293px;
+  margin-top: -296px;
   margin-left: 390px;
 }
 
@@ -1158,7 +1142,7 @@ input[type="radio"]:checked + label {
   width: 374px;
   height: 61px;
   flex-shrink: 0;
-  margin: 20px 532px 40px;
+  margin: 20px 533px 40px;
 }
 
 .digital-library-title {
@@ -1321,10 +1305,12 @@ input[type="number"] {
   line-height: normal;
   letter-spacing: 1px;
   transition: background-color 0.3s;
+  background-color: #FFF;
 }
 
 .digital-library-card-button:hover {
   background-color: #BB945F;
+  cursor: pointer;
 }
 
 .digital-library-box-reader {
@@ -1397,9 +1383,18 @@ input[type="number"] {
   flex-shrink: 0;
   border-radius: 2px;
   border: 1px solid #0C0C0E;
-  margin-left: 277px;
+  margin-left: 275px;
   margin-right: 20px;
   transition: background-color 0.3s;
+  background-color: #FFF;
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
 }
 
 .button-box-log-in {
@@ -1413,11 +1408,23 @@ input[type="number"] {
   border-radius: 2px;
   border: 1px solid #0C0C0E;
   transition: background-color 0.3s;
+  background-color: #FFF;
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
 }
 
 .button-box-log-in:hover,
 .button-box-sign:hover {
   background-color: #BB945F;
+  border-color: #BB945F;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 

@@ -306,9 +306,10 @@ html {
   max-width: 1400px;
   height: 560px;
   flex-shrink: 0;
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-left: 20px;
+  margin-right: 20px;
   background: #FFF;
+  gap: 25px;
 }
 
 .image-gallery-photo {
@@ -316,44 +317,36 @@ html {
   height: 560px;
   flex-shrink: 0;
   margin-left: 0px;
-  margin-right: 20px;
-}
-
-.about__image-gallery-potho:last-child {
-  margin-right: 0px;
 }
 
 .about__button-control {
   display: flex;
   align-items: center;
   background-color: #FFF;
-  width: 68px;
-  height: 16px;
+  width: 78px;
+  height: 26px;
   padding: 0px 0px;
-  margin: 40px 686px;
+  margin: 40px 681px;
   flex-shrink: 0;
   outline: none;
   border: none;
   border-radius: 50%;
-  gap: 10px;
 }
 
 .transparent-container {
   display: flex;
-  position: relative;
   width: 26px;
   height: 26px;
   background-color: transparent;
+  justify-content: center;
   align-items: center;
   outline: none;
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  
 }
 
 .transparent-container button {
-  position: absolute;
   width: 16px;
   height: 16px;
   border-radius: 50%;

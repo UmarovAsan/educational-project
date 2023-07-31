@@ -478,7 +478,7 @@ html {
 }
 
 .button-favorites form label {
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 input[type="radio"]:checked + label {

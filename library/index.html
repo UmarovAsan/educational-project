@@ -90,25 +90,25 @@
           <p>Pick favorites of season</p>
         </div>
         <div class="button-favorites">
-          <form class="container-winter">
-            <input type="radio" name="season" id="Winter" class="radio-size" checked>
-            <label for="Winter" class="radio-label">Winter</label>
-          </form>
-          <form class="container-spring">
-            <input type="radio" name="season" id="Spring" class="radio-size">
-            <label for="Spring" class="radio-label">Spring</label>
-          </form>
-          <form class="container-summer">
-            <input type="radio" name="season" id="Summer" class="radio-size">
-            <label for="Summer" class="radio-label">Summer</label>
-          </form>
-          <form class="container-autumn">
-            <input type="radio" name="season" id="Autumn" class="radio-size">
-            <label for="Autumn" class="radio-label">Autumn</label>
-          </form>
+          <div class="container-weather">
+            <input type="radio" name="season" id="winter" class="radio-size" checked>
+            <label for="winter" class="radio-label">Winter</label>
+          </div>
+          <div class="container-weather">
+            <input type="radio" name="season" id="spring" class="radio-size">
+            <label for="spring" class="radio-label">Spring</label>
+          </div>
+          <div class="container-weather">
+            <input type="radio" name="season" id="summer" class="radio-size">
+            <label for="summer" class="radio-label">Summer</label>
+          </div>
+          <div class="container-weather">
+            <input type="radio" name="season" id="autumn" class="radio-size">
+            <label for="autumn" class="radio-label">Autumn</label>
+          </div>
         </div>
         <div class="container-book">
-          <div class="first-book">
+          <div class="left-book">
             <div class="pick-book">
               <p>Staff Picks</p>
             </div>
@@ -116,7 +116,7 @@
               <hr class="boock-line">
             </div>
             <div class="book-name">
-              <p class="book-name-text">The Book Eaters<br>
+              <p class="book-name-text">THE BOOK EATERS<br>
                 By Sunyi Dean</p>
             </div>
             <div class="book-description">
@@ -129,7 +129,7 @@
               <img src="./img/book1.jpg" alt="The Book Eaters">
             </div>
           </div>
-          <div class="two-book">
+          <div class="right-book">
             <div class="pick-book">
               <p>Staff Picks</p>
             </div>
@@ -137,7 +137,7 @@
               <hr class="boock-line">
             </div>
             <div class="book-name">
-              <p class="book-name-text">Cackle<br>
+              <p class="book-name-text">CACKLE<br>
                 By Rachel Harrison</p>
             </div>
             <div class="book-description">
@@ -150,7 +150,7 @@
               <img src="./img/book2.jpg" alt="The Book Eaters">
             </div>
           </div>
-          <div class="three-book">
+          <div class="left-book">
             <div class="pick-book">
               <p>Staff Picks</p>
             </div>
@@ -158,7 +158,7 @@
               <hr class="boock-line">
             </div>
             <div class="book-name">
-              <p class="book-name-text">Dante: Poet of the Secular World<br>
+              <p class="book-name-text">DANTE: POET OF THE SECULAR WORLD<br>
                 By Erich Auerbach</p>
             </div>
             <div class="book-description">
@@ -171,7 +171,7 @@
               <img src="./img/book3.jpg" alt="The Book Eaters">
             </div>
           </div>
-          <div class="four-book">
+          <div class="right-book">
             <div class="pick-book">
               <p>Staff Picks</p>
             </div>
@@ -179,7 +179,7 @@
               <hr class="boock-line">
             </div>
             <div class="book-name">
-              <p class="book-name-text">The Last Queen<br>
+              <p class="book-name-text">THE LAST QUEEN<br>
                 By Clive Irving</p>
             </div>
             <div class="book-description">
@@ -324,13 +324,11 @@
             <div class="digital-library-card-gold-box">
               <div class="digital-library-card-gold-box-text">
                 <p class="card-gold-box-text">Brooklyn Public Library</p>
-                <form class="card-gold-box-input">
-                  <input type="text" placeholder="Reader's name" class="card-gold-box-input-name" required>
-                </form>
-                <form class="card-gold-box-input2">
-                  <input type="number" placeholder="Card number" class="card-gold-box-input-card-number" required>
-                </form>
               </div>
+              <form class="card-gold-box-input">
+                <input type="text" placeholder="Reader's name" class="card-gold-box-input-name" required>
+                <input type="number" placeholder="Card number" class="card-gold-box-input-card-number" required>
+              </form>
             </div>
             <button class="digital-library-card-button">Check the card</button>
           </div>
@@ -353,23 +351,23 @@
       <div class="footer__container">
         <div class="footer__container-frame6">
           <div class="frame5">
-            <a href="https://www.google.com/maps/place/Brooklyn+Public+Library+-+Brooklyn+Heights+Branch/@40.6952859,-73.991624,18z/data=!4m9!1m2!2m1!1s286+Cadman+Plaza,+New+York,+NY+11238,+United+States!3m5!1s0x89c25a49b6395abd:0x5b6c5e44eb578313!8m2!3d40.6956458!4d-73.9912976!16s%2Fg%2F11c4592c3x?entry=ttu" class="frame5__adress">286 Cadman Plaza, New York, NY 11238, United States</a>
+            <a href="https://www.google.com/maps/place/Brooklyn+Public+Library+-+Brooklyn+Heights+Branch/@40.6952859,-73.991624,18z/data=!4m9!1m2!2m1!1s286+Cadman+Plaza,+New+York,+NY+11238,+United+States!3m5!1s0x89c25a49b6395abd:0x5b6c5e44eb578313!8m2!3d40.6956458!4d-73.9912976!16s%2Fg%2F11c4592c3x?entry=ttu" class="frame5__adress" target="_blank">286 Cadman Plaza, New York, NY 11238, United States</a>
             <p class="frame5__workschedule">Mon - Fri<br> 08:00 am - 07:00 pm</p>
           </div>
           <div class="frame4">
             <ul class="frame4__social">
               <li class="frame4__social-item">
-                <a href="https://twitter.com/rollingscopes" class="frame4__social-link">
+                <a href="https://twitter.com/rollingscopes" class="frame4__social-link" target="_blank">
                   <img src="./svg/u_twitter-alt.svg" class="frame4__social-img" alt="twitter">
                 </a>  
               </li>
               <li class="frame4__social-item">
-                <a href="https://www.instagram.com/rsschool_news/" class="frame4__social-link">
+                <a href="https://www.instagram.com/rsschool_news/" class="frame4__social-link" target="_blank">
                   <img src="./svg/u_instagram.svg" class="frame4__social-img" alt="instagram">
                 </a>  
               </li>
               <li class="frame4__social-item">
-                <a href="https://www.facebook.com/groups/TheRollingScopes/" class="frame4__social-link">
+                <a href="https://www.facebook.com/groups/TheRollingScopes/" class="frame4__social-link" target="_blank">
                   <img src="./svg/u_facebook-f.svg" class="frame4__social-img" alt="facebook">
                 </a>
               </li>
@@ -383,10 +381,10 @@
             <p class="footer__link-date">2023</p>
           </div>
           <div class="footer__link-form-chool">
-            <a href="https://rs.school/js-stage0/" class="footer__link-chool">The Rolling Scopes School</a>
+            <a href="https://rs.school/js-stage0/" class="footer__link-chool" target="_blank">The Rolling Scopes School</a>
           </div>
           <div class="footer__link-form-link">
-            <a href="https://github.com/UmarovAsan" class="footer__link-github">Asan</a>
+            <a href="https://github.com/UmarovAsan" class="footer__link-github" target="_blank">Asan</a>
           </div>
         </div>
       </div>

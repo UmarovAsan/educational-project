@@ -44,6 +44,10 @@ html {
   padding: 0;
 }
 
+a:hover {
+  color: #BB945F;
+}
+
 .header {
   display: flex;
   justify-content: center;
@@ -174,9 +178,8 @@ html {
   border-radius: 50%;
 }
 
-.header__menu-icon:hover .header__menu-icon:active .header__menu-icon:focus {
-  opacity: 75%;
-  color: #BB945F;
+.header__menu-icon:hover, .header__menu-icon:active, .header__menu-icon:focus {
+  background-color: #BB945F;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -423,32 +426,19 @@ html {
 }
 
 .button-favorites {
-  display: inline-flex;
+  display: flex;
   width: 700px;
   height: 24px;
   flex-shrink: 0;
   margin-left: 20px;
   margin-top: 40px;
-  margin-right: 720px;
   margin-bottom: 40px;
-  white-space: nowrap;
-  justify-content: center;
   align-items: center;
+  gap: 90px;
 }
 
-.button-favorites form {
-  display: inline-flex;
-  margin-right: 90px;
-}
-
-.button-favorites form:last-child {
-  margin-right: 0px;
-}
-
-.container-winter {
-  width: 104px;
-  height: 24px;
-  flex-shrink: 0;
+.container-weather {
+  display: flex;
   align-items: center;
 }
 
@@ -458,58 +448,33 @@ html {
   flex-shrink: 0;
   stroke-width: 2px;
   color: #000;
-  align-items: center;
   cursor: pointer;
+  padding: 5px;
+  margin-right: 15px;
 }
 
 .radio-label {
+  width: max-content;
+  height: 24px;
+  flex-shrink: 0;
   color: #000;
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   line-height: normal;
-  align-items: center;
-}
-
-.button-favorites form label {
-  margin-left: 15px;
-}
-
-.custom-radio:hover {
-  background-color: #0C0C0E;
-  color: #0C0C0E;
-}
-
-.radio-label:hover {
- color: #BB945F;
- text-decoration: overline;
-}
-
-.container-spring {
-  width: 99px;
-  height: 24px;
-  flex-shrink: 0;
-  align-items: center;
-}
-
-.container-summer {
-  width: 116px;
-  height: 24px;
-  flex-shrink: 0;
-  align-items: center;
-}
-
-.container-autumn {
-  width: 111px;
-  height: 24px;
-  flex-shrink: 0;
-  align-items: center;
-}
-
-.radio-size + .radio-label {
-  cursor: pointer;
   padding: 5px;
+}
+
+.radio-size:checked {
+  color: #0C0C0E;
+  cursor: pointer;
+}
+
+.radio-label:hover, .radio-label:focus, .radio-label:active {
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .container-book {
@@ -526,44 +491,25 @@ html {
   word-wrap: break-word;
 }
 
-.first-book {
+.left-book {
   width: 550px;
   height: 552.3px;
   flex-shrink: 0;
   border: 1px solid #000;
   background: #FFF;
+  margin-right: 257px;
+  margin-bottom: 40px;
   margin-left: 0px;
-  margin-bottom: 40px;
 }
 
-.three-book {
+.right-book {
   width: 550px;
   height: 552.3px;
   flex-shrink: 0;
   border: 1px solid #000;
   background: #FFF;
+  margin-bottom: 40px;
   margin-left: 0px;
-  margin-bottom: 40px;
-}
-
-.two-book {
-  width: 550px;
-  height: 552.3px;
-  flex-shrink: 0;
-  border: 1px solid #000;
-  background: #FFF;
-  margin-left: 220px;
-  margin-bottom: 40px;
-}
-
-.four-book {
-  width: 550px;
-  height: 552.3px;
-  flex-shrink: 0;
-  border: 1px solid #000;
-  background: #FFF;
-  margin-left: 220px;
-  margin-bottom: 40px;
 }
 
 .pick-book {
@@ -1211,7 +1157,7 @@ html {
 .digital-library-card-gold-box-text {
   width: 294px;
   height: 50px;
-  margin-top: 20px;
+  padding-top: 20px;
   margin-right: 246px;
   margin-left: 20px;
 }
@@ -1228,46 +1174,31 @@ html {
 }
 
 .card-gold-box-input {
-  display: block;
-  width: 520px;
-  height: 66px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-gold-box-input input[type="text"] {
+  width: 480px;
+  height: 50px;
+  color: #8E8E8E;
+  font-family: Forum;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px; /* 166.667% */
+  letter-spacing: 0.6px;
   margin-top: 20px;
-  margin-right: 20px;
-  margin-bottom: 25px;
-}
-
-input[type="text"] {
-  width: 182px;
-  height: 50px;
-  color: #8E8E8E;
-  font-family: Forum;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 50px; /* 166.667% */
-  letter-spacing: 0.6px;
-  margin-top: 8px;
-  margin-bottom: 8px;
   margin-left: 20px;
-  border: none;
-}
-
-.card-gold-box-input2 {
-  display: block;
-  width: 520px;
-  height: 66px;
-  flex-shrink: 0;
   border-radius: 10px;
   background: #FFF;
-  margin-right: 20px;
-  margin-bottom: 25px;
+  border: none;
+  padding: 8px 20px;
 }
 
-input[type="number"] {
-  width: 181px;
+.card-gold-box-input input[type="number"] {
+  width: 480px;
   height: 50px;
   color: #8E8E8E;
   font-family: Forum;
@@ -1276,10 +1207,17 @@ input[type="number"] {
   font-weight: 400;
   line-height: 50px; /* 166.667% */
   letter-spacing: 0.6px;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  margin-left: 20px;
+  border-radius: 10px;
+  background: #FFF;
   border: none;
+  padding: 8px 20px;
+  margin-top: 25px;
+  margin-left: 20px;
+}
+
+.card-gold-box-input input[type="text"]:hover, input[type="text"]:focus
+.card-gold-box-input input[type="number"]:hover, input[type="number"]:focus {
+  color: #BB945F;
 }
 
 .digital-library-card-button {

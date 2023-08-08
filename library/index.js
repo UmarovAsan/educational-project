@@ -1,3 +1,33 @@
+document.addEventListener("DOMContentLoaded", function(){
+    document.getElementById("burger").addEventListener("click", function()
+    {
+        document.querySelector("header").classList.toggle("open")
+    })
+});
+
+//Закрыть меню при нажатие на Escape
+window.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") {
+        document.querySelector(".header").classList.remove("open")
+    }
+});
+
+//Закрыть меню при клике вне его
+document.getElementById("header__nav-menu").addEventListener('click', event => {
+    event._isClickWithInMenu = true;
+});
+document.getElementById("burger").addEventListener('click', event => {
+    event._isClickWithInMenu = true;
+});
+document.body.addEventListener('click', event => {
+    if (event._isClickWithInMenu) return;
+    //действие при клике
+    document.querySelector("header").classList.remove("open")
+});
+
+
+
+/*
 console.log("Самооценка по пунктам:\n\n" +
     "1 Вёрстка валидная +10\n" +
     "2 Вёрстка семантическая +16\n" +
@@ -31,4 +61,4 @@ console.log("Самооценка по пунктам:\n\n" +
     "   интерактивность элементов согласно макету. Интерактивность включает в себя не только изменение внешнего вида курсора, например, при помощи свойства cursor: pointer, но и другие визуальные эффекты, например, изменение цвета фона или цвета шрифта +2\n" +
     "   обязательное требование к интерактивности плавное изменение внешнего вида элемента при наведении и клике не влияет на соседние элементы +2\n" +
     "Итого: 100 баллов\n");
-    
+    */

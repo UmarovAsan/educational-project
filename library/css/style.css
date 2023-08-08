@@ -16,12 +16,24 @@
   src: url('../fonts/inter-v12-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+@media (width: 1440px) {
+  .nav-burger {
+      position: relative;
+      width: 45px;
+      height: 20px;
+      flex-shrink: 0;
+      background-color: #0C0C0E;
+      border: none;
+      z-index: 2;
+      display: none;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 * {
-  width: 1440px;
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
@@ -99,37 +111,14 @@ a:hover {
   gap: 30px;
 }
 
-.header__list-item1 {
-  width: 57px;
-  height: 50px;
-  margin: 0px 0px;
-}
-
-.header__list-item2 {
-  width: 87px;
-  height: 50px;
-  margin: 0;
-}
-
-.header__list-item3 {
-  width: 119px;
-  height: 50px;
-  margin: 0;
-}
-
-.header__list-item4 {
-  width: 86px;
-  height: 50px;
-  margin: 0px 0px;
-}
-
-.header__list-item5 {
-  width: 118px;
+.header__list-item {
+  width: max-content;
   height: 50px;
   margin: 0px 0px;
 }
 
 .header__list-link {
+  width: max-content;
   color: #FFF;
   font-family: Inter;
   font-size: 20px;
@@ -183,6 +172,7 @@ a:hover {
   cursor: pointer;
   transition: 0.3s;
 }
+
 /*
 .header__menu-icon {
   background-image: url(../svg/icon_profile.svg);

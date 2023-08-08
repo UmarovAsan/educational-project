@@ -4,34 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/media.css">
   <link rel="icon" href="./favicon/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
-  <script src="index.js"></script>
+  <script defer src="index.js"></script>
   <title>Library</title>
 </head>
 <body>
   <div class="container">
-    <header class="header">
+    <header class="header" >
       <div class="header__logo">
         <h1 class="header__logo-title">Brooklyn Public Library</h1>
       </div>
       <div class="header__navigation">
-        <nav class="header__nav">
+        <nav class="header__nav" id="header__nav-menu">
           <ul class="header__list">
-            <li class="header__list-item1">
+            <li class="header__list-item">
               <a href="#About" class="header__list-link">About</a>
             </li>
-            <li class="header__list-item2">
+            <li class="header__list-item">
               <a href="#Favorites" class="header__list-link">Favorites</a>
             </li>
-            <li class="header__list-item3">
+            <li class="header__list-item">
               <a href="#Coffee-Shop" class="header__list-link">Coffee Shop</a>
-            <li class="header__list-item4">
+            <li class="header__list-item">
               <a href="#Our-Contacts" class="header__list-link">Contacts</a>
             </li>
-            <li class="header__list-item5">
+            <li class="header__list-item">
               <a href="#Digital-Library-Cards" class="header__list-link">Library Card</a>
             </li>
           </ul>
@@ -42,6 +43,11 @@
           <path fill-rule="evenodd" clip-rule="evenodd" d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" fill="white"/>
         </svg>
       </div>
+      <button class="nav-burger-btn" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </header>
     <main class="main">
       <section class="welcome">

@@ -173,6 +173,10 @@ a:hover {
   transition: 0.3s;
 }
 
+.nav-burger-btn {
+  display: none;
+}
+
 /*
 .header__menu-icon {
   background-image: url(../svg/icon_profile.svg);
@@ -298,7 +302,7 @@ a:hover {
 
 .about__image-gallery {
   display: flex;
-  max-width: 1400px;
+  width: 1400px;
   height: 560px;
   flex-shrink: 0;
   margin-left: 20px;
@@ -307,11 +311,18 @@ a:hover {
   gap: 25px;
 }
 
+.about-button-left {
+  display: none;
+}
+
 .image-gallery-photo {
   width: 450px;
   height: 560px;
   flex-shrink: 0;
-  margin-left: 0px;
+}
+
+.about-button-right {
+  display: none;
 }
 
 .about__button-control {
@@ -348,6 +359,7 @@ a:hover {
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  outline: none;
 }
 
 .button-control-left {
@@ -355,12 +367,27 @@ a:hover {
 }
 
 .button-control-center {
-  outline: none;
   background: #0C0C0E;
 }
 
 .button-control-right {
   background: #0C0C0E;
+}
+
+.transparent-container-four {
+  display: none;
+}
+
+.transparent-container-five {
+  display: none;
+}
+
+.button-control-four {
+  display: none;
+}
+
+.button-control-five {
+  display: none;
 }
 
 /* favoit section */

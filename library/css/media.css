@@ -1,4 +1,4 @@
-@media (min-width: 1240px) and (max-width: 1440px) {
+@media (min-width: 1240px) and (max-width: 1920px) {
     .nav-burger-btn {
         display: none;
     }
@@ -49,6 +49,7 @@
         height: 20px;
         flex-shrink: 0;
         background-color: #0C0C0E;
+        outline: none;
         border: none;
         z-index: 2;
     }
@@ -182,8 +183,12 @@
     }
 
     .about-button-left {
+        display: block;
+        align-items: center;
+        height: 25px;
         color: #BB945F;
         margin-left: 0px;
+        margin-top: 288.5px;
         transform: rotate(180deg);
         background-color: transparent;
         outline: none;
@@ -193,6 +198,9 @@
     }
 
     .about-button-right {
+        display: block;
+        height: 25px;
+        margin-top: 288.5px;
         margin-right: 0px;
         background-color: transparent;
         outline: none;
@@ -308,4 +316,258 @@
         background: #FFF;
         margin-bottom: 0px;
     }
+
+    /* coffee section */ 
+    .coffee-shop {
+        width: 728px;
+        height: 1421px;
+    }
+
+    .coffee-shop-box {
+        margin-left: 274px;
+        margin-right: 274px;
+    }
+
+    .coffee-shop-paragraf {
+        width: 728px;
+        height: 200px;
+    }
+
+    .coffee-shop-paragraf-text {
+        width: 728px;
+        height: 200px;
+    }
+
+    .coffee-shop-menu {
+        display: flex;
+        display: inline-flex;
+        flex-direction: column;
+        width: 100%;
+        height: 1080px;
+    }
+
+    .coffee-and-tea-menu {
+        margin-left: 0px;
+    }
+
+    .deserts-menu {
+        display: flex;
+        width: 482px;
+        height: 520px;
+        margin-left: 246px;
+        margin-top: 40px;
+    }
+
+    /* our-contacts section */ 
+    .our-contacts {
+        width: 727px;
+        height: 995px;
+    }
+
+    .our-contacts-box {
+        margin-left: 264px;
+        margin-right: 263px;
+    }
+
+    .our-contacts-block {
+        width: 727px;
+        height: 894px;
+        flex-direction: column;
+        align-items: center;
+        gap: 100px;
+    }
+
+    .block-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 726px;
+        height: 380px;
+        margin-bottom: 0px;
+        gap: 40px;
+    }
+
+    .block-info-contact {
+        width: 407px;
+        margin-left: 0px;
+        margin-bottom: 0px;
+    }
+
+    .text-info-contact {
+        margin-left: 0px;
+    }
+
+    .Phone-info {
+        width: 726px;
+        height: 160px;
+        margin-bottom: 0px;
+    }
+
+    .senior-staff {
+        display: flex;
+        flex-direction: column;
+        width: 507px;
+        height: 100px;
+        margin-right: 219px;
+    }
+
+    .senior-staff-block-name {
+        width: 199px;
+        margin-right: 307px;
+    }
+
+    .senior-staff-info-name {
+        margin-left: 0px;
+    }
+
+    .senior-staff-block-email {
+        width: 506.6px;
+        height: 40px;
+    }
+
+    /* digital-library-cards section */ 
+    .digital-library-cards {
+        display: flex;
+        align-items: center;
+        width: 768px;
+        height: 857px;
+    }
+
+    .digital-library-box {
+        width: 374px;
+        height: 61px;
+        flex-shrink: 0;
+        margin: 20px 198px 40px;
+    }
+
+    .digital-library-card-box {
+        margin: 0px 84px;
+    }
+
+    .digital-library-card-white-box {
+        align-items: center;
+    }
+
+    .digital-library-box-reader {
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        height: 233px;
+        margin: 21px 84px 40px;
+    }
+
+    .digital-library-box-reader-card {
+        width: 222px;
+        height: 33px;
+        align-items: center;
+        margin: 0 auto;
+    }
+      
+    .reader-card-text {
+        width: max-content;
+        color: #000;
+        font-family: Forum;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.6px;
+        margin-right: 0px;
+    }
+
+    .digital-library-box-reader-card-info {
+        width: 600px;
+        height: 80px;
+        align-items: center;
+        margin: 40px 0px;
+    }
+
+    .reader-card-info {
+        width: 600px;
+        text-align: center; 
+    }
+
+    .digital-library-button-sign {
+        display: flex;
+        width: 600px;
+        height: 30px;
+        margin: 0px 0px;
+    }
+
+    .button-box-sign {
+        display: flex;
+        width: 75px;
+        height: 10px;
+        padding: 10px 0px;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        margin-left: 215px;
+    }
+
+    .button-box-log-in {
+        display: flex;
+        width: 75px;
+        height: 10px;
+        padding: 10px 0px;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        margin-left: 0px;
+    }
+
+    /* footer section */ 
+    .footer {
+        width: 768px;
+    }
+    
+    .footer__container {
+        width: 768px;
+    }
+
+    .footer__container-frame6 {
+        width: 728px;
+    }
+
+    .frame5 {
+        display: flex;
+        width: 728px;
+        justify-content: center;
+        align-items: center;
+        gap: 353px;
+    }
+
+    .frame5__workschedule {
+        white-space: nowrap;
+    }
+
+    .frame4 {
+        display: flex;
+        width: 728px;
+        gap: 478px;
+    }
+
+    .frame4__workschedule {
+        white-space: nowrap;
+    }
+
+    .footer__container-line {
+        width: 728px;
+    }
+
+    .footer__container-link {
+        display: flex;
+        width: 728px;
+        align-items: flex-end;
+        gap: 130px;
+    }
+
+    .footer__link-form-chool {
+        margin: 0 auto;
+    }
+
+    .footer__link-form-link {
+        width: 113px;
+    }
 }
+

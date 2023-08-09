@@ -27,6 +27,7 @@ document.body.addEventListener('click', event => {
 
 
 
+
 /*
 console.log("Самооценка по пунктам:\n\n" +
     "1 Вёрстка валидная +10\n" +

@@ -18,14 +18,14 @@
 
 @media (width: 1440px) {
   .nav-burger {
-      position: relative;
-      width: 45px;
-      height: 20px;
-      flex-shrink: 0;
-      background-color: #0C0C0E;
-      border: none;
-      z-index: 2;
-      display: none;
+    position: relative;
+    width: 45px;
+    height: 20px;
+    flex-shrink: 0;
+    background-color: #0C0C0E;
+    border: none;
+    z-index: 2;
+    display: none;
   }
 }
 
@@ -802,22 +802,13 @@ input[type="radio"] {
 }
 
 .deserts-menu-name {
+  display: flex;
   width: 317px;
   height: 40px;
-  color: #BB945F;
-  font-family: Forum;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 40px; /* 100% */
-  letter-spacing: 2px;
-  text-transform: capitalize;
-  margin-right: 165px;
+  margin-left: 165px;
 }
 
 .deserts-menu-name-text {
-  width: 317px;
-  height: 40px;
   color: #BB945F;
   font-family: Forum;
   font-size: 40px;
@@ -832,12 +823,13 @@ input[type="radio"] {
   width: 482px;
   height: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 60px;
 }
 
 .deserts-name {
+  text-align: right;
   width: 210px;
   height: 40px;
   color: #000;
@@ -936,7 +928,7 @@ input[type="radio"] {
 }
 
 .text-info-contact {
-  width: 282px;
+  width: max-content;
   color: #000;
   font-family: Inter;
   font-size: 20px;
@@ -1041,7 +1033,7 @@ input[type="radio"] {
 }
 
 .senior-staff-info-name {
-  width: 138px;
+  width: max-content;
   color: #000;
   font-family: Inter;
   font-size: 20px;
@@ -1058,7 +1050,7 @@ input[type="radio"] {
 }
 
 .senior-staff-email {
-  width: 351px;
+  width: max-content;
   color: #000;
   font-family: Inter;
   font-size: 20px;
@@ -1173,7 +1165,7 @@ input[type="radio"] {
 }
 
 .card-gold-box-text {
-  width: 294px;
+  width: max-content;
   color: #000;
   font-family: Forum;
   font-size: 30px;
@@ -1264,9 +1256,6 @@ input[type="radio"] {
   width: 456px;
   height: 253px;
   flex-shrink: 0;
-  position: absolute;
-  top: 121px;
-  right: 0px;
   margin-right: 20px;
   margin-bottom: 240px;
   margin-left: 344px;
@@ -1380,6 +1369,7 @@ input[type="radio"] {
   height: 250px;
   background: #0C0C0E;
 }
+
 .footer__container {
   overflow: hidden;
 }

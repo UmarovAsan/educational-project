@@ -308,6 +308,13 @@ a:hover {
   margin-left: 20px;
   margin-right: 20px;
   background: #FFF;
+  
+}
+
+.about-image {
+  display: flex;
+  width: 1400px;
+  height: 560px;
   gap: 25px;
 }
 

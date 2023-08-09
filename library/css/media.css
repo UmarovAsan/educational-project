@@ -3,6 +3,14 @@
         display: none;
     }
 
+    .about-button-left {
+        display: none;
+    }
+    
+    .about-button-right {
+        display: none;
+    }
+
     .transparent-container {
         width: 78px;
         height: 26px;
@@ -95,7 +103,7 @@
         position: absolute;
         width: 332px;
         height: 570px;
-        background: #000;
+        background: #0C0C0E;
         margin-top: 440px;
         margin-right: -435px;
         margin-bottom: 0px;
@@ -180,6 +188,12 @@
         margin-left: 77px;
         margin-right: 77px;
         gap: 58px;
+    }
+
+    .about-image{
+        display: inline-flex;
+        width: 450px;
+        height: 560px;
     }
 
     .about-button-left {

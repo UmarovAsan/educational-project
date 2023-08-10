@@ -189,8 +189,7 @@
     }
 
     .about__box-title {
-        margin-left: 331px;
-        margin-right: 331px;
+      margin-left: 330px;
     }
 
     .about__line {
@@ -322,13 +321,11 @@
     }
 
     .favorites-box-title {
-        margin-left: 304px;
-        margin-right: 304px;
+        margin-left: 303px;
     }
 
     .favorites-line {
-        margin-left: 359px;
-        margin-right: 359px;
+        margin-left: 358px;
     }
 
     .container-book {
@@ -361,8 +358,7 @@
     }
 
     .coffee-shop-box {
-        margin-left: 274px;
-        margin-right: 274px;
+        margin-left: 253px;
     }
 
     .coffee-shop-paragraf {
@@ -402,8 +398,7 @@
     }
 
     .our-contacts-box {
-        margin-left: 264px;
-        margin-right: 263px;
+        margin-left: 242.5px;
     }
 
     .our-contacts-block {
@@ -494,14 +489,11 @@
     }
 
     .digital-library-box-reader-card {
-        width: 222px;
-        height: 33px;
-        align-items: center;
+        width: max-content;
         margin: 0 auto;
     }
       
     .reader-card-text {
-        width: max-content;
         color: #000;
         font-family: Forum;
         font-size: 30px;
@@ -509,7 +501,6 @@
         font-weight: 400;
         line-height: normal;
         letter-spacing: 0.6px;
-        margin-right: 0px;
     }
 
     .digital-library-box-reader-card-info {
@@ -550,7 +541,7 @@
         justify-content: center;
         align-items: center;
         flex-shrink: 0;
-        margin-left: 0px;
+        margin-left: 20px;
     }
 
     /* footer section */ 

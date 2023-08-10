@@ -50,6 +50,7 @@ html {
 
 /* header style */
 .container {
+  width: 1440px;
   display: block;
   background-color: #FFF;
   margin: 0 auto;
@@ -72,7 +73,7 @@ a:hover {
 
 .header__logo {
   display: flex;
-  width: 294px;
+  width: max-content;
   height: 50px;
   margin-top: 20px;
   margin-left: 20px;
@@ -254,7 +255,7 @@ a:hover {
 }
 
 .about__box-title {
-  width: 106px;
+  width: max-content;
   height: 61px;
   flex-shrink: 0;
   color: #0C0C0E;
@@ -271,7 +272,6 @@ a:hover {
   white-space: nowrap;
   padding-top: 20px;
   margin-left: 667px;
-  margin-right: 667px;
   margin-bottom: 0px;
 }
 
@@ -407,7 +407,7 @@ a:hover {
 }
 
 .favorites-box-title {
-  width: 160px;
+  width: max-content;
   height: 41px;
   flex-shrink: 0;
   color: #0C0C0E;
@@ -420,9 +420,8 @@ a:hover {
   text-transform: capitalize;
   white-space: nowrap;
   padding-top: 20px;
-  margin-right: 640px;
   margin-bottom: 20px;
-  margin-left: 640px;
+  margin-left: 639.5px;
 }
 
 .favorites-line {
@@ -433,11 +432,12 @@ a:hover {
   height: 1px;
   flex-shrink: 0;
   background: #0C0C0E;
-  margin: 0px 695px;
+  margin-top: 0px;
+  margin-left: 695px;
 }
 
 .favorites-text {
-  width: 234px;
+  width: max-content;
   height: 24px;
   color: #000;
   text-align: left;
@@ -459,12 +459,13 @@ a:hover {
   margin-top: 40px;
   margin-bottom: 40px;
   align-items: center;
-  gap: 90px;
+  gap: 85px;
 }
 
 .container-weather {
   display: flex;
   align-items: center;
+  margin: 0;
 }
 
 .radio-size {
@@ -531,8 +532,12 @@ input[type="radio"] {
   margin-bottom: 40px;
 }
 
+.book:nth-last-child(-n+12) {
+  display: none;
+}
+
 .pick-book {
-  width: 102px;
+  width: max-content;
   height: 40px;
   flex-shrink: 0;
   color: #000;
@@ -544,7 +549,8 @@ input[type="radio"] {
   letter-spacing: 2px;
   text-transform: capitalize;
   white-space: nowrap;
-  margin: 15px 428px 0px 20px;
+  margin-top: 15px;
+  margin-left: 20px;
 }
 
 .boock-line {
@@ -555,12 +561,22 @@ input[type="radio"] {
 }
 
 .book-name {
-  width: 168px;
+  width: max-content;
   height: 80px;
   color: #000000;
-  margin-right: 362px;
   margin-bottom: 20px;
   margin-left: 20px;
+}
+
+.book-name-text-upper {
+  color: #000;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .book-name-text {
@@ -612,7 +628,6 @@ input[type="radio"] {
   font-weight: 700;
   line-height: normal;
   letter-spacing: 1px;
-  text-align: center;
   padding: 8px 26px;
 }
 
@@ -621,7 +636,6 @@ input[type="radio"] {
   background-color: #BB945F;
   border-color: #BB945F;
   transition: 0.3s;
-  
 }
 
 .button-own {
@@ -631,7 +645,6 @@ input[type="radio"] {
   border: 1px solid #BB945F;
   background-color: #FFF;
   margin-top: 15px;
-  margin-right: 455px;
   margin-left: 20px;
   width: 25px;
   height: 12px;
@@ -675,14 +688,12 @@ input[type="radio"] {
 }
 
 .coffee-shop-box {
-  width: 222px;
+  width: max-content;
   height: 61px;
-  margin-left: 610px;
-  margin-right: 610px;
+  margin-left: 589px;
 }
 
 .coffee-shop-title {
-  width: 222px;
   color: #0C0C0E;
   font-family: Forum;
   font-size: 40px;
@@ -709,8 +720,6 @@ input[type="radio"] {
 }
 
 .coffee-shop-paragraf-text {
-  width: 1400px;
-  height: 120px;
   color: #000;
   text-align: center;
   font-family: Inter;
@@ -739,14 +748,12 @@ input[type="radio"] {
 }
 
 .coffee-and-tea-menu-name {
-  width: 235px;
+  width: max-content;
   height: 40px;
   margin: 0px 203px 0px 0px;
 }
 
 .coffee-and-tea-menu-name-text {
-  width: 235px;
-  height: 40px;
   color: #BB945F;
   font-family: Forum;
   font-size: 40px;
@@ -763,7 +770,7 @@ input[type="radio"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 60px;
+  gap: 58px;
 }
 
 .drink-name {
@@ -777,6 +784,7 @@ input[type="radio"] {
   line-height: 40px; /* 200% */
   letter-spacing: 2px;
   text-transform: capitalize;
+  margin: 0;
 }
 
 .menu-line {
@@ -786,7 +794,7 @@ input[type="radio"] {
 }
 
 .drink-price {
-  width: 21px;
+  width: max-content;
   height: 40px;
   color: #000;
   font-family: Forum;
@@ -796,6 +804,7 @@ input[type="radio"] {
   line-height: 40px; /* 200% */
   letter-spacing: 2px;
   text-transform: capitalize;
+  margin: 0;
 }
 
 .deserts-menu {
@@ -811,7 +820,7 @@ input[type="radio"] {
 
 .deserts-menu-name {
   display: flex;
-  width: 317px;
+  width: max-content;
   height: 40px;
   margin-left: 165px;
 }
@@ -848,16 +857,19 @@ input[type="radio"] {
   line-height: 40px; /* 200% */
   letter-spacing: 2px;
   text-transform: capitalize;
+  margin: 0;
 }
 
 .menu-line {
   width: 100px;
   height: 1px;
+  margin-left: 0px;
+  margin-right: 0px;
   background: #BB945F;
 }
 
 .deserts-price {
-  width: 31px;
+  width: max-content;
   height: 40px;
   color: #000;
   font-family: Forum;
@@ -867,6 +879,7 @@ input[type="radio"] {
   line-height: 40px; /* 200% */
   letter-spacing: 2px;
   text-transform: capitalize;
+  margin: 0;
 }
 
 /* our-contacts section */ 
@@ -883,14 +896,12 @@ input[type="radio"] {
 }
 
 .our-contacts-box {
-  width: 242px;
+  width: max-content;
   height: 61px;
-  margin-left: 600px;
-  margin-right: 600px;
+  margin-left: 579px;
 }
 
 .our-contacts-title {
-  width: 242px;
   display: flex;
   color: #0C0C0E;
   text-align: center;
@@ -929,14 +940,13 @@ input[type="radio"] {
 }
 
 .block-info-contact {
-  width: 282px;
+  width: max-content;
   height: 40px;
-  margin-right: 221px;
+  margin-left: 0px;
   margin-bottom: 40px;
 }
 
 .text-info-contact {
-  width: max-content;
   color: #000;
   font-family: Inter;
   font-size: 20px;
@@ -955,15 +965,13 @@ input[type="radio"] {
 }
 
 .phone-gap {
-  width: 308px;
+  width: max-content;
   height: 40px;
-  margin-right: 195px;
   margin-bottom: 20px;
   margin-left: 0px;
 }
 
 .Phone-info-call {
-  width: 308px;
   color: #000;
   text-align: center;
   font-family: Inter;
@@ -977,16 +985,13 @@ input[type="radio"] {
 }
 
 .phone-gap2 {
-  width: 505px;
+  width: max-content;
   height: 40px;
-  margin-right: 0px;
   margin-bottom: 20px;
   margin-left: 0px;
 }
 
 .Phone-info-call-service {
-  width: 505px;
-  height: 40px;
   color: #000;
   text-align: center;
   font-family: Inter;
@@ -1000,20 +1005,14 @@ input[type="radio"] {
 }
 
 .phone-gap3 {
-  width: 395px;
+  width: max-content;
   height: 40px;
   margin-right: 108px;
   margin-bottom: 20px;
   margin-left: 0px;
 }
 
-.phone-gap3:last-child {
-  margin-bottom: 0px;
-}
-
 .Phone-info-call-library {
-  width: 395px;
-  height: 40px;
   color: #000;
   text-align: center;
   font-family: Inter;
@@ -1026,6 +1025,10 @@ input[type="radio"] {
   text-decoration: none;
 }
 
+.phone-gap3:last-child {
+  margin-bottom: 0px;
+}
+
 .senior-staff {
   width: 351px;
   height: 100px;
@@ -1034,14 +1037,13 @@ input[type="radio"] {
 }
 
 .senior-staff-block-name {
-  width: 138px;
+  width: max-content;
   height: 40px;
   margin-bottom: 20px;
-  margin-right: 213px;
+  margin-left: 0px;
 }
 
 .senior-staff-info-name {
-  width: max-content;
   color: #000;
   font-family: Inter;
   font-size: 20px;
@@ -1053,12 +1055,11 @@ input[type="radio"] {
 }
 
 .senior-staff-block-email {
-  width: 351px;
+  width: max-content;
   height: 40px;
 }
 
 .senior-staff-email {
-  width: max-content;
   color: #000;
   font-family: Inter;
   font-size: 20px;
@@ -1092,14 +1093,13 @@ input[type="radio"] {
 }
 
 .digital-library-box {
-  width: 374px;
+  width: max-content;
   height: 61px;
   flex-shrink: 0;
   margin: 20px 533px 40px;
 }
 
 .digital-library-title {
-  width: 374px;
   color: #0C0C0E;
   font-family: Forum;
   font-size: 40px;
@@ -1127,13 +1127,12 @@ input[type="radio"] {
 }
 
 .digital-library-card-text-box{
-  width: 326px;
+  width: max-content;
   height: 36px;
   margin-bottom: 30px;
 }
 
 .digital-library-card-box-text {
-  width: 326px;
   color: #000;
   font-family: Inter;
   font-size: 30px;
@@ -1165,15 +1164,13 @@ input[type="radio"] {
 }
 
 .digital-library-card-gold-box-text {
-  width: 294px;
+  width: max-content;
   height: 50px;
   padding-top: 20px;
-  margin-right: 246px;
   margin-left: 20px;
 }
 
 .card-gold-box-text {
-  width: max-content;
   color: #000;
   font-family: Forum;
   font-size: 30px;
@@ -1270,15 +1267,13 @@ input[type="radio"] {
 }
 
 .digital-library-box-reader-card {
-  width: 222px;
+  width: max-content;
   height: 33px;
   margin-right: 0px;
   margin-bottom: 35px;
-  margin-left: 236px;
 }
 
 .reader-card-text {
-  width: 222px;
   color: #000;
   font-family: Forum;
   font-size: 30px;
@@ -1286,7 +1281,6 @@ input[type="radio"] {
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.6px;
-  margin-right: 0px;
 }
 
 .digital-library-box-reader-card-info {
@@ -1294,11 +1288,9 @@ input[type="radio"] {
   height: 120px;
   margin-right: 0px;
   margin-bottom: 35px;
-  margin-left: 0px;
 }
 
 .reader-card-info {
-  width: 456px;
   color: #000;
   text-align: right;
   font-family: Inter;
@@ -1324,11 +1316,10 @@ input[type="radio"] {
   width: 78px;
   height: 10px;
   padding: 10px 0px;
+  margin-right: 0px;
   flex-shrink: 0;
   border-radius: 2px;
   border: 1px solid #0C0C0E;
-  margin-left: 275px;
-  margin-right: 20px;
   background-color: #FFF;
   color: #0C0C0E;
   text-align: center;
@@ -1347,6 +1338,8 @@ input[type="radio"] {
   width: 78px;
   height: 10px;
   padding: 10px 0px;
+  margin-right: 0px;
+  margin-left: 20px;
   flex-shrink: 0;
   border-radius: 2px;
   border: 1px solid #0C0C0E;
@@ -1397,8 +1390,7 @@ input[type="radio"] {
   align-items: flex-start;
   gap: 10px;
   flex-shrink: 0;
-  padding-top: 20px;
-  padding-bottom: 30px;
+  padding: 20px 20px 30px 20px;
 }
 
 .frame5 {
@@ -1491,7 +1483,7 @@ input[type="radio"] {
 }
 
 .footer__link-form-date {
-  width: 56px;
+  width: max-content;
   height: 20px;
   margin-left: 0px;
   margin-right: 0px;
@@ -1499,7 +1491,6 @@ input[type="radio"] {
 }
 
 .footer__link-date {
-  width: 56px;
   color: #FFF;
   font-family: Inter;
   font-size: 20px;
@@ -1511,7 +1502,7 @@ input[type="radio"] {
 
 .footer__link-form-chool {
   display: flex;
-  width: 302px;
+  width: max-content;
   height: 22px;
   flex-direction: column;
   justify-content: center;
@@ -1521,7 +1512,6 @@ input[type="radio"] {
 }
 
 .footer__link-chool {
-  width: 302px;
   color: #FFF;
   font-family: Inter;
   font-size: 20px;
@@ -1534,7 +1524,7 @@ input[type="radio"] {
 
 .footer__link-form-link {
   display: flex;
-  width: 111px;
+  width: max-content;
   height: 22px;
   flex-direction: column;
   justify-content: center;
@@ -1544,7 +1534,6 @@ input[type="radio"] {
 }
 
 .footer__link-github {
-  width: 113px;
   color: #FFF;
   font-family: Inter;
   font-size: 20px;

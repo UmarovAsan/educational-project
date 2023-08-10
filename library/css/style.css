@@ -322,10 +322,11 @@ a:hover {
   display: none;
 }
 
-.image-gallery-photo {
+.image-gallery-photo:nth-last-child(-n+2) {
   width: 450px;
   height: 560px;
   flex-shrink: 0;
+  display: none;
 }
 
 .about-button-right {

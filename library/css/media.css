@@ -1,4 +1,4 @@
-@media (min-width: 1240px) and (max-width: 1920px) {
+@media (min-width: 769px) and (max-width: 1920px) {
     .nav-burger-btn {
         display: none;
     }
@@ -42,14 +42,16 @@
 
     .header__navigation {
         display: none;
-   }
-
-    .header__menu {
-        margin-left: 321px;
-        margin-right: 40px;
-        z-index: 3;
     }
 
+    .header__menu {
+        width: 113px;
+        margin-left: 321px;
+        margin-right: 0px;
+        gap: 40px;
+        z-index: 3;
+    }
+    
     .nav-burger-btn {
         display: block;
         position: relative;
@@ -59,34 +61,34 @@
         background-color: #0C0C0E;
         outline: none;
         border: none;
-        z-index: 2;
+        z-index: 3;
     }
 
     .nav-burger-btn span {
         display: block;
         position: absolute;
-        width: 41px;
-        height: 3px;
+        width: 45px;
+        height: 2px;
         background-color: #FFFFFF;
         transition: background-color 3s, opacity 0.1s, transform 0.3s;
         will-change: transform;
     }
 
     .nav-burger-btn span:nth-child(1) {
-        transform: translateY(-5.5px);
+        transform: translateY(-9px);
     }
 
     .nav-burger-btn span:nth-child(2) {
-        transform: translate(0px);
+        transform: translateY(0px);
     }    
 
     .nav-burger-btn span:nth-child(3) {
-        transform: translateY(5.5px);
+        transform: translateY(9px);
     }
 
     .header.open .nav-burger-btn span:nth-child(1) {
         transform: translateY(0) rotate(-45deg);
-        width: 32px;
+        width: 39px;
     }
 
     .header.open .nav-burger-btn span:nth-child(2) {
@@ -95,25 +97,37 @@
 
     .header.open .nav-burger-btn span:nth-child(3) {
         transform: translateY(0) rotate(45deg);
-        width: 32px;
+        width: 39px;
     }
 
-    .header.open .header__navigation {
+    .header__navigation {
         display: block;
         position: absolute;
         width: 332px;
         height: 570px;
         background: #0C0C0E;
-        margin-top: 440px;
-        margin-right: -435px;
+        top: -570px;
+        right: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
         margin-bottom: 0px;
         z-index: 2;
-   }
+        transition: all 0.3s;
+    }
+
+    .header.open .header__navigation {
+        top: 0px;
+        right: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        z-index: 2;
+    }
 
    .header__nav {
         width: 332px;
         height: 570px;
-  }
+    }
 
    .header__list {
         width: 118px;
@@ -124,13 +138,13 @@
         align-items: center;
         gap: 30px;
         padding: 100px 107px;
-   }
+    }
 
    .header__list-item {
         width: max-content;
         height: 50px;
         margin: 0px 0px;
-   }
+    }
 
    .header__list-link {
         width: max-content;
@@ -141,9 +155,18 @@
         font-weight: 400;
         line-height: 50px; /* 250% */
         text-decoration: none;
-  }
+    }
     /* main section */
     /* welcome style */
+    .welcome-background {
+        width: 768px;
+        background: url(../img/Welcome768.jpg);
+    }
+
+    .welcome__box {
+        margin: -80px 169px 160px 0px;
+    }
+
     .main {
         width: 768px;
     }

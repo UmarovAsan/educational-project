@@ -16,19 +16,6 @@
   src: url('../fonts/inter-v12-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-@media (width: 1440px) {
-  .nav-burger {
-    position: relative;
-    width: 45px;
-    height: 20px;
-    flex-shrink: 0;
-    background-color: #0C0C0E;
-    border: none;
-    z-index: 2;
-    display: none;
-  }
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -62,6 +49,7 @@ a:hover {
 }
 
 .header {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,7 +94,7 @@ a:hover {
 }
 
 .header__list {
-  width: 597px;
+  width: 587px;
   height: 50px;
   display: flex;
   gap: 30px;
@@ -137,7 +125,7 @@ a:hover {
 }
 
 .header__list:last-child {
-  margin-right: 0;
+  margin-right: 0px;
 }
 
 .header__list-item {
@@ -340,11 +328,13 @@ a:hover {
   width: 78px;
   height: 26px;
   padding: 0px 0px;
-  margin: 40px 681px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   flex-shrink: 0;
   outline: none;
   border: none;
   border-radius: 50%;
+  justify-content: center;
 }
 
 .transparent-container {
@@ -421,7 +411,7 @@ a:hover {
   white-space: nowrap;
   padding-top: 20px;
   margin-bottom: 20px;
-  margin-left: 639.5px;
+  justify-content: center;
 }
 
 .favorites-line {
@@ -432,8 +422,7 @@ a:hover {
   height: 1px;
   flex-shrink: 0;
   background: #0C0C0E;
-  margin-top: 0px;
-  margin-left: 695px;
+  
 }
 
 .favorites-text {
@@ -690,7 +679,7 @@ input[type="radio"] {
 .coffee-shop-box {
   width: max-content;
   height: 61px;
-  margin-left: 589px;
+  justify-content: center;
 }
 
 .coffee-shop-title {
@@ -709,8 +698,7 @@ input[type="radio"] {
   height: 1px;
   flex-shrink: 0;
   background: #0C0C0E;
-  margin-left: 85px;
-  margin-right: 85px;
+  justify-content: center;
   margin-top: 20px;
 }
 
@@ -745,6 +733,7 @@ input[type="radio"] {
   justify-content: center;
   align-items: flex-start;
   gap: 40px;
+  margin-left: 0px;
 }
 
 .coffee-and-tea-menu-name {
@@ -815,7 +804,7 @@ input[type="radio"] {
   justify-content: center;
   align-items: flex-end;
   gap: 40px;
-  margin-left: 480px;
+  margin-right: 0px;
 }
 
 .deserts-menu-name {
@@ -898,7 +887,6 @@ input[type="radio"] {
 .our-contacts-box {
   width: max-content;
   height: 61px;
-  margin-left: 579px;
 }
 
 .our-contacts-title {
@@ -920,8 +908,6 @@ input[type="radio"] {
   flex-shrink: 0;
   background: #0C0C0E;
   margin-top: 20px;
-  margin-left: 95px;
-  margin-right: 95px;
 }
 
 .our-contacts-block {
@@ -934,9 +920,10 @@ input[type="radio"] {
 }
 
 .block-info {
-  width: 503px;
+  width: 505px;
   height: 380px;
   margin-bottom: 34px;
+  margin-left: 0px;
 }
 
 .block-info-contact {
@@ -1033,7 +1020,6 @@ input[type="radio"] {
   width: 351px;
   height: 100px;
   flex-shrink: 0;
-  margin-right: 152px;
 }
 
 .senior-staff-block-name {
@@ -1057,6 +1043,7 @@ input[type="radio"] {
 .senior-staff-block-email {
   width: max-content;
   height: 40px;
+  margin-left: 0px;
 }
 
 .senior-staff-email {
@@ -1074,6 +1061,7 @@ input[type="radio"] {
 .maps {
   width: 696px;
   height: 414px;
+  margin-right: 0px;
 }
 
 .maps {
@@ -1093,10 +1081,12 @@ input[type="radio"] {
 }
 
 .digital-library-box {
-  width: max-content;
+  width: 100%;
   height: 61px;
   flex-shrink: 0;
-  margin: 20px 533px 40px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .digital-library-title {
@@ -1263,7 +1253,6 @@ input[type="radio"] {
   flex-shrink: 0;
   margin-right: 20px;
   margin-bottom: 240px;
-  margin-left: 344px;
 }
 
 .digital-library-box-reader-card {
@@ -1399,7 +1388,6 @@ input[type="radio"] {
   height: 40px;
   justify-content: center;
   align-items: flex-start;
-  gap: 1022px;
   flex-shrink: 0;
 }
 
@@ -1414,6 +1402,7 @@ input[type="radio"] {
   font-weight: 400;
   line-height: 20px; /* 133.333% */
   text-decoration: none;
+  margin-left: 0px;
 }
 
 .frame5__workschedule {
@@ -1426,6 +1415,7 @@ input[type="radio"] {
   font-style: normal;
   font-weight: 400;
   line-height: 20px; /* 133.333% */
+  margin-right: 0px;
 }
 
 .frame4 {
@@ -1434,7 +1424,6 @@ input[type="radio"] {
   height: 40px;
   justify-content: center;
   align-items: center;
-  gap: 1147px;
 }
   
 .frame4__social {
@@ -1444,6 +1433,7 @@ input[type="radio"] {
   justify-content: center;
   align-items: flex-start;
   gap: 15px;
+  margin-left: 0px;
 }
 
 .frame4__social-link{
@@ -1466,6 +1456,7 @@ input[type="radio"] {
   font-style: normal;
   font-weight: 400;
   line-height: 20px; /* 133.333% */
+  margin-right: 0px;
 }
 
 .footer__container-line {
@@ -1478,6 +1469,7 @@ input[type="radio"] {
   display: inline-flex;
   width: 1400px;
   height: 22px;
+  justify-content: space-between;
   flex-shrink: 0;
   padding: 44px 20px;
 }

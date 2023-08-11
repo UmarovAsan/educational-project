@@ -1,18 +1,16 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("burger").addEventListener("click", function()
     {
-        document.querySelector("header").classList.toggle("open")
+        document.querySelector(".header").classList.toggle("open")
     })
 });
 
-//Закрыть меню при нажатие на Escape
 window.addEventListener('keydown', (e) => {
     if (e.key === "Escape") {
         document.querySelector(".header").classList.remove("open")
     }
 });
 
-//Закрыть меню при клике вне его
 document.getElementById("header__nav-menu").addEventListener('click', event => {
     event._isClickWithInMenu = true;
 });
@@ -21,23 +19,17 @@ document.getElementById("burger").addEventListener('click', event => {
 });
 document.body.addEventListener('click', event => {
     if (event._isClickWithInMenu) return;
-    //действие при клике
-    document.querySelector("header").classList.remove("open")
+    document.querySelector(".header").classList.remove("open")
 });
 
-// Получаем ссылки внутри меню навигации
 const navLinks = document.querySelectorAll('.header__list-link');
 
-// Получаем кнопку "бургер" по её ID
 const burgerButton = document.getElementById('burger');
 
-// Получаем элемент header по его ID
 const header = document.getElementById('header');
 
-// Добавляем обработчик события для каждой ссылки
 navLinks.forEach(link => {
   link.addEventListener('click', () => {
-    // Закрываем меню
     header.classList.remove('open');
   });
 });
@@ -73,8 +65,6 @@ console.log(" Library#2 Самооценка по пунктам:\n\n" +
     "Критерии оценки
      Максимальная оценка за задание 50 баллов\n" +
 */
-
-
 /*
 console.log(" Library#1 Самооценка по пунктам:\n\n" +
     "1 Вёрстка валидная +10\n" +

@@ -328,8 +328,8 @@ a:hover {
   width: 78px;
   height: 26px;
   padding: 0px 0px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 35px;
+  margin-bottom: 35px;
   flex-shrink: 0;
   outline: none;
   border: none;
@@ -373,18 +373,28 @@ a:hover {
 }
 
 .transparent-container-four {
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
   display: none;
 }
 
 .transparent-container-five {
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
   display: none;
 }
 
 .button-control-four {
+  align-items: center;
+  cursor: pointer;
   display: none;
 }
 
 .button-control-five {
+  align-items: center;
+  cursor: pointer;
   display: none;
 }
 
@@ -490,7 +500,6 @@ input[type="radio"] {
 .radio-label:hover, .radio-label:focus, .radio-label:active {
   font-weight: 700;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .container-book {
@@ -1436,9 +1445,14 @@ input[type="radio"] {
   margin-left: 0px;
 }
 
-.frame4__social-link{
+.frame4__social-link {
+  display: flex;
   width: 24px;
   height: 24px;
+}
+
+.frame4__social-link:active {
+  background-color: #BB945F;
 }
 
 .frame4__social-img {

@@ -1,4 +1,4 @@
-@media (max-width: 1920px) {  
+@media (max-width: 1440px) {  
     .nav-burger-btn {
         position: relative;
         width: 45px;
@@ -19,7 +19,7 @@
     }
 
     .transparent-container {
-        width: 78px;
+        width: 26px;
         height: 26px;
     }
 }
@@ -153,13 +153,16 @@
     }
 
     .about__button-control {
-        width: 120px;
-        height: 16px;
-        justify-content: center;
+        width: 104px;
+        height: 26px;
+    }
+
+    .transparent-container {
+        width: 26px;
+        height: 26px;
     }
 
     .transparent-container-four {
-        display: block;
         display: flex;
         width: 26px;
         height: 26px;
@@ -173,17 +176,7 @@
     }
     
     .transparent-container-five {
-        display: block;
-        display: flex;
-        width: 26px;
-        height: 26px;
-        background-color: transparent;
-        justify-content: center;
-        align-items: center;
-        outline: none;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
+        display: none;
     }
 
     .button-control-four {
@@ -199,15 +192,7 @@
     }
 
     .button-control-five {
-        display: block;
-        background: #0C0C0E;
-        width: 16px;
-        height: 16px;
-        margin: 0px;
-        border-radius: 50%;
-        border: none;
-        cursor: pointer;
-        outline: none;
+        display: none;
     }
 
     /* favoit section */
@@ -372,7 +357,7 @@
         width: 45px;
         height: 2px;
         background-color: #FFFFFF;
-        transition: background-color 3s, opacity 0.1s, transform 0.3s;
+        transition: background-color 0.3s, opacity 0.1s, transform 0.3s;
         will-change: transform;
     }
 
@@ -400,6 +385,10 @@
     .header.open .nav-burger-btn span:nth-child(3) {
         transform: translateY(0) rotate(45deg);
         width: 39px;
+    }
+
+    .nav-burger-btn:active span {
+        background-color: #BB945F;
     }
 
     .header__navigation {
@@ -471,7 +460,7 @@
 
     .about {
         width: 1200px;
-        height: 862px;
+        height: 837px;
     }
 
     .about__box-title {
@@ -545,13 +534,16 @@
     }
 
     .about__button-control {
-        width: 120px;
-        height: 16px;
-        margin: -16px 540px 40px;
+        width: 130px;
+        height: 26px;
+        margin-top: -10px;
     }
 
+    .transparent-container{
+        width: 26px;
+        height: 26px;
+    }
     .transparent-container-four {
-        display: block;
         display: flex;
         width: 26px;
         height: 26px;
@@ -561,11 +553,9 @@
         outline: none;
         border: none;
         border-radius: 50%;
-        cursor: pointer;
     }
     
     .transparent-container-five {
-        display: block;
         display: flex;
         width: 26px;
         height: 26px;
@@ -575,7 +565,6 @@
         outline: none;
         border: none;
         border-radius: 50%;
-        cursor: pointer;
     }
 
     .button-control-four {
@@ -586,7 +575,6 @@
         margin: 0px;
         border-radius: 50%;
         border: none;
-        cursor: pointer;
         outline: none;
     }
 
@@ -598,9 +586,9 @@
         margin: 0px;
         border-radius: 50%;
         border: none;
-        cursor: pointer;
         outline: none;
     }
+
     /* favoit section */
     .favorites {
         width: 1200px;
@@ -905,7 +893,7 @@
         width: 45px;
         height: 2px;
         background-color: #FFFFFF;
-        transition: background-color 3s, opacity 0.1s, transform 0.3s;
+        transition: background-color 0.3s, opacity 0.1s, transform 0.3s;
         will-change: transform;
     }
 
@@ -933,6 +921,10 @@
     .header.open .nav-burger-btn span:nth-child(3) {
         transform: translateY(0) rotate(45deg);
         width: 39px;
+    }
+
+    .nav-burger-btn:active span {
+        background-color: #BB945F;
     }
 
     .header__navigation {
@@ -1094,13 +1086,17 @@
     }
 
     .about__button-control {
-        width: 120px;
-        height: 16px;
-        margin: -16px 324px 40px;
+        width: 130px;
+        height: 26px; 
+        margin-top: -21px;
+    }
+
+    .transparent-container{
+        width: 26px;
+        height: 26px;
     }
 
     .transparent-container-four {
-        display: block;
         display: flex;
         width: 26px;
         height: 26px;
@@ -1110,11 +1106,9 @@
         outline: none;
         border: none;
         border-radius: 50%;
-        cursor: pointer;
     }
       
     .transparent-container-five {
-        display: block;
         display: flex;
         width: 26px;
         height: 26px;
@@ -1124,7 +1118,6 @@
         outline: none;
         border: none;
         border-radius: 50%;
-        cursor: pointer;
     }
 
     .button-control-four {
@@ -1132,10 +1125,10 @@
         background: #0C0C0E;
         width: 16px;
         height: 16px;
+        align-items: center;
         margin: 0px;
         border-radius: 50%;
         border: none;
-        cursor: pointer;
         outline: none;
     }
 
@@ -1144,10 +1137,10 @@
         background: #0C0C0E;
         width: 16px;
         height: 16px;
+        align-items: center;
         margin: 0px;
         border-radius: 50%;
         border: none;
-        cursor: pointer;
         outline: none;
     }
 
@@ -1279,6 +1272,10 @@
     .senior-staff-block-email {
         width: 506.6px;
         height: 40px;
+    }
+
+    .maps {
+        margin: 0 auto;
     }
 
     /* digital-library-cards section */ 

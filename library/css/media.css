@@ -1,30 +1,339 @@
-@media (max-width: 1440px) {  
+@media (min-width: 1314px) and (max-width: 1440px) {  
+        .favorites-box {
+        width: max-content;
+    }
+
+    html {
+        width: 1440px;
+    }
+
+    .container {
+        display: flex;
+        width: 1440px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .header {
+        width: 1400px;
+        height: 50px;
+        padding: 20px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header__logo {
+        margin: 0px;
+    }
+
+    .header__navigation {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .header__menu {
+        margin-right: 0px;
+        z-index: 3;
+    }
+
     .nav-burger-btn {
-        position: relative;
-        width: 45px;
-        height: 20px;
-        flex-shrink: 0;
-        background-color: #0C0C0E;
-        border: none;
-        z-index: 2;
         display: none;
     }
-    
+
+    .nav-burger-btn span {
+        display: none;
+    }
+
+    .header__list-item {
+        width: max-content;
+        height: 50px;
+        margin: 0px 0px;
+    }
+
+    /* main section */
+    /* welcome style */
+    .welcome-background {
+        width: 1440px;
+        background: url(../img/Welcome.jpg);
+    }
+
+    .welcome__box {
+        margin: -80px 169px 160px 0px;
+    }
+
+    .main {
+        width: 1440px;
+    }
+
+    .welcome {
+        width: 1440px;
+    }
+
+    .welcome-background {
+        width: 1440px;
+    }
+
+    .welcome__overlay {
+        width: 1440px;
+    }
+
+    .about {
+        width: 1440px;
+        height: 837px;
+    }
+
+    .about__box {
+        width: max-content;
+    }
+
+    .about__box-title {
+        margin: 0 auto;
+        width: max-content;
+    }
+
+    .about__box-line {
+        width: max-content;
+    }
+
+    .about__line {
+        margin: 0 auto;
+    }
+
+    .about__paragraf {
+        width: max-content;
+        margin-bottom: 0px;
+    }
+
+    .about__paragraf-text {
+        width: max-content;
+    }
+
+    .about__image-gallery {
+        display: flex;
+        width: 1400px;
+        height: 560px;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .about-image {
+        width: 1400px;
+        justify-content: center;
+    }
+
     .about-button-left {
         display: none;
     }
-    
+
     .about-button-right {
         display: none;
+    }
+
+    .about-button-svg {
+        width: 24px;
+    }
+
+    .image-gallery-photo {
+        justify-content: center;
+        margin: 0px;
+    }
+
+    .image-gallery-photo:nth-last-child(-n+2) {
+        width: 450px;
+        height: 560px;
+        flex-shrink: 0;
+        display: none;
+    }
+
+    .about__button-control {
+        width: 78px;
+        height: 26px;
     }
 
     .transparent-container {
         width: 26px;
         height: 26px;
     }
+
+    .transparent-container-four {
+        display: none;
+    }
+    
+    .transparent-container-five {
+        display: none;
+    }
+
+    .button-control-four {
+        display: none;
+    }
+
+    .button-control-five {
+        display: none;
+    }
+
+    /* favoit section */
+    .favorites {
+        width: 1440px;
+        height: 1439px;
+    }
+
+    .favorites-box {
+        width: max-content;
+    }
+
+    .favorites-text {
+        display: flex;
+        width: max-content;
+        margin-left: 20px;
+    }
+
+    .favorites-text-title {
+        width: max-content;
+    }
+
+    .favorites-box-title {
+        justify-content: center;
+    }
+
+    .favorites-line {
+        justify-content: center;
+    }
+
+    .container-book {
+        width: 1400px;
+    }
+
+    /* coffee section */ 
+    .coffee-shop {
+        width: 1400px;
+    }
+
+    .coffee-shop-box {
+        justify-content: center;
+    }
+
+    .coffee-shop-paragraf {
+        width: max-content;
+        height: 200px;
+    }
+
+    .coffee-shop-paragraf-text {
+        width: 1400px;
+    }
+
+    .coffee-shop-menu {
+        display: flex;
+        width: 1400px;
+    }
+
+    /* our-contacts section */ 
+    .our-contacts {
+        width: 1400px;
+    }
+
+    .our-contacts-box {
+        width: max-content;
+    }
+
+    .our-contacts-block {
+        width: 1400px;
+        gap: 0px;
+    }
+
+    .text-info-contact {
+        margin-left: 0px;
+    }
+
+    .Phone-info {
+        width: 1400px;
+        height: 160px;
+        margin-bottom: 0px;
+    }
+
+    .senior-staff {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0px;
+        margin-top: 40px;
+    }
+
+    .senior-staff-block-name {
+        width: 199px;
+        margin-right: 307px;
+    }
+
+    .senior-staff-info-name {
+        margin-left: 0px;
+    }
+
+    /* digital-library-cards section */ 
+    .digital-library-cards {
+        display: flex;
+        align-items: center;
+        width: 1440px;
+    }
+
+    .digital-library-box {
+        width: 1400px;
+        height: 61px;
+        flex-shrink: 0;
+    }
+
+    .digital-library-card-white-box {
+        align-items: center;
+    }
+
+    /* footer section */ 
+    .footer {
+        width: 1440px;
+    }
+    
+    .footer__container {
+        width: 1440px;
+    }
+
+    .footer__container-frame6 {
+        width: 1400px;
+    }
+
+    .frame5 {
+        display: flex;
+        width: 1400px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .frame5__workschedule {
+        white-space: nowrap;
+    }
+
+    .frame4 {
+        display: flex;
+        width: 1400px;
+    }
+
+    .frame4__workschedule {
+        white-space: nowrap;
+    }
+
+    .footer__container-line {
+        width: 1400px;
+    }
+
+    .footer__container-link {
+        display: flex;
+        width: 1400px;
+        align-items: flex-end;
+    }
 }
 
-@media (max-width: 1313px) {
+@media (min-width: 1201px) and (max-width: 1313px) {
+    html {
+        width: 1313px;
+    }
+
     .container {
         display: flex;
         width: 1313px;
@@ -34,13 +343,11 @@
     }
 
     .header {
-        display: flex;
         width: 1273px;
         height: 50px;
         padding: 20px;
         justify-content: space-between;
         align-items: center;
-        background: #0C0C0E;
     }
 
     .header__logo {
@@ -75,7 +382,7 @@
     /* welcome style */
     .welcome-background {
         width: 1313px;
-        background: url(../img/Welcome768.jpg);
+        background: url(../img/Welcome.jpg);
     }
 
     .welcome__box {
@@ -103,19 +410,30 @@
         height: 837px;
     }
 
+    .about__box {
+        width: max-content;
+    }
+
     .about__box-title {
         margin: 0 auto;
-        justify-content: center;
+        width: max-content;
+    }
+
+    .about__box-line {
+        width: max-content;
     }
 
     .about__line {
         margin: 0 auto;
-        justify-content: center;
     }
 
     .about__paragraf {
-        width: 1273px;
+        width: max-content;
         margin-bottom: 0px;
+    }
+
+    .about__paragraf-text {
+        width: max-content;
     }
 
     .about__image-gallery {
@@ -138,6 +456,10 @@
 
     .about-button-right {
         display: none;
+    }
+
+    .about-button-svg {
+        width: 24px;
     }
 
     .image-gallery-photo {
@@ -172,7 +494,6 @@
         outline: none;
         border: none;
         border-radius: 50%;
-        cursor: pointer;
     }
     
     .transparent-container-five {
@@ -187,7 +508,6 @@
         margin: 0px;
         border-radius: 50%;
         border: none;
-        cursor: pointer;
         outline: none;
     }
 
@@ -199,6 +519,20 @@
     .favorites {
         width: 1313px;
         height: 1439px;
+    }
+
+    .favorites-box {
+        width: max-content;
+    }
+
+    .favorites-text {
+        display: flex;
+        width: max-content;
+        margin-left: 20px;
+    }
+
+    .favorites-text-title {
+        width: max-content;
     }
 
     .favorites-box-title {
@@ -218,17 +552,31 @@
         width: 1273px;
     }
 
+    .coffee-shop-box {
+        justify-content: center;
+    }
+
     .coffee-shop-paragraf {
+        width: max-content;
+        height: 200px;
+    }
+
+    .coffee-shop-paragraf-text {
         width: 1273px;
     }
 
     .coffee-shop-menu {
+        display: flex;
         width: 1273px;
     }
 
     /* our-contacts section */ 
     .our-contacts {
         width: 1273px;
+    }
+
+    .our-contacts-box {
+        width: max-content;
     }
 
     .our-contacts-block {
@@ -240,10 +588,17 @@
         margin-left: 0px;
     }
 
+    .Phone-info {
+        width: 1273px;
+        height: 160px;
+        margin-bottom: 0px;
+    }
+
     .senior-staff {
         display: flex;
         flex-direction: column;
         margin-left: 0px;
+        margin-top: 40px;
     }
 
     .senior-staff-block-name {
@@ -257,7 +612,15 @@
 
     /* digital-library-cards section */ 
     .digital-library-cards {
+        display: flex;
+        align-items: center;
         width: 1313px;
+    }
+
+    .digital-library-box {
+        width: 1273px;
+        height: 61px;
+        flex-shrink: 0;
     }
 
     .digital-library-card-white-box {
@@ -278,7 +641,10 @@
     }
 
     .frame5 {
+        display: flex;
         width: 1273px;
+        justify-content: center;
+        align-items: center;
     }
 
     .frame5__workschedule {
@@ -286,6 +652,7 @@
     }
 
     .frame4 {
+        display: flex;
         width: 1273px;
     }
 
@@ -298,15 +665,17 @@
     }
 
     .footer__container-link {
+        display: flex;
         width: 1273px;
-    }
-
-    .footer__link-form-chool {
-        margin-left: 429px;
+        align-items: flex-end;
     }
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 769px) and (max-width: 1200px) {
+    html {
+        width: 1200px;
+    }
+
     .container {
         display: flex;
         width: 1200px;
@@ -333,7 +702,6 @@
 
     .header__menu {
         width: 113px;
-        margin-left: 321px;
         margin-right: 0px;
         gap: 40px;
         z-index: 3;
@@ -463,9 +831,16 @@
         height: 837px;
     }
 
+    .about__box {
+        width: max-content;
+    }
+
     .about__box-title {
         margin: 0 auto;
-        justify-content: center;
+    }
+
+    .about__box-line {
+        width: max-content;
     }
 
     .about__line {
@@ -474,8 +849,12 @@
     }
 
     .about__paragraf {
-        width: 1160px;
+        width: max-content;
         margin-bottom: 0px;
+    }
+
+    .about__paragraf-text {
+        width: max-content;
     }
 
     .about__image-gallery {
@@ -496,6 +875,7 @@
     }
 
     .about-button-left {
+        width: 24px;
         display: block;
         align-items: center;
         height: 25px;
@@ -511,6 +891,7 @@
     }
 
     .about-button-right {
+        width: 24px;
         display: block;
         height: 25px;
         margin-top: 288.5px;
@@ -520,6 +901,10 @@
         border: none;
         cursor: pointer;
         transition: background-color 3s, opacity 0.1s, transform 0.3s;
+    }
+
+    .about-button-svg {
+        width: 24px;
     }
 
     .image-gallery-photo {
@@ -595,6 +980,19 @@
         height: 2629px;
     }
 
+    .favorites-box {
+        width: max-content;
+    }
+
+    .favorites-text {
+        width: max-content;
+        margin-left: 20px;
+    }
+
+    .favorites-text-title {
+        width: max-content;
+    }
+
     .favorites-box-title {
         justify-content: center;
     }
@@ -633,6 +1031,10 @@
         height: 200px;
     }
 
+    .coffee-shop-paragraf-text {
+        width: 1160px;
+    }
+
     .coffee-shop-menu {
         display: flex;
         display: inline-flex;
@@ -652,6 +1054,10 @@
     .our-contacts {
         width: 1160px;
         height: 995px;
+    }
+
+    .our-contacts-box {
+        width: max-content;
     }
 
     .our-contacts-block {
@@ -719,7 +1125,7 @@
     }
 
     .digital-library-box {
-        width: max-content;
+        width: 1160px;
         height: 61px;
         flex-shrink: 0;
     }
@@ -838,13 +1244,13 @@
         width: 1160px;
         align-items: flex-end;
     }
-
-    .footer__link-form-chool {
-        margin-left: 372px;
-    }
 }
 
 @media (min-width: 640px) and (max-width: 768px) {
+    html {
+        width: 768px;
+    }
+
     .container {
         display: flex;
         width: 768px;
@@ -857,6 +1263,8 @@
         width: 728px;
         height: 50px;
         padding: 20px;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .header__logo {
@@ -869,12 +1277,11 @@
 
     .header__menu {
         width: 113px;
-        margin-left: 321px;
         margin-right: 0px;
         gap: 40px;
         z-index: 3;
     }
-    
+
     .nav-burger-btn {
         display: block;
         position: relative;
@@ -951,14 +1358,12 @@
         z-index: 2;
     }
 
-   .header__nav {
+    .header__nav {
         width: 332px;
         height: 570px;
-        top: 0px;
-        right: 0px;
     }
 
-   .header__list {
+    .header__list {
         width: 118px;
         height: 370px;
         display: inline-flex;
@@ -969,22 +1374,6 @@
         padding: 100px 107px;
     }
 
-   .header__list-item {
-        width: max-content;
-        height: 50px;
-        margin: 0px 0px;
-    }
-
-   .header__list-link {
-        width: max-content;
-        color: #FFF;
-        font-family: Inter;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 50px; /* 250% */
-        text-decoration: none;
-    }
     /* main section */
     /* welcome style */
     .welcome-background {
@@ -1017,17 +1406,31 @@
         height: 862px;
     }
 
+    .about__box {
+        width: max-content;
+    }
+
     .about__box-title {
-      margin-left: 330px;
+        margin: 0 auto;
+    }
+
+    .about__box-line {
+        width: max-content;
     }
 
     .about__line {
-        margin: 0px 359px;
+        margin: 0 auto;
+        justify-content: center;
     }
 
     .about__paragraf {
         width: 728px;
         margin-bottom: 0px;
+    }
+
+    .about__paragraf-text {
+        width: 728px;
+        word-wrap: break-word;
     }
 
     .about__image-gallery {
@@ -1048,6 +1451,7 @@
     }
 
     .about-button-left {
+        width: 24px;
         display: block;
         align-items: center;
         height: 25px;
@@ -1063,6 +1467,7 @@
     }
 
     .about-button-right {
+        width: 24px;
         display: block;
         height: 25px;
         margin-top: 288.5px;
@@ -1072,6 +1477,10 @@
         border: none;
         cursor: pointer;
         transition: background-color 3s, opacity 0.1s, transform 0.3s;
+    }
+
+    .about-button-svg {
+        width: 24px;
     }
 
     .image-gallery-photo {
@@ -1087,15 +1496,14 @@
 
     .about__button-control {
         width: 130px;
-        height: 26px; 
-        margin-top: -21px;
+        height: 26px;
+        margin-top: -10px;
     }
 
     .transparent-container{
         width: 26px;
         height: 26px;
     }
-
     .transparent-container-four {
         display: flex;
         width: 26px;
@@ -1107,7 +1515,7 @@
         border: none;
         border-radius: 50%;
     }
-      
+    
     .transparent-container-five {
         display: flex;
         width: 26px;
@@ -1125,7 +1533,6 @@
         background: #0C0C0E;
         width: 16px;
         height: 16px;
-        align-items: center;
         margin: 0px;
         border-radius: 50%;
         border: none;
@@ -1137,7 +1544,6 @@
         background: #0C0C0E;
         width: 16px;
         height: 16px;
-        align-items: center;
         margin: 0px;
         border-radius: 50%;
         border: none;
@@ -1150,12 +1556,25 @@
         height: 2629px;
     }
 
+    .favorites-box {
+        width: max-content;
+    }
+
+    .favorites-text {
+        width: max-content;
+        margin-left: 20px;
+    }
+
+    .favorites-text-title {
+        width: max-content;
+    }
+
     .favorites-box-title {
-        margin-left: 303px;
+        justify-content: center;
     }
 
     .favorites-line {
-        margin-left: 358px;
+        justify-content: center;
     }
 
     .container-book {
@@ -1180,12 +1599,17 @@
     }
 
     .coffee-shop-box {
-        margin-left: 253px;
+        justify-content: center;
     }
 
     .coffee-shop-paragraf {
         width: 728px;
         height: 200px;
+    }
+
+    .coffee-shop-paragraf-text {
+        width: 728px;
+        word-wrap: break-word;
     }
 
     .coffee-shop-menu {
@@ -1196,30 +1620,25 @@
         height: 1080px;
     }
 
-    .coffee-and-tea-menu {
-        margin-left: 0px;
-    }
-
     .deserts-menu {
         display: flex;
         width: 482px;
         height: 520px;
-        margin-left: 246px;
         margin-top: 40px;
     }
 
     /* our-contacts section */ 
     .our-contacts {
-        width: 727px;
+        width: 728px;
         height: 995px;
     }
 
     .our-contacts-box {
-        margin-left: 242.5px;
+        width: max-content;
     }
 
     .our-contacts-block {
-        width: 727px;
+        width: 728px;
         height: 894px;
         flex-direction: column;
         align-items: center;
@@ -1230,7 +1649,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width: 726px;
+        width: 728px;
         height: 380px;
         margin-bottom: 0px;
         gap: 40px;
@@ -1247,7 +1666,7 @@
     }
 
     .Phone-info {
-        width: 726px;
+        width: 728px;
         height: 160px;
         margin-bottom: 0px;
     }
@@ -1257,7 +1676,7 @@
         flex-direction: column;
         width: 507px;
         height: 100px;
-        margin-right: 219px;
+        margin-left: 0px;
     }
 
     .senior-staff-block-name {
@@ -1287,7 +1706,7 @@
     }
 
     .digital-library-box {
-        width: max-content;
+        width: 728px;
         height: 61px;
         flex-shrink: 0;
     }
@@ -1390,7 +1809,7 @@
 
     .frame4 {
         display: flex;
-        width: 728px;
+        width:728px;
     }
 
     .frame4__workschedule {
@@ -1406,9 +1825,4 @@
         width: 728px;
         align-items: flex-end;
     }
-
-    .footer__link-form-chool {
-        margin-left: 157px;
-    }
 }
-

@@ -536,6 +536,8 @@ input[type="radio"] {
   height: 40px;
   margin-left: 20px;
   flex-shrink: 0;
+  margin-top: 15px;
+  margin-left: 0px;
 }
 
 .pick-book-text {
@@ -549,8 +551,7 @@ input[type="radio"] {
   letter-spacing: 2px;
   text-transform: capitalize;
   white-space: nowrap;
-  margin-top: 15px;
-  margin-left: 0px;
+  margin-left: 20px;
 }
 
 .line {
@@ -741,7 +742,6 @@ input[type="radio"] {
   font-weight: 400;
   line-height: 40px; /* 200% */
   letter-spacing: 2px;
-  text-transform: lowercase;
 }
 
 .coffee-shop-menu {

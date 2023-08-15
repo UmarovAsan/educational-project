@@ -1,4 +1,4 @@
-@media (min-width: 1241px) and (max-width: 1439px) {  
+@media (max-width: 1439px) and (min-width: 1241px) {  
     .container {
         max-width: 1439px;
     }
@@ -93,7 +93,7 @@
     /* footer section */ 
 }
 
-@media (min-width: 1022px) and (max-width: 1240px) {  
+@media (max-width: 1240px) and (min-width: 1022px) {  
     .container {
         max-width: 1240px;
     }
@@ -215,6 +215,7 @@
 
     .maps {
         width: 100%;
+        max-width: 696px;
         justify-content: center;
         align-items: center;
         margin: auto;
@@ -276,7 +277,7 @@
     /* footer section */ 
 }
 
-@media (min-width: 769px) and (max-width: 1021px) {  
+@media (max-width: 1021px) and (min-width: 769px) {  
     .container {
         max-width: 1021px;
     }
@@ -555,6 +556,7 @@
 
     .maps {
         width: 100%;
+        max-width: 696px;
         justify-content: center;
         align-items: center;
         margin: auto;
@@ -613,7 +615,7 @@
     }
 }
 
-@media (min-width: 635px) and (max-width: 768px) {  
+@media (max-width: 768px) and (min-width: 635px) {  
     .container {
         max-width: 768px;
     }
@@ -850,7 +852,7 @@
     
     @media (max-width: 720px) {
         .container-weather {
-            margin-right: 54px;
+            margin-right: 50px;
         }
     }
 
@@ -890,10 +892,8 @@
 
     .maps {
         width: 100%;
-        justify-content: center;
-        align-items: center;
-        margin-left: 0px;
-        margin-right: 0px;
+        max-width: 696px;
+        margin: 0 auto;
     }
 
     /* digital-library-cards section */

@@ -17,12 +17,12 @@
 }
 
 html {
-  margin: 0 auto;
-  padding: 0;
+  max-width: 1440px;
   scroll-behavior: smooth;
 }
 
 * {
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0px;
   box-sizing: border-box;
@@ -30,18 +30,20 @@ html {
 
 *, *::before, *::after {
   box-sizing: inherit;
-}
-
-body {
-  margin: 0 auto;
-  padding: 0;
+  
 }
 
 /* header style */
 .container {
-  width: 1440px;
+  max-width: 1440px;
   display: block;
   background-color: #FFF;
+  margin: 0px auto;
+
+
+  &--sm {
+    max-width: 640px;
+  }
 }
 
 a:hover {
@@ -55,7 +57,6 @@ a:hover {
   align-items: center;
   background: #0C0C0E;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  width: 1440px;
   height: 90px;
   margin-left: 0px;
   margin-right: 0px;
@@ -88,8 +89,9 @@ a:hover {
   width: max-content;
   height: 50px;
   margin-top: 20px;
-  margin-right: 40px;
   margin-bottom: 20px;
+  margin-right: 0px;
+  
 }
 
 .header__nav {
@@ -143,7 +145,7 @@ a:hover {
   margin-top: 31px;
   margin-right: 20px;
   margin-bottom: 31px;
-  margin-left: 0px;
+  margin-left: 40px;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -183,14 +185,16 @@ a:hover {
 }
 
 .welcome {
+  display: flex;
   position: relative;
-  width: 1440px;
   height: 600px;
   align-items: center;
 }
 
 .welcome-background {
-  width: 1440px;
+  display: flex;
+  width: 100%;
+  height: 600px;
   position: absolute;
   background: url(../img/Welcome.jpg), lightgray 50% / cover no-repeat;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -198,7 +202,8 @@ a:hover {
 }
 
 .welcome__overlay {
-  width: 1440px;
+  display: flex;
+  width: 100%;
   height: 300px;
   flex-shrink: 0;
   background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.10) 100%);
@@ -212,6 +217,7 @@ a:hover {
 }
 
 .welcome__box {
+  position: absolute;
   width: 520px;
   height: 150px;
   padding: 35px 40px;
@@ -219,12 +225,12 @@ a:hover {
   align-items: center;
   flex-shrink: 0;
   background: #0C0C0E;
-  margin: -80px 840px 160px 0px;
+  margin-top: 220px;
+  margin-left: 0px;
 }
 
 .welcome__box-title {
-  width: 520px;
-  height: 150px;
+  width: max-content;
   flex-shrink: 0;
   color: #FFF;
   text-align: center;
@@ -235,20 +241,24 @@ a:hover {
   line-height: 50px; /* 125% */
   letter-spacing: 3px;
   text-transform: uppercase;
+  margin: auto;
 }
 
 /*about section */
 .about {
-  width: 1440px;
   height: 837px;
   background-color: #FFF;
-  margin: 0 auto;
+}
+
+.about__box {
+  width: max-content;
+  height: 61px;
+  padding-top: 20px;
+  flex-shrink: 0;
 }
 
 .about__box-title {
   width: max-content;
-  height: 61px;
-  flex-shrink: 0;
   color: #0C0C0E;
   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-family: Forum;
@@ -260,8 +270,6 @@ a:hover {
   text-transform: capitalize;
   text-align: center;
   white-space: nowrap;
-  padding-top: 20px;
-  margin-bottom: 0px;
 }
 
 .about__line {
@@ -273,7 +281,6 @@ a:hover {
 }
 
 .about__paragraf {
-  align-items: center;
   color: #000;
   text-align: center;
   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -283,29 +290,34 @@ a:hover {
   font-weight: 400;
   line-height: 40px; /* 200% */
   margin-top: 40px;
-  margin-bottom: 20px;
 }
 
 .about__image-gallery {
   display: flex;
-  width: 1400px;
   height: 560px;
   flex-shrink: 0;
+  margin-top: 20px;
+  background: #FFF;
   margin-left: 20px;
   margin-right: 20px;
-  background: #FFF;
-  
 }
 
 .about-image {
-  display: flex;
-  width: 1400px;
+  display: inline-block;
   height: 560px;
-  gap: 25px;
 }
 
 .about-button-left {
   display: none;
+}
+
+.image-gallery-photo {
+  margin-left: 0px;
+  margin-right: 21px;
+}
+
+.image-gallery-photo:nth-child(3) {
+  margin-right: 0;
 }
 
 .image-gallery-photo:nth-last-child(-n+2) {
@@ -387,27 +399,33 @@ a:hover {
 .button-control-four {
   align-items: center;
   cursor: pointer;
+  background: #0C0C0E;
   display: none;
 }
 
 .button-control-five {
   align-items: center;
   cursor: pointer;
+  background: #0C0C0E;
   display: none;
 }
 
 /* favoit section */
 .favorites {
-  width: 1440px;
   height: 1439px;
   flex-shrink: 0;
-  margin: 0 auto;
+}
+
+.favorites-box {
+  width: max-content;
+  height: 41px;
+  flex-shrink: 0;
+  padding-top: 20px;
+  justify-content: center;
 }
 
 .favorites-box-title {
   width: max-content;
-  height: 41px;
-  flex-shrink: 0;
   color: #0C0C0E;
   font-family: Forum;
   font-size: 40px;
@@ -417,9 +435,6 @@ a:hover {
   letter-spacing: 2px;
   text-transform: capitalize;
   white-space: nowrap;
-  padding-top: 20px;
-  margin-bottom: 20px;
-  justify-content: center;
 }
 
 .favorites-line {
@@ -430,12 +445,19 @@ a:hover {
   height: 1px;
   flex-shrink: 0;
   background: #0C0C0E;
+  margin-top: 20px;
 }
 
 .favorites-text {
   display: flex;
-  width: 1400px;
+  width: max-content;
   height: 24px;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+.favorites-text-title {
+  width: max-content;
   color: #000;
   text-align: left;
   font-family: Inter;
@@ -443,17 +465,15 @@ a:hover {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-top: 40px;
 }
 
 .button-favorites {
   display: flex;
-  width: 700px;
+  width: max-content;
   height: 24px;
   flex-shrink: 0;
   margin-left: 20px;
   margin-top: 40px;
-  margin-bottom: 40px;
   align-items: center;
   gap: 85px;
 }
@@ -461,7 +481,8 @@ a:hover {
 .container-weather {
   display: flex;
   align-items: center;
-  margin: 0;
+  justify-content: left;
+ 
 }
 
 .radio-size {
@@ -503,10 +524,10 @@ input[type="radio"] {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 1400px;
   height: 1150px;
   flex-shrink: 0;
   background: #FFF;
+  margin-top: 40px;
   margin-right: 20px;
   margin-bottom: 40px;
   margin-left: 20px;
@@ -690,14 +711,12 @@ input[type="radio"] {
 /* coffee section */ 
 .coffee-shop {
   display: flex;
-  width: 1400px;
   height: 781px;
   padding: 20px 20px 40px 20px;
   flex-direction: column;
   align-items: center;
   gap: 40px;
   background: #FFF;
-  margin: 0 auto;
 }
 
 .coffee-shop-box {
@@ -727,13 +746,10 @@ input[type="radio"] {
 }
 
 .coffee-shop-paragraf {
-  width: max-content;
   height: 120px;
 }
 
 .coffee-shop-paragraf-text {
-  display: flex;
-  width: 1400px;
   color: #000;
   text-align: center;
   font-family: Inter;
@@ -745,17 +761,19 @@ input[type="radio"] {
 }
 
 .coffee-shop-menu {
+  width: 100%;
   display: flex;
-  width: 1400px;
+  flex-wrap: wrap;
+  justify-content: space-between;
   height: 520px;
 }
 
 .coffee-and-tea-menu {
   width: 440px;
   height: 520px;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 40px;
   margin-left: 0px;
@@ -827,9 +845,9 @@ input[type="radio"] {
   width: 482px;
   height: 520px;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
   gap: 40px;
+  justify-content: flex-end;
+  align-items: flex-end;
   margin-right: 0px;
 }
 
@@ -873,7 +891,6 @@ input[type="radio"] {
   line-height: 40px; /* 200% */
   letter-spacing: 2px;
   text-transform: capitalize;
-  margin: 0;
 }
 
 .menu-line {
@@ -901,18 +918,15 @@ input[type="radio"] {
 /* our-contacts section */ 
 .our-contacts {
   display: flex;
-  width: 1400px;
   height: 515px;
   padding: 20px 20px 40px 20px;
   flex-direction: column;
   align-items: center;
   gap: 40px;
   background: #FFF;
-  margin: 0 auto;
 }
 
 .our-contacts-box {
-  width: 1400px;
   height: 61px;
 }
 
@@ -939,18 +953,21 @@ input[type="radio"] {
 }
 
 .our-contacts-block {
-  width: 1400px;
+  width: 100%;
   height: 414px;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 201px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .block-info {
   width: 505px;
   height: 380px;
-  margin-bottom: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 0px;
   margin-left: 0px;
 }
 
@@ -958,7 +975,6 @@ input[type="radio"] {
   width: max-content;
   height: 40px;
   margin-left: 0px;
-  margin-bottom: 40px;
 }
 
 .text-info-contact {
@@ -978,13 +994,12 @@ input[type="radio"] {
   width: 505px;
   height: 160px;
   flex-shrink: 0;
-  margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 .phone-gap {
   width: max-content;
   height: 40px;
-  margin-bottom: 20px;
   margin-left: 0px;
 }
 
@@ -1004,7 +1019,7 @@ input[type="radio"] {
 .phone-gap2 {
   width: max-content;
   height: 40px;
-  margin-bottom: 20px;
+  margin-top: 20px;
   margin-left: 0px;
 }
 
@@ -1024,8 +1039,7 @@ input[type="radio"] {
 .phone-gap3 {
   width: max-content;
   height: 40px;
-  margin-right: 108px;
-  margin-bottom: 20px;
+  margin-top: 20px;
   margin-left: 0px;
 }
 
@@ -1050,13 +1064,13 @@ input[type="radio"] {
   width: max-content;
   height: 100px;
   flex-shrink: 0;
+  margin-top: 40px;
   margin-left: 0px;
 }
 
 .senior-staff-block-name {
-  width: 351px;
+  width: max-content;
   height: 40px;
-  margin-bottom: 20px;
   margin-left: 0px;
 }
 
@@ -1076,6 +1090,7 @@ input[type="radio"] {
 .senior-staff-block-email {
   width: max-content;
   height: 40px;
+  margin-top: 20px;
   margin-left: 0px;
 }
 
@@ -1092,8 +1107,12 @@ input[type="radio"] {
 }
 
 .maps {
+  display: flex;
+  flex-direction: column;
   width: 696px;
   height: 414px;
+  justify-content: flex-start;
+  align-items: flex-end;
   margin-right: 0px;
 }
 
@@ -1103,23 +1122,20 @@ input[type="radio"] {
 
 
 /* digital-library-cards section */ 
-.digital-library-cards{
-  width: 1440px;
+.digital-library-cards {
   height: 614px;
   display: flex;
   flex-wrap: wrap;
   background: #FFF;
   position: relative;
-  margin: 0 auto;
 }
 
 .digital-library-box {
-  width: 1400px;
+  width: 100%;
   height: 61px;
   flex-shrink: 0;
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 40px;
 }
 
 .digital-library-title {
@@ -1147,7 +1163,6 @@ input[type="radio"] {
   height: 453px;
   flex-shrink: 0;
   margin-left: 20px;
-  margin-bottom: 40px;
 }
 
 .digital-library-card-text-box {
@@ -1290,7 +1305,6 @@ input[type="radio"] {
   height: 253px;
   flex-shrink: 0;
   margin-right: 20px;
-  margin-bottom: 240px;
 }
 
 .digital-library-box-reader-card {
@@ -1398,28 +1412,19 @@ input[type="radio"] {
 
 /* footer section */ 
 .footer {
-  width: 1440px;
   height: 250px;
   background: #0C0C0E;
 }
 
 .footer__container {
-  overflow: hidden;
-}
-
-.footer__container {
-  width: 1440px;
   height: 250px;
   background: #0C0C0E;
 }
 
 .footer__container-frame6 {
   display: flex;
-  width: 1400px;
   height: 90px;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
   gap: 10px;
   flex-shrink: 0;
   padding: 20px 20px 30px 20px;
@@ -1427,11 +1432,11 @@ input[type="radio"] {
 
 .frame5 {
   display: flex;
-  width: 1400px;
+  width: 100%;
   height: 40px;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: space-between;
   flex-shrink: 0;
+  align-items: center;
 }
 
 .frame5__adress {
@@ -1463,17 +1468,17 @@ input[type="radio"] {
 
 .frame4 {
   display: flex;
-  width: 1398px;
+  width: 100%;
   height: 40px;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
 }
   
 .frame4__social {
   display: flex;
   width: 102px;
   height: 24px;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 15px;
   margin-left: 0px;
@@ -1505,29 +1510,32 @@ input[type="radio"] {
   font-weight: 400;
   line-height: 20px; /* 133.333% */
   margin-right: 0px;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .footer__container-line {
-  width: 1400px;
   height: 1px;
   background: #FFF;
 }
 
 .footer__container-link {
-  display: inline-flex;
-  width: 1400px;
+  display: flex;
   height: 22px;
   justify-content: space-between;
+  align-items: center;
   flex-shrink: 0;
   padding: 44px 20px;
 }
 
 .footer__link-form-date {
+  display: flex;
   width: max-content;
   height: 20px;
   margin-left: 0px;
   margin-right: 0px;
   text-align: left;
+  align-items: center;
 }
 
 .footer__link-date {
@@ -1545,9 +1553,10 @@ input[type="radio"] {
   display: flex;
   width: max-content;
   height: 22px;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
   flex-shrink: 0;
+  margin-left: 0px;
   margin-right: 0px;
 }
 
@@ -1567,11 +1576,11 @@ input[type="radio"] {
   display: flex;
   width: max-content;
   height: 22px;
-  flex-direction: column;
-  justify-content: center;
-  text-align: right;
+  justify-content: flex-end;
+  align-items: center;
   flex-shrink: 0;
   margin-right: 0px;
+  margin-left: 0px;
 }
 
 .footer__link-github {

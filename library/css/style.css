@@ -973,6 +973,7 @@ input[type="radio"] {
   align-items: flex-start;
   margin-top: 0px;
   margin-left: 0px;
+  margin-right: auto;
 }
 
 .block-info-contact {
@@ -1110,20 +1111,29 @@ input[type="radio"] {
   text-decoration: none;
 }
 
-.maps {
-  display: flex;
-  flex-direction: column;
-  width: 696px;
-  height: 414px;
+.maps img {
+  display: block;
+  width: 100%;
+  height: 100%;
   justify-content: flex-start;
   align-items: flex-end;
   margin-right: 0px;
 }
 
 .maps {
-  background: url(../img/Rectangle4.jpg), lightgray 50% / cover no-repeat;
+  margin-right: 0px;
 }
 
+.maps-image {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+/*
+.maps {
+  background: url(../img/Rectangle4.jpg), lightgray 50% / cover no-repeat;
+}
+*/
 
 /* digital-library-cards section */ 
 .digital-library-cards {

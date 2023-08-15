@@ -475,14 +475,17 @@ a:hover {
   margin-left: 20px;
   margin-top: 40px;
   align-items: center;
-  gap: 85px;
 }
 
 .container-weather {
   display: flex;
   align-items: center;
   justify-content: left;
- 
+  margin-right: 85px;
+}
+
+.container-weather:last-child {
+  margin-right: 0px;
 }
 
 .radio-size {
@@ -891,6 +894,7 @@ input[type="radio"] {
   line-height: 40px; /* 200% */
   letter-spacing: 2px;
   text-transform: capitalize;
+  margin: 0;
 }
 
 .menu-line {
@@ -1271,16 +1275,13 @@ input[type="radio"] {
 }
 
 .digital-library-card-button {
-  display: inline-flex;
-  padding: 10px 40px;
-  align-items: flex-end;
-  border-radius: 2px;
-  border: 1px solid #0C0C0E;
-  margin-right: 179px;
-  margin-bottom: 30px;
-  margin-left: 179px;
   width: 162px;
   height: 24px;
+  padding: 10px 40px;
+  margin-top: 0px;
+  margin-left: 178px;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
   color: #0C0C0E;
   text-align: center;
   font-family: Inter;

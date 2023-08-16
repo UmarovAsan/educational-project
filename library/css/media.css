@@ -421,7 +421,7 @@
         height: 25px;
         color: #0C0C0E;
         margin-left: 0px;
-        margin-top: 280px;
+        margin-top: 288px;
         transform: rotate(180deg);
         background-color: transparent;
         outline: none;
@@ -435,7 +435,7 @@
         width: 24px;
         height: 25px;
         color: #0C0C0E;
-        margin-top: 280px;
+        margin-top: 288px;
         margin-right: 0px;
         background-color: transparent;
         outline: none;
@@ -756,7 +756,7 @@
         height: 25px;
         color: #0C0C0E;
         margin-left: 0px;
-        margin-top: 280px;
+        margin-top: 288px;
         transform: rotate(180deg);
         background-color: transparent;
         outline: none;
@@ -770,7 +770,7 @@
         width: 24px;
         height: 25px;
         color: #0C0C0E;
-        margin-top: 280px;
+        margin-top: 288px;
         margin-right: 0px;
         background-color: transparent;
         outline: none;
@@ -850,7 +850,7 @@
         height: 2629px;
     }
     
-    @media (max-width: 720px) {
+    @media (max-width: 725px) {
         .container-weather {
             margin-right: 50px;
         }
@@ -874,9 +874,14 @@
         height: 200px;
     }
 
+    .coffee-shop-paragraf-text {
+        letter-spacing: 1.9px;
+    }
+
     .deserts-menu {
         margin-top: 40px;
     }
+
     /* our-contacts section */ 
     .our-contacts {
         height: 995px;
@@ -935,16 +940,18 @@
     }
 
     .button-box-sign {
-        width: 75px;
+        width: 73px;
         justify-content: center;
         align-items: center;
-        margin-left: 215px;
+        margin-left: 216px;
+        margin-top: 5px;
     }
 
     .button-box-log-in {
-        width: 75px;
+        width: 73px;
         justify-content: center;
         align-items: center;
         margin-left: 20px;
+        margin-top: 5px;
     }
 }

@@ -289,7 +289,9 @@ a:hover {
   font-style: normal;
   font-weight: 400;
   line-height: 40px; /* 200% */
-  margin-top: 40px;
+  margin-top: 37px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .about__image-gallery {
@@ -452,12 +454,11 @@ a:hover {
   display: flex;
   width: max-content;
   height: 24px;
-  margin-top: 40px;
+  margin-top: 37px;
   margin-left: 20px;
 }
 
 .favorites-text-title {
-  width: max-content;
   color: #000;
   text-align: left;
   font-family: Inter;
@@ -481,7 +482,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: left;
-  margin-right: 85px;
+  margin-right: 88px;
 }
 
 .container-weather:last-child {
@@ -530,7 +531,7 @@ input[type="radio"] {
   height: 1150px;
   flex-shrink: 0;
   background: #FFF;
-  margin-top: 40px;
+  margin-top: 39px;
   margin-right: 20px;
   margin-bottom: 40px;
   margin-left: 20px;
@@ -541,7 +542,7 @@ input[type="radio"] {
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 550px;
+  width: 548px;
   height: 552.3px;
   flex-shrink: 0;
   border: 1px solid #000;
@@ -595,7 +596,7 @@ input[type="radio"] {
   width: max-content;
   height: 80px;
   color: #000000;
-  margin-top: 20px;
+  margin-top: 16px;
   margin-left: 20px;
 }
 
@@ -676,14 +677,18 @@ input[type="radio"] {
 }
 
 .button-own {
-  display: inline-block;
+  width: max-content;
+  height: 28px;
   flex-shrink: 0;
   border-radius: 2px;
   border: 1px solid #BB945F;
   background-color: #FFF;
   margin-top: 15px;
   margin-left: 20px;
-  width: 25px;
+}
+
+.button-own span {
+  width: max-content;
   height: 12px;
   color: #BB945F;
   text-align: center;
@@ -693,7 +698,7 @@ input[type="radio"] {
   font-weight: 700;
   line-height: normal;
   letter-spacing: 1px;
-  padding: 8px 26px;
+  padding: 8px 24px;
 }
 
 .book-cover {
@@ -701,7 +706,7 @@ input[type="radio"] {
   width: 200px;
   height: 300px;
   flex-shrink: 0;
-  margin-top: -289px;
+  margin-top: -286px;
   margin-left: 390px;
 }
 
@@ -709,7 +714,6 @@ input[type="radio"] {
   background-repeat: no-repeat;
   color: lightgray 50%;
 }
-
 
 /* coffee section */ 
 .coffee-shop {
@@ -806,7 +810,7 @@ input[type="radio"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 58px;
+  gap: 57px;
 }
 
 .drink-name {
@@ -879,12 +883,12 @@ input[type="radio"] {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 60px;
+  gap: 57px;
 }
 
 .deserts-name {
   text-align: right;
-  width: 210px;
+  width: max-content;
   height: 40px;
   color: #000;
   font-family: Inter;
@@ -983,7 +987,7 @@ input[type="radio"] {
 }
 
 .text-info-contact {
-  width: max-content;
+  align-items: flex-start;
   color: #000;
   font-family: Inter;
   font-size: 20px;
@@ -1111,6 +1115,10 @@ input[type="radio"] {
   text-decoration: none;
 }
 
+.senior-staff-email span {
+  font-weight: 700;
+}
+
 .maps img {
   display: block;
   width: 100%;
@@ -1198,8 +1206,8 @@ input[type="radio"] {
 
 .digital-library-card-white-box {
   display: inline-block;
-  width: 600px;
-  height: 387px;
+  width: 596px;
+  height: 382px;
   padding-bottom: 0px;
   justify-content: center;
   flex-shrink: 0;
@@ -1214,7 +1222,7 @@ input[type="radio"] {
   height: 272px;
   flex-shrink: 0;
   background: #BB945F;
-  margin: 20px 20px;
+  margin: 19px 19px 17px;
 }
 
 .digital-library-card-gold-box-text {
@@ -1287,11 +1295,17 @@ input[type="radio"] {
 .digital-library-card-button {
   width: 162px;
   height: 24px;
-  padding: 10px 40px;
+  padding: 9px 39px;
   margin-top: 0px;
   margin-left: 178px;
   border-radius: 2px;
   border: 1px solid #0C0C0E;
+  background-color: #FFF;
+}
+
+.digital-library-card-button span {
+  width: max-content;
+  height: 22px;
   color: #0C0C0E;
   text-align: center;
   font-family: Inter;
@@ -1300,7 +1314,6 @@ input[type="radio"] {
   font-weight: 700;
   line-height: normal;
   letter-spacing: 1px;
-  background-color: #FFF;
 }
 
 .digital-library-card-button:hover {
@@ -1368,17 +1381,20 @@ input[type="radio"] {
 
 .button-box-sign {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 78px;
+  width: 73px;
   height: 10px;
-  padding: 10px 0px;
+  padding: 9px 0px;
   margin-right: 0px;
+  align-items: center;
   flex-shrink: 0;
   border-radius: 2px;
   border: 1px solid #0C0C0E;
   background-color: #FFF;
   color: #0C0C0E;
+}
+
+.button-box-sign span {
+  width: max-content;
   text-align: center;
   font-family: Inter;
   font-size: 10px;
@@ -1386,15 +1402,15 @@ input[type="radio"] {
   font-weight: 700;
   line-height: normal;
   letter-spacing: 1px;
+  border: none;
 }
 
 .button-box-log-in {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 78px;
+  width: 73px;
   height: 10px;
-  padding: 10px 0px;
+  padding: 9px 0px;
   margin-right: 0px;
   margin-left: 20px;
   flex-shrink: 0;
@@ -1402,6 +1418,11 @@ input[type="radio"] {
   border: 1px solid #0C0C0E;
   background-color: #FFF;
   color: #0C0C0E;
+}
+
+.button-box-log-in span {
+  width: max-content;
+  color: #0C0C0E;
   text-align: center;
   font-family: Inter;
   font-size: 10px;
@@ -1409,6 +1430,7 @@ input[type="radio"] {
   font-weight: 700;
   line-height: normal;
   letter-spacing: 1px;
+  border: none;
 }
 
 .button-box-log-in:hover,
@@ -1526,6 +1548,8 @@ input[type="radio"] {
 }
 
 .footer__container-line {
+  max-width: 1400px;
+  margin: 0 20px;
   height: 1px;
   background: #FFF;
 }
@@ -1536,7 +1560,7 @@ input[type="radio"] {
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
-  padding: 44px 20px;
+  padding: 43px 20px;
 }
 
 .footer__link-form-date {
@@ -1569,6 +1593,7 @@ input[type="radio"] {
   flex-shrink: 0;
   margin-left: 0px;
   margin-right: 0px;
+  align-items: center;
 }
 
 .footer__link-chool {
@@ -1581,6 +1606,7 @@ input[type="radio"] {
   line-height: 20px; /* 100% */
   letter-spacing: 2px;
   text-decoration: none;
+  align-items: center;
 }
 
 .footer__link-form-link {
@@ -1588,10 +1614,10 @@ input[type="radio"] {
   width: max-content;
   height: 22px;
   justify-content: flex-end;
-  align-items: center;
   flex-shrink: 0;
   margin-right: 0px;
   margin-left: 0px;
+  align-items: center;
 }
 
 .footer__link-github {

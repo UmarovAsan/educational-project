@@ -41,9 +41,9 @@ html {
   margin: 0px auto;
 
 
-  &--sm {
+  /* &--sm {
     max-width: 640px;
-  }
+  } */
 }
 
 a:hover {
@@ -174,7 +174,7 @@ a:hover {
 }
 
 .menu-list {
-  display: none;
+  opacity: 0;
   position: absolute;
   height: 90px;
   background: #FFF;
@@ -185,13 +185,11 @@ a:hover {
   list-style: none;
   z-index: 3;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s, transform 0.3;
 }
 
 .menu-list--active {
-  display: block;
-  transition: background-color 0.3s, transform 0.3;
   opacity: 1;
+  transition: all 1s;
 }
 
 .menu-link-profile {
@@ -403,17 +401,40 @@ a:hover {
   left: 0;
   height: 560px;
   background: #FFF;
-  transition: transform 0.3s ease-in-out;
   gap: 25px;
   border: none;
+  transition: transform 0.3s ease;
 }
 
 .about-slider img {
   width: 450px;
   height: auto;
   object-fit: cover;
+  transition: transform 0.3s ease;
+ 
 }
 
+.about-slider:active img {
+  transition: transform 0.3s ease;
+  opacity: 1;
+}
+
+.about-slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Задаем цвет перекрывающего слоя */
+  opacity: 1; /* Начальная непрозрачность */
+  transition: opacity 0.3s ease; /* Плавный переход для opacity */
+}
+
+.about-slider .active::before {
+  opacity: 1; /* Показываем перекрывающий слой плавно */
+  transition: 0.3s ease;
+}
 
 .image-gallery-photo {
   width: 100%;
@@ -433,6 +454,11 @@ a:hover {
   display: inline-block;
   vertical-align: middle;
   display: none;
+}
+
+.right-button:hover .about-button-svg path,
+.left-button:hover .about-button-svg path {
+  stroke: #BB945F;
 }
 
 .button-wrapper {
@@ -600,17 +626,72 @@ input[type="radio"] {
 }
 
 .container-book {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  height: 1150px;
-  flex-shrink: 0;
+  height: 1149px;
   background: #FFF;
   margin-top: 39px;
   margin-right: 20px;
-  margin-bottom: 40px;
   margin-left: 20px;
+}
+
+/* .book-slider {
+} */
+
+.winter-slider {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  left: 0;
+  width: 1400px;
+  height: 1150px;
+  flex-shrink: 0;
   word-wrap: break-word;
+  justify-content: space-between;
+}
+
+.spring-slider {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  left: 0;
+  width: 1400px;
+  height: 1150px;
+  flex-shrink: 0;
+  word-wrap: break-word;
+  justify-content: space-between;
+  opacity: 0;
+}
+
+.summer-slider {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  left: 0;
+  width: 1400px;
+  height: 1150px;
+  flex-shrink: 0;
+  word-wrap: break-word;
+  justify-content: space-between;
+  opacity: 0;
+}
+
+.autumn-slider {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  left: 0;
+  width: 1400px;
+  height: 1150px;
+  flex-shrink: 0;
+  word-wrap: break-word;
+  justify-content: space-between;
+  opacity: 0;
+}
+
+.winter-slider:active,
+.spring-slider:active,
+.summer-slider:active,
+.autumn-slider:active {
+  opacity: 1;
 }
 
 .book {
@@ -627,9 +708,9 @@ input[type="radio"] {
   margin-bottom: 40px;
 }
 
-.book:nth-last-child(-n+12) {
+/* .book:nth-last-child(-n+12) {
   display: none;
-}
+} */
 
 .pick-book {
   width: max-content;

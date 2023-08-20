@@ -1,3 +1,4 @@
+// Функция для бургер меню
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("burger").addEventListener("click", function()
     {
@@ -33,6 +34,368 @@ navLinks.forEach(link => {
     header.classList.remove('open');
   });
 });
+
+
+// Функция для открытия меню
+const menuButton = document.querySelector('.header__menu');
+const menuList = document.querySelector('.menu-list');
+
+menuButton.addEventListener('click', () => {
+menuList.classList.toggle('menu-list--active');
+});
+
+document.addEventListener('click', (event) => {
+    const isMenuClicked = menuButton.contains(event.target) || menuList.contains(event.target);
+
+    if (!isMenuClicked && menuList.classList.contains('menu-list--active')) {
+        menuList.classList.remove('menu-list--active');
+    }
+});
+
+
+const aboutSlider = document.querySelector('.about-slider');
+const leftButton = document.querySelector('.left-button');
+const rightButton = document.querySelector('.right-button');
+const btnButton = document.querySelectorAll('.btn'); // Correct the selector
+let position = 0;
+let btnIndex = 0; // Change dotIndex to btnIndex
+
+const slideWidth = 450 + 25; // Adjust this value to match the width of your slides
+
+const updateButtons = () => {
+    if (btnIndex === 0) {
+        leftButton.disabled = true;
+    } else {
+        leftButton.disabled = false;
+    }
+
+    if (btnIndex === btnButton.length - 1) { // Correct the variable name here
+        rightButton.disabled = true;
+    } else {
+        rightButton.disabled = false;
+    }
+};
+
+const nextSlide = () => {
+    if (btnIndex < btnButton.length - 1) { // Correct the variable name here
+        position += slideWidth;
+        btnIndex++; // Change about-buttonIndex to btnIndex
+        updateButtons();
+    }
+    aboutSlider.style.left = -position + 'px';
+    thisSlide(btnIndex);
+};
+
+const prevSlide = () => {
+    if (btnIndex > 0) {
+        position -= slideWidth;
+        btnIndex--;
+        updateButtons();
+    }
+    aboutSlider.style.left = -position + 'px';
+    thisSlide(btnIndex);
+};
+
+const thisSlide = (index) => {
+    for (let btn of btnButton) { // Correct the variable name here
+        btn.classList.remove('active');
+    }
+    btnButton[index].classList.add('active'); // Correct the variable name here
+};
+
+leftButton.addEventListener('click', prevSlide);
+rightButton.addEventListener('click', nextSlide);
+
+btnButton.forEach((btn, index) => { // Correct the variable name here
+    btn.addEventListener('click', () => {
+        position = slideWidth * index;
+        aboutSlider.style.left = -position + 'px';
+        btnIndex = index;
+        thisSlide(btnIndex);
+        updateButtons();
+    });
+});
+
+// Initialize button states
+updateButtons();
+
+
+
+
+// const aboutSlider = document.querySelector('.about-slides-item');
+// const prevButton = document.querySelector('.about-button-left');
+// const nextButton = document.querySelector('.about-button-right');
+// const aboutButtons = document.querySelectorAll('.buttoncontrol');
+// let position = 0;
+// let buttoncontrolIndex = 0;
+
+// const nextSlide = () => {
+//     if (position < (aboutButtons - 1) * 475) {
+//         position += 475
+//         buttoncontrolIndex++
+//     } else {
+//         position = 0
+//         buttoncontrolIndex = 0
+//     }
+//     aboutSlider.style.left = -position + 'px'
+//     thisSlide(buttoncontrolIndex)
+// };
+// const prevSlide = () => {
+//     if (position > 0) {
+//         position -= 475
+//         buttoncontrolIndex--
+//     } else {
+//         position = 0
+//         buttoncontrolIndex = 0
+//     }
+//     aboutSlider.style.left = -position + 'px'
+//     thisSlide(buttoncontrolIndex)
+// };
+// const thisSlide = (index) => {
+//     for (let buttoncontrol of aboutButtons) {
+//         buttoncontrol.classList.remove('active')
+//     }
+//     aboutButtons[index].classList.add('active')
+// };
+
+
+// prevButton.addEventListener('click', prevSlide)
+// nextButton.addEventListener('click', nextSlide)
+
+// aboutButtons.forEach((buttoncontrol, index) => {
+//     buttoncontrol.addEventListener('click', () => {
+//         position = 475 * index
+//         aboutSlider.style.left = -position + 'px'
+//         buttoncontrolIndex = index
+//         thisSlide(buttoncontrolIndex)
+//     })
+// });
+
+
+
+// const aboutSlider = document.querySelector('.about-slides-item');
+// const prevButton = document.querySelector('.about-button-left');
+// const nextButton = document.querySelector('.about-button-right');
+// const aboutButtons = document.querySelectorAll('.buttoncontrol');
+// let position = 0;
+// let buttoncontrolIndex = 0;
+
+// const nextSlide = () => {
+//   if (buttoncontrolIndex < aboutButtons.length - 1) {
+//     buttoncontrolIndex++;
+//     position -= 475; // Adjust this value to control the slide width
+//     updateSlider();
+//   }
+// };
+
+// const prevSlide = () => {
+//   if (buttoncontrolIndex > 0) {
+//     buttoncontrolIndex--;
+//     position += 475; // Adjust this value to control the slide width
+//     updateSlider();
+//   }
+// };
+
+// const updateSlider = () => {
+//   aboutSlider.style.left = position + 'px';
+//   aboutButtons.forEach((button, index) => {
+//     if (index === buttoncontrolIndex) {
+//       button.classList.add('active');
+//     } else {
+//       button.classList.remove('active');
+//     }
+//   });
+// };
+
+// nextButton.addEventListener('click', nextSlide);
+// prevButton.addEventListener('click', prevSlide);
+
+// aboutButtons.forEach((button, index) => {
+//   button.addEventListener('click', () => {
+//     buttoncontrolIndex = index;
+//     position = -index * 475; // Adjust this value to control the slide width
+//     updateSlider();
+//   });
+// });
+
+
+
+// const buttonControls = document.querySelectorAll(".button-control");
+// const slidesContainer = document.querySelector(".about-slides-item");
+// const slideWidth = slidesContainer.offsetWidth;
+
+// let currentIndex = 0;
+
+// buttonControls.forEach((button) => {
+//   button.addEventListener("click", () => {
+//     const slideIndex = parseInt(button.getAttribute("data-slide-index"));
+//     currentIndex = slideIndex;
+//     updateSlide();
+//     updateActiveButton();
+//   });
+// });
+
+// function updateSlide() {
+//   const offset = -currentIndex * slideWidth;
+//   slidesContainer.style.transform = `translateX(${offset}px)`;
+// }
+
+// function updateActiveButton() {
+//   buttonControls.forEach((button, index) => {
+//     if (index === currentIndex) {
+//       button.classList.add("active");
+//     } else {
+//       button.classList.remove("active");
+//     }
+//   });
+// }
+
+// // Initial slide
+// updateSlide();
+// updateActiveButton();
+
+
+
+
+// // Второй слайдер
+// const secondSliderContainer = document.querySelector('.about__button-control');
+// const controlButtons = secondSliderContainer.querySelectorAll('button');
+
+// // Устанавливаем начальный индекс слайда для второго слайдера
+// let currentSecondSlideIndex = 0;
+
+// // Обработчики для кнопок управления второго слайдера
+// controlButtons.forEach((button, index) => {
+//   button.addEventListener('click', () => {
+//     currentSecondSlideIndex = index;
+//     updateSecondSlider();
+//   });
+// });
+
+
+
+// // Функция для обновления второго слайдера
+// function updateSecondSlider() {
+//   for (let i = 0; i < controlButtons.length; i++) {
+//     if (i === currentSecondSlideIndex) {
+//       controlButtons[i].classList.add('active');
+//     } else {
+//       controlButtons[i].classList.remove('active');
+//     }
+//   }
+// }
+
+
+// // Инициализация второго слайдера
+// updateSecondSlider();
+
+
+
+
+
+// // Получаем элементы слайдера и кнопки
+// const sliderContainer = document.querySelector('.about-slides-item');
+// const prevButton = document.querySelector('.about-button-left');
+// const nextButton = document.querySelector('.about-button-right');
+// const images = sliderContainer.querySelectorAll('img'); // Получаем все изображения в слайдере
+
+// // Устанавливаем начальный индекс слайда
+// let currentSlideIndex = 0;
+
+// // Обработчик для кнопки "Next"
+// nextButton.addEventListener('click', () => {
+//   currentSlideIndex = (currentSlideIndex + 1) % images.length;
+//   updateSlider();
+// });
+
+// // Обработчик для кнопки "Previous"
+// prevButton.addEventListener('click', () => {
+//   currentSlideIndex = (currentSlideIndex - 1 + images.length) % images.length;
+//   updateSlider();
+// });
+
+// // Функция для обновления слайдера
+// function updateSlider() {
+//   for (let i = 0; i < images.length; i++) {
+//     const slide = images[i];
+//     if (i === currentSlideIndex) {
+//       slide.style.display = 'block';
+//     } else {
+//       slide.style.display = 'none';
+//     }
+//   }
+  
+//   // Деактивация кнопок на первой и последней картинках
+//   prevButton.disabled = currentSlideIndex === 0;
+//   nextButton.disabled = currentSlideIndex === images.length - 1;
+// }
+
+// // Инициализация слайдера
+// updateSlider();
+
+
+
+// //второй слайдер
+// const sliderContainer = document.querySelector('.about__button-control');
+// const controlButtons = sliderContainer.querySelectorAll('button');
+
+// // Устанавливаем начальный индекс слайда
+// let currentSlideIndex = 0;
+
+// // Обработчики для кнопок управления
+// controlButtons.forEach((button, index) => {
+//   button.addEventListener('click', () => {
+//     currentSlideIndex = index;
+//     updateSlider();
+//   });
+// });
+
+// // Функция для обновления слайдера
+// function updateSlider() {
+//   for (let i = 0; i < controlButtons.length; i++) {
+//     if (i === currentSlideIndex) {
+//       controlButtons[i].classList.add('active');
+//     } else {
+//       controlButtons[i].classList.remove('active');
+//     }
+//   }
+// }
+
+// // Инициализация слайдера
+// updateSlider();
+
+
+// const buttonControlContainer = document.querySelector('.about__button-control');
+// const controlButtonss = buttonControlContainer.querySelectorAll('.transparent-container');
+
+// function updateButtonControls() {
+//   if (window.innerWidth >= 1440) {
+//     // Отображать все пять кнопок на широких экранах
+//     controlButtonss.forEach(button => button.style.display = index < 3 ? 'block' : 'none');
+//   } else if (window.innerWidth >= 915) {
+//     // Отображать четыре кнопки на средних экранах
+//     controlButtonss.forEach((button, index) => button.style.display = index < 4 ? 'block' : 'none');
+//   } else {
+//     // Отображать три кнопки на узких экранах
+//     controlButtonss.forEach((button, index) => button.style.display = index < 3 ? 'block' : 'none');
+//   }
+// }
+
+// // Обновляем кнопки при загрузке страницы и изменении размера экрана
+// window.addEventListener('resize', updateButtonControls);
+// updateButtonControls();
+
+
+
+// leftButton.addEventListener('click', showPreviousSlide);
+// centerButton.addEventListener('click', showNextSlide);
+// rightButton.addEventListener('click', showNextSlide);
+// fourButton.addEventListener('click', showNextSlide);
+// fiveButton.addEventListener('click', showNextSlide);
+
+//не активные крайние кнопки
+// leftButton.disabled = currentIndex === 0;
+// fiveButton.disabled = currentIndex === images.length - 1;
 
 
 /*

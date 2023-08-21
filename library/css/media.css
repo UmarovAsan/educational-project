@@ -127,12 +127,18 @@
         margin-bottom: 40px;
     }
 
+    .winter-slider,
+    .spring-slider,
+    .summer-slider,
+    .autumn-slider {
+        justify-content: center;
+    }
+
     .book {
         justify-content: center;
         margin-top: 0px; 
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 40px;
     }
 
     .book:nth-child(4) {
@@ -381,6 +387,13 @@
         justify-content: center;
     }
     
+    .winter-slider,
+    .spring-slider,
+    .summer-slider,
+    .autumn-slider {
+        justify-content: space-between;
+    }
+
     .book:nth-child(4) {
         margin-bottom: 0px;
     }
@@ -643,6 +656,14 @@
         justify-content: center;
     }
     
+    .winter-slider,
+    .spring-slider,
+    .summer-slider,
+    .autumn-slider {
+        justify-content: space-between;
+    }
+
+
     .book:nth-child(4) {
         margin-bottom: 0px;
     }

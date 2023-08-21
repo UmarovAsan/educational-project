@@ -626,91 +626,49 @@ input[type="radio"] {
 }
 
 .container-book {
-  height: 1149px;
+  display: flex;
+  position: relative;
+  height: 1150px;
   background: #FFF;
   margin-top: 39px;
   margin-right: 20px;
   margin-left: 20px;
 }
 
-/* .book-slider {
-} */
-
-.winter-slider {
-  display: flex;
-  flex-wrap: wrap;
+.book-slider {
+  display: inline-block;
   position: relative;
-  left: 0;
-  width: 1400px;
+  flex-wrap: wrap;
   height: 1150px;
-  flex-shrink: 0;
-  word-wrap: break-word;
-  justify-content: space-between;
+  transition: transform 1s ease;
+  background: #FFF;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
-.spring-slider {
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  left: 0;
-  width: 1400px;
-  height: 1150px;
-  flex-shrink: 0;
-  word-wrap: break-word;
-  justify-content: space-between;
-  opacity: 0;
-}
-
-.summer-slider {
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  left: 0;
-  width: 1400px;
-  height: 1150px;
-  flex-shrink: 0;
-  word-wrap: break-word;
-  justify-content: space-between;
-  opacity: 0;
-}
-
+.winter-slider,
+.spring-slider,
+.summer-slider,
 .autumn-slider {
   display: flex;
   flex-wrap: wrap;
-  position: relative;
-  left: 0;
-  width: 1400px;
-  height: 1150px;
-  flex-shrink: 0;
-  word-wrap: break-word;
+  position: absolute;
   justify-content: space-between;
-  opacity: 0;
-}
-
-.winter-slider:active,
-.spring-slider:active,
-.summer-slider:active,
-.autumn-slider:active {
-  opacity: 1;
 }
 
 .book {
   display: flex;
   flex-direction: column;
-  position: relative;
   width: 548px;
-  height: 552.3px;
-  flex-shrink: 0;
+  height: 553px;
+  left: 0;
   border: 1px solid #000;
   background: #FFF;
-  margin-left: 0px;
+  justify-content: left;
   margin-right: 40px;
   margin-bottom: 40px;
+  margin-left: 0px;
 }
-
-/* .book:nth-last-child(-n+12) {
-  display: none;
-} */
 
 .pick-book {
   width: max-content;
@@ -870,6 +828,21 @@ input[type="radio"] {
   background-repeat: no-repeat;
   color: lightgray 50%;
 }
+
+.winter-slider,
+.spring-slider,
+.summer-slider,
+.autumn-slider {
+  background-color: rgb(202, 202, 202)(0, 0, 0, 1); /* Задаем цвет перекрывающего слоя */
+  transition: opacity 0.8s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  pointer-events: none; /* To prevent interaction with hidden content */
+  transition: opacity 0.8s ease;
+}
+
 
 /* coffee section */ 
 .coffee-shop {

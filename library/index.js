@@ -111,6 +111,61 @@ btnButton.forEach((btn, index) => { // Correct the variable name here
 updateButtons();
 
 
+//Слайдер для Favorit
+const winterSlider = document.getElementById('winter-slider');
+const springSlider = document.getElementById('spring-slider');
+const summerSlider = document.getElementById('summer-slider');
+const autumnSlider = document.getElementById('autumn-slider');
+
+const winterRadio = document.getElementById('winter');
+const springRadio = document.getElementById('spring');
+const summerRadio = document.getElementById('summer');
+const autumnRadio = document.getElementById('autumn');
+
+function toggleSliderVisibility() {
+    winterSlider.style.opacity = 0;
+    springSlider.style.opacity = 0;
+    summerSlider.style.opacity = 0;
+    autumnSlider.style.opacity = 0;
+
+    if (winterRadio.checked) {
+        winterSlider.style.opacity = 1;
+    } else if (springRadio.checked) {
+        springSlider.style.opacity = 1;
+    } else if (summerRadio.checked) {
+        summerSlider.style.opacity = 1;
+    } else if (autumnRadio.checked) {
+        autumnSlider.style.opacity = 1;
+    }
+}
+
+// Initial call to set the correct slider visibility on page load
+toggleSliderVisibility();
+
+// Add event listeners to the radio buttons to handle changes
+winterRadio.addEventListener('change', toggleSliderVisibility);
+springRadio.addEventListener('change', toggleSliderVisibility);
+summerRadio.addEventListener('change', toggleSliderVisibility);
+autumnRadio.addEventListener('change', toggleSliderVisibility);
+
+
+$(document).ready(function() {
+// Listen for radio button changes
+    $("input[type='radio']").change(function() {
+        var selectedSeason = $("input[name='season']:checked").attr("id");
+
+        // Hide all sliders
+        $(".fade-out").css("opacity", 0);
+        $(".fade-out").css("pointer-events", "none");
+
+        // Show the selected slider
+        $("#" + selectedSeason + "-slider").css("opacity", 1);
+        $("#" + selectedSeason + "-slider").css("pointer-events", "auto");
+    });
+});
+
+
+
 /*
 console.log("Самооценка по пунктам:\n\n" +
     "1 Вёрстка валидная +10\n" +

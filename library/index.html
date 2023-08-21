@@ -10,6 +10,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
   <script defer src="./index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>Library</title>
 </head>
 <body>
@@ -151,8 +152,8 @@
           </div>
         </div>
         <div class="container-book">
-          <div class="book-slider">
-            <div class="winter-slider">
+          <div class="book-slider" id="slider-container">
+            <div class="winter-slider fade-out" id="winter-slider">
               <div class="book">
                 <div class="pick-book">
                   <p class="pick-book-text">Staff Picks</p>
@@ -238,7 +239,7 @@
                 </div>
               </div>
             </div>
-            <div class="spring-slider">
+            <div class="spring-slider fade-out" id="spring-slider">
               <div class="book">
                 <div class="pick-book">
                   <p class="pick-book-text">Staff Picks</p>
@@ -324,7 +325,7 @@
                 </div>
               </div>
             </div>
-            <div class="summer-slider">
+            <div class="summer-slider fade-out" id="summer-slider">
               <div class="book">
               <div class="pick-book">
                 <p class="pick-book-text">Staff Picks</p>
@@ -410,7 +411,7 @@
               </div>
             </div>
             </div>
-            <div class="autumn-slider">
+            <div class="autumn-slider fade-out" id="autumn-slider">
               <div class="book">
                 <div class="pick-book">
                   <p class="pick-book-text">Staff Picks</p>

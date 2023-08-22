@@ -266,7 +266,7 @@ a:hover {
   width: 100%;
   height: 600px;
   position: absolute;
-  background: url(../img/Welcome.jpg), lightgray 50% / cover no-repeat;
+  background: url(../img/Welcome768.jpg), lightgray 50% / cover no-repeat;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   background-size: cover;
 }
@@ -375,7 +375,7 @@ a:hover {
 }
 
 .left-button {
-  top: 50%;
+  margin-top: 41px;
   width: 24px;
   height: 25px;
   margin-right: 12px;
@@ -426,7 +426,7 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3); /* Задаем цвет перекрывающего слоя */
+  background-color: rgb((249, 247, 247), 0.3); /* Задаем цвет перекрывающего слоя */
   opacity: 1; /* Начальная непрозрачность */
   transition: opacity 0.3s ease; /* Плавный переход для opacity */
 }
@@ -442,7 +442,7 @@ a:hover {
 }
 
 .right-button {
-  top: 50%;
+  margin-top: 41px;
   width: 24px;
   height: 25px;
   margin-left: 12px;
@@ -557,6 +557,7 @@ a:hover {
   height: 24px;
   margin-top: 37px;
   margin-left: 20px;
+  text-align: center;
 }
 
 .favorites-text-title {
@@ -567,22 +568,25 @@ a:hover {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  letter-spacing: 0.35px;
 }
 
 .button-favorites {
   display: flex;
-  width: max-content;
   height: 24px;
   flex-shrink: 0;
-  margin-left: 20px;
   margin-top: 40px;
+  margin-right: 20px;
+  margin-left: 20px;
   align-items: center;
+  justify-content: left;
 }
 
 .container-weather {
   display: flex;
   align-items: center;
   justify-content: left;
+  margin-left: 0px;
   margin-right: 88px;
 }
 
@@ -628,22 +632,13 @@ input[type="radio"] {
 .container-book {
   display: flex;
   position: relative;
+  flex-wrap: wrap;
   height: 1150px;
   background: #FFF;
   margin-top: 39px;
   margin-right: 20px;
   margin-left: 20px;
-}
-
-.book-slider {
-  display: inline-block;
-  position: relative;
-  flex-wrap: wrap;
-  height: 1150px;
-  transition: transform 1s ease;
-  background: #FFF;
-  margin-left: 0px;
-  margin-right: 0px;
+  transition: transform 0.8s ease;
 }
 
 .winter-slider,
@@ -657,15 +652,13 @@ input[type="radio"] {
 }
 
 .book {
-  display: flex;
-  flex-direction: column;
+  display: block;
   width: 548px;
   height: 553px;
-  left: 0;
   border: 1px solid #000;
   background: #FFF;
-  justify-content: left;
-  margin-right: 40px;
+  justify-content: center;
+  margin-right: 43px;
   margin-bottom: 40px;
   margin-left: 0px;
 }
@@ -723,7 +716,7 @@ input[type="radio"] {
   font-style: normal;
   font-weight: 700;
   line-height: 40px;
-  letter-spacing: 2px;
+  letter-spacing: 2.2px;
   text-transform: uppercase;
   margin-left: 0px;
 }
@@ -736,7 +729,7 @@ input[type="radio"] {
   font-style: normal;
   font-weight: 700;
   line-height: 40px;
-  letter-spacing: 2px;
+  letter-spacing: 2.2px;
   text-transform: capitalize;
   margin-left: 0px;
 }
@@ -905,7 +898,7 @@ input[type="radio"] {
 }
 
 .coffee-and-tea-menu {
-  width: 440px;
+  width: 438px;
   height: 520px;
   display: flex;
   flex-direction: column;
@@ -1123,7 +1116,7 @@ input[type="radio"] {
   font-style: normal;
   font-weight: 700;
   line-height: 40px; /* 200% */
-  letter-spacing: 2px;
+  letter-spacing: 2.4px;
   text-transform: capitalize;
   margin-left: 0px;
 }
@@ -1220,7 +1213,7 @@ input[type="radio"] {
   font-style: normal;
   font-weight: 700;
   line-height: 40px; /* 200% */
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   text-transform: capitalize;
   margin-left: 0px;
 }
@@ -1246,6 +1239,7 @@ input[type="radio"] {
 
 .senior-staff-email span {
   font-weight: 700;
+  letter-spacing: 2.5px;
 }
 
 .maps img {

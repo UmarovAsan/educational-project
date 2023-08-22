@@ -121,24 +121,23 @@
     }
 
     .container-book {
-        display: block;
+        display: flex;
         height: 2340px;
-        margin-top: 40px;
-        margin-bottom: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .winter-slider,
     .spring-slider,
     .summer-slider,
     .autumn-slider {
+        flex-direction: column;
         justify-content: center;
     }
 
     .book {
         justify-content: center;
-        margin-top: 0px; 
-        margin-left: auto;
-        margin-right: auto;
+        left: auto;
     }
 
     .book:nth-child(4) {
@@ -377,21 +376,30 @@
         width: 24px;
     }
 
+
     /* favorit section */
     .favorites {
         height: 2629px;
     }
 
     .container-book {
+        display: flex;
         height: 2340px;
+        flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .winter-slider,
     .spring-slider,
     .summer-slider,
     .autumn-slider {
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .book {
+        justify-content: center;
+        left: auto;
     }
 
     .book:nth-child(4) {
@@ -640,33 +648,42 @@
         width: 24px;
     }
 
+
     /* favorit section */
     .favorites {
         height: 2629px;
     }
-    
-    @media (max-width: 725px) {
+
+    @media (max-width: 720px) {
         .container-weather {
             margin-right: 50px;
         }
     }
 
     .container-book {
+        display: flex;
         height: 2340px;
+        flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .winter-slider,
     .spring-slider,
     .summer-slider,
     .autumn-slider {
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
     }
 
+    .book {
+        justify-content: center;
+        left: auto;
+    }
 
     .book:nth-child(4) {
         margin-bottom: 0px;
     }
+
 
     /* coffee section */
     .coffee-shop {

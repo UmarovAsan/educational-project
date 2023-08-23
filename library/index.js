@@ -165,6 +165,14 @@ $(document).ready(function() {
 });
 
 
+//Функция для появления окна регистрации
+const registerButton = document.getElementById('register-button')
+const registrationWindow = document.getElementById('register-window')
+const closeRegisterBtn = document.getElementById('close-btn')
+
+registrationWindow.style.opacity = 0;
+
+
 
 /*
 console.log("Самооценка по пунктам:\n\n" +

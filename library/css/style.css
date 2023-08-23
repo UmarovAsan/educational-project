@@ -179,9 +179,8 @@ a:hover {
   height: 90px;
   background: #FFF;
   padding: 5px 10px 20px;
-  top: 50px;
-  right: 0px;
-  padding-right: 10px;
+  top: 32px;
+  right: -3px;
   list-style: none;
   z-index: 3;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -638,7 +637,7 @@ input[type="radio"] {
   margin-top: 39px;
   margin-right: 20px;
   margin-left: 20px;
-  transition: transform 0.8s ease;
+  transition: transform 1s ease;
 }
 
 .winter-slider,
@@ -658,7 +657,7 @@ input[type="radio"] {
   border: 1px solid #000;
   background: #FFF;
   justify-content: center;
-  margin-right: 43px;
+  margin-right: 40px;
   margin-bottom: 40px;
   margin-left: 0px;
 }
@@ -827,13 +826,13 @@ input[type="radio"] {
 .summer-slider,
 .autumn-slider {
   background-color: rgb(202, 202, 202)(0, 0, 0, 1); /* Задаем цвет перекрывающего слоя */
-  transition: opacity 0.8s ease;
+  transition: opacity 0.8s ease-in-out;
 }
 
 .fade-out {
   opacity: 0;
   pointer-events: none; /* To prevent interaction with hidden content */
-  transition: opacity 0.8s ease;
+  transition: opacity 0.8s ease-in-out;
 }
 
 
@@ -1735,4 +1734,158 @@ input[type="radio"] {
   line-height: 40px; /* 200% */
   letter-spacing: 2px;
   text-decoration: none;
+}
+
+
+/* формы для ввода данных */
+.register-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 332px;
+  padding: 15px 25px 20px;
+  background: #FFFFFF;
+  z-index: 10;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  margin-top: 90px;
+  transition: opacity 1s ease;
+}
+
+.register-btn {
+  width: 15px;
+  height: 15px;
+  margin-right: -10px;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.register-btn svg {
+  align-items: center;
+  display: flex;
+  background: #FFFFFF;
+}
+
+.regiter-title {
+  margin-top: -10px;
+  color: #000;
+  text-align: center;
+  font-family: Forum;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 100% */
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.container-form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 280px;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0;
+}
+
+.label-container {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 50px;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-text {
+  width: max-content;
+  align-items: center;
+  margin-left: 0px;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 133.333% */
+  letter-spacing: 0.3px;
+}
+
+.data-input {
+  width: 198px;
+  border: 1px solid #BB945F;
+  color: #BB945F;
+  cursor: pointer;
+}
+
+.register-sign-btn {
+  display: flex;
+  width: max-content;
+  height: 12px;
+  padding: 7px 14px;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  background: #FFF;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 0px;
+  cursor: pointer;
+}
+
+.sign-btn-text {
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+}
+
+.link-registration {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+}
+
+.link-registration span {
+  color: #000;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.authorization-btn {
+  width: max-content;
+  background: #FFF;
+  border: none;
+  cursor: pointer;
+}
+
+.login-btn-text {
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-decoration-line: underline;
 }

@@ -660,6 +660,13 @@
         }
     }
 
+    .button-favorites {
+        position: sticky;
+        background: #BB945F;
+        top: 0;
+        z-index: 3;
+    }
+
     .container-book {
         display: flex;
         height: 2340px;

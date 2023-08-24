@@ -1748,7 +1748,7 @@ input[type="radio"] {
   background: #FFFFFF;
   z-index: 1000;
   position: fixed;
-  opacity: 0;
+  opacity: 1;
   top: 0;
   right: 0;
   bottom: 0;
@@ -1770,6 +1770,7 @@ input[type="radio"] {
   align-items: center;
   border: none;
   cursor: pointer;
+  outline: none;
 }
 
 .close-btn svg {
@@ -1778,7 +1779,7 @@ input[type="radio"] {
   background: #FFFFFF;
 }
 
-.regiter-title {
+.register-title {
   margin-top: -10px;
   color: #000;
   text-align: center;
@@ -1799,7 +1800,6 @@ input[type="radio"] {
   margin-top: 20px;
   justify-content: center;
   align-items: center;
-  margin: 0 0;
 }
 
 .label-container {
@@ -1864,6 +1864,7 @@ input[type="radio"] {
   gap: 10px;
   margin-top: 10px;
   margin-left: 0px;
+  align-items: center;
 }
 
 .link-registration span {
@@ -1874,6 +1875,7 @@ input[type="radio"] {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  align-items: center;
 }
 
 .authorization-btn {
@@ -1881,9 +1883,85 @@ input[type="radio"] {
   background: #FFF;
   border: none;
   cursor: pointer;
+  align-items: center;
 }
 
 .authorization-btn span {
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-decoration-line: underline;
+  align-items: center;
+}
+
+.login-window {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 227px;
+  padding: 15px 25px 20px;
+  background: #FFFFFF;
+  z-index: 1000;
+  position: fixed;
+  opacity: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  margin-top: 90px;
+  transition: opacity 10s ease;
+}
+
+.container-form-login {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 160px;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.authorization-login-btn {
+  display: flex;
+  width: max-content;
+  height: 12px;
+  padding: 7px 14px;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  background: #FFF;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 0px;
+  cursor: pointer;
+}
+
+.authorization-login-btn span {
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+}
+
+.registration-btn {
+  width: max-content;
+  background: #FFF;
+  border: none;
+  cursor: pointer;
+}
+
+.registration-btn span {
   color: #0C0C0E;
   text-align: center;
   font-family: Inter;

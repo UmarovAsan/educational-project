@@ -166,12 +166,16 @@ $(document).ready(function() {
 
 
 //Функция для появления окна регистрации
-const registerButton = document.getElementById('register-button')
-const registrationWindow = document.getElementById('register-window')
-const closeRegisterBtn = document.getElementById('close-btn')
+const registerButton = document.getElementById('registerButton')
+const registrationWindow = document.getElementById('registerWindow')
+const registerCloseButton = document.getElementById('registerCloseButton')
+
+const loginButton = document.getElementById('loginButton')
+const loginWindow = document.getElementById('loginWindow')
+const loginCloseButton = document.getElementById('loginCloseButton')
 
 registrationWindow.style.opacity = 0;
-
+loginWindow.style.opacity = 0;
 
 
 /*

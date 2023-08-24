@@ -52,10 +52,10 @@
             <br class="menu-profile-line">
           </li>
           <li class="menu-link">
-            <button class="menu-profile" id="Login">Log In</button>
+            <button class="menu-profile" id="loginButton">Log In</button>
           </li>
           <li class="menu-link">
-            <button class="menu-profile" id="register-button">Register</button>
+            <button class="menu-profile" id="registerButton">Register</button>
           </li>
         </ul>
       </div>
@@ -694,15 +694,15 @@
         </div>
       </div>
     </footer>
-    <div class="register-window" id="register-window">
-      <button class="close-btn" id="close-btn">
+    <div class="register-window" id="registerWindow">
+      <button class="close-btn" id="registerCloseButton">
         <svg width="15" height="15" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
           <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
         </svg>
         <!-- <img src="../library/svg/close_btn.svg" alt=""> -->
       </button>
-      <h3 class="regiter-title">Register</h3>
+      <h3 class="register-title">Register</h3>
       <div class="container-form">
         <label class="label-container">
           <span class="form-text">First name</span>
@@ -714,11 +714,22 @@
         </label>
         <label class="label-container">
           <span class="form-text">E-mail</span>
-          <input type="email" class="data-input" required>
+          <input 
+            type="email" id="registerEmail" name="email"
+            placeholder="Your E-mail" class="data-input"
+            required
+          >
         </label>
         <label class="label-container">
           <span class="form-text">Password</span>
-          <input type="password" class="data-input" required>
+          <input 
+            type="password" id="registerPassword" name="password"
+            placeholder="Your Password" class="data-input"
+            title="Minimum 6 characters at
+                   least 1 Alphabet and 1 Number"
+            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
+            required
+          >
         </label>
         <button type="submit" class="register-sign-btn">
           <span>Sign Up</span>
@@ -728,6 +739,46 @@
         <span>Already have an account?</span>
         <button class="authorization-btn">
           <span>Login</span>
+        </button>
+      </div>
+    </div>
+    <div class="login-window" id="loginWindow">
+      <button class="close-btn" id="loginCloseButton">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 19 19" fill="none">
+          <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
+          <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
+        </svg>
+        <!-- <img src="../library/svg/login-close-btn.svg" alt=""> -->
+      </button>
+      <h3 class="register-title">Login</h3>
+      <div class="container-form-login">
+        <label class="label-container">
+          <span class="form-text">E-mail or readers card</span>
+          <input 
+            type="email" id="authorizationEmail" name="email"
+            placeholder="Your E-mail" class="data-input"
+            required
+          >
+        </label>
+        <label class="label-container">
+          <span class="form-text">Password</span>
+          <input 
+            type="password" id="authorizationPassword" name="password"
+            placeholder="Your Password" class="data-input"
+            title="Minimum 6 characters at
+                   least 1 Alphabet and 1 Number"
+            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
+            required
+          >
+        </label>
+        <button type="submit" class="authorization-login-btn">
+          <span>Log In</span>
+        </button>
+      </div>
+      <div class="link-registration">
+        <span>Don’t have an account?</span>
+        <button class="registration-btn">
+          <span>Register</span>
         </button>
       </div>
     </div>

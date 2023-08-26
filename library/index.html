@@ -631,8 +631,8 @@
                 <p class="card-gold-box-text">Brooklyn Public Library</p>
               </div>
               <form class="card-gold-box-input">
-                <input type="text" placeholder="Reader's name" class="card-gold-box-input-name" required>
-                <input type="number" placeholder="Card number" class="card-gold-box-input-card-number" required>
+                <input type="text" id="readersName" placeholder="Reader's name" class="card-gold-box-input-name" required>
+                <input type="number" id="cardNumber" placeholder="Card number" class="card-gold-box-input-card-number" required>
               </form>
             </div>
             <button class="digital-library-card-button"><span>Check the card</span></button>
@@ -695,55 +695,44 @@
       </div>
     </footer>
     <div class="register-window" id="registerWindow">
-      <button class="close-btn" id="registerCloseButton">
-        <svg width="15" height="15" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <button class="close-rig-btn" id="registerCloseButton">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 19 19" fill="none">
           <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
           <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
         </svg>
-        <!-- <img src="../library/svg/close_btn.svg" alt=""> -->
+        <!-- <img src="../library/svg/close-btn.svg" alt=""> -->
       </button>
       <h3 class="register-title">Register</h3>
       <div class="container-form">
         <label class="label-container">
           <span class="form-text">First name</span>
-          <input type="text" class="data-input" required>
+          <input type="text" id="firstName" class="data-input">
         </label>
         <label class="label-container">
           <span class="form-text">Last name</span>
-          <input type="text" class="data-input" required>
+          <input type="text" id="lastName" class="data-input">
         </label>
         <label class="label-container">
           <span class="form-text">E-mail</span>
-          <input 
-            type="email" id="registerEmail" name="email"
-            placeholder="Your E-mail" class="data-input"
-            required
-          >
+          <input type="text" id="registerEmail" placeholder=" Your E-mail" class="data-input">
         </label>
         <label class="label-container">
           <span class="form-text">Password</span>
-          <input 
-            type="password" id="registerPassword" name="password"
-            placeholder="Your Password" class="data-input"
-            title="Minimum 6 characters at
-                   least 1 Alphabet and 1 Number"
-            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
-            required
-          >
+          <input type="password" id="registerPassword" placeholder=" Your Password" class="data-input">
         </label>
-        <button type="submit" class="register-sign-btn">
+        <button type="submit" id="registerSubmit" class="register-sign-btn">
           <span>Sign Up</span>
         </button>
       </div>
       <div class="link-registration">
         <span>Already have an account?</span>
-        <button class="authorization-btn">
+        <button type="submit" class="authorization-btn" id="authorizationBtn">
           <span>Login</span>
         </button>
       </div>
     </div>
     <div class="login-window" id="loginWindow">
-      <button class="close-btn" id="loginCloseButton">
+      <button class="close-log-btn" id="loginCloseButton">
         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 19 19" fill="none">
           <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
           <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
@@ -755,29 +744,19 @@
         <label class="label-container">
           <span class="form-text">E-mail or readers card</span>
           <input 
-            type="email" id="authorizationEmail" name="email"
-            placeholder="Your E-mail" class="data-input"
-            required
-          >
+            type="text" id="loginEmail" placeholder=" Your E-mail" class="data-input">
         </label>
         <label class="label-container">
           <span class="form-text">Password</span>
-          <input 
-            type="password" id="authorizationPassword" name="password"
-            placeholder="Your Password" class="data-input"
-            title="Minimum 6 characters at
-                   least 1 Alphabet and 1 Number"
-            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
-            required
-          >
+          <input type="password" id="loginPassword" placeholder=" Your Password" class="data-input">
         </label>
-        <button type="submit" class="authorization-login-btn">
+        <button type="submit" id="loginSubmit" class="authorization-login-btn">
           <span>Log In</span>
         </button>
       </div>
       <div class="link-registration">
         <span>Don’t have an account?</span>
-        <button class="registration-btn">
+        <button type="submit" class="registration-btn" id="registrationBtn">
           <span>Register</span>
         </button>
       </div>

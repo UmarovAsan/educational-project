@@ -1743,27 +1743,22 @@ input[type="radio"] {
   display: flex;
   flex-direction: column;
   width: 200px;
-  height: 332px;
+  height: 347px;
   padding: 15px 25px 20px;
   background: #FFFFFF;
   z-index: 1000;
   position: fixed;
-  opacity: 1;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   justify-content: center;
   margin-top: 90px;
-  transition: opacity 10s ease;
+  transition: opacity 0.8s ease;
+  visibility: hidden;
 }
 
-.register-window--active {
-  opacity: 1;
-  transition: all 1s;
-}
-
-.close-btn {
+.close-rig-btn {
   width: 15px;
   height: 15px;
   margin-right: -10px;
@@ -1773,7 +1768,7 @@ input[type="radio"] {
   outline: none;
 }
 
-.close-btn svg {
+.close-rig-btn svg {
   align-items: center;
   display: flex;
   background: #FFFFFF;
@@ -1828,10 +1823,20 @@ input[type="radio"] {
 }
 
 .data-input {
-  width: 198px;
+  width: 193px;
+  height: 18px;
   border: 1px solid #BB945F;
   color: #BB945F;
   cursor: pointer;
+  align-items: center;
+  padding-left: 5px;
+  text-align: left;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 133.333% */
+  letter-spacing: 0.3px;
 }
 
 .register-sign-btn {
@@ -1909,14 +1914,30 @@ input[type="radio"] {
   background: #FFFFFF;
   z-index: 1000;
   position: fixed;
-  opacity: 1;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   justify-content: center;
   margin-top: 90px;
-  transition: opacity 10s ease;
+  transition: opacity 0.8s ease;
+  visibility: hidden;
+}
+
+.close-log-btn {
+  width: 15px;
+  height: 15px;
+  margin-right: -10px;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.close-log-btn svg {
+  align-items: center;
+  display: flex;
+  background: #FFFFFF;
 }
 
 .container-form-login {
@@ -1971,4 +1992,16 @@ input[type="radio"] {
   line-height: normal;
   letter-spacing: 1px;
   text-decoration-line: underline;
+}
+
+.register-sign-btn:hover,
+.authorization-login-btn:hover {
+  background: #BB945F;
+  transition: transform 0.3s ease;
+}
+
+.authorization-btn:hover span,
+.registration-btn:hover span {
+  color: #BB945F;
+  transition: transform 0.3s ease;
 }

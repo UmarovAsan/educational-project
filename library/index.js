@@ -1,3 +1,4 @@
+//функция открытия бургер меню
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("burger").addEventListener("click", function()
     {
@@ -47,11 +48,11 @@ menuButton.addEventListener('click', () => {
 const aboutSlider = document.querySelector('.about-slider');
 const leftButton = document.querySelector('.left-button');
 const rightButton = document.querySelector('.right-button');
-const btnButton = document.querySelectorAll('.btn'); // Correct the selector
+const btnButton = document.querySelectorAll('.btn');
 let position = 0;
-let btnIndex = 0; // Change dotIndex to btnIndex
+let btnIndex = 0;
 
-const slideWidth = 450 + 25; // Adjust this value to match the width of your slides
+const slideWidth = 450 + 25;
 
 const updateButtons = () => {
     if (btnIndex === 0) {
@@ -60,7 +61,7 @@ const updateButtons = () => {
         leftButton.disabled = false;
     }
 
-    if (btnIndex === btnButton.length - 1) { // Correct the variable name here
+    if (btnIndex === btnButton.length - 1) {
         rightButton.disabled = true;
     } else {
         rightButton.disabled = false;
@@ -68,9 +69,9 @@ const updateButtons = () => {
 };
 
 const nextSlide = () => {
-    if (btnIndex < btnButton.length - 1) { // Correct the variable name here
+    if (btnIndex < btnButton.length - 1) {
         position += slideWidth;
-        btnIndex++; // Change about-buttonIndex to btnIndex
+        btnIndex++;
         updateButtons();
     }
     aboutSlider.style.left = -position + 'px';
@@ -88,16 +89,16 @@ const prevSlide = () => {
 };
 
 const thisSlide = (index) => {
-    for (let btn of btnButton) { // Correct the variable name here
+    for (let btn of btnButton) {
         btn.classList.remove('active');
     }
-    btnButton[index].classList.add('active'); // Correct the variable name here
+    btnButton[index].classList.add('active');
 };
 
 leftButton.addEventListener('click', prevSlide);
 rightButton.addEventListener('click', nextSlide);
 
-btnButton.forEach((btn, index) => { // Correct the variable name here
+btnButton.forEach((btn, index) => {
     btn.addEventListener('click', () => {
         position = slideWidth * index;
         aboutSlider.style.left = -position + 'px';
@@ -107,7 +108,6 @@ btnButton.forEach((btn, index) => { // Correct the variable name here
     });
 });
 
-// Initialize button states
 updateButtons();
 
 
@@ -139,10 +139,8 @@ function toggleSliderVisibility() {
     }
 }
 
-// Initial call to set the correct slider visibility on page load
 toggleSliderVisibility();
 
-// Add event listeners to the radio buttons to handle changes
 winterRadio.addEventListener('change', toggleSliderVisibility);
 springRadio.addEventListener('change', toggleSliderVisibility);
 summerRadio.addEventListener('change', toggleSliderVisibility);
@@ -150,32 +148,154 @@ autumnRadio.addEventListener('change', toggleSliderVisibility);
 
 
 $(document).ready(function() {
-// Listen for radio button changes
     $("input[type='radio']").change(function() {
         var selectedSeason = $("input[name='season']:checked").attr("id");
 
-        // Hide all sliders
         $(".fade-out").css("opacity", 0);
         $(".fade-out").css("pointer-events", "none");
 
-        // Show the selected slider
         $("#" + selectedSeason + "-slider").css("opacity", 1);
         $("#" + selectedSeason + "-slider").css("pointer-events", "auto");
     });
 });
 
 
-//Функция для появления окна регистрации
-const registerButton = document.getElementById('registerButton')
-const registrationWindow = document.getElementById('registerWindow')
-const registerCloseButton = document.getElementById('registerCloseButton')
+//открытие окна авторизации и регистрации
+const registerButton = document.getElementById('registerButton');
+const registerWindow = document.getElementById('registerWindow');
+const registerCloseButton = document.getElementById('registerCloseButton');
+const registrationBtn = document.getElementById('registrationBtn');
+const loginButton = document.getElementById('loginButton');
+const loginWindow = document.getElementById('loginWindow');
+const loginCloseButton = document.getElementById('loginCloseButton');
+const authorizationBtn = document.getElementById('authorizationBtn');
 
-const loginButton = document.getElementById('loginButton')
-const loginWindow = document.getElementById('loginWindow')
-const loginCloseButton = document.getElementById('loginCloseButton')
+// Функция для открытия окна с установкой visibility: visible
+function openWindowWithVisibility(window) {
+    window.style.visibility = 'visible';
+}
 
-registrationWindow.style.opacity = 0;
-loginWindow.style.opacity = 0;
+// Функция для закрытия окна с установкой visibility: hidden
+function closeWindowWithVisibility(window) {
+    window.style.visibility = 'hidden';
+}
+
+registerButton.addEventListener('click', () => {
+    openWindowWithVisibility(registerWindow);
+});
+
+registrationBtn.addEventListener('click', () => {
+    openWindowWithVisibility(registerWindow);
+});
+
+registrationBtn.addEventListener('click', () => {
+    closeWindowWithVisibility(loginWindow);
+});
+
+registerCloseButton.addEventListener('click', () => {
+    closeWindowWithVisibility(registerWindow);
+});
+
+loginButton.addEventListener('click', () => {
+    openWindowWithVisibility(loginWindow);
+});
+
+authorizationBtn.addEventListener('click', () => {
+    openWindowWithVisibility(loginWindow);
+});
+
+authorizationBtn.addEventListener('click', () => {
+    closeWindowWithVisibility(registerWindow);
+});
+
+loginCloseButton.addEventListener('click', () => {
+    closeWindowWithVisibility(loginWindow);
+});
+
+
+// Закрытие окон при нажатии клавиши Esc
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        closeWindow(loginWindow);
+        closeWindow(registerWindow);
+    }
+});
+// функция регистрации
+// Функция для сохранения данных пользователя в localStorage
+function saveUserToLocalStorage(user) {
+    let users = JSON.parse(localStorage.getItem('users')) || {}; // Получаем текущие пользователи из localStorage или создаем пустой объект
+    const userId = "User" + createId(users);
+    users[userId] = user;
+    localStorage.setItem('users', JSON.stringify(users)); // Сохраняем обновленный список пользователей
+}
+
+// Функция для создания уникального идентификатора пользователя
+function createId(users) {
+    return Object.keys(users).length;
+}
+
+// Обработчик события submit для формы регистрации
+document.getElementById('registerSubmit').addEventListener('click', (event) => {
+    event.preventDefault(); // Предотвращаем стандартное действие отправки формы
+
+    const firstNameUser = document.getElementById('firstName').value;
+    const lastNameUser = document.getElementById('lastName').value;
+    const emailUser = document.getElementById('registerEmail').value;
+    const passwordUser = document.getElementById('registerPassword').value;
+
+    const user = new User(firstNameUser, lastNameUser, emailUser, passwordUser);
+    saveUserToLocalStorage(user);
+    console.log("User registered:", user);
+
+    // Очистка полей формы
+    document.getElementById('firstName').value = '';
+    document.getElementById('lastName').value = '';
+    document.getElementById('registerEmail').value = '';
+    document.getElementById('registerPassword').value = '';
+});
+
+// Функция для создания объекта пользователя
+function User(firstName, lastName, registerEmail, registerPassword) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = registerEmail;
+    this.password = registerPassword;
+}
+
+
+// Создайте функцию для изменения иконки пользователя
+function changeUserIconToNameInitials(firstName, lastName) {
+    const userIcon = document.getElementById('userIcon'); // Здесь 'userIcon' - это идентификатор элемента с иконкой пользователя
+    if (userIcon) {
+        const initials = `${firstName.charAt(0).toUpperCase()}${lastName.charAt(0).toUpperCase()}`;
+        userIcon.textContent = initials;
+    }
+}
+
+// После успешной регистрации пользователя, вызовите функцию для изменения иконки
+function handleRegistrationSuccess(user) {
+    // Ваш код для обработки успешной регистрации
+    // ...
+
+    // Вызываем функцию для изменения иконки пользователя
+    changeUserIconToNameInitials(user.firstName, user.lastName);
+}
+
+
+
+//Добавляем обработчик события для клика по документу
+// document.addEventListener('click', (event) => {
+//     // Закрываем окно регистрации, если клик произошел вне этого окна и вне кнопки "registerButton"
+//     if (!registerWindow.contains(event.target) && event.target !== registerButton) {
+//         closeWindowWithVisibility(registerWindow);
+//     }
+
+//     // Закрываем окно авторизации, если клик произошел вне этого окна и вне кнопки "loginButton"
+//     if (!loginWindow.contains(event.target) && event.target !== loginButton) {
+//         closeWindowWithVisibility(loginWindow);
+//     }
+// });
+
 
 
 /*

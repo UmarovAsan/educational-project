@@ -173,8 +173,8 @@ a:hover {
   transition: fill 0.3s ease;
 }
 
-.menu-list {
-  opacity: 0;
+.menuRegistration {
+  visibility: hidden;
   position: absolute;
   height: 90px;
   background: #FFF;
@@ -186,10 +186,28 @@ a:hover {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.menu-list--active {
-  opacity: 1;
+.menuRegistration--active {
+  visibility: visible;
   transition: all 1s;
 }
+
+/* .menuAuthorization {
+  visibility: hidden;
+  position: absolute;
+  height: 90px;
+  background: #FFF;
+  padding: 5px 4px 20px;
+  top: 32px;
+  right: -3px;
+  list-style: none;
+  z-index: 3;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menuAuthorization--active {
+  visibility: visible;
+  transition: all 1s;
+} */
 
 .menu-link-profile {
   height: 25px;
@@ -754,14 +772,13 @@ input[type="radio"] {
   word-wrap: break-word;
 }
 
-.button-buy {
+.buttonBuy {
   flex-shrink: 0;
   border-radius: 2px;
   border: 1px solid #0C0C0E;
   background-color: #FFF;
   margin-top: 15px;
   margin-left: 20px;
-  cursor: pointer;
   width: 21px;
   height: 12px;
   color: #0C0C0E;
@@ -773,16 +790,17 @@ input[type="radio"] {
   line-height: normal;
   letter-spacing: 1px;
   padding: 8px 26px;
+  cursor: pointer;
 }
 
-.button-buy:hover {
+.buttonBuy:hover {
   outline: none;
   background-color: #BB945F;
   border-color: #BB945F;
   transition: 0.3s;
 }
 
-.button-own {
+.buttonOwn {
   width: max-content;
   height: 28px;
   flex-shrink: 0;
@@ -791,9 +809,10 @@ input[type="radio"] {
   background-color: #FFF;
   margin-top: 15px;
   margin-left: 20px;
+  cursor: pointer;
 }
 
-.button-own span {
+.buttonOwn span {
   width: max-content;
   height: 12px;
   color: #BB945F;
@@ -1736,6 +1755,19 @@ input[type="radio"] {
   text-decoration: none;
 }
 
+/* Затемнение области вокруг окон регистрации и авторизации */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Задайте цвет и прозрачность, как вам угодно */
+  visibility: hidden; /* Изначально скрываем overlay */
+  z-index: 999; /* Убедитесь, что overlay находится выше других элементов */
+}
 
 /* формы для ввода данных */
 .register-window {

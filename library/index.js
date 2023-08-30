@@ -169,22 +169,16 @@ const buttonBuy = document.querySelectorAll('.buttonBuy');
 
 function openWindowWithVisibility(window) {
     window.style.visibility = 'visible';
+    window.style.opacity = "1";
     overlay.style.visibility = 'visible';
+    overlay.style.opacity = "1";
 }
 
 function closeWindowWithVisibility(window) {
     window.style.visibility = 'hidden';
+    window.style.opacity = "0";
     overlay.style.visibility = 'hidden';
-}
-
-// Функция для открытия окна с установкой visibility: visible
-function openWindowWithVisibility(window) {
-    window.style.visibility = 'visible';
-}
-
-// Функция для закрытия окна с установкой visibility: hidden
-function closeWindowWithVisibility(window) {
-    window.style.visibility = 'hidden';
+    overlay.style.opacity = "0";
 }
 
 registerButton.addEventListener('click', () => {
@@ -422,9 +416,122 @@ function handleRegistrationSuccess(user) {
     }
 }
 
+// Get references to the user-initials span element and profilMenu button
+const userInitialsSpan = document.querySelector('.user-initials');
+const profilMenuButton = document.getElementById('profilMenu');
+
+// Get references to the user's First Name and Last Name input fields
+const userFirstNameInput = document.getElementById('firstName');
+const userLastNameInput = document.getElementById('lastName');
+
+// Function to display full name when hovering over profilMenu
+function displayFullName() {
+    const userFirstName = userFirstNameInput.value;
+    const userLastName = userLastNameInput.value;
+    userInitialsSpan.textContent = `${userFirstName} ${userLastName}`;
+}
+
+// Function to display initials when not hovering over profilMenu
+function displayInitials() {
+    const userFirstName = userFirstNameInput.value;
+    const userLastName = userLastNameInput.value;
+    userInitialsSpan.textContent = `${userFirstName.charAt(0).toUpperCase()}${userLastName.charAt(0).toUpperCase()}`;
+}
+
+// Add mouseenter and mouseleave event listeners to profilMenu
+profilMenuButton.addEventListener('mouseenter', displayFullName);
+profilMenuButton.addEventListener('mouseleave', displayInitials);
+
+// Initialize with initials
+displayInitials();
+
+const profileButton = document.getElementById('profileButton');
+const profileContainer = document.getElementById('profileContainer');
+const profileCloseButton = document.querySelector('.profileCloseBtn');
+const menuAuthorization = document.getElementById('menuAuthorization');
+const logOutButton = document.getElementById('logOutButton');
+const headerMenuContainerTwo = document.querySelector('header__menu-containertwo'); // Added "document."
+const headerMenuContainer = document.querySelector('header__menu-container'); // Added "document."
+const profilMenu = document.getElementById('profilMenu');
+
+function openProfileContainer() {
+    profileContainer.style.visibility = 'visible';
+    profileContainer.style.opacity = '1';
+    overlay.style.visibility = 'visible';
+    overlay.style.opacity = '1';
+    menuAuthorization.style.visibility = 'hidden';
+}
+
+function closeProfileContainer() {
+    profileContainer.style.visibility = 'hidden';
+    profileContainer.style.opacity = '0';
+    overlay.style.visibility = 'hidden';
+    overlay.style.opacity = '0';
+}
+
+// function logOut() {
+//     // closeProfileContainer(); // Close the profile container
+//     // headerMenuContainerTwo.style.visibility = 'hidden';
+//     profilMenu.style.visibility = 'hidden';
+//     headerMenuContainerTwo.style.visibility = 'hidden';
+//     headerMenuContainer.style.visibility = 'visible';
+    // menuAuthorization.style.visibility = 'hidden';
+
+    // Show the header__menu-container and hide the menuRegistration
+    // headerMenuContainer.style.visibility = 'visible';
+    // headerMenu.style.visibility = 'visible';
+// }
+
+// logOutButton.addEventListener('click', () => {
+//     // Hide header__menu-containertwo
+//     // headerMenuContainertwo.style.opacity = '0';
+//     headerMenuContainerTwo.style.visibility = 'hidden';
+
+//     // Show header__menu-container with a smooth transition
+//     // headerMenuContainer.style.opacity = '1';
+//     headerMenuContainer.style.visibility = 'visible';
+// });
+
+profileButton.addEventListener('click', openProfileContainer);
+profileCloseButton.addEventListener('click', closeProfileContainer);
+logOutButton.addEventListener('click', logOut);
 
 
+// const profileButton = document.getElementById('profileButton');
+// const profileContainer = document.getElementById('profileContainer');
+// const profileCloseButton = document.querySelector('.profileCloseBtn');
+// const menuAuthorization = document.getElementById('menuAuthorization');
+// const logOutButton = document.getElementById('logOutButton');
+// const headerMenuContainerTwo = document.querySelector('header__menu-containertwo'); // Added "document."
+// const headerMenuContainer = document.querySelector('header__menu-container'); // Added "document."
 
+// function openProfileContainer() {
+//     profileContainer.style.visibility = 'visible';
+//     profileContainer.style.opacity = '1';
+//     overlay.style.visibility = 'visible';
+//     overlay.style.opacity = '1';
+//     menuAuthorization.style.visibility = 'hidden';
+// }
+
+// function closeProfileContainer() {
+//     profileContainer.style.visibility = 'hidden';
+//     profileContainer.style.opacity = '0';
+//     overlay.style.visibility = 'hidden';
+//     overlay.style.opacity = '0';
+// }
+
+// function logOut() {
+//     closeProfileContainer(); // Close the profile container
+//     profileButton.style.visibility = 'hidden'; // Corrected from "profilMenu" to "profileButton"
+//     menuAuthorization.style.visibility = 'hidden';
+//     headerMenuContainerTwo.style.visibility = 'hidden';
+//     headerMenu.style.visibility = 'visible';
+//     headerMenuContainer.style.visibility = 'visible';
+// }
+
+// profileButton.addEventListener('click', openProfileContainer);
+// profileCloseButton.addEventListener('click', closeProfileContainer);
+// logOutButton.addEventListener('click', logOut);
 
 /*
 console.log("Самооценка по пунктам:\n\n" +

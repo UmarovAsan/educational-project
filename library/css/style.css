@@ -711,6 +711,7 @@ input[type="radio"] {
 .radio-label:hover, .radio-label:focus, .radio-label:active {
   font-weight: 700;
   cursor: pointer;
+  transition: visibility 0s, opacity 1s ease;
 }
 
 .container-book {
@@ -722,7 +723,7 @@ input[type="radio"] {
   margin-top: 39px;
   margin-right: 20px;
   margin-left: 20px;
-  transition: transform 1s ease;
+  transition: visibility 0s, opacity 1s ease;
 }
 
 .winter-slider,
@@ -733,6 +734,7 @@ input[type="radio"] {
   flex-wrap: wrap;
   position: absolute;
   justify-content: space-between;
+  transition: visibility 0s, opacity 1s ease;
 }
 
 .book {
@@ -1834,6 +1836,7 @@ input[type="radio"] {
   background-color: rgba(0, 0, 0, 0.7);
   visibility: hidden;
   z-index: 3;
+  transition: visibility 0s, opacity 0.5s ease;
 }
 
 /* формы для ввода данных */
@@ -2101,6 +2104,263 @@ input[type="radio"] {
 
 .authorization-btn:hover span,
 .registration-btn:hover span {
+  color: #BB945F;
+  transition: transform 0.3s ease;
+}
+
+.profileContainer {
+  display: flex;
+  width: 600px;
+  height: 400px;
+  background: #FFF;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  margin-top: 90px;
+  transition: visibility 0s, opacity 0.3s ease;
+  visibility: hidden;
+}
+
+.profileContact {
+  width: 170px;
+  height: 400px;
+  background: #0C0C0E;
+  position: relative;
+}
+
+.profileAvatarName {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  height: 125px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 139px;
+}
+
+.profilAvatar {
+  display: flex;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  background: #FFF;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profilName {
+  display: flex;
+  width: 120px;
+  height: 30px;
+  margin-top: 15px;
+  background: #FFF;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.profilAvatar:hover,
+.profilName:hover {
+  color: #BB945F;
+  transition: transform 0.3s ease;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  width: 385px;
+  height: 336px;
+  padding: 25px 25px 39px 20px;
+}
+
+.profileCloseBtn{
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  background-color: #FFF;
+  color: #0C0C0E;
+  border: none;
+  outline: none;
+  margin-right: 0px;
+  cursor: pointer;
+}
+
+.profileCloseBtn:hover, .profileCloseBtn:active {
+  color: #BB945F;
+  transition: transform 0.3s ease;
+}
+
+.profilH3 {
+  width: max-content;
+  color: #000;
+  text-align: center;
+  font-family: Forum;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 50% */
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-left: 0px;
+}
+
+.infoBox {
+  width: 237px;
+  height: 81px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-left: 0px;
+  gap: 20px;
+}
+
+.cardsProfile {
+  width: 53px;
+  height: 81px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.bonusesInfo {
+  width: 84px;
+  height: 81px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.bookInfo {
+  width: 60px;
+  height: 81px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardsProfileText {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 100% */
+  letter-spacing: 0.4px;
+  text-transform: capitalize;
+}
+
+.cardsProfileCount{
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 200% */
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+}
+
+.infoBoxTwo {
+  height: 100px;
+  flex-shrink: 0;
+  margin-top: 20px;
+  margin-left: 0px;
+}
+
+.BoxTwoText {
+  display: flex;
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Inter;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 80% */
+  margin-left: 0px;
+}
+
+.BoxTwoList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  gap: 10px;
+  padding-left: 28px;
+}
+
+.RentedBooks {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 100% */
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  margin-left: 0px;
+}
+
+.infoBoxThree {
+  height: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 40px;
+  margin-left: 0px;
+}
+
+.BoxThreeText {
+  display: flex;
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 100% */
+}
+
+.infoBoxThree label {
+  display: flex;
+  height: 20px;
+  align-items: center;
+}
+
+.cardNumberProfile {
+  display: flex;
+  max-width: 113px;
+  color: #BB945F;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.cardNumberCopy {
+  display: flex;
+  width: 13.31px;
+  height: 12px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.cardNumberCopy:hover {
   color: #BB945F;
   transition: transform 0.3s ease;
 }

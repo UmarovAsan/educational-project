@@ -1,57 +1,42 @@
-//функция открытия бургер меню
-document.addEventListener("DOMContentLoaded", function(){
-    document.getElementById("burger").addEventListener("click", function()
-    {
-        document.querySelector("header").classList.toggle("open")
-    })
-});
+document.addEventListener("DOMContentLoaded", function () {
+    const burger = document.getElementById("burger");
+    const header = document.querySelector("header");
+    const headerMenu = document.getElementById('headerMenu');
+    const menuRegistration = document.getElementById('menuRegistration');
+    const menuAuthorization = document.getElementById('menuAuthorization');
 
-//Закрыть меню при нажатие на Escape
-window.addEventListener('keydown', (e) => {
-    if (e.key === "Escape") {
-        document.querySelector(".header").classList.remove("open")
-    }
-});
-
-//Закрыть меню при клике вне его
-document.getElementById("header__nav-menu").addEventListener('click', event => {
-    event._isClickWithInMenu = true;
-});
-document.getElementById("burger").addEventListener('click', event => {
-    event._isClickWithInMenu = true;
-});
-document.body.addEventListener('click', event => {
-    if (event._isClickWithInMenu) return;
-    //действие при клике
-    document.querySelector("header").classList.remove("open")
-});
-
-
-// Функция для открытия меню авторизации и регистрации
-const menuButton = document.getElementById('header__menu');
-const menuRegistration = document.getElementById('menuRegistration');
-
-    // Добавляем обработчик события клика на кнопку
-    menuButton.addEventListener('click', function () {
-        // Переключаем класс menuRegistration--active
-        menuRegistration.classList.toggle('menuRegistration--active');
+    // Функция открытия бургер-меню
+    burger.addEventListener("click", function () {
+        header.classList.toggle("open");
+        menuAuthorization.style.visibility = 'hidden';
+        menuRegistration.style.visibility = 'hidden';
+        closeWindowWithVisibility(registerWindow);
+        closeWindowWithVisibility(loginWindow);
     });
 
-// Добавляем обработчик события клика вне меню
-document.addEventListener('click', function (event) {
-    // Проверяем, был ли клик вне меню и кнопки
-    if (!menuButton.contains(event.target) && event.target !== menuRegistration) {
-        // Закрываем меню
-        menuRegistration.classList.remove('menuRegistration--active');
-    }
-});
+    // Закрыть меню при нажатии на Escape
+    window.addEventListener('keydown', (e) => {
+        if (e.key === "Escape") {
+            header.classList.remove("open");
+            menuAuthorization.style.visibility = 'hidden';
+            menuRegistration.style.visibility = 'hidden';
+            closeWindowWithVisibility(registerWindow);
+            closeWindowWithVisibility(loginWindow);
+        }
+    });
 
-// Добавляем обработчик события нажатия клавиши Escape
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-        // Закрываем меню
-        menuRegistration.classList.remove('menuRegistration--active');
-    }
+    // Добавляем обработчик события клика на кнопку "headerMenu"
+    headerMenu.addEventListener('click', () => {
+        // Toggle the visibility of the menuRegistration
+        if (menuRegistration.style.visibility === 'hidden') {
+            menuRegistration.style.visibility = 'visible';
+        } else {
+            menuRegistration.style.visibility = 'hidden';
+        }
+        header.classList.remove("open");
+    });
+
+    // Rest of your code...
 });
 
 
@@ -170,31 +155,27 @@ $(document).ready(function() {
     });
 });
 
-
-//открытие окна авторизации и регистрации
+// //открытие окна авторизации и регистрации
 const overlay = document.getElementById('overlay');
 const registerButton = document.getElementById('registerButton');
 const registerWindow = document.getElementById('registerWindow');
 const registerCloseButton = document.getElementById('registerCloseButton');
 const registrationBtn = document.getElementById('registrationBtn');
-const registrationBtnCard = document.getElementById('registrationBtnCard');
 const loginButton = document.getElementById('loginButton');
 const loginWindow = document.getElementById('loginWindow');
 const loginCloseButton = document.getElementById('loginCloseButton');
 const authorizationBtn = document.getElementById('authorizationBtn');
-const authorizationBtnCard = document.getElementById('authorizationBtnCard');
 const buttonBuy = document.querySelectorAll('.buttonBuy');
 
 function openWindowWithVisibility(window) {
     window.style.visibility = 'visible';
-    document.getElementById('overlay').style.visibility = 'visible'; // Показываем overlay с помощью visibility
+    overlay.style.visibility = 'visible';
 }
 
 function closeWindowWithVisibility(window) {
     window.style.visibility = 'hidden';
-    document.getElementById('overlay').style.visibility = 'hidden'; // Скрываем overlay с помощью visibility
+    overlay.style.visibility = 'hidden';
 }
-
 
 // Функция для открытия окна с установкой visibility: visible
 function openWindowWithVisibility(window) {
@@ -276,213 +257,172 @@ buttonBuy.forEach(button => {
 });
 
 
-// // Добавляем обработчик события клика вне окна loginWindow
-// document.addEventListener('click', (event) => {
-//     const target = event.target;
-//     // Проверяем, был ли клик выполнен вне окна loginWindow и кнопки loginButton
-//     if (!loginWindow.contains(target) && target !== loginButton) {
-//         // Закрываем окно loginWindow
-//         closeWindowWithVisibility(loginWindow);
-//     }
-// });
-
-// Закрытие окон при нажатии клавиши Esc
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-        closeWindowWithVisibility(loginWindow);
-        closeWindowWithVisibility(registerWindow);
-    }
-});
-
 //валидация email
 function validateEmail(email) {
-// Регулярное выражение для проверки адреса электронной почты
-var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-return emailRegex.test(email);
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailRegex.test(email);
 }
-//Проверяем все ли поля в input заполнены
-document.getElementById("registerSubmit").addEventListener("click", function(event) {
-    event.preventDefault(); // Предотвращаем стандартное действие отправки формы
-  
-    // Получаем значения полей ввода
-    var firstNameInput = document.getElementById("firstName");
-    var lastNameInput = document.getElementById("lastName");
-    var emailInput = document.getElementById("registerEmail");
-    var passwordInput = document.getElementById("registerPassword");
-  
-    // Проверяем и подсвечиваем незаполненные поля
-    if (firstNameInput.value.trim() === "") {
-        firstNameInput.classList.add("input-error");
-    } else {
-        firstNameInput.classList.remove("input-error");
-    }
-  
-    if (lastNameInput.value.trim() === "") {
-        lastNameInput.classList.add("input-error");
-    } else {
-        lastNameInput.classList.remove("input-error");
-    }
-  
-    if (emailInput.value.trim() === "") {
-        emailInput.classList.add("input-error");
-    } else {
-        emailInput.classList.remove("input-error");
-    }
-  
-    if (passwordInput.value.trim() === "") {
-        passwordInput.classList.add("input-error");
-    } else {
-        passwordInput.classList.remove("input-error");
-    }
-    
-    // Проверяем валидность firstName
-    var firstName = firstNameInput.value.trim();
-    if (firstName === "") {
-        firstNameInput.focus();
+
+document.getElementById('registerSubmit').addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const firstNameInput = document.getElementById('firstName');
+    const lastNameInput = document.getElementById('lastName');
+    const emailInput = document.getElementById('registerEmail');
+    const passwordInput = document.getElementById('registerPassword');
+
+    // Очищаем все классы input перед проверкой
+    firstNameInput.classList.remove("input-error");
+    lastNameInput.classList.remove("input-error");
+    emailInput.classList.remove("input-error");
+    passwordInput.classList.remove("input-error");
+
+    const firstName = firstNameInput.value.trim();
+    const lastName = lastNameInput.value.trim();
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    // Проверяем заполненность полей
+    if (email === "" || password === "") {
         alert("Заполните все поля.");
         return;
     }
 
-    // Проверяем валидность lastName
-    var lastName = lastNameInput.value.trim();
-        if (lastName === "") {
-        lastNameInput.focus();
-        alert("Заполните все поля.");
+    if (firstName === "") {
+        alert("Заполните все поля. firstName");
+        return;
+    }
+
+    if (lastName === "") {
+        alert("Заполните все поля. lastName");
         return;
     }
 
     // Проверяем валидность email
-    var email = emailInput.value.trim();
     if (!validateEmail(email)) {
         emailInput.focus();
         alert("Пожалуйста, введите корректный адрес электронной почты.");
         return;
     }
-  
+
     // Проверяем длину пароля
-    var password = passwordInput.value.trim();
     if (password.length < 8) {
         passwordInput.focus();
         alert("Пароль должен быть не короче 8 символов.");
         return;
     }
-    // Далее следует ваш код для обработки успешной регистрации
-    // ...
-});
-//Проверяем все ли поля в input заполнены
-document.getElementById("loginSubmit").addEventListener("click", function(event) {
-    event.preventDefault(); // Предотвращаем стандартное действие отправки формы
-  
-    // Получаем значения полей ввода
-    var loginEmailInput = document.getElementById("loginEmail");
-    var loginPasswordInput = document.getElementById("loginPassword");
-  
-    // Проверяем и подсвечиваем незаполненные поля
-    if (loginEmailInput.value.trim() === "") {
-        loginEmailInput.classList.add("input-error");
-    } else {
-        loginEmailInput.classList.remove("input-error");
-    }
-  
-    if (loginPasswordInput.value.trim() === "") {
-        loginPasswordInput.classList.add("input-error");
-    } else {
-        loginPasswordInput.classList.remove("input-error");
-    }
-  
-    // Проверяем валидность email
-    var email = loginEmailInput.value.trim();
-    if (!validateEmail(email)) {
-        loginEmailInput.focus();
-        alert("Пожалуйста, введите корректный адрес электронной почты.");
-        return;
-    }
 
-    // Проверяем длину пароля
-    var password = loginPasswordInput.value.trim();
-    if (password.length < 8) {
-        loginPasswordInput.focus();
-        alert("Пароль должен быть не короче 8 символов.");
-        return;
-    }
-    // Далее следует ваш код для обработки успешной авторизации
-    // ...
+    const user = new User(firstName, lastName, email, password);
+    saveUserToLocalStorage(user);
+    console.log("User registered:", user);
+
+    // Очищаем поля ввода после успешной регистрации
+    firstNameInput.value = '';
+    lastNameInput.value = '';
+    emailInput.value = '';
+    passwordInput.value = '';
+
+    // После успешной регистрации вызываем функцию для изменения иконки пользователя
+    handleRegistrationSuccess(user);
 });
   
   
+function User(firstName, lastName, email, password) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.password = password;
+}
+
 // функция регистрации
 // Функция для сохранения данных пользователя в localStorage
 function saveUserToLocalStorage(user) {
-    let users = JSON.parse(localStorage.getItem('users')) || {}; // Получаем текущие пользователи из localStorage или создаем пустой объект
+    const users = JSON.parse(localStorage.getItem('users')) || {};
+    const existingUser = Object.values(users).find(u => u.email === user.email);
+
+    if (existingUser) {
+        alert('Пользователь с таким адресом электронной почты уже существует.');
+        return; // Выходим из функции, не сохраняя пользователя
+    }
+
     const userId = "User" + createId(users);
     users[userId] = user;
-    localStorage.setItem('users', JSON.stringify(users)); // Сохраняем обновленный список пользователей
+    localStorage.setItem('users', JSON.stringify(users));
 }
 
-// Функция для создания уникального идентификатора пользователя
 function createId(users) {
     return Object.keys(users).length;
 }
 
-// Обработчик события submit для формы регистрации
-document.getElementById('registerSubmit').addEventListener('click', (event) => {
-    event.preventDefault(); // Предотвращаем стандартное действие отправки формы
+// After successful login
+localStorage.setItem('sessionToken', 'your-session-token-here');
 
-    const firstNameUser = document.getElementById('firstName').value;
-    const lastNameUser = document.getElementById('lastName').value;
-    const emailUser = document.getElementById('registerEmail').value;
-    const passwordUser = document.getElementById('registerPassword').value;
 
-    const user = new User(firstNameUser, lastNameUser, emailUser, passwordUser);
-    saveUserToLocalStorage(user);
-    console.log("User registered:", user);
-
-    // Очистка полей формы
-    document.getElementById('firstName').value = '';
-    document.getElementById('lastName').value = '';
-    document.getElementById('registerEmail').value = '';
-    document.getElementById('registerPassword').value = '';
-});
-
-// Функция для создания объекта пользователя
-function User(firstName, lastName, registerEmail, registerPassword) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = registerEmail;
-    this.password = registerPassword;
+const sessionToken = localStorage.getItem('sessionToken');
+if (sessionToken) {
+    // The user is authenticated; you can fetch their profile or display the user-specific content.
 }
 
-// После успешной регистрации пользователя, вызовите функцию для изменения иконки
+localStorage.removeItem('sessionToken');
+
+
+// После успешной регистрации пользователя, вызываем функцию для изменения кнопки
 function handleRegistrationSuccess(user) {
-    // Ваш код для обработки успешной регистрации
-    alert(`Регистрация прошла успешно. ${user.firstName} ${user.lastName}!`);
+    try {
+        // Hide the menuRegistration
+        const menuRegistrationElement = document.getElementById('menuRegistration');
+        if (menuRegistrationElement) {
+            menuRegistrationElement.style.visibility = 'hidden';
+        }
 
-    // Вызываем функцию для изменения иконки пользователя
-    changeUserIconToNameInitials(user.firstName, user.lastName);
-}
+        // Get a reference to the headerMenu button
+        const headerMenuButton = document.getElementById('headerMenu');
 
-// Создайте функцию для изменения иконки пользователя
-function changeUserIconToNameInitials(firstName, lastName) {
-    const userIcon = document.getElementById('header__menu'); // Замените 'header__menu' на идентификатор вашей иконки меню
-    if (userIcon) {
-        const initials = `${firstName.charAt(0).toUpperCase()}${lastName.charAt(0).toUpperCase()}`;
-        userIcon.innerHTML = `<span>${initials}</span>`;
+        // Create a new button element with the class "profilMenu"
+        const profilMenuButton = document.createElement('button');
+        profilMenuButton.className = 'profilMenu';
+
+        // Create a span element with the class "user-initials" and set its text content
+        const userInitialsSpan = document.createElement('span');
+        userInitialsSpan.className = 'user-initials';
+        userInitialsSpan.textContent = `${user.firstName.charAt(0).toUpperCase()}${user.lastName.charAt(0).toUpperCase()}`;
+
+        // Append the span element to the profilMenu button
+        profilMenuButton.appendChild(userInitialsSpan);
+
+        // Replace the headerMenu button with the new profilMenu button
+        headerMenuButton.parentNode.replaceChild(profilMenuButton, headerMenuButton);
+
+        // Get a reference to the registerWindow element and hide it
+        const registerWindowElement = document.getElementById('registerWindow');
+        if (registerWindowElement) {
+            registerWindowElement.style.visibility = 'hidden';
+        }
+
+        // Get a reference to the overlay element and hide it
+        const overlayElement = document.getElementById('overlay');
+        if (overlayElement) {
+            overlayElement.style.visibility = 'hidden';
+        }
+
+        // Get a reference to the menuAuthorization element
+        const menuAuthorizationElement = document.getElementById('menuAuthorization');
+
+        // Add a click event listener to the user-initials span element
+        userInitialsSpan.addEventListener('click', () => {
+            // Toggle the visibility of the menuAuthorization
+            if (menuAuthorizationElement.style.visibility === 'hidden') {
+                menuAuthorizationElement.style.visibility = 'visible';
+            } else {
+                menuAuthorizationElement.style.visibility = 'hidden';
+            }
+        });
+    } catch (error) {
+        console.error('Error handling registration success:', error);
     }
 }
 
 
-//Добавляем обработчик события для клика по документу
-// document.addEventListener('click', (event) => {
-//     // Закрываем окно регистрации, если клик произошел вне этого окна и вне кнопки "registerButton"
-//     if (!registerWindow.contains(event.target) && event.target !== registerButton) {
-//         closeWindowWithVisibility(registerWindow);
-//     }
-
-//     // Закрываем окно авторизации, если клик произошел вне этого окна и вне кнопки "loginButton"
-//     if (!loginWindow.contains(event.target) && event.target !== loginButton) {
-//         closeWindowWithVisibility(loginWindow);
-//     }
-// });
 
 
 

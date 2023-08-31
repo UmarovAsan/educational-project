@@ -1,44 +1,176 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const burger = document.getElementById("burger");
-    const header = document.querySelector("header");
-    const headerMenu = document.getElementById('headerMenu');
-    const menuRegistration = document.getElementById('menuRegistration');
-    const menuAuthorization = document.getElementById('menuAuthorization');
+const overlay = document.getElementById('overlay');
 
-    // Функция открытия бургер-меню
-    burger.addEventListener("click", function () {
-        header.classList.toggle("open");
-        menuAuthorization.style.visibility = 'hidden';
-        menuRegistration.style.visibility = 'hidden';
-        closeWindowWithVisibility(registerWindow);
-        closeWindowWithVisibility(loginWindow);
-    });
+// кнопки меню регистрации
+const headerMenu = document.getElementById('headerMenu');
+// меню регистрации
+const menuRegistration = document.getElementById('menuRegistration')
 
-    // Закрыть меню при нажатии на Escape
-    window.addEventListener('keydown', (e) => {
-        if (e.key === "Escape") {
-            header.classList.remove("open");
-            menuAuthorization.style.visibility = 'hidden';
-            menuRegistration.style.visibility = 'hidden';
-            closeWindowWithVisibility(registerWindow);
-            closeWindowWithVisibility(loginWindow);
-        }
-    });
+// кнопка открытия окна регистрации
+const registerButton = document.getElementById('registerButton')
 
-    // Добавляем обработчик события клика на кнопку "headerMenu"
-    headerMenu.addEventListener('click', () => {
-        // Toggle the visibility of the menuRegistration
-        if (menuRegistration.style.visibility === 'hidden') {
-            menuRegistration.style.visibility = 'visible';
-        } else {
-            menuRegistration.style.visibility = 'hidden';
-        }
-        header.classList.remove("open");
-    });
+// окно регистрации
+const registerWindow = document.getElementById('registerWindow');
+const registerCloseButton = document.getElementById('registerCloseButton');
+const registrationBtn = document.getElementById('registrationBtn');
 
-    // Rest of your code...
+// кнопка открытия окна авторизации
+const loginButton = document.getElementById('loginButton');
+
+// окно авторизации
+const loginWindow = document.getElementById('loginWindow');
+const loginCloseButton = document.getElementById('loginCloseButton');
+const authorizationBtn = document.getElementById('authorizationBtn');
+
+// кнопка покупки книги
+const purchaseButtons = document.querySelectorAll('.buttonBuy');
+
+// кнопка открытия окна регистрации
+const registrationBtnCard = document.getElementById('registrationBtnCard');
+
+// кнопка открытия окна авторизации
+const authorizationBtnCard = document.getElementById('authorizationBtnCard');
+
+function openWindowWithVisibility(window) {
+    window.style.visibility = 'visible';
+    window.style.opacity = '1';
+    overlay.style.visibility = 'visible';
+    overlay.style.opacity = '1';
+}
+
+function closeWindowWithVisibility(window) {
+    window.style.visibility = 'hidden';
+    window.style.opacity = '0';
+    overlay.style.visibility = 'hidden';
+    overlay.style.opacity = '0';
+}
+
+function closeAndOpenWindows(openWindow, closeWindow) {
+    openWindowWithVisibility(openWindow);
+    closeWindowWithVisibility(closeWindow);
+}
+
+headerMenu.addEventListener('click', () => {
+    openWindowWithVisibility(menuRegistration);
+    overlay.style.visibility = 'hidden';
 });
 
+registerButton.addEventListener('click', () => {
+    closeAndOpenWindows(registerWindow, loginWindow);
+    closeWindowWithVisibility(menuRegistration);
+    overlay.style.visibility = 'visible';
+    overlay.style.opacity = '1';
+});
+
+loginButton.addEventListener('click', () => {
+    closeAndOpenWindows(loginWindow, registerWindow);
+    closeWindowWithVisibility(menuRegistration);
+    overlay.style.visibility = 'visible';
+    overlay.style.opacity = '1';
+});
+
+registerCloseButton.addEventListener('click', () => {
+    closeWindowWithVisibility(registerWindow);
+});
+
+loginCloseButton.addEventListener('click', () => {
+    closeWindowWithVisibility(loginWindow);
+});
+
+registrationBtn.addEventListener('click', () => {
+    closeAndOpenWindows(registerWindow, loginWindow);
+    overlay.style.visibility = 'visible';
+    overlay.style.opacity = '1';
+});
+
+authorizationBtn.addEventListener('click', () => {
+    closeAndOpenWindows(loginWindow, registerWindow);
+    overlay.style.visibility = 'visible';
+    overlay.style.opacity = '1';
+});
+
+registrationBtnCard.addEventListener('click', () => {
+    openWindowWithVisibility(registerWindow);
+    overlay.style.visibility = 'visible';
+    overlay.style.opacity = '1';
+});
+
+authorizationBtnCard.addEventListener('click', () => {
+    openWindowWithVisibility(loginWindow);
+    overlay.style.visibility = 'visible';
+    overlay.style.opacity = '1';
+});
+
+purchaseButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        openWindowWithVisibility(loginWindow);
+        overlay.style.visibility = 'visible';
+        overlay.style.opacity = '1';
+    });
+});
+
+// закрытие окон при клике вне окон
+document.addEventListener('mousedown', (event) => {
+    const target = event.target;
+
+    // элементы при клие на которые не должны закрываться окна
+    const elementsToExclude = [
+        menuRegistration,
+        registerWindow,
+        loginWindow,
+        headerMenu,
+        registerButton,
+        loginButton,
+        registrationBtn,
+        loginCloseButton,
+        authorizationBtn,
+        registrationBtnCard,
+        authorizationBtnCard
+    ];
+
+    // проверка на клик вне окон
+    const isClickOutside = !elementsToExclude.some(element => element.contains(target));
+
+    if (isClickOutside) {
+        // закрытие окна
+        closeWindowWithVisibility(menuRegistration);
+        closeWindowWithVisibility(registerWindow);
+        closeWindowWithVisibility(loginWindow);
+    }
+});
+//========================================================================
+
+//функция открытия бургер меню
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("burger").addEventListener("click", function () {
+        document.querySelector("header").classList.toggle("open");
+        // Close the menuRegistration window if it is open
+        if (menuRegistration.style.visibility === 'visible') {
+            closeWindowWithVisibility(menuRegistration);
+        }
+    });
+});
+
+//Закрыть меню при нажатие на Escape
+window.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") {
+        document.querySelector(".header").classList.remove("open")
+    }
+});
+
+//Закрыть меню при клике вне его
+document.getElementById("header__nav-menu").addEventListener('click', event => {
+    event._isClickWithInMenu = true;
+});
+document.getElementById("burger").addEventListener('click', event => {
+    event._isClickWithInMenu = true;
+});
+document.body.addEventListener('click', event => {
+    if (event._isClickWithInMenu) return;
+    //действие при клике
+    document.querySelector("header").classList.remove("open")
+});
+
+//=======================================================================
 
 // Слайдер для About
 const aboutSlider = document.querySelector('.about-slider');
@@ -105,7 +237,7 @@ btnButton.forEach((btn, index) => {
 });
 
 updateButtons();
-
+//========================================================================
 
 //Слайдер для Favorit
 const winterSlider = document.getElementById('winter-slider');
@@ -154,102 +286,7 @@ $(document).ready(function() {
         $("#" + selectedSeason + "-slider").css("pointer-events", "auto");
     });
 });
-
-// //открытие окна авторизации и регистрации
-const overlay = document.getElementById('overlay');
-const registerButton = document.getElementById('registerButton');
-const registerWindow = document.getElementById('registerWindow');
-const registerCloseButton = document.getElementById('registerCloseButton');
-const registrationBtn = document.getElementById('registrationBtn');
-const loginButton = document.getElementById('loginButton');
-const loginWindow = document.getElementById('loginWindow');
-const loginCloseButton = document.getElementById('loginCloseButton');
-const authorizationBtn = document.getElementById('authorizationBtn');
-const buttonBuy = document.querySelectorAll('.buttonBuy');
-
-function openWindowWithVisibility(window) {
-    window.style.visibility = 'visible';
-    window.style.opacity = "1";
-    overlay.style.visibility = 'visible';
-    overlay.style.opacity = "1";
-}
-
-function closeWindowWithVisibility(window) {
-    window.style.visibility = 'hidden';
-    window.style.opacity = "0";
-    overlay.style.visibility = 'hidden';
-    overlay.style.opacity = "0";
-}
-
-registerButton.addEventListener('click', () => {
-    openWindowWithVisibility(registerWindow);
-    overlay.style.visibility = 'visible'; // Показываем overlay с помощью visibility
-});
-
-registerButton.addEventListener('click', () => {
-    closeWindowWithVisibility(loginWindow);
-});
-
-registrationBtn.addEventListener('click', () => {
-    openWindowWithVisibility(registerWindow);
-});
-
-registrationBtn.addEventListener('click', () => {
-    closeWindowWithVisibility(loginWindow);
-});
-
-registerCloseButton.addEventListener('click', () => {
-    closeWindowWithVisibility(registerWindow);
-    overlay.style.visibility = 'hidden';
-});
-
-registrationBtnCard.addEventListener('click', () => {
-    openWindowWithVisibility(registerWindow);
-    overlay.style.visibility = 'visible';
-});
-
-registrationBtnCard.addEventListener('click', () => {
-    closeWindowWithVisibility(loginWindow);
-});
-
-loginButton.addEventListener('click', () => {
-    openWindowWithVisibility(loginWindow);
-    overlay.style.visibility = 'visible';
-});
-
-loginButton.addEventListener('click', () => {
-    closeWindowWithVisibility(registerWindow);
-});
-
-authorizationBtn.addEventListener('click', () => {
-    openWindowWithVisibility(loginWindow);
-});
-
-authorizationBtn.addEventListener('click', () => {
-    closeWindowWithVisibility(registerWindow);
-});
-
-loginCloseButton.addEventListener('click', () => {
-    closeWindowWithVisibility(loginWindow);
-    overlay.style.visibility = 'hidden';
-});
-
-authorizationBtnCard.addEventListener('click', () => {
-    openWindowWithVisibility(loginWindow);
-    overlay.style.visibility = 'visible';
-});
-
-authorizationBtnCard.addEventListener('click', () => {
-    closeWindowWithVisibility(registerWindow);
-});
-
-buttonBuy.forEach(button => {
-    button.addEventListener('click', () => {
-        openWindowWithVisibility(loginWindow);
-        overlay.style.visibility = 'visible';
-    });
-});
-
+//========================================================================
 
 //валидация email
 function validateEmail(email) {
@@ -283,12 +320,12 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     }
 
     if (firstName === "") {
-        alert("Заполните все поля. firstName");
+        alert("Заполните поле firstName");
         return;
     }
 
     if (lastName === "") {
-        alert("Заполните все поля. lastName");
+        alert("Заполните поле lastName");
         return;
     }
 
@@ -317,7 +354,7 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     passwordInput.value = '';
 
     // После успешной регистрации вызываем функцию для изменения иконки пользователя
-    handleRegistrationSuccess(user);
+    // handleRegistrationSuccess(user);
 });
   
   
@@ -327,6 +364,7 @@ function User(firstName, lastName, email, password) {
     this.email = email;
     this.password = password;
 }
+//========================================================================
 
 // функция регистрации
 // Функция для сохранения данных пользователя в localStorage
@@ -358,93 +396,91 @@ if (sessionToken) {
 }
 
 localStorage.removeItem('sessionToken');
+//========================================================================
 
+// функция входа в личный профиль
+document.getElementById('registerSubmit').addEventListener('click', (event) => {
+    event.preventDefault();
+    
+    // ... Остальной код регистрации ...
+    const registerWindow = document.getElementById('registerWindow')
+    registerWindow.style.visibility = 'hidden'
+    overlay.style.visibility = 'hidden'
 
-// После успешной регистрации пользователя, вызываем функцию для изменения кнопки
-function handleRegistrationSuccess(user) {
-    try {
-        // Hide the menuRegistration
-        const menuRegistrationElement = document.getElementById('menuRegistration');
-        if (menuRegistrationElement) {
-            menuRegistrationElement.style.visibility = 'hidden';
+    // Скрываем элемент с классом "header__menu-container" с помощью visibility
+    const menuContainer = document.querySelector('.header__menu-container');
+    menuContainer.style.visibility = 'hidden';
+
+    // Показываем элемент с классом "header__menu-containertwo" с помощью visibility
+    const menuContainerTwo = document.querySelector('.header__menu-containertwo');
+    menuContainerTwo.style.visibility = 'visible';
+
+    // ... Остальной код после успешной регистрации ...
+    // Находим кнопку "profilMenu" и меню "menuAuthorization"
+    const profilMenuButton = document.getElementById('profilMenu');
+    const menuAuthorization = document.getElementById('menuAuthorization');
+
+    // Добавляем обработчик события клика на кнопку "profilMenu"
+    profilMenuButton.addEventListener('click', () => {
+        // Переключаем видимость меню "menuAuthorization"
+        if (menuAuthorization.style.visibility === 'visible') {
+            // Если меню видимо, скрываем его
+            menuAuthorization.style.visibility = 'hidden';
+        } else {
+            // Если меню скрыто, показываем его
+            menuAuthorization.style.visibility = 'visible';
         }
+    });
 
-        // Get a reference to the headerMenu button
-        const headerMenuButton = document.getElementById('headerMenu');
+    // Добавьте обработчик события клика вне окон
+    document.addEventListener('mousedown', (event) => {
+        const target = event.target;
 
-        // Create a new button element with the class "profilMenu"
-        const profilMenuButton = document.createElement('button');
-        profilMenuButton.className = 'profilMenu';
+        // Элементы, при клике на которые не должны закрываться окна
+        const elementsToExclude = [
+            menuAuthorization,
+            profilMenuButton,
+            logOutButton,
+        ];
 
-        // Create a span element with the class "user-initials" and set its text content
-        const userInitialsSpan = document.createElement('span');
-        userInitialsSpan.className = 'user-initials';
-        userInitialsSpan.textContent = `${user.firstName.charAt(0).toUpperCase()}${user.lastName.charAt(0).toUpperCase()}`;
+        // Проверка на клик вне окон
+        const isClickOutside = !elementsToExclude.some(element => element.contains(target));
 
-        // Append the span element to the profilMenu button
-        profilMenuButton.appendChild(userInitialsSpan);
-
-        // Replace the headerMenu button with the new profilMenu button
-        headerMenuButton.parentNode.replaceChild(profilMenuButton, headerMenuButton);
-
-        // Get a reference to the registerWindow element and hide it
-        const registerWindowElement = document.getElementById('registerWindow');
-        if (registerWindowElement) {
-            registerWindowElement.style.visibility = 'hidden';
+        if (isClickOutside) {
+            // Закрываем меню профиля (menuAuthorization)
+            menuAuthorization.style.visibility = 'hidden';
         }
+    });
 
-        // Get a reference to the overlay element and hide it
-        const overlayElement = document.getElementById('overlay');
-        if (overlayElement) {
-            overlayElement.style.visibility = 'hidden';
-        }
+    // Находим кнопку "Log Out"
+    const logOutButton = document.getElementById('logOutButton');
 
-        // Get a reference to the menuAuthorization element
-        const menuAuthorizationElement = document.getElementById('menuAuthorization');
+    // Добавляем обработчик события клика на кнопку "Log Out"
+    logOutButton.addEventListener('click', () => {
+        // Скрываем элемент "header__menu-containertwo"
+        const menuContainertwo = document.querySelector('.header__menu-containertwo');
+        menuContainertwo.style.visibility = 'hidden';
 
-        // Add a click event listener to the user-initials span element
-        userInitialsSpan.addEventListener('click', () => {
-            // Toggle the visibility of the menuAuthorization
-            if (menuAuthorizationElement.style.visibility === 'hidden') {
-                menuAuthorizationElement.style.visibility = 'visible';
-            } else {
-                menuAuthorizationElement.style.visibility = 'hidden';
-            }
-        });
-    } catch (error) {
-        console.error('Error handling registration success:', error);
-    }
+        // Показываем элемент "header__menu-container"
+        const menuContainer = document.querySelector('.header__menu-container');
+        menuContainer.style.visibility = 'visible';
+
+        // Скрываем элемент "menuRegistration"
+        const menuAuthorization = document.getElementById('menuAuthorization');
+        menuAuthorization.style.visibility = 'hidden';
+    });
+});
+
+function handleRegistrationSuccess(firstName, lastName) {
+    // Извлекаем элемент <span> с классом "user-initials"
+    const userInitialsSpan = document.querySelector('.user-initials');
+    // Устанавливаем содержимое <span> на первые буквы FirstName и LastName
+    userInitialsSpan.textContent = `${firstName[0]}${lastName[0]}`;
 }
-
-// Get references to the user-initials span element and profilMenu button
-const userInitialsSpan = document.querySelector('.user-initials');
-const profilMenuButton = document.getElementById('profilMenu');
-
-// Get references to the user's First Name and Last Name input fields
-const userFirstNameInput = document.getElementById('firstName');
-const userLastNameInput = document.getElementById('lastName');
-
-// Function to display full name when hovering over profilMenu
-function displayFullName() {
-    const userFirstName = userFirstNameInput.value;
-    const userLastName = userLastNameInput.value;
-    userInitialsSpan.textContent = `${userFirstName} ${userLastName}`;
-}
-
-// Function to display initials when not hovering over profilMenu
-function displayInitials() {
-    const userFirstName = userFirstNameInput.value;
-    const userLastName = userLastNameInput.value;
-    userInitialsSpan.textContent = `${userFirstName.charAt(0).toUpperCase()}${userLastName.charAt(0).toUpperCase()}`;
-}
-
-// Add mouseenter and mouseleave event listeners to profilMenu
-profilMenuButton.addEventListener('mouseenter', displayFullName);
-profilMenuButton.addEventListener('mouseleave', displayInitials);
-
-// Initialize with initials
-displayInitials();
-
+// После успешной регистрации вызываем функцию для изменения иконки пользователя
+handleRegistrationSuccess(firstName, lastName);
+//========================================================================
+// открытие окна профиля меню
 const profileButton = document.getElementById('profileButton');
 const profileContainer = document.getElementById('profileContainer');
 const profileCloseButton = document.querySelector('.profileCloseBtn');
@@ -454,6 +490,7 @@ const headerMenuContainerTwo = document.querySelector('header__menu-containertwo
 const headerMenuContainer = document.querySelector('header__menu-container'); // Added "document."
 const profilMenu = document.getElementById('profilMenu');
 
+// Функция для открытия окна профиля
 function openProfileContainer() {
     profileContainer.style.visibility = 'visible';
     profileContainer.style.opacity = '1';
@@ -462,6 +499,7 @@ function openProfileContainer() {
     menuAuthorization.style.visibility = 'hidden';
 }
 
+// Функция для закрытия окна профиля
 function closeProfileContainer() {
     profileContainer.style.visibility = 'hidden';
     profileContainer.style.opacity = '0';
@@ -469,69 +507,150 @@ function closeProfileContainer() {
     overlay.style.opacity = '0';
 }
 
-// function logOut() {
-//     // closeProfileContainer(); // Close the profile container
-//     // headerMenuContainerTwo.style.visibility = 'hidden';
-//     profilMenu.style.visibility = 'hidden';
-//     headerMenuContainerTwo.style.visibility = 'hidden';
-//     headerMenuContainer.style.visibility = 'visible';
-    // menuAuthorization.style.visibility = 'hidden';
-
-    // Show the header__menu-container and hide the menuRegistration
-    // headerMenuContainer.style.visibility = 'visible';
-    // headerMenu.style.visibility = 'visible';
-// }
-
-// logOutButton.addEventListener('click', () => {
-//     // Hide header__menu-containertwo
-//     // headerMenuContainertwo.style.opacity = '0';
-//     headerMenuContainerTwo.style.visibility = 'hidden';
-
-//     // Show header__menu-container with a smooth transition
-//     // headerMenuContainer.style.opacity = '1';
-//     headerMenuContainer.style.visibility = 'visible';
-// });
-
 profileButton.addEventListener('click', openProfileContainer);
 profileCloseButton.addEventListener('click', closeProfileContainer);
-logOutButton.addEventListener('click', logOut);
 
+document.addEventListener('mousedown', (event) => {
+    const target = event.target;
 
-// const profileButton = document.getElementById('profileButton');
-// const profileContainer = document.getElementById('profileContainer');
-// const profileCloseButton = document.querySelector('.profileCloseBtn');
-// const menuAuthorization = document.getElementById('menuAuthorization');
-// const logOutButton = document.getElementById('logOutButton');
-// const headerMenuContainerTwo = document.querySelector('header__menu-containertwo'); // Added "document."
-// const headerMenuContainer = document.querySelector('header__menu-container'); // Added "document."
+    // Элементы, при клике на которые не должны закрываться окна
+    const elementsToExclude = [
+        profilMenu,
+        menuAuthorization,
+        profileButton,
+        logOutButton,
+        profileContainer,
+        profileCloseButton,
+        menuRegistration,
+        registerWindow,
+        loginWindow,
+        headerMenu,
+        registerButton,
+        loginButton,
+        registrationBtn,
+        loginCloseButton,
+        authorizationBtn,
+        registrationBtnCard,
+        authorizationBtnCard
+    ];
 
-// function openProfileContainer() {
-//     profileContainer.style.visibility = 'visible';
-//     profileContainer.style.opacity = '1';
-//     overlay.style.visibility = 'visible';
-//     overlay.style.opacity = '1';
-//     menuAuthorization.style.visibility = 'hidden';
-// }
+    // Проверка на клик вне окон
+    const isClickOutside = !elementsToExclude.some(element => element.contains(target));
 
-// function closeProfileContainer() {
-//     profileContainer.style.visibility = 'hidden';
-//     profileContainer.style.opacity = '0';
-//     overlay.style.visibility = 'hidden';
-//     overlay.style.opacity = '0';
-// }
+    if (isClickOutside) {
+        // Закрытие окна профиля
+        closeProfileContainer();
+    }
+});
+//=====================================================================
+// Функция для входа в личный профиль
+function login() {
+    const loginEmailInput = document.getElementById('loginEmail');
+    const loginPasswordInput = document.getElementById('loginPassword');
 
-// function logOut() {
-//     closeProfileContainer(); // Close the profile container
-//     profileButton.style.visibility = 'hidden'; // Corrected from "profilMenu" to "profileButton"
-//     menuAuthorization.style.visibility = 'hidden';
-//     headerMenuContainerTwo.style.visibility = 'hidden';
-//     headerMenu.style.visibility = 'visible';
-//     headerMenuContainer.style.visibility = 'visible';
-// }
+    const enteredEmail = loginEmailInput.value.trim();
+    const enteredPassword = loginPasswordInput.value.trim();
 
-// profileButton.addEventListener('click', openProfileContainer);
-// profileCloseButton.addEventListener('click', closeProfileContainer);
-// logOutButton.addEventListener('click', logOut);
+    // Получаем данные пользователя из localStorage по email
+    const users = JSON.parse(localStorage.getItem('users')) || {};
+    const user = Object.values(users).find(u => u.email === enteredEmail);
+
+    if (!user) {
+        alert('Пользователь с таким email не найден.');
+        return;
+    }
+
+    if (enteredPassword === user.password) {
+        // Вход выполнен успешно, скрываем окно входа и показываем личный профиль
+        function closeLoginWindow() {
+            const loginWindow = document.getElementById('loginWindow');
+            loginWindow.style.visibility = 'hidden';
+        }
+        
+        closeLoginWindow(); // функция, которая скроет окно входа
+        
+        function showProfile() {
+            const profileContainer = document.getElementById('profileContainer');
+            const overlay = document.getElementById('overlay');
+            profileContainer.style.visibility = 'visible';
+            overlay.style.visibility = 'visible';
+        }
+        
+        showProfile(); // функция, которая покажет личный профиль
+    } else {
+        alert('Неверный пароль.');
+    }
+
+    // Скрываем элемент с классом "header__menu-container" с помощью visibility
+    const menuContainer = document.querySelector('.header__menu-container');
+    menuContainer.style.visibility = 'hidden';
+
+    // Показываем элемент с классом "header__menu-containertwo" с помощью visibility
+    const menuContainerTwo = document.querySelector('.header__menu-containertwo');
+    menuContainerTwo.style.visibility = 'visible';
+
+    // ... Остальной код после успешной регистрации ...
+    // Находим кнопку "profilMenu" и меню "menuAuthorization"
+    const profilMenuButton = document.getElementById('profilMenu');
+    const menuAuthorization = document.getElementById('menuAuthorization');
+
+    // Добавляем обработчик события клика на кнопку "profilMenu"
+    profilMenuButton.addEventListener('click', () => {
+        // Переключаем видимость меню "menuAuthorization"
+        if (menuAuthorization.style.visibility === 'visible') {
+            // Если меню видимо, скрываем его
+            menuAuthorization.style.visibility = 'hidden';
+        } else {
+            // Если меню скрыто, показываем его
+            menuAuthorization.style.visibility = 'visible';
+        }
+    });
+
+    // Добавьте обработчик события клика вне окон
+    document.addEventListener('mousedown', (event) => {
+        const target = event.target;
+
+        // Элементы, при клике на которые не должны закрываться окна
+        const elementsToExclude = [
+            menuAuthorization,
+            profilMenuButton,
+            logOutButton,
+        ];
+
+        // Проверка на клик вне окон
+        const isClickOutside = !elementsToExclude.some(element => element.contains(target));
+
+        if (isClickOutside) {
+            // Закрываем меню профиля (menuAuthorization)
+            menuAuthorization.style.visibility = 'hidden';
+        }
+    });
+
+    // Находим кнопку "Log Out"
+    const logOutButton = document.getElementById('logOutButton');
+
+    // Добавляем обработчик события клика на кнопку "Log Out"
+    logOutButton.addEventListener('click', () => {
+        // Скрываем элемент "header__menu-containertwo"
+        const menuContainertwo = document.querySelector('.header__menu-containertwo');
+        menuContainertwo.style.visibility = 'hidden';
+
+        // Показываем элемент "header__menu-container"
+        const menuContainer = document.querySelector('.header__menu-container');
+        menuContainer.style.visibility = 'visible';
+
+        // Скрываем элемент "menuRegistration"
+        const menuAuthorization = document.getElementById('menuAuthorization');
+        menuAuthorization.style.visibility = 'hidden';
+    });
+}
+
+// Добавляем обработчик события клика на кнопку "Log In"
+document.getElementById('loginSubmit').addEventListener('click', (event) => {
+    event.preventDefault();
+    login();
+});
+
 
 /*
 console.log("Самооценка по пунктам:\n\n" +

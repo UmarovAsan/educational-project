@@ -2364,3 +2364,145 @@ input[type="radio"] {
   color: #BB945F;
   transition: transform 0.3s ease;
 }
+
+.buy-window {
+  width: 640px;
+  height: 540px;
+}
+
+.top-form {
+  display: flex;
+  height: 60px;
+  flex-shrink: 0;
+  background: #0C0C0E;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.top-form-title {
+  display: flex;
+  width: max-content;
+  color: #FFF;
+  text-align: center;
+  font-family: Forum;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 50% */
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  justify-content: center;
+  margin-right: 103px;
+}
+
+.close-buy-window {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  margin-top: 5px;
+  margin-right: 0px;
+  margin-left: 0px;
+  border: none;
+  outline: none;
+  background-color: #0C0C0E;
+}
+
+.bottom-form {
+  display: flex;
+  height: 480px;
+  padding: 30px 35px 40px;
+  gap: 40px;
+}
+
+.text-form {
+  height: 410px;
+}
+
+.text-form .text-form-title {
+  color: #8E8E8E;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+
+.card-form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 410px;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  row-gap: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.card-title {
+  width: max-content;
+  height: 20px;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 133.333% */
+  letter-spacing: 0.3px;
+  margin-left: 0px;
+}
+
+.card-details input {
+  height: 20px;
+  background: #FFF;
+  border-color: #BB945F;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.buy-button-form {
+  display: flex;
+  width: max-content;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.book-buy-button {
+  display: flex;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  padding: 8px 26px;
+  margin-left: 0px;
+  background-color: #FFF;
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+}
+
+.purchase-price {
+  display: flex;
+  width: max-content;
+  height: 20px;
+  margin-left: 25px;
+  color: #0C0C0E;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}

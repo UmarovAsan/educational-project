@@ -847,7 +847,7 @@
     <div class="buy-window" id="buy-window">
       <div class="top-form">
         <p class="top-form-title">Buy a library card</p>
-        <button class="close-buy-window" id="close-buy-window">
+        <button class="close-buy-window-btn" id="close-buy-window-btn">
           <svg width="15" height="15" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 16.8507L17 2" stroke="white" stroke-width="3"/>
             <path d="M2 2.14929L17 17" stroke="white" stroke-width="3"/>
@@ -858,15 +858,18 @@
         <div class="card-form">
           <label class="card-details">
             <span class="card-title">Bank card number</span>
-            <input type="text" class="card-numder">
+            <input type="text" class="card-numder" id="card-number-input" maxlength="19">
           </label>
-          <label class="card-details">
+          <div class="card-details-date">
             <span class="card-title">Expiration code</span>
-            <input type="text" class="card-date">
-          </label>
+            <form class="card-details-inline">
+              <input type="text" class="valid-date" maxlength="2" pattern="[0-9]{2}">
+              <input type="text" class="valid-date" maxlength="2" pattern="[0-9]{2}">
+            </form>
+          </div>
           <label class="card-details">
             <span class="card-title">CVC</span>
-            <input type="password" class="card-cv">
+            <input type="text" class="card-cvc" maxlength="3" pattern="[0-9]{3}" title="Please enter exactly 3 digits">
           </label>
           <label class="card-details">
             <span class="card-title">Cardholder name</span>

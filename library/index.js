@@ -480,6 +480,7 @@ function handleRegistrationSuccess(firstName, lastName) {
 // После успешной регистрации вызываем функцию для изменения иконки пользователя
 handleRegistrationSuccess(firstName, lastName);
 //========================================================================
+
 // открытие окна профиля меню
 const profileButton = document.getElementById('profileButton');
 const profileContainer = document.getElementById('profileContainer');
@@ -561,22 +562,14 @@ function login() {
     }
 
     if (enteredPassword === user.password) {
-        // Вход выполнен успешно, скрываем окно входа и показываем личный профиль
+        // Вход выполнен успешно, скрываем окно входа
         function closeLoginWindow() {
             const loginWindow = document.getElementById('loginWindow');
             loginWindow.style.visibility = 'hidden';
+            overlay.style.visibility = 'hidden';
         }
         
         closeLoginWindow(); // функция, которая скроет окно входа
-        
-        function showProfile() {
-            const profileContainer = document.getElementById('profileContainer');
-            const overlay = document.getElementById('overlay');
-            profileContainer.style.visibility = 'visible';
-            overlay.style.visibility = 'visible';
-        }
-        
-        showProfile(); // функция, которая покажет личный профиль
     } else {
         alert('Неверный пароль.');
     }
@@ -615,6 +608,7 @@ function login() {
             menuAuthorization,
             profilMenuButton,
             logOutButton,
+            profileContainer
         ];
 
         // Проверка на клик вне окон
@@ -625,6 +619,61 @@ function login() {
             menuAuthorization.style.visibility = 'hidden';
         }
     });
+
+    // Функция для открытия окна Buy a library card
+    // Функция для открытия окна "buy-window"
+    function openBuyWindow() {
+        const buyWindow = document.getElementById('buy-window');
+        overlay.style.visibility = 'visible';
+        overlay.style.opacity = '1';
+        buyWindow.style.visibility = 'visible';
+        buyWindow.style.opacity = '1';
+        loginWindow.style.visibility = 'hidden'
+        loginWindow.style.opacity = '0';
+    }
+
+    function closeBuyWindow() {
+        const buyWindow = document.getElementById('buy-window');
+        overlay.style.visibility = 'hidden';
+        overlay.style.opacity = '0';
+        buyWindow.style.visibility = 'hidden';
+        buyWindow.style.opacity = '0';
+    }
+    // После успешного входа в личный профиль вызываем функцию для изменения иконки пользователя
+    // handleRegistrationSuccess(firstName, lastName);
+
+    // Добавляем обработчики событий для кнопок "Buy"
+    const buyButtons = document.querySelectorAll('.buttonBuy');
+
+    buyButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            openBuyWindow();
+        });
+    });
+
+    const closeBuyWindowBtn = document.querySelector('.close-buy-window-btn')
+    
+    closeBuyWindowBtn.addEventListener('click', () => {
+        closeBuyWindow();
+    });
+
+    // overlay.addEventListener('click', (event) => {
+    //     // Остановка всплытия события, чтобы оно не дошло до overlay
+    //     event.stopPropagation();
+    // });
+    
+    document.addEventListener('mousedown', (event) => {
+        const target = event.target;
+        const buyWindow = document.getElementById('buy-window');
+    
+        // Проверяем, что клик был сделан вне элемента buyWindow
+        if (target !== buyWindow && !buyWindow.contains(target)) {
+            buyWindow.style.visibility = 'hidden';
+            overlay.style.visibility = 'hidden';
+            overlay.style.opacity = '0';
+        }
+    });
+       
 
     // Находим кнопку "Log Out"
     const logOutButton = document.getElementById('logOutButton');
@@ -650,6 +699,28 @@ document.getElementById('loginSubmit').addEventListener('click', (event) => {
     event.preventDefault();
     login();
 });
+
+
+// ограничение для номера карты 16 цифр с пробелами
+const cardNumberInput = document.getElementById("card-number-input");
+
+// Слушаем событие ввода текста
+cardNumberInput.addEventListener("input", formatCardNumber);
+
+// Функция для форматирования номера карты
+function formatCardNumber() {
+    let cardNumber = cardNumberInput.value.replace(/\D/g, "");
+    let formattedCardNumber = "";
+
+    for (let i = 0; i < cardNumber.length; i++) {
+        if (i > 0 && i % 4 === 0) {
+            formattedCardNumber += " ";
+        }
+        formattedCardNumber += cardNumber[i];
+    }
+
+    cardNumberInput.value = formattedCardNumber;
+}
 
 
 /*

@@ -654,7 +654,7 @@
         height: 2629px;
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 726px) {
         .container-weather {
             margin-right: 50px;
         }

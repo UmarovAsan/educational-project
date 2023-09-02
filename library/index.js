@@ -544,6 +544,7 @@ document.addEventListener('mousedown', (event) => {
     }
 });
 //=====================================================================
+
 // Функция для входа в личный профиль
 function login() {
     const loginEmailInput = document.getElementById('loginEmail');
@@ -656,11 +657,6 @@ function login() {
     closeBuyWindowBtn.addEventListener('click', () => {
         closeBuyWindow();
     });
-
-    // overlay.addEventListener('click', (event) => {
-    //     // Остановка всплытия события, чтобы оно не дошло до overlay
-    //     event.stopPropagation();
-    // });
     
     document.addEventListener('mousedown', (event) => {
         const target = event.target;
@@ -673,7 +669,57 @@ function login() {
             overlay.style.opacity = '0';
         }
     });
-       
+
+    //покупка абонемента
+    const buyButton = document.getElementById("book-buy-button");
+    const buyWindow = document.getElementById("buy-window");
+    const cardNumberInput = document.getElementById("card-number-input");
+    const validDateInputs = document.querySelectorAll(".valid-date");
+    const cardCvcInput = document.querySelector(".card-cvc");
+    const cardholderNameInput = document.querySelector(".cardholder-name");
+    const postalCodeInput = document.querySelector(".postal-code");
+    const cityTownInput = document.querySelector(".city-town");
+
+    buyButton.addEventListener("click", function(event) {
+    event.preventDefault();
+
+        // Проверяем, заполнены ли все поля
+        if (
+            cardNumberInput.value.trim() !== "" &&
+            Array.from(validDateInputs).every(input => input.value.trim() !== "") &&
+            cardCvcInput.value.trim() !== "" &&
+            cardholderNameInput.value.trim() !== "" &&
+            postalCodeInput.value.trim() !== "" &&
+            cityTownInput.value.trim() !== ""
+        ) {
+            // Если все поля заполнены, скрываем окно
+            buyWindow.style.visibility = "hidden";
+            const purchaseButtons = document.querySelectorAll('.buttonBuy');
+
+            purchaseButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    buyWindow.style.visibility = 'hidden'
+                    overlay.style.visibility = 'hidden'
+                    // Создаем новую кнопку "Own"
+                    const ownButton = document.createElement("button");
+                    ownButton.classList.add("buttonOwn");
+                    ownButton.innerHTML = '<span>Own</span>';
+                    ownButton.disabled = true; // Делаем кнопку неактивной
+                    
+                    // Заменяем текущую кнопку на новую "Own"
+                    button.parentNode.replaceChild(ownButton, button);
+                    ownButton.style.visibility = 'visible'
+                });
+            
+            });
+        }
+    });
+
+    closeBuyWindowBtn.addEventListener("click", function() {
+        // Закрытие окна при нажатии на крестик
+        buyWindow.style.visibility = "hidden";
+    });
+
 
     // Находим кнопку "Log Out"
     const logOutButton = document.getElementById('logOutButton');
@@ -693,6 +739,7 @@ function login() {
         menuAuthorization.style.visibility = 'hidden';
     });
 }
+//===============================================================
 
 // Добавляем обработчик события клика на кнопку "Log In"
 document.getElementById('loginSubmit').addEventListener('click', (event) => {

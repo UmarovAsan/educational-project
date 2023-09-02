@@ -256,7 +256,7 @@
                   A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
                 </p>
               </div>
-              <button class="buttonBuy"><span>Buy</span></button>
+              <button class="buttonBuy">Buy</button>
               <div class="book-cover">
                 <img src="./img/book4.jpg" alt="The Book Eaters">
               </div>
@@ -863,25 +863,25 @@
           <div class="card-details-date">
             <span class="card-title">Expiration code</span>
             <form class="card-details-inline">
-              <input type="text" class="valid-date" maxlength="2" pattern="[0-9]{2}">
-              <input type="text" class="valid-date" maxlength="2" pattern="[0-9]{2}">
+              <input type="text" class="valid-date" id="valid-date" maxlength="2" pattern="[0-9]{2}">
+              <input type="text" class="valid-date" id="valid-date-two" maxlength="2" pattern="[0-9]{2}">
             </form>
           </div>
           <label class="card-details">
             <span class="card-title">CVC</span>
-            <input type="text" class="card-cvc" maxlength="3" pattern="[0-9]{3}" title="Please enter exactly 3 digits">
+            <input type="text" class="card-cvc" id="card-cvc" maxlength="3" pattern="[0-9]{3}" title="Please enter exactly 3 digits">
           </label>
           <label class="card-details">
             <span class="card-title">Cardholder name</span>
-            <input type="text" class="cardholder-name">
+            <input type="text" class="cardholder-name" id="cardholder-name" pattern="[a-zA-Z]">
           </label>
           <label class="card-details">
             <span class="card-title">Postal code</span>
-            <input type="text" class="postal-code">
+            <input type="text" class="postal-code" id="postal-code" minlength="6" pattern="[0-9]{3}" title="Please enter minimum 6 digits">
           </label>
           <label class="card-details">
             <span class="card-title">City / Town</span>
-            <input type="text" class="city-town">
+            <input type="text" class="city-town" id="city-town" pattern="[a-zA-Z]">
           </label>
           <div class="buy-button-form">
             <button type="submit" class="book-buy-button" id="book-buy-button">Buy</button>

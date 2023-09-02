@@ -878,7 +878,8 @@ input[type="radio"] {
   background-color: #FFF;
   margin-top: 15px;
   margin-left: 20px;
-  cursor: pointer;
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .buttonOwn span {

@@ -485,7 +485,284 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     const profileButton = document.getElementById('profileButton');
     const profileContainer = document.getElementById('profileContainer');
     const profileCloseButton = document.querySelector('.profileCloseBtn');
-    const profilMenu = document.getElementById('profilMenu');
+    // const profilMenu = document.getElementById('profilMenu');
+
+    // Функция для открытия окна профиля
+    function openProfileContainer() {
+        profileContainer.style.visibility = 'visible';
+        profileContainer.style.opacity = '1';
+        overlay.style.visibility = 'visible';
+        overlay.style.opacity = '1';
+        menuAuthorization.style.visibility = 'hidden';
+    }
+
+    // Функция для закрытия окна профиля
+    function closeProfileContainer() {
+        profileContainer.style.visibility = 'hidden';
+        profileContainer.style.opacity = '0';
+        overlay.style.visibility = 'hidden';
+        overlay.style.opacity = '0';
+    }
+
+    profileButton.addEventListener('click', openProfileContainer);
+    profileCloseButton.addEventListener('click', closeProfileContainer);
+
+    // document.addEventListener('mousedown', (event) => {
+    //     const target = event.target;
+
+    //     // Элементы, при клике на которые не должны закрываться окна
+    //     const elementsToExclude = [
+    //         profilMenu,
+    //         menuAuthorization,
+    //         profileButton,
+    //         logOutButton,
+    //         profileContainer,
+    //         profileCloseButton,
+    //         menuRegistration,
+    //         registerWindow,
+    //         loginWindow,
+    //         headerMenu,
+    //         registerButton,
+    //         loginButton,
+    //         registrationBtn,
+    //         loginCloseButton,
+    //         authorizationBtn,
+    //         registrationBtnCard,
+    //         authorizationBtnCard
+    //     ];
+
+    //     // Проверка на клик вне окон
+    //     const isClickOutside = !elementsToExclude.some(element => element.contains(target));
+
+    //     if (isClickOutside) {
+    //         // Закрытие окна профиля
+    //         closeProfileContainer();
+    //     }
+    document.addEventListener('mousedown', (event) => {
+        const target = event.target;
+        const profileContainer = document.getElementById('profileContainer');
+        
+        if (!profileContainer.contains(target)) {
+            // Закрытие окна profileContainer
+            closeProfileContainer();
+        }
+    });
+
+    // Функция для открытия окна Buy a library card
+    // Функция для открытия окна "buy-window"
+    function openBuyWindow() {
+        const buyWindow = document.getElementById('buy-window');
+        overlay.style.visibility = 'visible';
+        overlay.style.opacity = '1';
+        buyWindow.style.visibility = 'visible';
+        buyWindow.style.opacity = '1';
+        loginWindow.style.visibility = 'hidden'
+    }
+
+    function closeBuyWindow() {
+        const buyWindow = document.getElementById('buy-window');
+        overlay.style.visibility = 'hidden';
+        overlay.style.opacity = '0';
+        buyWindow.style.visibility = 'hidden';
+        buyWindow.style.opacity = '0';
+    }
+
+    // Добавляем обработчики событий для кнопок "Buy"
+    purchaseButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            openBuyWindow();
+        });
+    });
+
+    const closeBuyWindowBtn = document.querySelector('.close-buy-window-btn')
+
+    closeBuyWindowBtn.addEventListener('click', () => {
+        closeBuyWindow();
+    });
+
+    document.addEventListener('mousedown', (event) => {
+        const target = event.target;
+        const buyWindow = document.getElementById('buy-window');
+        
+        if (!buyWindow.contains(target)) {
+            // Закрытие окна buyWindow
+            closeBuyWindow();
+        }
+    });
+
+    //покупка абонемента
+    const buyButton = document.getElementById("book-buy-button");
+    const buyWindow = document.getElementById("buy-window");
+    const validDateInputs = document.querySelectorAll(".valid-date");
+    const cardCvcInput = document.querySelector(".card-cvc");
+    const cardholderNameInput = document.querySelector(".cardholder-name");
+    const postalCodeInput = document.querySelector(".postal-code");
+    const cityTownInput = document.querySelector(".city-town");
+
+    // Слушаем событие ввода текста
+    cardNumberInput.addEventListener("input", formatCardNumber);
+
+    // Функция для форматирования номера карты
+    function formatCardNumber() {
+        let cardNumber = cardNumberInput.value.replace(/\D/g, "");
+        let formattedCardNumber = "";
+
+        for (let i = 0; i < cardNumber.length; i++) {
+            if (i > 0 && i % 4 === 0) {
+                formattedCardNumber += " ";
+            }
+            formattedCardNumber += cardNumber[i];
+        }
+
+        cardNumberInput.value = formattedCardNumber;
+    }
+
+    buyButton.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        // Проверяем, заполнены ли все поля
+        if (
+            cardNumberInput.value.trim() !== "" &&
+            Array.from(validDateInputs).every(input => input.value.trim() !== "") &&
+            cardCvcInput.value.trim() !== "" &&
+            cardholderNameInput.value.trim() !== "" &&
+            postalCodeInput.value.trim() !== "" &&
+            cityTownInput.value.trim() !== ""
+        ) {
+            // Если все поля заполнены, скрываем окно
+            buyWindow.style.visibility = "hidden";
+            const purchaseButtons = document.querySelectorAll('.buttonBuy');
+
+            purchaseButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    buyWindow.style.visibility = 'hidden'
+                    overlay.style.visibility = 'hidden'
+                    // Создаем новую кнопку "Own"
+                    const ownButton = document.createElement("button");
+                    ownButton.classList.add("buttonOwn");
+                    ownButton.innerHTML = '<span>Own</span>';
+                    ownButton.disabled = true; // Делаем кнопку неактивной
+
+                    // Заменяем текущую кнопку на новую "Own"
+                    button.parentNode.replaceChild(ownButton, button);
+                    ownButton.style.visibility = 'visible'
+                });
+
+            });
+        }
+    });
+
+    closeBuyWindowBtn.addEventListener("click", function () {
+        // Закрытие окна при нажатии на крестик
+        buyWindow.style.visibility = "hidden";
+    });
+});
+
+// =====================================================================
+// =====================================================================
+// =====================================================================
+
+// Функция для входа в личный профиль через авторизацию
+function login() {
+    const loginEmailInput = document.getElementById('loginEmail');
+    const loginPasswordInput = document.getElementById('loginPassword');
+
+    const enteredEmail = loginEmailInput.value.trim();
+    const enteredPassword = loginPasswordInput.value.trim();
+
+    // Получаем данные пользователя из localStorage по email
+    const users = JSON.parse(localStorage.getItem('users')) || {};
+    const user = Object.values(users).find(u => u.email === enteredEmail);
+
+    if (!user) {
+        alert('User with this email was not found.');
+        return;
+    }
+
+    if (enteredPassword === user.password) {
+        // Вход выполнен успешно, скрываем окно входа
+        function closeLoginWindow() {
+            const loginWindow = document.getElementById('loginWindow');
+            loginWindow.style.visibility = 'hidden';
+            overlay.style.visibility = 'hidden';
+        }
+
+        closeLoginWindow(); // функция, которая скроет окно входа
+    } else {
+        alert('Incorrect password.');
+    }
+
+    // Скрываем элемент с классом "header__menu-container" с помощью visibility
+    const menuContainer = document.querySelector('.header__menu-container');
+    menuContainer.style.visibility = 'hidden';
+
+    // Показываем элемент с классом "header__menu-containertwo" с помощью visibility
+    const menuContainerTwo = document.querySelector('.header__menu-containertwo');
+    menuContainerTwo.style.visibility = 'visible';
+
+    // ... Остальной код после успешной регистрации ...
+    // Находим кнопку "profilMenu" и меню "menuAuthorization"
+    const profilMenuButton = document.getElementById('profilMenu');
+    const menuAuthorization = document.getElementById('menuAuthorization');
+
+    // Добавляем обработчик события клика на кнопку "profilMenu"
+    profilMenuButton.addEventListener('click', () => {
+        // Переключаем видимость меню "menuAuthorization"
+        if (menuAuthorization.style.visibility === 'visible') {
+            // Если меню видимо, скрываем его
+            menuAuthorization.style.visibility = 'hidden';
+        } else {
+            // Если меню скрыто, показываем его
+            menuAuthorization.style.visibility = 'visible';
+        }
+    });
+
+    // Добавьте обработчик события клика вне окон
+    document.addEventListener('mousedown', (event) => {
+        const target = event.target;
+
+        // Элементы, при клике на которые не должны закрываться окна
+        const elementsToExclude = [
+            menuAuthorization,
+            profilMenuButton,
+            logOutButton,
+            profileContainer
+        ];
+
+        // Проверка на клик вне окон
+        const isClickOutside = !elementsToExclude.some(element => element.contains(target));
+
+        if (isClickOutside) {
+            // Закрываем меню профиля (menuAuthorization)
+            menuAuthorization.style.visibility = 'hidden';
+        }
+    });
+
+    // After successful login
+    localStorage.setItem('sessionToken', 'your-session-token-here');
+
+    // ... (other code)
+
+    // функцию для изменения иконки пользователя
+    function updateUserInitials(firstName, lastName) {
+        const userInitialsSpan = document.querySelector('.user-initials');
+        userInitialsSpan.textContent = `${firstName[0].toUpperCase()}${lastName[0].toUpperCase()}`;
+    }
+
+    // Inside the login function after successful login
+    if (enteredPassword === user.password) {
+        // Update user initials
+        updateUserInitials(user.firstName, user.lastName);
+
+        // Rest of the login code
+    }
+    // ========================================================================
+
+    // открытие окна профиля меню
+    const profileButton = document.getElementById('profileButton');
+    const profileContainer = document.getElementById('profileContainer');
+    const profileCloseButton = document.querySelector('.profileCloseBtn');
+    // const profilMenu = document.getElementById('profilMenu');
 
     // Функция для открытия окна профиля
     function openProfileContainer() {
@@ -509,486 +786,201 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
 
     document.addEventListener('mousedown', (event) => {
         const target = event.target;
-
-        // Элементы, при клике на которые не должны закрываться окна
-        const elementsToExclude = [
-            profilMenu,
-            menuAuthorization,
-            profileButton,
-            logOutButton,
-            profileContainer,
-            profileCloseButton,
-            menuRegistration,
-            registerWindow,
-            loginWindow,
-            headerMenu,
-            registerButton,
-            loginButton,
-            registrationBtn,
-            loginCloseButton,
-            authorizationBtn,
-            registrationBtnCard,
-            authorizationBtnCard
-        ];
-
-        // Проверка на клик вне окон
-        const isClickOutside = !elementsToExclude.some(element => element.contains(target));
-
-        if (isClickOutside) {
-            // Закрытие окна профиля
+        const profileContainer = document.getElementById('profileContainer');
+        
+        if (!profileContainer.contains(target)) {
+            // Закрытие окна profileContainer
             closeProfileContainer();
         }
-        // Функция для открытия окна Buy a library card
-        // Функция для открытия окна "buy-window"
-        function openBuyWindow() {
-            const buyWindow = document.getElementById('buy-window');
-            overlay.style.visibility = 'visible';
-            overlay.style.opacity = '1';
-            buyWindow.style.visibility = 'visible';
-            buyWindow.style.opacity = '1';
-            loginWindow.style.visibility = 'hidden'
-            loginWindow.style.opacity = '0';
-        }
+    });
 
-        function closeBuyWindow() {
-            const buyWindow = document.getElementById('buy-window');
-            overlay.style.visibility = 'hidden';
-            overlay.style.opacity = '0';
-            buyWindow.style.visibility = 'hidden';
-            buyWindow.style.opacity = '0';
-        }
+    // Функция для открытия окна Buy a library card
+    // Функция для открытия окна "buy-window"
+    function openBuyWindow() {
+        const buyWindow = document.getElementById('buy-window');
+        overlay.style.visibility = 'visible';
+        overlay.style.opacity = '1';
+        buyWindow.style.visibility = 'visible';
+        buyWindow.style.opacity = '1';
+        loginWindow.style.visibility = 'hidden'
+    }
 
-        // Добавляем обработчики событий для кнопок "Buy"
-        const purchaseButtons = document.querySelectorAll('.buttonBuy');
+    function closeBuyWindow() {
+        const buyWindow = document.getElementById('buy-window');
+        overlay.style.visibility = 'hidden';
+        overlay.style.opacity = '0';
+        buyWindow.style.visibility = 'hidden';
+        buyWindow.style.opacity = '0';
+    }
 
-        purchaseButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                openBuyWindow();
-            });
-        });
+    // Добавляем обработчики событий для кнопок "Buy"
+    const purchaseButtons = document.querySelectorAll('.buttonBuy');
 
-        const closeBuyWindowBtn = document.querySelector('.close-buy-window-btn')
-
-        closeBuyWindowBtn.addEventListener('click', () => {
-            closeBuyWindow();
-        });
-
-        document.addEventListener('mousedown', (event) => {
-            const target = event.target;
-            const buyWindow = document.getElementById('buy-window');
-
-            // Проверяем, что клик был сделан вне элемента buyWindow
-            if (target !== buyWindow && !buyWindow.contains(target)) {
-                buyWindow.style.visibility = 'hidden';
-                overlay.style.visibility = 'hidden';
-                overlay.style.opacity = '0';
-            }
-        });
-
-        //покупка абонемента
-        const buyButton = document.getElementById("book-buy-button");
-        const buyWindow = document.getElementById("buy-window");
-        const validDateInputs = document.querySelectorAll(".valid-date");
-        const cardCvcInput = document.querySelector(".card-cvc");
-        const cardholderNameInput = document.querySelector(".cardholder-name");
-        const postalCodeInput = document.querySelector(".postal-code");
-        const cityTownInput = document.querySelector(".city-town");
-
-        // Слушаем событие ввода текста
-        cardNumberInput.addEventListener("input", formatCardNumber);
-
-        // Функция для форматирования номера карты
-        function formatCardNumber() {
-            let cardNumber = cardNumberInput.value.replace(/\D/g, "");
-            let formattedCardNumber = "";
-
-            for (let i = 0; i < cardNumber.length; i++) {
-                if (i > 0 && i % 4 === 0) {
-                    formattedCardNumber += " ";
-                }
-                formattedCardNumber += cardNumber[i];
-            }
-
-            cardNumberInput.value = formattedCardNumber;
-        }
-
-        buyButton.addEventListener("click", function (event) {
-            event.preventDefault();
-
-            // Проверяем, заполнены ли все поля
-            if (
-                cardNumberInput.value.trim() !== "" &&
-                Array.from(validDateInputs).every(input => input.value.trim() !== "") &&
-                cardCvcInput.value.trim() !== "" &&
-                cardholderNameInput.value.trim() !== "" &&
-                postalCodeInput.value.trim() !== "" &&
-                cityTownInput.value.trim() !== ""
-            ) {
-                // Если все поля заполнены, скрываем окно
-                buyWindow.style.visibility = "hidden";
-                const purchaseButtons = document.querySelectorAll('.buttonBuy');
-
-                purchaseButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        buyWindow.style.visibility = 'hidden'
-                        overlay.style.visibility = 'hidden'
-                        // Создаем новую кнопку "Own"
-                        const ownButton = document.createElement("button");
-                        ownButton.classList.add("buttonOwn");
-                        ownButton.innerHTML = '<span>Own</span>';
-                        ownButton.disabled = true; // Делаем кнопку неактивной
-
-                        // Заменяем текущую кнопку на новую "Own"
-                        button.parentNode.replaceChild(ownButton, button);
-                        ownButton.style.visibility = 'visible'
-                    });
-
-                });
-            }
-        });
-
-        closeBuyWindowBtn.addEventListener("click", function () {
-            // Закрытие окна при нажатии на крестик
-            buyWindow.style.visibility = "hidden";
+    purchaseButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            openBuyWindow();
         });
     });
-});
-    // =====================================================================
-    // =====================================================================
-    // =====================================================================
 
-    // Функция для входа в личный профиль через авторизацию
-    function login() {
-        const loginEmailInput = document.getElementById('loginEmail');
-        const loginPasswordInput = document.getElementById('loginPassword');
+    const closeBuyWindowBtn = document.querySelector('.close-buy-window-btn')
 
-        const enteredEmail = loginEmailInput.value.trim();
-        const enteredPassword = loginPasswordInput.value.trim();
+    closeBuyWindowBtn.addEventListener('click', () => {
+        closeBuyWindow();
+    });
 
-        // Получаем данные пользователя из localStorage по email
-        const users = JSON.parse(localStorage.getItem('users')) || {};
-        const user = Object.values(users).find(u => u.email === enteredEmail);
-
-        if (!user) {
-            alert('User with this email was not found.');
-            return;
-        }
-
-        if (enteredPassword === user.password) {
-            // Вход выполнен успешно, скрываем окно входа
-            function closeLoginWindow() {
-                const loginWindow = document.getElementById('loginWindow');
-                loginWindow.style.visibility = 'hidden';
-                overlay.style.visibility = 'hidden';
-            }
-
-            closeLoginWindow(); // функция, которая скроет окно входа
-        } else {
-            alert('Incorrect password.');
-        }
-
-        // Скрываем элемент с классом "header__menu-container" с помощью visibility
-        const menuContainer = document.querySelector('.header__menu-container');
-        menuContainer.style.visibility = 'hidden';
-
-        // Показываем элемент с классом "header__menu-containertwo" с помощью visibility
-        const menuContainerTwo = document.querySelector('.header__menu-containertwo');
-        menuContainerTwo.style.visibility = 'visible';
-
-        // ... Остальной код после успешной регистрации ...
-        // Находим кнопку "profilMenu" и меню "menuAuthorization"
-        const profilMenuButton = document.getElementById('profilMenu');
-        const menuAuthorization = document.getElementById('menuAuthorization');
-
-        // Добавляем обработчик события клика на кнопку "profilMenu"
-        profilMenuButton.addEventListener('click', () => {
-            // Переключаем видимость меню "menuAuthorization"
-            if (menuAuthorization.style.visibility === 'visible') {
-                // Если меню видимо, скрываем его
-                menuAuthorization.style.visibility = 'hidden';
-            } else {
-                // Если меню скрыто, показываем его
-                menuAuthorization.style.visibility = 'visible';
-            }
-        });
-
-        // Добавьте обработчик события клика вне окон
-        document.addEventListener('mousedown', (event) => {
-            const target = event.target;
-
-            // Элементы, при клике на которые не должны закрываться окна
-            const elementsToExclude = [
-                menuAuthorization,
-                profilMenuButton,
-                logOutButton,
-                profileContainer
-            ];
-
-            // Проверка на клик вне окон
-            const isClickOutside = !elementsToExclude.some(element => element.contains(target));
-
-            if (isClickOutside) {
-                // Закрываем меню профиля (menuAuthorization)
-                menuAuthorization.style.visibility = 'hidden';
-            }
-        });
-
-        // After successful login
-        localStorage.setItem('sessionToken', 'your-session-token-here');
-
-        // ... (other code)
-
-        // Function to update user initials
-        function updateUserInitials(firstName, lastName) {
-            const userInitialsSpan = document.querySelector('.user-initials');
-            userInitialsSpan.textContent = `${firstName[0].toUpperCase()}${lastName[0].toUpperCase()}`;
-        }
-
-        // Inside the login function after successful login
-        if (enteredPassword === user.password) {
-            // Update user initials
-            updateUserInitials(user.firstName, user.lastName);
-
-            // Rest of the login code
-        }
-
-        // открытие окна профиля меню
-        const profileButton = document.getElementById('profileButton');
-        const profileContainer = document.getElementById('profileContainer');
-        const profileCloseButton = document.querySelector('.profileCloseBtn');
-        const profilMenu = document.getElementById('profilMenu');
-
-        // Функция для открытия окна профиля
-        function openProfileContainer() {
-            profileContainer.style.visibility = 'visible';
-            profileContainer.style.opacity = '1';
-            overlay.style.visibility = 'visible';
-            overlay.style.opacity = '1';
-            menuAuthorization.style.visibility = 'hidden';
-        }
-
-        // Функция для закрытия окна профиля
-        function closeProfileContainer() {
-            profileContainer.style.visibility = 'hidden';
-            profileContainer.style.opacity = '0';
-            overlay.style.visibility = 'hidden';
-            overlay.style.opacity = '0';
-        }
-
-        profileButton.addEventListener('click', openProfileContainer);
-        profileCloseButton.addEventListener('click', closeProfileContainer);
-
-        document.addEventListener('mousedown', (event) => {
-            const target = event.target;
-
-            // Элементы, при клике на которые не должны закрываться окна
-            const elementsToExclude = [
-                profilMenu,
-                menuAuthorization,
-                profileButton,
-                logOutButton,
-                profileContainer,
-                profileCloseButton,
-                menuRegistration,
-                registerWindow,
-                loginWindow,
-                headerMenu,
-                registerButton,
-                loginButton,
-                registrationBtn,
-                loginCloseButton,
-                authorizationBtn,
-                registrationBtnCard,
-                authorizationBtnCard
-            ];
-
-            // Проверка на клик вне окон
-            const isClickOutside = !elementsToExclude.some(element => element.contains(target));
-
-            if (isClickOutside) {
-                // Закрытие окна профиля
-                closeProfileContainer();
-            }
-
-        });
-        // Функция для открытия окна Buy a library card
-        // Функция для открытия окна "buy-window"
-        function openBuyWindow() {
-            const buyWindow = document.getElementById('buy-window');
-            overlay.style.visibility = 'visible';
-            overlay.style.opacity = '1';
-            buyWindow.style.visibility = 'visible';
-            buyWindow.style.opacity = '1';
-            loginWindow.style.visibility = 'hidden'
-            loginWindow.style.opacity = '0';
-        }
-
-        function closeBuyWindow() {
-            const buyWindow = document.getElementById('buy-window');
-            overlay.style.visibility = 'hidden';
-            overlay.style.opacity = '0';
-            buyWindow.style.visibility = 'hidden';
-            buyWindow.style.opacity = '0';
-        }
-
-        // Добавляем обработчики событий для кнопок "Buy"
-        const purchaseButtons = document.querySelectorAll('.buttonBuy');
-
-        purchaseButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                openBuyWindow();
-            });
-        });
-
-        const closeBuyWindowBtn = document.querySelector('.close-buy-window-btn')
-
-        closeBuyWindowBtn.addEventListener('click', () => {
+    document.addEventListener('mousedown', (event) => {
+        const target = event.target;
+        const buyWindow = document.getElementById('buy-window');
+        
+        if (!buyWindow.contains(target)) {
+            // Закрытие окна buyWindow
             closeBuyWindow();
-        });
+        }
+    });
+    
+    //покупка абонемента
+    const buyButton = document.getElementById("book-buy-button");
+    const buyWindow = document.getElementById("buy-window");
+    const validDateInputs = document.querySelectorAll(".valid-date");
+    const cardCvcInput = document.querySelector(".card-cvc");
+    const cardholderNameInput = document.querySelector(".cardholder-name");
+    const postalCodeInput = document.querySelector(".postal-code");
+    const cityTownInput = document.querySelector(".city-town");
 
-        document.addEventListener('mousedown', (event) => {
-            const target = event.target;
-            const buyWindow = document.getElementById('buy-window');
+    // Слушаем событие ввода текста
+    cardNumberInput.addEventListener("input", formatCardNumber);
 
-            // Проверяем, что клик был сделан вне элемента buyWindow
-            if (target !== buyWindow && !buyWindow.contains(target)) {
-                buyWindow.style.visibility = 'hidden';
-                overlay.style.visibility = 'hidden';
-                overlay.style.opacity = '0';
+    // Функция для форматирования номера карты
+    function formatCardNumber() {
+        let cardNumber = cardNumberInput.value.replace(/\D/g, "");
+        let formattedCardNumber = "";
+
+        for (let i = 0; i < cardNumber.length; i++) {
+            if (i > 0 && i % 4 === 0) {
+                formattedCardNumber += " ";
             }
-        });
-
-        //покупка абонемента
-        const buyButton = document.getElementById("book-buy-button");
-        const buyWindow = document.getElementById("buy-window");
-        const validDateInputs = document.querySelectorAll(".valid-date");
-        const cardCvcInput = document.querySelector(".card-cvc");
-        const cardholderNameInput = document.querySelector(".cardholder-name");
-        const postalCodeInput = document.querySelector(".postal-code");
-        const cityTownInput = document.querySelector(".city-town");
-
-        // Слушаем событие ввода текста
-        cardNumberInput.addEventListener("input", formatCardNumber);
-
-        // Функция для форматирования номера карты
-        function formatCardNumber() {
-            let cardNumber = cardNumberInput.value.replace(/\D/g, "");
-            let formattedCardNumber = "";
-
-            for (let i = 0; i < cardNumber.length; i++) {
-                if (i > 0 && i % 4 === 0) {
-                    formattedCardNumber += " ";
-                }
-                formattedCardNumber += cardNumber[i];
-            }
-
-            cardNumberInput.value = formattedCardNumber;
+            formattedCardNumber += cardNumber[i];
         }
 
-        buyButton.addEventListener("click", function (event) {
-            event.preventDefault();
+        cardNumberInput.value = formattedCardNumber;
+    }
 
-            // Проверяем, заполнены ли все поля
-            if (
-                cardNumberInput.value.trim() !== "" &&
-                Array.from(validDateInputs).every(input => input.value.trim() !== "") &&
-                cardCvcInput.value.trim() !== "" &&
-                cardholderNameInput.value.trim() !== "" &&
-                postalCodeInput.value.trim() !== "" &&
-                cityTownInput.value.trim() !== ""
-            ) {
-                // Если все поля заполнены, скрываем окно
-                buyWindow.style.visibility = "hidden";
-                const purchaseButtons = document.querySelectorAll('.buttonBuy');
-
-                purchaseButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        buyWindow.style.visibility = 'hidden'
-                        overlay.style.visibility = 'hidden'
-                        // Создаем новую кнопку "Own"
-                        const ownButton = document.createElement("button");
-                        ownButton.classList.add("buttonOwn");
-                        ownButton.innerHTML = '<span>Own</span>';
-                        ownButton.disabled = true; // Делаем кнопку неактивной
-
-                        // Заменяем текущую кнопку на новую "Own"
-                        button.parentNode.replaceChild(ownButton, button);
-                        ownButton.style.visibility = 'visible'
-                    });
-
-                });
-            }
-        });
-
-        closeBuyWindowBtn.addEventListener("click", function () {
-            // Закрытие окна при нажатии на крестик
-            buyWindow.style.visibility = "hidden";
-        });
-
-        // Скрываем элемент с классом "digital-library-card-box" с помощью visibility
-        // const libraryCardBox = document.querySelector('.digital-library-card-box');
-        // libraryCardBox.style.visibility = 'hidden';
-
-        // // Показываем элемент с классом "" с помощью visibility
-        // const menuContainerTwo = document.querySelector('.header__menu-containertwo');
-        // menuContainerTwo.style.visibility = 'visible';
-
-        // Скрываем элемент с классом "digital-library-box-reader" с помощью visibility
-        // const libraryRoxReader = document.querySelector('.digital-library-box-reader');
-        // libraryRoxReader.style.visibility = 'hidden';
-
-        // // Показываем элемент с классом "" с помощью visibility
-        // const menuContainerTwo = document.querySelector('.header__menu-containertwo');
-        // menuContainerTwo.style.visibility = 'visible';
-
-
-        // Находим кнопку "Log Out"
-        const logOutButton = document.getElementById('logOutButton');
-
-        // Добавляем обработчик события клика на кнопку "Log Out"
-        logOutButton.addEventListener('click', () => {
-            // Скрываем элемент "header__menu-containertwo"
-            const menuContainertwo = document.querySelector('.header__menu-containertwo');
-            menuContainertwo.style.visibility = 'hidden';
-
-            // Показываем элемент "header__menu-container"
-            const menuContainer = document.querySelector('.header__menu-container');
-            menuContainer.style.visibility = 'visible';
-
-            // Скрываем элемент "menuRegistration"
-            const menuAuthorization = document.getElementById('menuAuthorization');
-            menuAuthorization.style.visibility = 'hidden';
-        });
-    };
-
-    document.getElementById('loginSubmit').addEventListener('click', (event) => {
+    buyButton.addEventListener("click", function (event) {
         event.preventDefault();
-        login();
+
+        // Проверяем, заполнены ли все поля
+        if (
+            cardNumberInput.value.trim() !== "" &&
+            Array.from(validDateInputs).every(input => input.value.trim() !== "") &&
+            cardCvcInput.value.trim() !== "" &&
+            cardholderNameInput.value.trim() !== "" &&
+            postalCodeInput.value.trim() !== "" &&
+            cityTownInput.value.trim() !== ""
+        ) {
+            // Если все поля заполнены, скрываем окно
+            buyWindow.style.visibility = "hidden";
+            const purchaseButtons = document.querySelectorAll('.buttonBuy');
+
+            purchaseButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    buyWindow.style.visibility = 'hidden'
+                    overlay.style.visibility = 'hidden'
+                    // Создаем новую кнопку "Own"
+                    const ownButton = document.createElement("button");
+                    ownButton.classList.add("buttonOwn");
+                    ownButton.innerHTML = '<span>Own</span>';
+                    ownButton.disabled = true; // Делаем кнопку неактивной
+
+                    // Заменяем текущую кнопку на новую "Own"
+                    button.parentNode.replaceChild(ownButton, button);
+                    ownButton.style.visibility = 'visible'
+                });
+
+            });
+        }
     });
+
+    closeBuyWindowBtn.addEventListener("click", function () {
+        // Закрытие окна при нажатии на крестик
+        buyWindow.style.visibility = "hidden";
+    });
+
+    // After successful login
+    if (enteredPassword === user.password) {
+        const digitalLibraryCardBoxText = document.querySelector('.digital-library-card-box-text');
+        digitalLibraryCardBoxText.textContent = 'Your Library card';
+
+        const digitalLibraryCardButton = document.querySelector('.digital-library-card-button');
+        digitalLibraryCardButton.style.visibility = 'hidden';
+
+        const infoBoxLibrary = document.querySelector('.infoBoxLibrary')
+        infoBoxLibrary.style.visibility = 'visible'
+
+        // Update text content in the reader card
+        const readerCardText = document.querySelector('.reader-card-text');
+        readerCardText.textContent = 'Visit your profile';
+
+        // Update text content in the reader card info
+        const readerCardInfo = document.querySelector('.reader-card-info');
+        readerCardInfo.textContent = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
+
+        // Hide the buttons
+        const buttonSign = document.querySelector('.button-box-sign');
+        const buttonLogIn = document.querySelector('.button-box-log-in');
+        buttonSign.style.visibility = 'hidden';
+        buttonLogIn.style.visibility = 'hidden';
+
+        // создаем кнопку "Profile" в  блоке library
+        const buttonProfileLibrary = document.createElement("button");
+        buttonProfileLibrary.classList.add("buttonProfileLibrary");
+        buttonProfileLibrary.innerHTML = '<span>Profile</span>';
+        // Append the "Profile" button to the appropriate container (replace 'container' with your actual container ID or class)
+        const container = document.querySelector('.digital-library-box-reader');
+        container.appendChild(buttonProfileLibrary);
+
+        buttonProfileLibrary.addEventListener('click', openProfileContainer);
+    }
+
+    // Находим кнопку "Log Out"
+    const logOutButton = document.getElementById('logOutButton');
+
+    // Добавляем обработчик события клика на кнопку "Log Out"
+    logOutButton.addEventListener('click', () => {
+        // Скрываем элемент "header__menu-containertwo"
+        const menuContainertwo = document.querySelector('.header__menu-containertwo');
+        menuContainertwo.style.visibility = 'hidden';
+
+        // Показываем элемент "header__menu-container"
+        const menuContainer = document.querySelector('.header__menu-container');
+        menuContainer.style.visibility = 'visible';
+
+        // Скрываем элемент "menuRegistration"
+        const menuAuthorization = document.getElementById('menuAuthorization');
+        menuAuthorization.style.visibility = 'hidden';
+        //===================
+        //===================
+        const readerCardText = document.querySelector('.reader-card-text');
+        readerCardText.textContent = 'Get a reader card';
+
+        // 2. Show the "You will be able to see a reader card..." text
+        const readerCardInfo = document.querySelector('.reader-card-info');
+        readerCardInfo.textContent = 'You will be able to see a reader card after logging into your account or you can register a new account.';
+
+        // 3. Hide the "Visit your profile" text
+        const profileText = document.querySelector('.profile-text');
+        profileText.style.visibility = 'hidden';
+
+        // 4. Hide the buttons
+        const buttons = document.querySelectorAll('.digital-library-button-sign button');
+        buttons.forEach(button => {
+            button.style.visibility = 'hidden';
+        });
+    });
+};
+
+document.getElementById('loginSubmit').addEventListener('click', (event) => {
+    event.preventDefault();
+    login();
+});
 
     //===============================================================
-
-    // Добавляем обработчик события клика на кнопку "Log In"
-
-
-
-    // ограничение для номера карты 16 цифр с пробелами
-    // const cardNumberInput = document.getElementById("card-number-input");
-
-    // // Слушаем событие ввода текста
-    // cardNumberInput.addEventListener("input", formatCardNumber);
-
-    // // Функция для форматирования номера карты
-    // function formatCardNumber() {
-    //     let cardNumber = cardNumberInput.value.replace(/\D/g, "");
-    //     let formattedCardNumber = "";
-
-    //     for (let i = 0; i < cardNumber.length; i++) {
-    //         if (i > 0 && i % 4 === 0) {
-    //             formattedCardNumber += " ";
-    //         }
-    //         formattedCardNumber += cardNumber[i];
-    //     }
-
-    //     cardNumberInput.value = formattedCardNumber;
-    // });

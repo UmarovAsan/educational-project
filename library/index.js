@@ -3,10 +3,10 @@ const overlay = document.getElementById('overlay');
 // кнопки меню регистрации
 const headerMenu = document.getElementById('headerMenu');
 // меню регистрации
-const menuRegistration = document.getElementById('menuRegistration')
+const menuRegistration = document.getElementById('menuRegistration');
 
 // кнопка открытия окна регистрации
-const registerButton = document.getElementById('registerButton')
+const registerButton = document.getElementById('registerButton');
 
 // окно регистрации
 const registerWindow = document.getElementById('registerWindow');
@@ -138,7 +138,8 @@ document.addEventListener('mousedown', (event) => {
     }
 });
 //========================================================================
-
+//========================================================================
+//========================================================================
 //функция открытия бургер меню
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("burger").addEventListener("click", function () {
@@ -153,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //Закрыть меню при нажатие на Escape
 window.addEventListener('keydown', (e) => {
     if (e.key === "Escape") {
-        document.querySelector(".header").classList.remove("open")
+        document.querySelector(".header").classList.remove("open");
     }
 });
 
@@ -167,11 +168,11 @@ document.getElementById("burger").addEventListener('click', event => {
 document.body.addEventListener('click', event => {
     if (event._isClickWithInMenu) return;
     //действие при клике
-    document.querySelector("header").classList.remove("open")
+    document.querySelector("header").classList.remove("open");
 });
-
-//=======================================================================
-
+//========================================================================
+//========================================================================
+//========================================================================
 // Слайдер для About
 const aboutSlider = document.querySelector('.about-slider');
 const leftButton = document.querySelector('.left-button');
@@ -238,7 +239,8 @@ btnButton.forEach((btn, index) => {
 
 updateButtons();
 //========================================================================
-
+//========================================================================
+//========================================================================
 //Слайдер для Favorit
 const winterSlider = document.getElementById('winter-slider');
 const springSlider = document.getElementById('spring-slider');
@@ -275,8 +277,8 @@ summerRadio.addEventListener('change', toggleSliderVisibility);
 autumnRadio.addEventListener('change', toggleSliderVisibility);
 
 
-$(document).ready(function() {
-    $("input[type='radio']").change(function() {
+$(document).ready(function () {
+    $("input[type='radio']").change(function () {
         var selectedSeason = $("input[name='season']:checked").attr("id");
 
         $(".fade-out").css("opacity", 0);
@@ -287,84 +289,11 @@ $(document).ready(function() {
     });
 });
 //========================================================================
-
-//валидация email
-function validateEmail(email) {
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return emailRegex.test(email);
-}
-
-document.getElementById('registerSubmit').addEventListener('click', (event) => {
-    event.preventDefault();
-
-    const firstNameInput = document.getElementById('firstName');
-    const lastNameInput = document.getElementById('lastName');
-    const emailInput = document.getElementById('registerEmail');
-    const passwordInput = document.getElementById('registerPassword');
-
-    // Очищаем все классы input перед проверкой
-    firstNameInput.classList.remove("input-error");
-    lastNameInput.classList.remove("input-error");
-    emailInput.classList.remove("input-error");
-    passwordInput.classList.remove("input-error");
-
-    const firstName = firstNameInput.value.trim();
-    const lastName = lastNameInput.value.trim();
-    const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
-
-    // Проверяем заполненность полей
-    if (email === "" || password === "") {
-        alert("Заполните все поля.");
-        return;
-    }
-
-    if (firstName === "") {
-        alert("Заполните поле firstName");
-        return;
-    }
-
-    if (lastName === "") {
-        alert("Заполните поле lastName");
-        return;
-    }
-
-    // Проверяем валидность email
-    if (!validateEmail(email)) {
-        emailInput.focus();
-        alert("Пожалуйста, введите корректный адрес электронной почты.");
-        return;
-    }
-
-    // Проверяем длину пароля
-    if (password.length < 8) {
-        passwordInput.focus();
-        alert("Пароль должен быть не короче 8 символов.");
-        return;
-    }
-
-    const user = new User(firstName, lastName, email, password);
-    saveUserToLocalStorage(user);
-    console.log("User registered:", user);
-
-    // Очищаем поля ввода после успешной регистрации
-    firstNameInput.value = '';
-    lastNameInput.value = '';
-    emailInput.value = '';
-    passwordInput.value = '';
-
-    // После успешной регистрации вызываем функцию для изменения иконки пользователя
-    // handleRegistrationSuccess(user);
-});
-  
-  
-function User(firstName, lastName, email, password) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
-    this.password = password;
-}
 //========================================================================
+//========================================================================
+const headerMenuContainerTwo = document.querySelector('header__menu-containertwo'); // Added "document."
+const headerMenuContainer = document.querySelector('header__menu-container'); // Added "document."
+
 
 // функция регистрации
 // Функция для сохранения данных пользователя в localStorage
@@ -397,13 +326,84 @@ if (sessionToken) {
 
 localStorage.removeItem('sessionToken');
 //========================================================================
+//========================================================================
+//========================================================================
+//валидация email
+function validateEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailRegex.test(email);
+}
 
+const cardNumberInput = document.getElementById("card-number-input");
+// функция регистрации
 // функция входа в личный профиль
 document.getElementById('registerSubmit').addEventListener('click', (event) => {
     event.preventDefault();
-    
-    // ... Остальной код регистрации ...
-    const registerWindow = document.getElementById('registerWindow')
+
+    const firstNameInput = document.getElementById('firstName');
+    const lastNameInput = document.getElementById('lastName');
+    const emailInput = document.getElementById('registerEmail');
+    const passwordInput = document.getElementById('registerPassword');
+
+    // Очищаем все классы input перед проверкой
+    firstNameInput.classList.remove("input-error");
+    lastNameInput.classList.remove("input-error");
+    emailInput.classList.remove("input-error");
+    passwordInput.classList.remove("input-error");
+
+    const firstName = firstNameInput.value.trim();
+    const lastName = lastNameInput.value.trim();
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    // Проверяем заполненность полей
+    if (email === "" || password === "") {
+        alert("Fill in all the fields.");
+        return;
+    }
+
+    if (firstName === "") {
+        alert("Fill in the field firstName");
+        return;
+    }
+
+    if (lastName === "") {
+        alert("Fill in the field lastName");
+        return;
+    }
+
+    // Проверяем валидность email
+    if (!validateEmail(email)) {
+        emailInput.focus();
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    // Проверяем длину пароля
+    if (password.length < 8) {
+        passwordInput.focus();
+        alert("Password must be at least 8 characters.");
+        return;
+    }
+
+    const user = new User(firstName, lastName, email, password);
+    saveUserToLocalStorage(user);
+    console.log("User registered:", user);
+
+    // Очищаем поля ввода после успешной регистрации
+    firstNameInput.value = '';
+    lastNameInput.value = '';
+    emailInput.value = '';
+    passwordInput.value = '';
+
+    function User(firstName, lastName, email, password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+    }
+
+    // ... Остальной код после успешной регистрации ...
     registerWindow.style.visibility = 'hidden'
     overlay.style.visibility = 'hidden'
 
@@ -415,7 +415,6 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     const menuContainerTwo = document.querySelector('.header__menu-containertwo');
     menuContainerTwo.style.visibility = 'visible';
 
-    // ... Остальной код после успешной регистрации ...
     // Находим кнопку "profilMenu" и меню "menuAuthorization"
     const profilMenuButton = document.getElementById('profilMenu');
     const menuAuthorization = document.getElementById('menuAuthorization');
@@ -469,339 +468,527 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
         const menuAuthorization = document.getElementById('menuAuthorization');
         menuAuthorization.style.visibility = 'hidden';
     });
-});
 
-function handleRegistrationSuccess(firstName, lastName) {
-    // Извлекаем элемент <span> с классом "user-initials"
-    const userInitialsSpan = document.querySelector('.user-initials');
-    // Устанавливаем содержимое <span> на первые буквы FirstName и LastName
-    userInitialsSpan.textContent = `${firstName[0]}${lastName[0]}`;
-}
-// После успешной регистрации вызываем функцию для изменения иконки пользователя
-handleRegistrationSuccess(firstName, lastName);
-//========================================================================
-
-// открытие окна профиля меню
-const profileButton = document.getElementById('profileButton');
-const profileContainer = document.getElementById('profileContainer');
-const profileCloseButton = document.querySelector('.profileCloseBtn');
-const menuAuthorization = document.getElementById('menuAuthorization');
-const logOutButton = document.getElementById('logOutButton');
-const headerMenuContainerTwo = document.querySelector('header__menu-containertwo'); // Added "document."
-const headerMenuContainer = document.querySelector('header__menu-container'); // Added "document."
-const profilMenu = document.getElementById('profilMenu');
-
-// Функция для открытия окна профиля
-function openProfileContainer() {
-    profileContainer.style.visibility = 'visible';
-    profileContainer.style.opacity = '1';
-    overlay.style.visibility = 'visible';
-    overlay.style.opacity = '1';
-    menuAuthorization.style.visibility = 'hidden';
-}
-
-// Функция для закрытия окна профиля
-function closeProfileContainer() {
-    profileContainer.style.visibility = 'hidden';
-    profileContainer.style.opacity = '0';
-    overlay.style.visibility = 'hidden';
-    overlay.style.opacity = '0';
-}
-
-profileButton.addEventListener('click', openProfileContainer);
-profileCloseButton.addEventListener('click', closeProfileContainer);
-
-document.addEventListener('mousedown', (event) => {
-    const target = event.target;
-
-    // Элементы, при клике на которые не должны закрываться окна
-    const elementsToExclude = [
-        profilMenu,
-        menuAuthorization,
-        profileButton,
-        logOutButton,
-        profileContainer,
-        profileCloseButton,
-        menuRegistration,
-        registerWindow,
-        loginWindow,
-        headerMenu,
-        registerButton,
-        loginButton,
-        registrationBtn,
-        loginCloseButton,
-        authorizationBtn,
-        registrationBtnCard,
-        authorizationBtnCard
-    ];
-
-    // Проверка на клик вне окон
-    const isClickOutside = !elementsToExclude.some(element => element.contains(target));
-
-    if (isClickOutside) {
-        // Закрытие окна профиля
-        closeProfileContainer();
+    // функцию для изменения иконки пользователя
+    function handleRegistrationSuccess(firstName, lastName) {
+        // Извлекаем элемент <span> с классом "user-initials"
+        const userInitialsSpan = document.querySelector('.user-initials');
+        // Устанавливаем содержимое <span> на первые буквы FirstName и LastName
+        userInitialsSpan.textContent = `${firstName[0].toUpperCase()}${lastName[0].toUpperCase()}`;
     }
-});
-//=====================================================================
+    // После успешной регистрации вызываем функцию для изменения иконки пользователя
+    handleRegistrationSuccess(firstName, lastName);
 
-// Функция для входа в личный профиль
-function login() {
-    const loginEmailInput = document.getElementById('loginEmail');
-    const loginPasswordInput = document.getElementById('loginPassword');
+    // ========================================================================
 
-    const enteredEmail = loginEmailInput.value.trim();
-    const enteredPassword = loginPasswordInput.value.trim();
+    // открытие окна профиля меню
+    const profileButton = document.getElementById('profileButton');
+    const profileContainer = document.getElementById('profileContainer');
+    const profileCloseButton = document.querySelector('.profileCloseBtn');
+    const profilMenu = document.getElementById('profilMenu');
 
-    // Получаем данные пользователя из localStorage по email
-    const users = JSON.parse(localStorage.getItem('users')) || {};
-    const user = Object.values(users).find(u => u.email === enteredEmail);
-
-    if (!user) {
-        alert('Пользователь с таким email не найден.');
-        return;
+    // Функция для открытия окна профиля
+    function openProfileContainer() {
+        profileContainer.style.visibility = 'visible';
+        profileContainer.style.opacity = '1';
+        overlay.style.visibility = 'visible';
+        overlay.style.opacity = '1';
+        menuAuthorization.style.visibility = 'hidden';
     }
 
-    if (enteredPassword === user.password) {
-        // Вход выполнен успешно, скрываем окно входа
-        function closeLoginWindow() {
-            const loginWindow = document.getElementById('loginWindow');
-            loginWindow.style.visibility = 'hidden';
-            overlay.style.visibility = 'hidden';
-        }
-        
-        closeLoginWindow(); // функция, которая скроет окно входа
-    } else {
-        alert('Неверный пароль.');
+    // Функция для закрытия окна профиля
+    function closeProfileContainer() {
+        profileContainer.style.visibility = 'hidden';
+        profileContainer.style.opacity = '0';
+        overlay.style.visibility = 'hidden';
+        overlay.style.opacity = '0';
     }
 
-    // Скрываем элемент с классом "header__menu-container" с помощью visibility
-    const menuContainer = document.querySelector('.header__menu-container');
-    menuContainer.style.visibility = 'hidden';
+    profileButton.addEventListener('click', openProfileContainer);
+    profileCloseButton.addEventListener('click', closeProfileContainer);
 
-    // Показываем элемент с классом "header__menu-containertwo" с помощью visibility
-    const menuContainerTwo = document.querySelector('.header__menu-containertwo');
-    menuContainerTwo.style.visibility = 'visible';
-
-    // ... Остальной код после успешной регистрации ...
-    // Находим кнопку "profilMenu" и меню "menuAuthorization"
-    const profilMenuButton = document.getElementById('profilMenu');
-    const menuAuthorization = document.getElementById('menuAuthorization');
-
-    // Добавляем обработчик события клика на кнопку "profilMenu"
-    profilMenuButton.addEventListener('click', () => {
-        // Переключаем видимость меню "menuAuthorization"
-        if (menuAuthorization.style.visibility === 'visible') {
-            // Если меню видимо, скрываем его
-            menuAuthorization.style.visibility = 'hidden';
-        } else {
-            // Если меню скрыто, показываем его
-            menuAuthorization.style.visibility = 'visible';
-        }
-    });
-
-    // Добавьте обработчик события клика вне окон
     document.addEventListener('mousedown', (event) => {
         const target = event.target;
 
         // Элементы, при клике на которые не должны закрываться окна
         const elementsToExclude = [
+            profilMenu,
             menuAuthorization,
-            profilMenuButton,
+            profileButton,
             logOutButton,
-            profileContainer
+            profileContainer,
+            profileCloseButton,
+            menuRegistration,
+            registerWindow,
+            loginWindow,
+            headerMenu,
+            registerButton,
+            loginButton,
+            registrationBtn,
+            loginCloseButton,
+            authorizationBtn,
+            registrationBtnCard,
+            authorizationBtnCard
         ];
 
         // Проверка на клик вне окон
         const isClickOutside = !elementsToExclude.some(element => element.contains(target));
 
         if (isClickOutside) {
-            // Закрываем меню профиля (menuAuthorization)
-            menuAuthorization.style.visibility = 'hidden';
+            // Закрытие окна профиля
+            closeProfileContainer();
         }
-    });
+        // Функция для открытия окна Buy a library card
+        // Функция для открытия окна "buy-window"
+        function openBuyWindow() {
+            const buyWindow = document.getElementById('buy-window');
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            buyWindow.style.visibility = 'visible';
+            buyWindow.style.opacity = '1';
+            loginWindow.style.visibility = 'hidden'
+            loginWindow.style.opacity = '0';
+        }
 
-    // Функция для открытия окна Buy a library card
-    // Функция для открытия окна "buy-window"
-    function openBuyWindow() {
-        const buyWindow = document.getElementById('buy-window');
-        overlay.style.visibility = 'visible';
-        overlay.style.opacity = '1';
-        buyWindow.style.visibility = 'visible';
-        buyWindow.style.opacity = '1';
-        loginWindow.style.visibility = 'hidden'
-        loginWindow.style.opacity = '0';
-    }
+        function closeBuyWindow() {
+            const buyWindow = document.getElementById('buy-window');
+            overlay.style.visibility = 'hidden';
+            overlay.style.opacity = '0';
+            buyWindow.style.visibility = 'hidden';
+            buyWindow.style.opacity = '0';
+        }
 
-    function closeBuyWindow() {
-        const buyWindow = document.getElementById('buy-window');
-        overlay.style.visibility = 'hidden';
-        overlay.style.opacity = '0';
-        buyWindow.style.visibility = 'hidden';
-        buyWindow.style.opacity = '0';
-    }
-    // После успешного входа в личный профиль вызываем функцию для изменения иконки пользователя
-    // handleRegistrationSuccess(firstName, lastName);
+        // Добавляем обработчики событий для кнопок "Buy"
+        const purchaseButtons = document.querySelectorAll('.buttonBuy');
 
-    // Добавляем обработчики событий для кнопок "Buy"
-    const buyButtons = document.querySelectorAll('.buttonBuy');
+        purchaseButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                openBuyWindow();
+            });
+        });
 
-    buyButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            openBuyWindow();
+        const closeBuyWindowBtn = document.querySelector('.close-buy-window-btn')
+
+        closeBuyWindowBtn.addEventListener('click', () => {
+            closeBuyWindow();
+        });
+
+        document.addEventListener('mousedown', (event) => {
+            const target = event.target;
+            const buyWindow = document.getElementById('buy-window');
+
+            // Проверяем, что клик был сделан вне элемента buyWindow
+            if (target !== buyWindow && !buyWindow.contains(target)) {
+                buyWindow.style.visibility = 'hidden';
+                overlay.style.visibility = 'hidden';
+                overlay.style.opacity = '0';
+            }
+        });
+
+        //покупка абонемента
+        const buyButton = document.getElementById("book-buy-button");
+        const buyWindow = document.getElementById("buy-window");
+        const validDateInputs = document.querySelectorAll(".valid-date");
+        const cardCvcInput = document.querySelector(".card-cvc");
+        const cardholderNameInput = document.querySelector(".cardholder-name");
+        const postalCodeInput = document.querySelector(".postal-code");
+        const cityTownInput = document.querySelector(".city-town");
+
+        // Слушаем событие ввода текста
+        cardNumberInput.addEventListener("input", formatCardNumber);
+
+        // Функция для форматирования номера карты
+        function formatCardNumber() {
+            let cardNumber = cardNumberInput.value.replace(/\D/g, "");
+            let formattedCardNumber = "";
+
+            for (let i = 0; i < cardNumber.length; i++) {
+                if (i > 0 && i % 4 === 0) {
+                    formattedCardNumber += " ";
+                }
+                formattedCardNumber += cardNumber[i];
+            }
+
+            cardNumberInput.value = formattedCardNumber;
+        }
+
+        buyButton.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            // Проверяем, заполнены ли все поля
+            if (
+                cardNumberInput.value.trim() !== "" &&
+                Array.from(validDateInputs).every(input => input.value.trim() !== "") &&
+                cardCvcInput.value.trim() !== "" &&
+                cardholderNameInput.value.trim() !== "" &&
+                postalCodeInput.value.trim() !== "" &&
+                cityTownInput.value.trim() !== ""
+            ) {
+                // Если все поля заполнены, скрываем окно
+                buyWindow.style.visibility = "hidden";
+                const purchaseButtons = document.querySelectorAll('.buttonBuy');
+
+                purchaseButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        buyWindow.style.visibility = 'hidden'
+                        overlay.style.visibility = 'hidden'
+                        // Создаем новую кнопку "Own"
+                        const ownButton = document.createElement("button");
+                        ownButton.classList.add("buttonOwn");
+                        ownButton.innerHTML = '<span>Own</span>';
+                        ownButton.disabled = true; // Делаем кнопку неактивной
+
+                        // Заменяем текущую кнопку на новую "Own"
+                        button.parentNode.replaceChild(ownButton, button);
+                        ownButton.style.visibility = 'visible'
+                    });
+
+                });
+            }
+        });
+
+        closeBuyWindowBtn.addEventListener("click", function () {
+            // Закрытие окна при нажатии на крестик
+            buyWindow.style.visibility = "hidden";
         });
     });
+});
+    // =====================================================================
+    // =====================================================================
+    // =====================================================================
 
-    const closeBuyWindowBtn = document.querySelector('.close-buy-window-btn')
-    
-    closeBuyWindowBtn.addEventListener('click', () => {
-        closeBuyWindow();
-    });
-    
-    document.addEventListener('mousedown', (event) => {
-        const target = event.target;
-        const buyWindow = document.getElementById('buy-window');
-    
-        // Проверяем, что клик был сделан вне элемента buyWindow
-        if (target !== buyWindow && !buyWindow.contains(target)) {
-            buyWindow.style.visibility = 'hidden';
+    // Функция для входа в личный профиль через авторизацию
+    function login() {
+        const loginEmailInput = document.getElementById('loginEmail');
+        const loginPasswordInput = document.getElementById('loginPassword');
+
+        const enteredEmail = loginEmailInput.value.trim();
+        const enteredPassword = loginPasswordInput.value.trim();
+
+        // Получаем данные пользователя из localStorage по email
+        const users = JSON.parse(localStorage.getItem('users')) || {};
+        const user = Object.values(users).find(u => u.email === enteredEmail);
+
+        if (!user) {
+            alert('User with this email was not found.');
+            return;
+        }
+
+        if (enteredPassword === user.password) {
+            // Вход выполнен успешно, скрываем окно входа
+            function closeLoginWindow() {
+                const loginWindow = document.getElementById('loginWindow');
+                loginWindow.style.visibility = 'hidden';
+                overlay.style.visibility = 'hidden';
+            }
+
+            closeLoginWindow(); // функция, которая скроет окно входа
+        } else {
+            alert('Incorrect password.');
+        }
+
+        // Скрываем элемент с классом "header__menu-container" с помощью visibility
+        const menuContainer = document.querySelector('.header__menu-container');
+        menuContainer.style.visibility = 'hidden';
+
+        // Показываем элемент с классом "header__menu-containertwo" с помощью visibility
+        const menuContainerTwo = document.querySelector('.header__menu-containertwo');
+        menuContainerTwo.style.visibility = 'visible';
+
+        // ... Остальной код после успешной регистрации ...
+        // Находим кнопку "profilMenu" и меню "menuAuthorization"
+        const profilMenuButton = document.getElementById('profilMenu');
+        const menuAuthorization = document.getElementById('menuAuthorization');
+
+        // Добавляем обработчик события клика на кнопку "profilMenu"
+        profilMenuButton.addEventListener('click', () => {
+            // Переключаем видимость меню "menuAuthorization"
+            if (menuAuthorization.style.visibility === 'visible') {
+                // Если меню видимо, скрываем его
+                menuAuthorization.style.visibility = 'hidden';
+            } else {
+                // Если меню скрыто, показываем его
+                menuAuthorization.style.visibility = 'visible';
+            }
+        });
+
+        // Добавьте обработчик события клика вне окон
+        document.addEventListener('mousedown', (event) => {
+            const target = event.target;
+
+            // Элементы, при клике на которые не должны закрываться окна
+            const elementsToExclude = [
+                menuAuthorization,
+                profilMenuButton,
+                logOutButton,
+                profileContainer
+            ];
+
+            // Проверка на клик вне окон
+            const isClickOutside = !elementsToExclude.some(element => element.contains(target));
+
+            if (isClickOutside) {
+                // Закрываем меню профиля (menuAuthorization)
+                menuAuthorization.style.visibility = 'hidden';
+            }
+        });
+
+        // After successful login
+        localStorage.setItem('sessionToken', 'your-session-token-here');
+
+        // ... (other code)
+
+        // Function to update user initials
+        function updateUserInitials(firstName, lastName) {
+            const userInitialsSpan = document.querySelector('.user-initials');
+            userInitialsSpan.textContent = `${firstName[0].toUpperCase()}${lastName[0].toUpperCase()}`;
+        }
+
+        // Inside the login function after successful login
+        if (enteredPassword === user.password) {
+            // Update user initials
+            updateUserInitials(user.firstName, user.lastName);
+
+            // Rest of the login code
+        }
+
+        // открытие окна профиля меню
+        const profileButton = document.getElementById('profileButton');
+        const profileContainer = document.getElementById('profileContainer');
+        const profileCloseButton = document.querySelector('.profileCloseBtn');
+        const profilMenu = document.getElementById('profilMenu');
+
+        // Функция для открытия окна профиля
+        function openProfileContainer() {
+            profileContainer.style.visibility = 'visible';
+            profileContainer.style.opacity = '1';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            menuAuthorization.style.visibility = 'hidden';
+        }
+
+        // Функция для закрытия окна профиля
+        function closeProfileContainer() {
+            profileContainer.style.visibility = 'hidden';
+            profileContainer.style.opacity = '0';
             overlay.style.visibility = 'hidden';
             overlay.style.opacity = '0';
         }
-    });
 
-    //покупка абонемента
-    const buyButton = document.getElementById("book-buy-button");
-    const buyWindow = document.getElementById("buy-window");
-    const cardNumberInput = document.getElementById("card-number-input");
-    const validDateInputs = document.querySelectorAll(".valid-date");
-    const cardCvcInput = document.querySelector(".card-cvc");
-    const cardholderNameInput = document.querySelector(".cardholder-name");
-    const postalCodeInput = document.querySelector(".postal-code");
-    const cityTownInput = document.querySelector(".city-town");
+        profileButton.addEventListener('click', openProfileContainer);
+        profileCloseButton.addEventListener('click', closeProfileContainer);
 
-    buyButton.addEventListener("click", function(event) {
-    event.preventDefault();
+        document.addEventListener('mousedown', (event) => {
+            const target = event.target;
 
-        // Проверяем, заполнены ли все поля
-        if (
-            cardNumberInput.value.trim() !== "" &&
-            Array.from(validDateInputs).every(input => input.value.trim() !== "") &&
-            cardCvcInput.value.trim() !== "" &&
-            cardholderNameInput.value.trim() !== "" &&
-            postalCodeInput.value.trim() !== "" &&
-            cityTownInput.value.trim() !== ""
-        ) {
-            // Если все поля заполнены, скрываем окно
-            buyWindow.style.visibility = "hidden";
-            const purchaseButtons = document.querySelectorAll('.buttonBuy');
+            // Элементы, при клике на которые не должны закрываться окна
+            const elementsToExclude = [
+                profilMenu,
+                menuAuthorization,
+                profileButton,
+                logOutButton,
+                profileContainer,
+                profileCloseButton,
+                menuRegistration,
+                registerWindow,
+                loginWindow,
+                headerMenu,
+                registerButton,
+                loginButton,
+                registrationBtn,
+                loginCloseButton,
+                authorizationBtn,
+                registrationBtnCard,
+                authorizationBtnCard
+            ];
 
-            purchaseButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    buyWindow.style.visibility = 'hidden'
-                    overlay.style.visibility = 'hidden'
-                    // Создаем новую кнопку "Own"
-                    const ownButton = document.createElement("button");
-                    ownButton.classList.add("buttonOwn");
-                    ownButton.innerHTML = '<span>Own</span>';
-                    ownButton.disabled = true; // Делаем кнопку неактивной
-                    
-                    // Заменяем текущую кнопку на новую "Own"
-                    button.parentNode.replaceChild(ownButton, button);
-                    ownButton.style.visibility = 'visible'
-                });
-            
+            // Проверка на клик вне окон
+            const isClickOutside = !elementsToExclude.some(element => element.contains(target));
+
+            if (isClickOutside) {
+                // Закрытие окна профиля
+                closeProfileContainer();
+            }
+
+        });
+        // Функция для открытия окна Buy a library card
+        // Функция для открытия окна "buy-window"
+        function openBuyWindow() {
+            const buyWindow = document.getElementById('buy-window');
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            buyWindow.style.visibility = 'visible';
+            buyWindow.style.opacity = '1';
+            loginWindow.style.visibility = 'hidden'
+            loginWindow.style.opacity = '0';
+        }
+
+        function closeBuyWindow() {
+            const buyWindow = document.getElementById('buy-window');
+            overlay.style.visibility = 'hidden';
+            overlay.style.opacity = '0';
+            buyWindow.style.visibility = 'hidden';
+            buyWindow.style.opacity = '0';
+        }
+
+        // Добавляем обработчики событий для кнопок "Buy"
+        const purchaseButtons = document.querySelectorAll('.buttonBuy');
+
+        purchaseButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                openBuyWindow();
             });
+        });
+
+        const closeBuyWindowBtn = document.querySelector('.close-buy-window-btn')
+
+        closeBuyWindowBtn.addEventListener('click', () => {
+            closeBuyWindow();
+        });
+
+        document.addEventListener('mousedown', (event) => {
+            const target = event.target;
+            const buyWindow = document.getElementById('buy-window');
+
+            // Проверяем, что клик был сделан вне элемента buyWindow
+            if (target !== buyWindow && !buyWindow.contains(target)) {
+                buyWindow.style.visibility = 'hidden';
+                overlay.style.visibility = 'hidden';
+                overlay.style.opacity = '0';
+            }
+        });
+
+        //покупка абонемента
+        const buyButton = document.getElementById("book-buy-button");
+        const buyWindow = document.getElementById("buy-window");
+        const validDateInputs = document.querySelectorAll(".valid-date");
+        const cardCvcInput = document.querySelector(".card-cvc");
+        const cardholderNameInput = document.querySelector(".cardholder-name");
+        const postalCodeInput = document.querySelector(".postal-code");
+        const cityTownInput = document.querySelector(".city-town");
+
+        // Слушаем событие ввода текста
+        cardNumberInput.addEventListener("input", formatCardNumber);
+
+        // Функция для форматирования номера карты
+        function formatCardNumber() {
+            let cardNumber = cardNumberInput.value.replace(/\D/g, "");
+            let formattedCardNumber = "";
+
+            for (let i = 0; i < cardNumber.length; i++) {
+                if (i > 0 && i % 4 === 0) {
+                    formattedCardNumber += " ";
+                }
+                formattedCardNumber += cardNumber[i];
+            }
+
+            cardNumberInput.value = formattedCardNumber;
         }
+
+        buyButton.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            // Проверяем, заполнены ли все поля
+            if (
+                cardNumberInput.value.trim() !== "" &&
+                Array.from(validDateInputs).every(input => input.value.trim() !== "") &&
+                cardCvcInput.value.trim() !== "" &&
+                cardholderNameInput.value.trim() !== "" &&
+                postalCodeInput.value.trim() !== "" &&
+                cityTownInput.value.trim() !== ""
+            ) {
+                // Если все поля заполнены, скрываем окно
+                buyWindow.style.visibility = "hidden";
+                const purchaseButtons = document.querySelectorAll('.buttonBuy');
+
+                purchaseButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        buyWindow.style.visibility = 'hidden'
+                        overlay.style.visibility = 'hidden'
+                        // Создаем новую кнопку "Own"
+                        const ownButton = document.createElement("button");
+                        ownButton.classList.add("buttonOwn");
+                        ownButton.innerHTML = '<span>Own</span>';
+                        ownButton.disabled = true; // Делаем кнопку неактивной
+
+                        // Заменяем текущую кнопку на новую "Own"
+                        button.parentNode.replaceChild(ownButton, button);
+                        ownButton.style.visibility = 'visible'
+                    });
+
+                });
+            }
+        });
+
+        closeBuyWindowBtn.addEventListener("click", function () {
+            // Закрытие окна при нажатии на крестик
+            buyWindow.style.visibility = "hidden";
+        });
+
+        // Скрываем элемент с классом "digital-library-card-box" с помощью visibility
+        // const libraryCardBox = document.querySelector('.digital-library-card-box');
+        // libraryCardBox.style.visibility = 'hidden';
+
+        // // Показываем элемент с классом "" с помощью visibility
+        // const menuContainerTwo = document.querySelector('.header__menu-containertwo');
+        // menuContainerTwo.style.visibility = 'visible';
+
+        // Скрываем элемент с классом "digital-library-box-reader" с помощью visibility
+        // const libraryRoxReader = document.querySelector('.digital-library-box-reader');
+        // libraryRoxReader.style.visibility = 'hidden';
+
+        // // Показываем элемент с классом "" с помощью visibility
+        // const menuContainerTwo = document.querySelector('.header__menu-containertwo');
+        // menuContainerTwo.style.visibility = 'visible';
+
+
+        // Находим кнопку "Log Out"
+        const logOutButton = document.getElementById('logOutButton');
+
+        // Добавляем обработчик события клика на кнопку "Log Out"
+        logOutButton.addEventListener('click', () => {
+            // Скрываем элемент "header__menu-containertwo"
+            const menuContainertwo = document.querySelector('.header__menu-containertwo');
+            menuContainertwo.style.visibility = 'hidden';
+
+            // Показываем элемент "header__menu-container"
+            const menuContainer = document.querySelector('.header__menu-container');
+            menuContainer.style.visibility = 'visible';
+
+            // Скрываем элемент "menuRegistration"
+            const menuAuthorization = document.getElementById('menuAuthorization');
+            menuAuthorization.style.visibility = 'hidden';
+        });
+    };
+
+    document.getElementById('loginSubmit').addEventListener('click', (event) => {
+        event.preventDefault();
+        login();
     });
 
-    closeBuyWindowBtn.addEventListener("click", function() {
-        // Закрытие окна при нажатии на крестик
-        buyWindow.style.visibility = "hidden";
-    });
+    //===============================================================
+
+    // Добавляем обработчик события клика на кнопку "Log In"
 
 
-    // Находим кнопку "Log Out"
-    const logOutButton = document.getElementById('logOutButton');
 
-    // Добавляем обработчик события клика на кнопку "Log Out"
-    logOutButton.addEventListener('click', () => {
-        // Скрываем элемент "header__menu-containertwo"
-        const menuContainertwo = document.querySelector('.header__menu-containertwo');
-        menuContainertwo.style.visibility = 'hidden';
+    // ограничение для номера карты 16 цифр с пробелами
+    // const cardNumberInput = document.getElementById("card-number-input");
 
-        // Показываем элемент "header__menu-container"
-        const menuContainer = document.querySelector('.header__menu-container');
-        menuContainer.style.visibility = 'visible';
+    // // Слушаем событие ввода текста
+    // cardNumberInput.addEventListener("input", formatCardNumber);
 
-        // Скрываем элемент "menuRegistration"
-        const menuAuthorization = document.getElementById('menuAuthorization');
-        menuAuthorization.style.visibility = 'hidden';
-    });
-}
-//===============================================================
+    // // Функция для форматирования номера карты
+    // function formatCardNumber() {
+    //     let cardNumber = cardNumberInput.value.replace(/\D/g, "");
+    //     let formattedCardNumber = "";
 
-// Добавляем обработчик события клика на кнопку "Log In"
-document.getElementById('loginSubmit').addEventListener('click', (event) => {
-    event.preventDefault();
-    login();
-});
+    //     for (let i = 0; i < cardNumber.length; i++) {
+    //         if (i > 0 && i % 4 === 0) {
+    //             formattedCardNumber += " ";
+    //         }
+    //         formattedCardNumber += cardNumber[i];
+    //     }
 
-
-// ограничение для номера карты 16 цифр с пробелами
-const cardNumberInput = document.getElementById("card-number-input");
-
-// Слушаем событие ввода текста
-cardNumberInput.addEventListener("input", formatCardNumber);
-
-// Функция для форматирования номера карты
-function formatCardNumber() {
-    let cardNumber = cardNumberInput.value.replace(/\D/g, "");
-    let formattedCardNumber = "";
-
-    for (let i = 0; i < cardNumber.length; i++) {
-        if (i > 0 && i % 4 === 0) {
-            formattedCardNumber += " ";
-        }
-        formattedCardNumber += cardNumber[i];
-    }
-
-    cardNumberInput.value = formattedCardNumber;
-}
-
-
-/*
-console.log("Самооценка по пунктам:\n\n" +
-    "1 Вёрстка валидная +10\n" +
-    "2 Вёрстка семантическая +16\n" +
-    "   1. header, main, footer +2\n" +
-    "   2. шесть элементов section по количеству секций +2\n" +
-    "   3. только один заголовок h1 +2\n" +
-    "   4. пять заголовков h2 +2\n" +
-    "   5. один элемент nav +2\n" +
-    "   6. два списка ul li a +2\n" +
-    "   7. семь кнопок button +2\n" +
-    "   8. два инпута input +2\n" +
-    "3 Вёрстка соответствует макету +54\n" +
-    "   блок header +8\n" +
-    "   секция Welcome +4\n" +
-    "   секция About +6\n" +
-    "   секция Favorites +8\n" +
-    "   секция CoffeShop +6\n" +
-    "   секция Contacts +6\n" +
-    "   секция LibraryCard +8\n" +
-    "   блок footer +8\n" +
-    "4 Общие требования к верстке +20\n" +
-    "   используются флексы или гриды +2\n" +
-    "   при уменьшении масштаба страницы браузера вся вёрстка контент и фоны размещается по центру, а не сдвигается в сторону +2\n" +
-    "   Фон за рамками страницы может быть черным, белым или любого оттенка серого.\n" +
-    "   иконки добавлены в формате .svg. SVG может быть добавлен любым способом. Обращаем внимание на формат, а не на способ добавления +2\n" +
-    "   изображения добавлены в формате .jpg .jpeg или .png +2\n" +
-    "   есть favicon +2. Иконка должна содержать 3 буквы 'BPL'\n" +
-    "   плавная прокрутка по якорям +2\n" +
-    "   в футере название ссылки Username заменено и ведет на GitHub студента +2\n" +
-    "   в футере ссылка The Rolling Scopes School ведет на страницу курса https://rs.school/js-stage0/ +2\n" +
-    "   интерактивность элементов согласно макету. Интерактивность включает в себя не только изменение внешнего вида курсора, например, при помощи свойства cursor: pointer, но и другие визуальные эффекты, например, изменение цвета фона или цвета шрифта +2\n" +
-    "   обязательное требование к интерактивности плавное изменение внешнего вида элемента при наведении и клике не влияет на соседние элементы +2\n" +
-    "Итого: 100 баллов\n");
-    */
+    //     cardNumberInput.value = formattedCardNumber;
+    // });

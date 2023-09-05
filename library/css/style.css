@@ -2671,6 +2671,7 @@ input.city-town:hover, input.city-town:focus {
   line-height: normal;
   letter-spacing: 1px;
   cursor: pointer;
+  visibility: hidden;
 }
 
 .buttonProfileLibrary:hover {

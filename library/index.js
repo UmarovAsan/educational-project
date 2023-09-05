@@ -914,7 +914,7 @@ function login() {
         digitalLibraryCardButton.style.visibility = 'hidden';
 
         const infoBoxLibrary = document.querySelector('.infoBoxLibrary')
-        infoBoxLibrary.style.visibility = 'visible'
+        infoBoxLibrary.style.visibility = 'visible';
 
         // Update text content in the reader card
         const readerCardText = document.querySelector('.reader-card-text');
@@ -937,6 +937,7 @@ function login() {
         // Append the "Profile" button to the appropriate container (replace 'container' with your actual container ID or class)
         const container = document.querySelector('.digital-library-box-reader');
         container.appendChild(buttonProfileLibrary);
+        buttonProfileLibrary.style.visibility = 'visible';
 
         buttonProfileLibrary.addEventListener('click', openProfileContainer);
     }
@@ -957,24 +958,31 @@ function login() {
         // Скрываем элемент "menuRegistration"
         const menuAuthorization = document.getElementById('menuAuthorization');
         menuAuthorization.style.visibility = 'hidden';
-        //===================
-        //===================
+        
+        const digitalLibraryCardBoxText = document.querySelector('.digital-library-card-box-text');
+        digitalLibraryCardBoxText.textContent = 'Find your Library card';
+
+        const digitalLibraryCardButton = document.querySelector('.digital-library-card-button');
+        digitalLibraryCardButton.style.visibility = 'visible';
+
+        const infoBoxLibrary = document.querySelector('.infoBoxLibrary')
+        infoBoxLibrary.style.visibility = 'hidden';
+
         const readerCardText = document.querySelector('.reader-card-text');
         readerCardText.textContent = 'Get a reader card';
 
-        // 2. Show the "You will be able to see a reader card..." text
         const readerCardInfo = document.querySelector('.reader-card-info');
         readerCardInfo.textContent = 'You will be able to see a reader card after logging into your account or you can register a new account.';
 
-        // 3. Hide the "Visit your profile" text
-        const profileText = document.querySelector('.profile-text');
-        profileText.style.visibility = 'hidden';
+        const buttonSign = document.querySelector('.button-box-sign');
+        const buttonLogIn = document.querySelector('.button-box-log-in');
+        buttonSign.style.visibility = 'visible';
+        buttonLogIn.style.visibility = 'visible';
 
-        // 4. Hide the buttons
-        const buttons = document.querySelectorAll('.digital-library-button-sign button');
-        buttons.forEach(button => {
-            button.style.visibility = 'hidden';
-        });
+        const buttonProfileLibrary = document.querySelector('.buttonProfileLibrary');
+        buttonProfileLibrary.style.visibility = 'hidden';
+
+        container.removeChild(buttonProfileLibrary);
     });
 };
 
@@ -983,4 +991,9 @@ document.getElementById('loginSubmit').addEventListener('click', (event) => {
     login();
 });
 
+
+// const buttons = document.querySelectorAll('.digital-library-button-sign button');
+        // buttons.forEach(button => {
+        //     button.style.visibility = 'hidden';
+        // });
     //===============================================================

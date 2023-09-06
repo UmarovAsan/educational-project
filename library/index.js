@@ -451,24 +451,6 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
         }
     });
 
-    // Находим кнопку "Log Out"
-    const logOutButton = document.getElementById('logOutButton');
-
-    // Добавляем обработчик события клика на кнопку "Log Out"
-    logOutButton.addEventListener('click', () => {
-        // Скрываем элемент "header__menu-containertwo"
-        const menuContainertwo = document.querySelector('.header__menu-containertwo');
-        menuContainertwo.style.visibility = 'hidden';
-
-        // Показываем элемент "header__menu-container"
-        const menuContainer = document.querySelector('.header__menu-container');
-        menuContainer.style.visibility = 'visible';
-
-        // Скрываем элемент "menuRegistration"
-        const menuAuthorization = document.getElementById('menuAuthorization');
-        menuAuthorization.style.visibility = 'hidden';
-    });
-
     // функцию для изменения иконки пользователя
     function handleRegistrationSuccess(firstName, lastName) {
         // Извлекаем элемент <span> с классом "user-initials"
@@ -507,37 +489,6 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     profileButton.addEventListener('click', openProfileContainer);
     profileCloseButton.addEventListener('click', closeProfileContainer);
 
-    // document.addEventListener('mousedown', (event) => {
-    //     const target = event.target;
-
-    //     // Элементы, при клике на которые не должны закрываться окна
-    //     const elementsToExclude = [
-    //         profilMenu,
-    //         menuAuthorization,
-    //         profileButton,
-    //         logOutButton,
-    //         profileContainer,
-    //         profileCloseButton,
-    //         menuRegistration,
-    //         registerWindow,
-    //         loginWindow,
-    //         headerMenu,
-    //         registerButton,
-    //         loginButton,
-    //         registrationBtn,
-    //         loginCloseButton,
-    //         authorizationBtn,
-    //         registrationBtnCard,
-    //         authorizationBtnCard
-    //     ];
-
-    //     // Проверка на клик вне окон
-    //     const isClickOutside = !elementsToExclude.some(element => element.contains(target));
-
-    //     if (isClickOutside) {
-    //         // Закрытие окна профиля
-    //         closeProfileContainer();
-    //     }
     document.addEventListener('mousedown', (event) => {
         const target = event.target;
         const profileContainer = document.getElementById('profileContainer');
@@ -656,8 +607,84 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
         // Закрытие окна при нажатии на крестик
         buyWindow.style.visibility = "hidden";
     });
-});
 
+    const digitalLibraryCardBoxText = document.querySelector('.digital-library-card-box-text');
+    digitalLibraryCardBoxText.textContent = 'Your Library card';
+
+    const digitalLibraryCardButton = document.querySelector('.digital-library-card-button');
+    digitalLibraryCardButton.style.visibility = 'hidden';
+
+    const infoBoxLibrary = document.querySelector('.infoBoxLibrary')
+    infoBoxLibrary.style.visibility = 'visible';
+
+    // Update text content in the reader card
+    const readerCardText = document.querySelector('.reader-card-text');
+    readerCardText.textContent = 'Visit your profile';
+
+    // Update text content in the reader card info
+    const readerCardInfo = document.querySelector('.reader-card-info');
+    readerCardInfo.textContent = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
+
+    // Hide the buttons
+    const buttonSign = document.querySelector('.button-box-sign');
+    const buttonLogIn = document.querySelector('.button-box-log-in');
+    buttonSign.style.visibility = 'hidden';
+    buttonLogIn.style.visibility = 'hidden';
+
+    // создаем кнопку "Profile" в  блоке library
+    const buttonProfileLibrary = document.createElement("button");
+    buttonProfileLibrary.classList.add("buttonProfileLibrary");
+    buttonProfileLibrary.innerHTML = '<span>Profile</span>';
+    // Append the "Profile" button to the appropriate container (replace 'container' with your actual container ID or class)
+    const container = document.querySelector('.digital-library-box-reader');
+    container.appendChild(buttonProfileLibrary);
+    buttonProfileLibrary.style.visibility = 'visible';
+
+    buttonProfileLibrary.addEventListener('click', openProfileContainer);
+
+    // Находим кнопку "Log Out"
+    const logOutButton = document.getElementById('logOutButton');
+
+    // Добавляем обработчик события клика на кнопку "Log Out"
+    logOutButton.addEventListener('click', () => {
+        // Скрываем элемент "header__menu-containertwo"
+        const menuContainertwo = document.querySelector('.header__menu-containertwo');
+        menuContainertwo.style.visibility = 'hidden';
+
+        // Показываем элемент "header__menu-container"
+        const menuContainer = document.querySelector('.header__menu-container');
+        menuContainer.style.visibility = 'visible';
+
+        // Скрываем элемент "menuRegistration"
+        const menuAuthorization = document.getElementById('menuAuthorization');
+        menuAuthorization.style.visibility = 'hidden';
+
+        const digitalLibraryCardBoxText = document.querySelector('.digital-library-card-box-text');
+        digitalLibraryCardBoxText.textContent = 'Find your Library card';
+
+        const digitalLibraryCardButton = document.querySelector('.digital-library-card-button');
+        digitalLibraryCardButton.style.visibility = 'visible';
+
+        const infoBoxLibrary = document.querySelector('.infoBoxLibrary')
+        infoBoxLibrary.style.visibility = 'hidden';
+
+        const readerCardText = document.querySelector('.reader-card-text');
+        readerCardText.textContent = 'Get a reader card';
+
+        const readerCardInfo = document.querySelector('.reader-card-info');
+        readerCardInfo.textContent = 'You will be able to see a reader card after logging into your account or you can register a new account.';
+
+        const buttonSign = document.querySelector('.button-box-sign');
+        const buttonLogIn = document.querySelector('.button-box-log-in');
+        buttonSign.style.visibility = 'visible';
+        buttonLogIn.style.visibility = 'visible';
+
+        const buttonProfileLibrary = document.querySelector('.buttonProfileLibrary');
+        buttonProfileLibrary.style.visibility = 'hidden';
+
+        container.removeChild(buttonProfileLibrary);
+    });
+});
 // =====================================================================
 // =====================================================================
 // =====================================================================
@@ -991,9 +1018,4 @@ document.getElementById('loginSubmit').addEventListener('click', (event) => {
     login();
 });
 
-
-// const buttons = document.querySelectorAll('.digital-library-button-sign button');
-        // buttons.forEach(button => {
-        //     button.style.visibility = 'hidden';
-        // });
     //===============================================================

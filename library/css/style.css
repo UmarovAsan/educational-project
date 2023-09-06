@@ -2372,7 +2372,7 @@ input[type="number"]:hover, input[type="number"]:focus {
   max-width: 640px;
   height: 540px;
   background: #FFF;
-  z-index: 3;
+  z-index: 4;
   position: fixed;
   top: 0;
   right: 0;

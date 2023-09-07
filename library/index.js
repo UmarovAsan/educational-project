@@ -387,8 +387,22 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     }
 
     const user = new User(firstName, lastName, email, password);
+
+    // Генерируем и добавляем девятизначный номер в формате 16-ричного числа
+    const randomHexNumber = generateRandomHexNumber();
+    user.hexNumber = randomHexNumber;
+    localStorage.setItem('userHexNumber', randomHexNumber);
+
     saveUserToLocalStorage(user);
     console.log("User registered:", user);
+
+    function generateRandomHexNumber() {
+        const min = 0x10000000; // Минимальное значение (16^7)
+        const max = 0xFFFFFFFF; // Максимальное значение (16^8 - 1)
+        const randomHex = Math.floor(Math.random() * (max - min + 1)) + min;
+        const upperCaseHex = randomHex.toString(16).toUpperCase(); // Преобразование в верхний регистр
+        return upperCaseHex;
+    }    
 
     // Очищаем поля ввода после успешной регистрации
     firstNameInput.value = '';
@@ -404,6 +418,19 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     }
 
     // ... Остальной код после успешной регистрации ...
+    // Внутри функции login после успешной авторизации
+    // Генерируем и сохраняем девятизначный номер в формате 16-ричного числа
+    localStorage.setItem('userHexNumber', randomHexNumber);
+
+    // Обновляем элемент <p> с классом "menu-profile-text"
+    const menuProfileText = document.querySelector('.menu-profile-text');
+    menuProfileText.textContent = randomHexNumber;
+
+    // Обновляем значение элемента <input> с классом "cardNumberProfile"
+    const cardNumberProfileInput = document.getElementById('cardNumberProfile');
+    cardNumberProfileInput.value = randomHexNumber;
+
+
     registerWindow.style.visibility = 'hidden'
     overlay.style.visibility = 'hidden'
 
@@ -766,9 +793,16 @@ function login() {
     });
 
     // After successful login
-    localStorage.setItem('sessionToken', 'your-session-token-here');
+    // Получаем randomHexNumber из localStorage
+    const randomHexNumber = localStorage.getItem('userHexNumber');
 
-    // ... (other code)
+    // Обновляем элемент с классом "menu-profile-text"
+    // const menuProfileText = document.querySelector('.menu-profile-text');
+    // menuProfileText.textContent = randomHexNumber;
+
+    // Обновляем значение элемента <input> с классом "cardNumberProfile"
+    const cardNumberProfileInput = document.getElementById('cardNumberProfile');
+    cardNumberProfileInput.value = randomHexNumber;
 
     // функцию для изменения иконки пользователя
     function updateUserInitials(firstName, lastName) {
@@ -1009,7 +1043,7 @@ function login() {
         const buttonProfileLibrary = document.querySelector('.buttonProfileLibrary');
         buttonProfileLibrary.style.visibility = 'hidden';
 
-        container.removeChild(buttonProfileLibrary);
+        // container.removeChild(buttonProfileLibrary);
     });
 };
 
@@ -1018,4 +1052,34 @@ document.getElementById('loginSubmit').addEventListener('click', (event) => {
     login();
 });
 
-    //===============================================================
+const readersNameInput = document.getElementById('readersName')
+const digitalLibraryCardButton = document.querySelector('.digital-library-card-button');
+digitalLibraryCardButton.addEventListener('click', () => {
+    // Получаем данные из localStorage
+    const storedRandomHexNumber = localStorage.getItem('userHexNumber');
+    const storedFirstName = localStorage.getItem('firstName');
+    const storedLastName = localStorage.getItem('lastName');
+
+    // Получаем данные, введенные пользователем
+    const enteredCardNumber = cardNumberInput.value.trim();
+    const enteredFirstName = readersNameInput.value.trim();
+
+    // Проверяем совпадение данных
+    if (storedRandomHexNumber === enteredCardNumber &&
+        storedFirstName === enteredFirstName &&
+        storedLastName === enteredLastName) {
+        // Скрываем кнопку и показываем infoBoxLibrary на 10 секунд
+        digitalLibraryCardButton.style.visibility = 'hidden';
+        infoBoxLibrary.style.visibility = 'visible';
+
+        // Через 10 секунд восстанавливаем состояние
+        setTimeout(() => {
+            digitalLibraryCardButton.style.visibility = 'visible';
+            infoBoxLibrary.style.visibility = 'hidden';
+        }, 10000);
+    } else {
+        // Если данные не совпадают, можно вывести сообщение об ошибке
+        alert('Invalid card number or name.');
+    }
+});
+//===============================================================

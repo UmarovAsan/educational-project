@@ -430,6 +430,21 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     const cardNumberProfileInput = document.getElementById('cardNumberProfile');
     cardNumberProfileInput.value = randomHexNumber;
 
+    // Находим кнопку для копирования
+    const copyButton = document.querySelector('.cardNumberCopy');
+
+    // Добавляем обработчик события клика на кнопку
+    copyButton.addEventListener('click', async () => {
+        try {
+            // Копируем значение из элемента <input> в буфер обмена
+            await navigator.clipboard.writeText(cardNumberProfileInput.value);
+            alert('Текст скопирован в буфер обмена.');
+        } catch (err) {
+            // Обработка ошибки, если копирование не удалось
+            alert('Не удалось скопировать текст.');
+        }
+    });
+
 
     registerWindow.style.visibility = 'hidden'
     overlay.style.visibility = 'hidden'
@@ -482,12 +497,17 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     function handleRegistrationSuccess(firstName, lastName) {
         // Извлекаем элемент <span> с классом "user-initials"
         const userInitialsSpan = document.querySelector('.user-initials');
+        const profilAvatar = document.querySelector('.profilAvatar');
+        const profilName = document.querySelector('.profilName');
+
+        // Устанавливаем содержимое элементов на первые буквы FirstName и LastName
+        profilAvatar.textContent = `${firstName[0].toUpperCase()}${lastName[0].toUpperCase()}`;
+        profilName.innerHTML = `${firstName.charAt(0).toUpperCase() + firstName.slice(1)}<br />${lastName.charAt(0).toUpperCase() + lastName.slice(1)}`;
         // Устанавливаем содержимое <span> на первые буквы FirstName и LastName
         userInitialsSpan.textContent = `${firstName[0].toUpperCase()}${lastName[0].toUpperCase()}`;
     }
     // После успешной регистрации вызываем функцию для изменения иконки пользователя
     handleRegistrationSuccess(firstName, lastName);
-
     // ========================================================================
 
     // открытие окна профиля меню
@@ -568,6 +588,37 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
         }
     });
 
+    // Функция для обновления счетчика книг в profileContainer
+    function updateBookCount() {
+        // Извлекаем элемент <span> с классом "cardsProfileCount cards-profile-count-books"
+        const bookCountSpan = document.querySelector('.cardsProfileCount.cards-profile-count-books');
+
+        // Получаем текущее значение счетчика (преобразовываем текст в число)
+        let currentBookCount = parseInt(bookCountSpan.textContent, 10);
+
+        // Увеличиваем значение счетчика на 1
+        currentBookCount++;
+
+        // Обновляем текст в элементе с новым значением счетчика
+        bookCountSpan.textContent = currentBookCount.toString();
+    }
+
+    // Функция для обновления счетчика книг в library cards
+    function updateLibraryBooksCount() {
+        // Извлекаем элемент <span> с классом "cardsProfileCountLibrary cards-profile-count-library-visits"
+        const libraryBooksCountSpan = document.querySelector('.cardsProfileCountLibrary.cards-profile-count-library-books');
+
+        // Получаем текущее значение счетчика (преобразовываем текст в число)
+        let currentLibraryBooksCount = parseInt(libraryBooksCountSpan.textContent, 10);
+
+        // Увеличиваем значение счетчика на 1
+        currentLibraryBooksCount++;
+
+        // Обновляем текст в элементе с новым значением счетчика
+        libraryBooksCountSpan.textContent = currentLibraryBooksCount.toString();
+    }
+
+
     //покупка абонемента
     const buyButton = document.getElementById("book-buy-button");
     const buyWindow = document.getElementById("buy-window");
@@ -624,6 +675,9 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
                     // Заменяем текущую кнопку на новую "Own"
                     button.parentNode.replaceChild(ownButton, button);
                     ownButton.style.visibility = 'visible'
+
+                    updateBookCount();
+                    updateLibraryBooksCount();
                 });
 
             });
@@ -792,7 +846,7 @@ function login() {
         }
     });
 
-    // After successful login
+    // код после успешной авторизации
     // Получаем randomHexNumber из localStorage
     const randomHexNumber = localStorage.getItem('userHexNumber');
 
@@ -804,9 +858,29 @@ function login() {
     const cardNumberProfileInput = document.getElementById('cardNumberProfile');
     cardNumberProfileInput.value = randomHexNumber;
 
+    const copyButton = document.querySelector('.cardNumberCopy');
+
+    // Добавляем обработчик события клика на кнопку
+    copyButton.addEventListener('click', async () => {
+        try {
+            // Копируем значение из элемента <input> в буфер обмена
+            await navigator.clipboard.writeText(cardNumberProfileInput.value);
+            alert('Текст скопирован в буфер обмена.');
+        } catch (err) {
+            // Обработка ошибки, если копирование не удалось
+            alert('Не удалось скопировать текст.');
+        }
+    });
+
     // функцию для изменения иконки пользователя
     function updateUserInitials(firstName, lastName) {
         const userInitialsSpan = document.querySelector('.user-initials');
+        const profilAvatar = document.querySelector('.profilAvatar');
+        const profilName = document.querySelector('.profilName');
+
+        // Устанавливаем содержимое элементов на первые буквы FirstName и LastName
+        profilAvatar.textContent = `${firstName[0].toUpperCase()}${lastName[0].toUpperCase()}`;
+        profilName.innerHTML = `${firstName.charAt(0).toUpperCase() + firstName.slice(1)}<br />${lastName.charAt(0).toUpperCase() + lastName.slice(1)}`;
         userInitialsSpan.textContent = `${firstName[0].toUpperCase()}${lastName[0].toUpperCase()}`;
     }
 
@@ -818,6 +892,42 @@ function login() {
         // Rest of the login code
     }
     // ========================================================================
+    // Функция для обновления счетчика посещений в profileContainer
+    function updateVisitCount() {
+        // Извлекаем элемент <span> с классом "cardsProfileCount cards-profile-count-visits"
+        const visitCountSpan = document.querySelector('.cardsProfileCount.cards-profile-count-visits');
+
+        // Получаем текущее значение счетчика (преобразовываем текст в число)
+        let currentCount = parseInt(visitCountSpan.textContent, 10);
+
+        // Увеличиваем значение счетчика на 1
+        currentCount++;
+
+        // Обновляем текст в элементе с новым значением счетчика
+        visitCountSpan.textContent = currentCount.toString();
+    }
+
+    // После успешной авторизации вызываем функцию для обновления счетчика
+    updateVisitCount();
+
+    // Функция для обновления счетчика авторизаций в Library cards
+    function updateLibraryVisitCount() {
+        // Извлекаем элемент <span> с классом "cardsProfileCountLibrary cards-profile-count-library-visits"
+        const libraryVisitCountSpan = document.querySelector('.cardsProfileCountLibrary.cards-profile-count-library-visits');
+
+        // Получаем текущее значение счетчика (преобразовываем текст в число)
+        let currentLibraryCount = parseInt(libraryVisitCountSpan.textContent, 10);
+
+        // Увеличиваем значение счетчика на 1
+        currentLibraryCount++;
+
+        // Обновляем текст в элементе с новым значением счетчика
+        libraryVisitCountSpan.textContent = currentLibraryCount.toString();
+    }
+
+    // После успешной авторизации вызываем функцию для обновления счетчика авторизаций в библиотеке
+    updateLibraryVisitCount();
+
 
     // открытие окна профиля меню
     const profileButton = document.getElementById('profileButton');
@@ -899,6 +1009,36 @@ function login() {
         }
     });
     
+    // Функция для обновления счетчика книг в profileContainer
+    function updateBookCount() {
+        // Извлекаем элемент <span> с классом "cardsProfileCount cards-profile-count-books"
+        const bookCountSpan = document.querySelector('.cardsProfileCount.cards-profile-count-books');
+
+        // Получаем текущее значение счетчика (преобразовываем текст в число)
+        let currentBookCount = parseInt(bookCountSpan.textContent, 10);
+
+        // Увеличиваем значение счетчика на 1
+        currentBookCount++;
+
+        // Обновляем текст в элементе с новым значением счетчика
+        bookCountSpan.textContent = currentBookCount.toString();
+    }
+
+    // Функция для обновления счетчика книг в library cards
+    function updateLibraryBooksCount() {
+        // Извлекаем элемент <span> с классом "cardsProfileCountLibrary cards-profile-count-library-visits"
+        const libraryBooksCountSpan = document.querySelector('.cardsProfileCountLibrary.cards-profile-count-library-books');
+
+        // Получаем текущее значение счетчика (преобразовываем текст в число)
+        let currentLibraryBooksCount = parseInt(libraryBooksCountSpan.textContent, 10);
+
+        // Увеличиваем значение счетчика на 1
+        currentLibraryBooksCount++;
+
+        // Обновляем текст в элементе с новым значением счетчика
+        libraryBooksCountSpan.textContent = currentLibraryBooksCount.toString();
+    }
+
     //покупка абонемента
     const buyButton = document.getElementById("book-buy-button");
     const buyWindow = document.getElementById("buy-window");
@@ -955,6 +1095,9 @@ function login() {
                     // Заменяем текущую кнопку на новую "Own"
                     button.parentNode.replaceChild(ownButton, button);
                     ownButton.style.visibility = 'visible'
+                    //функцию для обновления счетчика книг
+                    updateBookCount();
+                    updateLibraryBooksCount();
                 });
 
             });
@@ -1042,8 +1185,6 @@ function login() {
 
         const buttonProfileLibrary = document.querySelector('.buttonProfileLibrary');
         buttonProfileLibrary.style.visibility = 'hidden';
-
-        // container.removeChild(buttonProfileLibrary);
     });
 };
 

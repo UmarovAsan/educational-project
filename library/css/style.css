@@ -2147,24 +2147,42 @@ input[type="number"]:hover, input[type="number"]:focus {
 
 .profilAvatar {
   display: flex;
-  width: 80px;
-  height: 80px;
-  margin: 0 auto;
+  width: 30px;
+  height: 20px;
+  padding: 30px 25px;
+  margin: 0 0;
   background: #FFF;
   align-items: center;
   cursor: pointer;
+  color: #BB945F;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 100% */
+  text-transform: capitalize;
 }
 
 .profilName {
   display: flex;
-  width: 120px;
-  height: 30px;
+  width: 110px;
+  height: 40px;
+  padding: 5px 5px;
   margin-top: 15px;
   background: #FFF;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 100% */
 }
+
 .profilAvatar:hover,
 .profilName:hover {
   color: #BB945F;
@@ -2359,12 +2377,15 @@ input[type="number"]:hover, input[type="number"]:focus {
   display: flex;
   width: 13.31px;
   height: 12px;
-  margin-left: 15px;
+  margin-left: 0px;
   cursor: pointer;
+  border: none;
+  outline: none;
 }
 
-.cardNumberCopy:hover {
+.cardNumberCopy:hover, .cardNumberCopy:active {
   color: #BB945F;
+  background-color: #BB945F;
   transition: transform 0.3s ease;
 }
 

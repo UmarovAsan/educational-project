@@ -139,7 +139,6 @@ document.addEventListener('mousedown', (event) => {
 });
 //========================================================================
 //========================================================================
-//========================================================================
 //функция открытия бургер меню
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("burger").addEventListener("click", function () {
@@ -170,7 +169,6 @@ document.body.addEventListener('click', event => {
     //действие при клике
     document.querySelector("header").classList.remove("open");
 });
-//========================================================================
 //========================================================================
 //========================================================================
 // Слайдер для About
@@ -240,7 +238,6 @@ btnButton.forEach((btn, index) => {
 updateButtons();
 //========================================================================
 //========================================================================
-//========================================================================
 //Слайдер для Favorit
 const winterSlider = document.getElementById('winter-slider');
 const springSlider = document.getElementById('spring-slider');
@@ -305,14 +302,10 @@ winterRadio.addEventListener('change', toggleSliderVisibility);
 springRadio.addEventListener('change', toggleSliderVisibility);
 summerRadio.addEventListener('change', toggleSliderVisibility);
 autumnRadio.addEventListener('change', toggleSliderVisibility);
- 
-//========================================================================
 //========================================================================
 //========================================================================
 const headerMenuContainerTwo = document.querySelector('header__menu-containertwo'); // Added "document."
 const headerMenuContainer = document.querySelector('header__menu-container'); // Added "document."
-
-
 // функция регистрации
 // Функция для сохранения данных пользователя в localStorage
 function saveUserToLocalStorage(user) {
@@ -332,17 +325,14 @@ function saveUserToLocalStorage(user) {
 function createId(users) {
     return Object.keys(users).length;
 }
-
 // After successful login
 localStorage.setItem('sessionToken', 'your-session-token-here');
-
 
 const sessionToken = localStorage.getItem('sessionToken');
 if (sessionToken) {
 }
 
 localStorage.removeItem('sessionToken');
-//========================================================================
 //========================================================================
 //========================================================================
 //валидация email
@@ -423,8 +413,8 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     saveUserToLocalStorage(user);
 
     function generateRandomHexNumber() {
-        const min = 0x10000000; // Минимальное значение (16^7)
-        const max = 0xFFFFFFFF; // Максимальное значение (16^8 - 1)
+        const min = 0x100000000; // Минимальное значение (16^7)
+        const max = 0xFFFFFFFFF; // Максимальное значение (16^8 - 1)
         const randomHex = Math.floor(Math.random() * (max - min + 1)) + min;
         const upperCaseHex = randomHex.toString(16).toUpperCase(); // Преобразование в верхний регистр
         return upperCaseHex;
@@ -436,6 +426,8 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     emailInput.value = '';
     passwordInput.value = '';
 
+    const menuProfileTextAuthorization = document.querySelector('.menu-profile-text-authorization');
+    menuProfileTextAuthorization.textContent = randomHexNumber;
 
     // ... Остальной код после успешной регистрации ...
     // Обновляем значение элемента <input> с классом "cardNumberProfile"
@@ -546,7 +538,6 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     });
     ;
 
-
     // открытие окна профиля меню
     const profileButton = document.getElementById('profileButton');
     const profileContainer = document.getElementById('profileContainer');
@@ -583,7 +574,6 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
         }
     });
 
-    // Функция для открытия окна Buy a library card
     // Функция для открытия окна "buy-window"
     function openBuyWindow() {
         const buyWindow = document.getElementById('buy-window');
@@ -654,7 +644,6 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
         // Обновляем текст в элементе с новым значением счетчика
         libraryBooksCountSpan.textContent = currentLibraryBooksCount.toString();
     }
-
 
     //покупка абонемента
     const buyButton = document.getElementById("book-buy-button");
@@ -807,7 +796,6 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
 });
 // =====================================================================
 // =====================================================================
-// =====================================================================
 
 // Функция для входа в личный профиль через авторизацию
 function login() {
@@ -888,6 +876,9 @@ function login() {
     // код после успешной авторизации
     // Получаем randomHexNumber из localStorage
     const randomHexNumber = localStorage.getItem('userHexNumber');
+
+    const menuProfileTextAuthorization = document.querySelector('.menu-profile-text-authorization');
+    menuProfileTextAuthorization.textContent = randomHexNumber;
 
     // Обновляем значение элемента <input> с классом "cardNumberProfile"
     const cardNumberProfileInput = document.getElementById('cardNumberProfile');
@@ -1273,51 +1264,36 @@ document.getElementById('loginSubmit').addEventListener('click', (event) => {
 });
 
 const readersNameInput = document.getElementById('readersName');
-const CardNumberLibrary = document.getElementById('CardNumberLibrary');
+const cardNumberLibraryInput = document.getElementById('cardNumberLibrary');
 const digitalLibraryCardButton = document.querySelector('.digital-library-card-button');
 const infoBoxLibrary = document.querySelector('.infoBoxLibrary');
-const cardNumberProfileInput = document.getElementById('cardNumberProfile');
-
-// Функция для проверки, все ли поля заполнены
-function areFieldsFilled() {
-    const enteredCardNumberLibrary = cardNumberProfileInput.value.trim();
-    const enteredreadersNameInput = readersNameInput.value.trim();
-
-    return enteredCardNumberLibrary !== '' && enteredreadersNameInput !== '';
-}
 
 digitalLibraryCardButton.addEventListener('click', () => {
-    if (areFieldsFilled()) {
-        // Получаем данные из localStorage
-        const storedRandomHexNumber = localStorage.getItem('userHexNumber');
-        const storedFirstName = localStorage.getItem('firstName');
-        // const storedLastName = localStorage.getItem('lastName');
+    const enteredName = readersNameInput.value.trim();
 
-        // Получаем данные, введенные пользователем
-        const enteredCardNumberLibrary = storedRandomHexNumber; // Предполагаю, что cardNumberProfileInput - это элемент, содержащий номер карты
-        const enteredreadersNameInput = storedFirstName;
+    // Получаем данные пользователей из localStorage
+    const usersData = JSON.parse(localStorage.getItem('users'));
 
-        // Проверяем совпадение данных
-        if (
-            storedRandomHexNumber === enteredCardNumberLibrary &&
-            storedFirstName === enteredreadersNameInput
-            // storedLastName === enteredLastName
-        ) {
-            // Скрываем кнопку и показываем infoBoxLibrary на 10 секунд
-            digitalLibraryCardButton.style.visibility = 'hidden';
-            infoBoxLibrary.style.visibility = 'visible';
+    if (usersData) {
+        const matchingUser = Object.values(usersData).find(user => user.firstName === enteredName);
 
-            // Через 10 секунд восстанавливаем состояние
-            setTimeout(() => {
-                digitalLibraryCardButton.style.visibility = 'visible';
-                infoBoxLibrary.style.visibility = 'hidden';
-            }, 10000);
+        if (matchingUser) {
+            if (matchingUser.userHexNumber === cardNumberLibraryInput.value) {
+                digitalLibraryCardButton.style.visibility = 'hidden';
+                infoBoxLibrary.style.visibility = 'visible';
+
+                // устанавливаем таймер на 10 секунд
+                setTimeout(() => {
+                    infoBoxLibrary.style.visibility = 'hidden';
+                    digitalLibraryCardButton.style.visibility = 'visible';
+                }, 10000);
+            } else {
+                alert('Invalid card number');
+            }
         } else {
-            // Если данные не совпадают, можно вывести сообщение об ошибке
-            alert('Invalid card number or name.');
+            alert('User is not found');
         }
     } else {
-        // Если не все поля заполнены, выведите сообщение об ошибке
-        alert('Please fill in all fields.');
-    }    
+        alert('No user data in localStorage');
+    }
 });

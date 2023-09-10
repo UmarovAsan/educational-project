@@ -252,20 +252,50 @@ const springRadio = document.getElementById('spring');
 const summerRadio = document.getElementById('summer');
 const autumnRadio = document.getElementById('autumn');
 
+function fadeOut(element) {
+    let opacity = 1;
+    const interval = setInterval(() => {
+    if (opacity <= 0) {
+        clearInterval(interval);
+        element.style.opacity = 0;
+        element.style.pointerEvents = 'none'; // Добавляем это свойство, чтобы элемент стал некликабельным при нулевой прозрачности
+    } else {
+        element.style.opacity = opacity;
+        opacity -= 0.09; // Уменьшаем opacity
+    }
+    }, 0.1);
+}
+
+function fadeIn(element) {
+    let opacity = 0;
+    element.style.opacity = 0;
+    element.style.visibility = 'visible';
+    const interval = setInterval(() => {
+    if (opacity >= 1) {
+        clearInterval(interval);
+        element.style.opacity = 1;
+        element.style.pointerEvents = 'auto'; // Добавляем это свойство, чтобы элемент стал кликабельным при полной прозрачности
+    } else {
+        element.style.opacity = opacity;
+        opacity += 0.01; // Увеличиваем opacity
+    }
+    }, 0.1);
+}
+
 function toggleSliderVisibility() {
-    winterSlider.style.opacity = 0;
-    springSlider.style.opacity = 0;
-    summerSlider.style.opacity = 0;
-    autumnSlider.style.opacity = 0;
+    fadeOut(winterSlider);
+    fadeOut(springSlider);
+    fadeOut(summerSlider);
+    fadeOut(autumnSlider);
 
     if (winterRadio.checked) {
-        winterSlider.style.opacity = 1;
+    fadeIn(winterSlider);
     } else if (springRadio.checked) {
-        springSlider.style.opacity = 1;
+    fadeIn(springSlider);
     } else if (summerRadio.checked) {
-        summerSlider.style.opacity = 1;
+    fadeIn(summerSlider);
     } else if (autumnRadio.checked) {
-        autumnSlider.style.opacity = 1;
+    fadeIn(autumnSlider);
     }
 }
 
@@ -275,19 +305,7 @@ winterRadio.addEventListener('change', toggleSliderVisibility);
 springRadio.addEventListener('change', toggleSliderVisibility);
 summerRadio.addEventListener('change', toggleSliderVisibility);
 autumnRadio.addEventListener('change', toggleSliderVisibility);
-
-
-$(document).ready(function () {
-    $("input[type='radio']").change(function () {
-        var selectedSeason = $("input[name='season']:checked").attr("id");
-
-        $(".fade-out").css("opacity", 0);
-        $(".fade-out").css("pointer-events", "none");
-
-        $("#" + selectedSeason + "-slider").css("opacity", 1);
-        $("#" + selectedSeason + "-slider").css("pointer-events", "auto");
-    });
-});
+ 
 //========================================================================
 //========================================================================
 //========================================================================
@@ -321,7 +339,6 @@ localStorage.setItem('sessionToken', 'your-session-token-here');
 
 const sessionToken = localStorage.getItem('sessionToken');
 if (sessionToken) {
-    // The user is authenticated; you can fetch their profile or display the user-specific content.
 }
 
 localStorage.removeItem('sessionToken');
@@ -386,15 +403,24 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
         return;
     }
 
-    const user = new User(firstName, lastName, email, password);
+    function User(firstName, lastName, email, password, userHexNumber, visitCount, libraryVisitCount) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.userHexNumber = userHexNumber;
+        this.visitCount = visitCount;
+        this.libraryVisitCount = libraryVisitCount;
+    }
 
     // Генерируем и добавляем девятизначный номер в формате 16-ричного числа
     const randomHexNumber = generateRandomHexNumber();
-    user.hexNumber = randomHexNumber;
     localStorage.setItem('userHexNumber', randomHexNumber);
 
+    const user = new User(firstName, lastName, email, password, randomHexNumber, 0, 0);
+    user.hexNumber = randomHexNumber;
+
     saveUserToLocalStorage(user);
-    console.log("User registered:", user);
 
     function generateRandomHexNumber() {
         const min = 0x10000000; // Минимальное значение (16^7)
@@ -410,22 +436,8 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     emailInput.value = '';
     passwordInput.value = '';
 
-    function User(firstName, lastName, email, password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-    }
 
     // ... Остальной код после успешной регистрации ...
-    // Внутри функции login после успешной авторизации
-    // Генерируем и сохраняем девятизначный номер в формате 16-ричного числа
-    localStorage.setItem('userHexNumber', randomHexNumber);
-
-    // Обновляем элемент <p> с классом "menu-profile-text"
-    const menuProfileText = document.querySelector('.menu-profile-text');
-    menuProfileText.textContent = randomHexNumber;
-
     // Обновляем значение элемента <input> с классом "cardNumberProfile"
     const cardNumberProfileInput = document.getElementById('cardNumberProfile');
     cardNumberProfileInput.value = randomHexNumber;
@@ -444,7 +456,6 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
             alert('Не удалось скопировать текст.');
         }
     });
-
 
     registerWindow.style.visibility = 'hidden'
     overlay.style.visibility = 'hidden'
@@ -509,6 +520,32 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     // После успешной регистрации вызываем функцию для изменения иконки пользователя
     handleRegistrationSuccess(firstName, lastName);
     // ========================================================================
+
+    // Находим элементы для отображения имени и фамилии
+    const profileInfoInitials = document.getElementById('profile-info-initials');
+
+    // Проверяем, есть ли имя и фамилия в localStorage
+    if (firstName && lastName) {
+        // Формируем отображаемый текст (первые буквы заглавные)
+        const fullName = `${firstName.charAt(0).toUpperCase() + firstName.slice(1)} ${lastName.charAt(0).toUpperCase() + lastName.slice(1)}`;
+    
+        // Устанавливаем текст в элемент profileInfoInitials
+        profileInfoInitials.textContent = fullName;
+    }
+
+    // Добавляем обработчик события mouseover на кнопку "profilMenu"
+    profilMenuButton.addEventListener('mouseover', () => {
+        // Показываем элемент profileInfoInitials
+        profileInfoInitials.style.display = 'block';
+    });
+
+    // Добавляем обработчик события mouseout на кнопку "profilMenu"
+    profilMenuButton.addEventListener('mouseout', () => {
+        // Скрываем элемент profileInfoInitials
+        profileInfoInitials.style.display = 'none';
+    });
+    ;
+
 
     // открытие окна профиля меню
     const profileButton = document.getElementById('profileButton');
@@ -698,15 +735,15 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     const infoBoxLibrary = document.querySelector('.infoBoxLibrary')
     infoBoxLibrary.style.visibility = 'visible';
 
-    // Update text content in the reader card
+    // замена текста в reader card text
     const readerCardText = document.querySelector('.reader-card-text');
     readerCardText.textContent = 'Visit your profile';
 
-    // Update text content in the reader card info
+    // замена текста в reader card info
     const readerCardInfo = document.querySelector('.reader-card-info');
     readerCardInfo.textContent = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
 
-    // Hide the buttons
+    // скрываем кнопки
     const buttonSign = document.querySelector('.button-box-sign');
     const buttonLogIn = document.querySelector('.button-box-log-in');
     buttonSign.style.visibility = 'hidden';
@@ -716,7 +753,7 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
     const buttonProfileLibrary = document.createElement("button");
     buttonProfileLibrary.classList.add("buttonProfileLibrary");
     buttonProfileLibrary.innerHTML = '<span>Profile</span>';
-    // Append the "Profile" button to the appropriate container (replace 'container' with your actual container ID or class)
+    
     const container = document.querySelector('.digital-library-box-reader');
     container.appendChild(buttonProfileLibrary);
     buttonProfileLibrary.style.visibility = 'visible';
@@ -764,6 +801,8 @@ document.getElementById('registerSubmit').addEventListener('click', (event) => {
         buttonProfileLibrary.style.visibility = 'hidden';
 
         container.removeChild(buttonProfileLibrary);
+        // обновляем страницу
+        location.reload(true);
     });
 });
 // =====================================================================
@@ -850,13 +889,21 @@ function login() {
     // Получаем randomHexNumber из localStorage
     const randomHexNumber = localStorage.getItem('userHexNumber');
 
-    // Обновляем элемент с классом "menu-profile-text"
-    // const menuProfileText = document.querySelector('.menu-profile-text');
-    // menuProfileText.textContent = randomHexNumber;
-
     // Обновляем значение элемента <input> с классом "cardNumberProfile"
     const cardNumberProfileInput = document.getElementById('cardNumberProfile');
     cardNumberProfileInput.value = randomHexNumber;
+
+    // Проверяем, есть ли значение в localStorage
+    if (randomHexNumber) {
+        // Обновляем значение элемента <input> с классом "cardNumberProfile"
+        const cardNumberProfileInput = document.getElementById('cardNumberProfile');
+        cardNumberProfileInput.value = randomHexNumber;
+    } else {
+        // Обработка случая, когда значение отсутствует в localStorage
+        // Можно выполнить какие-либо действия или вывести сообщение об ошибке
+        console.error('userHexNumber not found in localStorage');
+    }
+
 
     const copyButton = document.querySelector('.cardNumberCopy');
 
@@ -884,50 +931,80 @@ function login() {
         userInitialsSpan.textContent = `${firstName[0].toUpperCase()}${lastName[0].toUpperCase()}`;
     }
 
-    // Inside the login function after successful login
+    // Внутри функции входа после успешного входа в систему
     if (enteredPassword === user.password) {
-        // Update user initials
+        
         updateUserInitials(user.firstName, user.lastName);
-
-        // Rest of the login code
     }
     // ========================================================================
-    // Функция для обновления счетчика посещений в profileContainer
+    // Находим кнопку "profilMenu" и элемент "profile-info-initials"
+    // Находим элементы для отображения имени и фамилии
+    // const profileInfoInitials = document.getElementById('profile-info-initials');
+    // const firstName = localStorage.getItem('firstName');
+    // const lastName = localStorage.getItem('lastName');
+
+    // // Проверяем, есть ли имя и фамилия в localStorage
+    // if (firstName && lastName) {
+    //     // Формируем отображаемый текст (первые буквы заглавные)
+    //     const fullName = `${firstName.charAt(0).toUpperCase() + firstName.slice(1)} ${lastName.charAt(0).toUpperCase() + lastName.slice(1)}`;
+    
+    //     // Устанавливаем текст в элемент profileInfoInitials
+    //     profileInfoInitials.textContent = fullName;
+    // }
+
+    // // Добавляем обработчик события mouseover на кнопку "profilMenu"
+    // profilMenuButton.addEventListener('mouseover', () => {
+    //     // Показываем элемент profileInfoInitials
+    //     profileInfoInitials.style.display = 'block';
+    // });
+
+    // // Добавляем обработчик события mouseout на кнопку "profilMenu"
+    // profilMenuButton.addEventListener('mouseout', () => {
+    //     // Скрываем элемент profileInfoInitials
+    //     profileInfoInitials.style.display = 'none';
+    // });
+    
+    // Обновляем счетчик посещений профиля
     function updateVisitCount() {
-        // Извлекаем элемент <span> с классом "cardsProfileCount cards-profile-count-visits"
+        // Проверяем, есть ли у пользователя свойство visitCount
+        if (!user.hasOwnProperty('visitCount')) {
+            user.visitCount = 0;
+        }
+
+        // Увеличиваем счетчик посещений
+        user.visitCount++;
+
+        // Обновляем отображение счетчика в интерфейсе
         const visitCountSpan = document.querySelector('.cardsProfileCount.cards-profile-count-visits');
+        visitCountSpan.textContent = user.visitCount.toString();
 
-        // Получаем текущее значение счетчика (преобразовываем текст в число)
-        let currentCount = parseInt(visitCountSpan.textContent, 10);
-
-        // Увеличиваем значение счетчика на 1
-        currentCount++;
-
-        // Обновляем текст в элементе с новым значением счетчика
-        visitCountSpan.textContent = currentCount.toString();
+        // Обновляем данные пользователя в localStorage
+        users[user.id] = user;
+        localStorage.setItem('users', JSON.stringify(users));
     }
 
-    // После успешной авторизации вызываем функцию для обновления счетчика
     updateVisitCount();
 
-    // Функция для обновления счетчика авторизаций в Library cards
+    // Обновляем счетчик посещений библиотеки
     function updateLibraryVisitCount() {
-        // Извлекаем элемент <span> с классом "cardsProfileCountLibrary cards-profile-count-library-visits"
+        // Проверяем, есть ли у пользователя свойство currentLibraryCount
+        if (!user.hasOwnProperty('currentLibraryCount')) {
+            user.currentLibraryCount = 0;
+        }
+
+        // Увеличиваем счетчик посещений библиотеки
+        user.currentLibraryCount++;
+
+        // Обновляем отображение счетчика в интерфейсе
         const libraryVisitCountSpan = document.querySelector('.cardsProfileCountLibrary.cards-profile-count-library-visits');
+        libraryVisitCountSpan.textContent = user.currentLibraryCount.toString();
 
-        // Получаем текущее значение счетчика (преобразовываем текст в число)
-        let currentLibraryCount = parseInt(libraryVisitCountSpan.textContent, 10);
-
-        // Увеличиваем значение счетчика на 1
-        currentLibraryCount++;
-
-        // Обновляем текст в элементе с новым значением счетчика
-        libraryVisitCountSpan.textContent = currentLibraryCount.toString();
+        // Обновляем данные пользователя в localStorage
+        users[user.id] = user;
+        localStorage.setItem('users', JSON.stringify(users));
     }
 
-    // После успешной авторизации вызываем функцию для обновления счетчика авторизаций в библиотеке
     updateLibraryVisitCount();
-
 
     // открытие окна профиля меню
     const profileButton = document.getElementById('profileButton');
@@ -1109,7 +1186,7 @@ function login() {
         buyWindow.style.visibility = "hidden";
     });
 
-    // After successful login
+    // после успешной авторизации
     if (enteredPassword === user.password) {
         const digitalLibraryCardBoxText = document.querySelector('.digital-library-card-box-text');
         digitalLibraryCardBoxText.textContent = 'Your Library card';
@@ -1120,15 +1197,15 @@ function login() {
         const infoBoxLibrary = document.querySelector('.infoBoxLibrary')
         infoBoxLibrary.style.visibility = 'visible';
 
-        // Update text content in the reader card
+        // замена текста в reader card text
         const readerCardText = document.querySelector('.reader-card-text');
         readerCardText.textContent = 'Visit your profile';
 
-        // Update text content in the reader card info
+        // замена текста в reader card info
         const readerCardInfo = document.querySelector('.reader-card-info');
         readerCardInfo.textContent = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
 
-        // Hide the buttons
+        // скрытие кнопок
         const buttonSign = document.querySelector('.button-box-sign');
         const buttonLogIn = document.querySelector('.button-box-log-in');
         buttonSign.style.visibility = 'hidden';
@@ -1138,7 +1215,7 @@ function login() {
         const buttonProfileLibrary = document.createElement("button");
         buttonProfileLibrary.classList.add("buttonProfileLibrary");
         buttonProfileLibrary.innerHTML = '<span>Profile</span>';
-        // Append the "Profile" button to the appropriate container (replace 'container' with your actual container ID or class)
+    
         const container = document.querySelector('.digital-library-box-reader');
         container.appendChild(buttonProfileLibrary);
         buttonProfileLibrary.style.visibility = 'visible';
@@ -1185,6 +1262,8 @@ function login() {
 
         const buttonProfileLibrary = document.querySelector('.buttonProfileLibrary');
         buttonProfileLibrary.style.visibility = 'hidden';
+
+        location.reload(true);
     });
 };
 
@@ -1193,34 +1272,52 @@ document.getElementById('loginSubmit').addEventListener('click', (event) => {
     login();
 });
 
-const readersNameInput = document.getElementById('readersName')
+const readersNameInput = document.getElementById('readersName');
+const CardNumberLibrary = document.getElementById('CardNumberLibrary');
 const digitalLibraryCardButton = document.querySelector('.digital-library-card-button');
+const infoBoxLibrary = document.querySelector('.infoBoxLibrary');
+const cardNumberProfileInput = document.getElementById('cardNumberProfile');
+
+// Функция для проверки, все ли поля заполнены
+function areFieldsFilled() {
+    const enteredCardNumberLibrary = cardNumberProfileInput.value.trim();
+    const enteredreadersNameInput = readersNameInput.value.trim();
+
+    return enteredCardNumberLibrary !== '' && enteredreadersNameInput !== '';
+}
+
 digitalLibraryCardButton.addEventListener('click', () => {
-    // Получаем данные из localStorage
-    const storedRandomHexNumber = localStorage.getItem('userHexNumber');
-    const storedFirstName = localStorage.getItem('firstName');
-    const storedLastName = localStorage.getItem('lastName');
+    if (areFieldsFilled()) {
+        // Получаем данные из localStorage
+        const storedRandomHexNumber = localStorage.getItem('userHexNumber');
+        const storedFirstName = localStorage.getItem('firstName');
+        // const storedLastName = localStorage.getItem('lastName');
 
-    // Получаем данные, введенные пользователем
-    const enteredCardNumber = cardNumberInput.value.trim();
-    const enteredFirstName = readersNameInput.value.trim();
+        // Получаем данные, введенные пользователем
+        const enteredCardNumberLibrary = storedRandomHexNumber; // Предполагаю, что cardNumberProfileInput - это элемент, содержащий номер карты
+        const enteredreadersNameInput = storedFirstName;
 
-    // Проверяем совпадение данных
-    if (storedRandomHexNumber === enteredCardNumber &&
-        storedFirstName === enteredFirstName &&
-        storedLastName === enteredLastName) {
-        // Скрываем кнопку и показываем infoBoxLibrary на 10 секунд
-        digitalLibraryCardButton.style.visibility = 'hidden';
-        infoBoxLibrary.style.visibility = 'visible';
+        // Проверяем совпадение данных
+        if (
+            storedRandomHexNumber === enteredCardNumberLibrary &&
+            storedFirstName === enteredreadersNameInput
+            // storedLastName === enteredLastName
+        ) {
+            // Скрываем кнопку и показываем infoBoxLibrary на 10 секунд
+            digitalLibraryCardButton.style.visibility = 'hidden';
+            infoBoxLibrary.style.visibility = 'visible';
 
-        // Через 10 секунд восстанавливаем состояние
-        setTimeout(() => {
-            digitalLibraryCardButton.style.visibility = 'visible';
-            infoBoxLibrary.style.visibility = 'hidden';
-        }, 10000);
+            // Через 10 секунд восстанавливаем состояние
+            setTimeout(() => {
+                digitalLibraryCardButton.style.visibility = 'visible';
+                infoBoxLibrary.style.visibility = 'hidden';
+            }, 10000);
+        } else {
+            // Если данные не совпадают, можно вывести сообщение об ошибке
+            alert('Invalid card number or name.');
+        }
     } else {
-        // Если данные не совпадают, можно вывести сообщение об ошибке
-        alert('Invalid card number or name.');
-    }
+        // Если не все поля заполнены, выведите сообщение об ошибке
+        alert('Please fill in all fields.');
+    }    
 });
-//===============================================================

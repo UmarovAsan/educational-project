@@ -220,6 +220,10 @@
         margin-left: 20px;
     }
 
+    .buttonProfileLibrary {
+        margin: auto;
+    }
+
     /* footer section */ 
 }
 
@@ -494,6 +498,10 @@
         justify-content: center;
         align-items: center;
         margin-left: 20px;
+    }
+
+    .buttonProfileLibrary {
+        margin: auto;
     }
 }
 
@@ -780,5 +788,9 @@
         align-items: center;
         margin-left: 20px;
         margin-top: 5px;
+    }
+
+    .buttonProfileLibrary {
+        margin: auto;
     }
 }

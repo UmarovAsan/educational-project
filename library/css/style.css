@@ -242,6 +242,25 @@ a:hover {
   transition: background-color 0.3s ease;
 }
 
+.profile-info-initials {
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  width: max-content;
+  height: 30px;
+  padding: 5px 5px;
+  align-items: center;
+  text-align: center;
+  background-color: antiquewhite;
+  color: #BB945F;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  z-index: 2;
+}
+
 .menuRegistration {
   visibility: hidden;
   position: absolute;
@@ -915,15 +934,8 @@ input[type="radio"] {
 .summer-slider,
 .autumn-slider {
   background-color: rgb(202, 202, 202)(0, 0, 0, 1); /* Задаем цвет перекрывающего слоя */
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity 0.13s ease-in-out;
 }
-
-.fade-out {
-  opacity: 0;
-  pointer-events: none; /* To prevent interaction with hidden content */
-  transition: opacity 0.8s ease-in-out;
-}
-
 
 /* coffee section */ 
 .coffee-shop {
@@ -1858,7 +1870,7 @@ input[type="number"]:hover, input[type="number"]:focus {
   bottom: 0;
   left: 0;
   justify-content: center;
-  margin-top: 90px;
+  margin: auto;
   transition: opacity 0.8s ease;
   visibility: hidden;
 }
@@ -2024,7 +2036,7 @@ input[type="number"]:hover, input[type="number"]:focus {
   bottom: 0;
   left: 0;
   justify-content: center;
-  margin-top: 90px;
+  margin: auto;
   transition: opacity 0.8s ease;
   visibility: hidden;
 }
@@ -2123,7 +2135,7 @@ input[type="number"]:hover, input[type="number"]:focus {
   bottom: 0;
   left: 0;
   justify-content: center;
-  margin-top: 90px;
+  margin: auto;
   transition: visibility 0s, opacity 0.3s ease;
   visibility: hidden;
 }
@@ -2400,7 +2412,7 @@ input[type="number"]:hover, input[type="number"]:focus {
   bottom: 0;
   left: 0;
   justify-content: center;
-  margin-top: 45px;
+  margin: auto;
   transition: visibility 0s, opacity 0.3s ease;
   visibility: hidden;
   opacity: 0;

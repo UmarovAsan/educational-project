@@ -1,0 +1,57 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.container {
+    max-width: 1920px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.audio-background {
+    position: relative;
+    max-width: 1920px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.audio-background img {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.audio-wrapper {
+    display: flex;
+    position: absolute;
+    width: 344px;
+    height: 400px;
+    z-index: 2;
+    top: 50%;
+    justify-content: center;
+}
+
+.audio-wrapper img {
+    position: absolute;
+    width: 344px;
+    height: 340px;
+    z-index: 2;
+}
+
+/* .audio-box-bottom {
+
+} */

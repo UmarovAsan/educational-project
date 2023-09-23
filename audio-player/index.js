@@ -100,6 +100,13 @@ audio.addEventListener('timeupdate', () => {
     timeEnd.innerHTML = `${minutesTotal}:${secondsTotal}`;
 });
 
+audio.addEventListener('loadedmetadata', () => {
+    const { duration } = audio;
+    const minutesTotal = Math.floor(duration / 60);
+    const secondsTotal = Math.floor(duration % 60);
+    timeEnd.innerHTML = `${minutesTotal}:${secondsTotal}`;
+});
+
 audio.addEventListener('ended', () => {
     songIndex = (songIndex + 1) % songs.length;
     loadSong(songs[songIndex]);

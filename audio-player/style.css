@@ -46,8 +46,11 @@ html {
     border-radius: 10px;
     box-shadow: 0 0 10px black;
     z-index: 2;
-    top: 21.1%;
-    left: 38%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
     justify-content: center;
     overflow: hidden;
 }
@@ -89,7 +92,7 @@ html {
 .audio-info {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 100%;
     height: 50px;
     margin-top: 20px;
     align-items: center;
@@ -97,7 +100,7 @@ html {
 
 .player-artist {
     display: flex;
-    width: 300px;
+    width: 100%;
     height: 25px;
     color: orange;
     align-items: center;
@@ -109,7 +112,7 @@ html {
 
 .player-song {
     display: flex;
-    width: 300px;
+    width: 100%;
     height: 25px;
     color: #fff;
     align-items: center;
@@ -141,7 +144,7 @@ html {
 
 .time-wrapper {
     display: flex;
-    width: 300px;
+    width: 100%;
     height: 20px;
     justify-content: space-between;
     margin-top: 5px;
@@ -166,7 +169,7 @@ html {
 .audio-controls {
     position: relative;
     display: flex;
-    width: 300px;
+    width: 100%;
     height: 40px;
     justify-content: space-between;
     align-items: center;
@@ -245,9 +248,11 @@ html {
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
+    background: darkslategrey;
 }
 .date {
     width: max-content;
+    height: 28px;
     margin-left: 0;
     font-family: Inter;
     font-size: 25px;
@@ -257,6 +262,7 @@ html {
 
 .link-school {
     width: max-content;
+    height: 28px;
 }
 
 .icon-school {
@@ -266,5 +272,11 @@ html {
 
 .link-github {
     width: max-content;
+    height: 28px;
     margin-right: 0;
+}
+
+.icon-github {
+    width: 28px;
+    height: 28px;
 }

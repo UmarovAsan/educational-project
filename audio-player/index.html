@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/audio-player/style.css">
+    <script defer src="/audio-player/index.js"></script>
+    <title>Audio-player</title>
+</head>
+<body>
+    <div class="container">
+        <div class="player-background">
+            <img class="player-background-fon" src="/audio-player/img/audiofon1.png" alt="audio-fon">
+        </div>
+        <div class="player-wrapper">
+            <img class="player-fon" src="/audio-player/img/audiofon1.png" alt="audio-fon">
+            <div class="player-box-bottom">
+                <audio class="audio" src="/audio-player/audio/beyonce.mp3"></audio>
+                <div class="audio-info">
+                    <div class="player-artist">Beyonce</div>
+                    <div class="player-song">Don't hurt ourself</div>
+                </div>
+                <div class="audio-track">
+                    <div class="audio-track-progress"></div>
+                </div>
+                <div class="time-wrapper">
+                    <div class="time-start">00:00</div>
+                    <div class="time-end">00:00</div>
+                </div>
+                <div class="audio-controls">
+                    <button type="button" class="prev-btn">
+                        <img src="/audio-player/svg/backward.png" alt="prev-btn">
+                    </button>
+                    <button type="button" class="play-btn-wrapper">
+                        <img class="play-btn" src="/audio-player/svg/play.png" alt="play-btn">
+                    </button>
+                    <button type="button" class="next-btn">
+                        <img src="/audio-player/svg/forward.png" alt="next-btn">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="date">2023</div>
+            <div class="link-school"><a href="https://rs.school/js-stage0/" target="_blank"><img class="icon-school" src="/audio-player/svg/rs_school_js.svg" alt="iconRSSchool"></a></div>
+            <div class="link-github"><a href="https://github.com/UmarovAsan" target="_blank"><img class="icon-github" src="/audio-player/img/github-logo-24.png" alt="icon github"></a></div>
+        </div>
+    </div>
+</body>
+</html>

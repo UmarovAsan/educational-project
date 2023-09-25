@@ -25,9 +25,9 @@ let songIndex = 0;
 function loadSong(song) {
     playerArtist.innerHTML = song.artist;
     playerSong.innerHTML = song.song;
-    audio.src = `audio/${song.artist}.mp3`;
-    playerBackgroundFon.src = `img/audiofon${songIndex + 1}.png`;
-    playerFon.src = `img/audiofon${songIndex + 1}.png`;
+    audio.src = `./audio/${song.artist}.mp3`;
+    playerBackgroundFon.src = `./img/audiofon${songIndex + 1}.png`;
+    playerFon.src = `./img/audiofon${songIndex + 1}.png`;
 }
 
 loadSong(songs[songIndex]);
@@ -35,14 +35,14 @@ loadSong(songs[songIndex]);
 function audioPlay () {
     player.classList.add('play');
     playerFon.classList.add('active');
-    playBtn.src = '/audio-player/svg/pause.png'
+    playBtn.src = './svg/pause.png'
     audio.play();
 }
 
 function audioPause () {
     player.classList.remove('play');
     playerFon.classList.remove('active');
-    playBtn.src = '/audio-player/svg/play.png'
+    playBtn.src = './svg/play.png'
     audio.pause();
 }
 
@@ -91,7 +91,6 @@ audio.addEventListener('timeupdate', () => {
     const progressPercent = (currentTime / duration) * 100;
     progress.style.width = `${progressPercent}%`;
 
-    // Update the time display
     const minutesCurrent = Math.floor(currentTime / 60);
     const secondsCurrent = Math.floor(currentTime % 60);
     const minutesTotal = Math.floor(duration / 60);

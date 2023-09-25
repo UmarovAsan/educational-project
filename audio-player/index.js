@@ -16,7 +16,7 @@ const nextBtn = document.querySelector('.next-btn');
 
 
 const songs = [
-    { artist: "Beyonce", song: "Don't hurt ourself" },
+    { artist: "Ny", song: "Nowhere to run" },
     { artist: "Dua Lipa", song: "Don't start now" }
 ];
 

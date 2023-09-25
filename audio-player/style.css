@@ -235,7 +235,7 @@ html {
 }
 
 .next-btn:hover, .next-btn:active,
-.play-btn:hover, .play-btn:active,
+.play-btn-wrapper:hover, .play-btn-wrapper:active,
 .prev-btn:hover, .prev-btn:active {
     background: orangered;
 }

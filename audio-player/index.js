@@ -13,7 +13,7 @@ const playBtnWrapper = document.querySelector('.play-btn-wrapper');
 const playBtn = document.querySelector('.play-btn');
 const pauseBtn = document.querySelector('.pause-btn');
 const nextBtn = document.querySelector('.next-btn');
-
+let isDragging = false;
 
 const songs = [
     { artist: "Ny", song: "Nowhere to run" },
@@ -75,16 +75,34 @@ function updateProgress(e) {
 }
 audio.addEventListener('timeupdate', updateProgress)
 
+audioTrack.addEventListener('mousedown', () => {
+    isDragging = true;
+});
 
-function setProgress (e) {
-    const width = this.clientWidth;
-    const clickX = e.offsetX;
+document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+        setProgress(e);
+    }
+});
+
+document.addEventListener('mouseup', () => {
+    if (isDragging) {
+        isDragging = false;
+    }
+});
+
+function setProgress(e) {
+    const width = audioTrack.clientWidth;
+    const clickX = e.clientX - audioTrack.getBoundingClientRect().left;
     const duration = audio.duration;
 
     audio.currentTime = (clickX / width) * duration;
-};
+}
 
-audioTrack.addEventListener('click', setProgress);
+audioTrack.addEventListener('click', (e) => {
+    setProgress(e);
+});
+
 
 audio.addEventListener('timeupdate', () => {
     const { duration, currentTime } = audio;

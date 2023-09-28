@@ -1,21 +1,24 @@
-const newImg = document.createElement('img');
-newImg.classList.add('image-random');
-newImg.alt = 'image-random';
-document.querySelector('.image-container').appendChild(newImg);
-
+const searchInput = document.querySelector('.search-input');
 const searchBtn = document.querySelector('.search-btn');
-const apiUrl = "https://api.unsplash.com/search/photos?query=winter&per_page=10&tag_mode=all&orientation=landscape&client_id=SouHY7Uul-OxoMl3LL3c0NkxUtjIrKwf3tsGk1JaiVo";
+const imageContainer = document.querySelector('.image-container');
 
-newImg.src = apiUrl;
-
-async function fetchHandler() {
+async function searchImages(query) {
    try {
+        const apiUrl = `https://api.unsplash.com/search/photos?query=${query}&per_page=12&tag_mode=all&orientation=landscape&client_id=SouHY7Uul-OxoMl3LL3c0NkxUtjIrKwf3tsGk1JaiVo`;
+
         const response = await fetch(apiUrl);
         const data = await response.json();
-        // console.log(data);
-        newImg.src = data.file;
+
         if (data.results && data.results.length > 0) {
-            newImg.src = data.results[0].urls.regular;
+            imageContainer.innerHTML = '';
+
+            data.results.forEach(result => {
+                const newImg = document.createElement('img');
+                newImg.classList.add('image-random');
+                newImg.alt = 'image-random';
+                newImg.src = result.urls.regular;
+                imageContainer.appendChild(newImg);
+            });
         } else {
             console.log("No photos found.");
         }
@@ -24,10 +27,21 @@ async function fetchHandler() {
     }
 }
 
-
-fetchHandler();
+searchImages("bear");
 
 searchBtn.addEventListener('click', () => {
-    fetchHandler();
+    const query = searchInput.value.trim();
+    if (query !== '') {
+        searchImages(query);
+    }
 });
 
+
+searchInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        const query = searchInput.value.trim();
+        if (query !== '') {
+            searchImages(query);
+        }
+    }
+});

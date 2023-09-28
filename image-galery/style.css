@@ -130,6 +130,68 @@ h1,h2,h3,h4,h5,h6 {font-size:inherit;font-weight: 400;}
     font-weight: 700;
 }
 
+.image-wrapper {
+    width: 100%;
+    min-height: calc(100vh - 130px);
+    padding: 20px;
+}
+
 .image-container {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.image-random {
+    width: 380px;
+    height: 214px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footer {
+    display: flex;
+    max-width: 1920px;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: blue;
+    bottom: 0;
+}
+
+.date {
+    width: max-content;
+    height: 28px;
+    margin-left: 0;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400; 
+}
+
+.link-school {
+    width: max-content;
+    height: 28px;
+    cursor: pointer;
+}
+
+.icon-school {
+    width: auto;
+    height: 28px;
+}
+
+.link-github {
+    width: max-content;
+    height: 28px;
+    margin-right: 0;
+    cursor: pointer;
+}
+
+.icon-github {
+    width: 28px;
+    height: 28px;
 }

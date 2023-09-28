@@ -2,6 +2,8 @@ const searchInput = document.querySelector('.search-input');
 const searchBtn = document.querySelector('.search-btn');
 const imageContainer = document.querySelector('.image-container');
 
+searchInput.focus();
+
 async function searchImages(query) {
    try {
         const apiUrl = `https://api.unsplash.com/search/photos?query=${query}&per_page=12&tag_mode=all&orientation=landscape&client_id=SouHY7Uul-OxoMl3LL3c0NkxUtjIrKwf3tsGk1JaiVo`;

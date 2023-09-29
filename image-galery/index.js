@@ -6,7 +6,7 @@ searchInput.focus();
 
 async function searchImages(query) {
    try {
-        const apiUrl = `https://api.unsplash.com/search/photos?query=${query}&per_page=12&tag_mode=all&orientation=landscape&client_id=SouHY7Uul-OxoMl3LL3c0NkxUtjIrKwf3tsGk1JaiVo`;
+        const apiUrl = `https://api.unsplash.com/search/photos?query=${query}&per_page=30&tag_mode=all&orientation=landscape&client_id=HBY8H4OcVCamNTCufnsxzMqxnZMaZXkDA-_t0W-SSiY`;
 
         const response = await fetch(apiUrl);
         const data = await response.json();
@@ -47,3 +47,5 @@ searchInput.addEventListener('keydown', (event) => {
         }
     }
 });
+
+document.cookie = "myCookie=myValue; SameSite=None; Secure";

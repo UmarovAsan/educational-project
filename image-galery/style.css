@@ -52,13 +52,22 @@ h1,h2,h3,h4,h5,h6 {font-size:inherit;font-weight: 400;}
 }
 
 .header {
+    border-bottom: 3px solid blue;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.header__container {
+    max-width: 1440px;
     height: 90px;
-    padding: 20px 30px;
+    padding: 20px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 3px solid blue;
+    margin: auto;
+    gap: 10px;
 }
+
 .header__title {
     font-family: Inter;
     font-size: 36px;
@@ -68,14 +77,13 @@ h1,h2,h3,h4,h5,h6 {font-size:inherit;font-weight: 400;}
 }
 
 .search-wrapper {
-    width: 380px;
+    width: 360px;
     height: 40px;
     border: 2px solid black;
     display: flex;
     align-items: center;
     border-radius: 30px;
     background: #fff;
-    display: flex;
 }
 .search-input {
     width: 100%;
@@ -113,6 +121,12 @@ h1,h2,h3,h4,h5,h6 {font-size:inherit;font-weight: 400;}
     justify-content: center;
     flex-wrap: nowrap;
 }
+
+.search-btn:hover {
+    background: orange;
+    transition: 0.3s ease;
+}
+
 .fa-search {
     width: 26px;
     height: 26px;
@@ -129,6 +143,11 @@ h1,h2,h3,h4,h5,h6 {font-size:inherit;font-weight: 400;}
     font-weight: 700;
 }
 
+.search-btn .fa-search:hover {
+    color: orangered;
+    transition: 0.3s ease;
+}
+
 .image-wrapper {
     width: 100%;
     min-height: calc(100vh - 130px);
@@ -137,11 +156,13 @@ h1,h2,h3,h4,h5,h6 {font-size:inherit;font-weight: 400;}
 
 .image-container {
     width: 100%;
+    max-width: 1440px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: flex-start;
     row-gap: 15px;
+    margin: auto;
 }
 
 .image-random {
@@ -152,15 +173,17 @@ h1,h2,h3,h4,h5,h6 {font-size:inherit;font-weight: 400;}
 }
 
 .footer {
+    background: blue;
+}
+
+.footer__container {
     display: flex;
-    max-width: 1920px;
-    height: 40px;
+    max-width: 1440px;
+    height: 58px;
     justify-content: space-between;
     align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
-    background: blue;
-    bottom: 0;
+    padding: 15px 20px;
+    margin: auto;
 }
 
 .date {
@@ -194,4 +217,19 @@ h1,h2,h3,h4,h5,h6 {font-size:inherit;font-weight: 400;}
 .icon-github {
     width: 28px;
     height: 28px;
+}
+
+@media(max-width: 670px) {
+    .header__container {
+        flex-direction: column;
+        height: 120px;
+    }
+
+    .header__title {
+        font-size: 32px;
+    }
+
+    .search-wrapper {
+        max-width: 300px;
+    }
 }

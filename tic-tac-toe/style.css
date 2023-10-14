@@ -1,0 +1,344 @@
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+* {
+	padding: 0;
+    margin: 0;
+	border: 0;
+}
+
+*,
+*::before,
+*::after {
+	-moz-box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+:focus,:active {outline: none;}
+a:focus,a:active {outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body {
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+input,button,textarea {font-family:inherit;}
+
+input::-ms-clear {display: none;}
+button {cursor: pointer; padding: 0;background-color: transparent;border: none;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited {text-decoration: none;}
+a:hover {text-decoration: none;color: inherit;}
+ul li {list-style: none;}
+img {vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6 {font-size:inherit;font-weight: 400;}
+/*--------------------*/
+
+.container {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.header {
+    border-bottom: 3px solid blue;
+    background: gray;
+}
+
+.header__container {
+    max-width: 1440px;
+    height: 90px;
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.header__container h1 {
+    display: flex;
+    font-family: Inter;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.main {
+    height: calc(100vh - 183px);
+    background: #226293;
+}
+
+.main_container {
+    max-width: 1440px;
+    height: calc(100vh - 183px);
+    display: flex;
+    padding: 20px;
+    margin: auto;
+}
+
+.main_container-section-game {
+    display: flex;
+    width: 75%;
+}
+
+.main_container-section-statistic {
+    display: flex;
+    width: 25%;
+}
+
+.main__container-game {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.playing-field {
+    width: 100px;
+    height: 100px;
+    box-shadow: -5px 20px 40px -1px;
+    background: darkorange;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    transition: 0.3s ease;
+    border-radius: 10px;
+    scale: 1;
+}
+
+.playing-field:hover {
+    background-color: khaki;
+}
+
+.playing-field:active {
+    scale: 1.1;
+}
+
+.field0 {
+    border-right: 4px solid #226293;
+    border-bottom: 4px solid #226293;
+}
+
+.field1 {
+    border-bottom: 4px solid #226293;
+}
+
+.field2 {
+    border-left: 4px solid #226293;
+    border-bottom: 4px solid #226293;
+}
+
+.field3 {
+    border-right: 4px solid #226293;
+}
+
+.field5 {
+    border-left: 4px solid #226293;
+}
+
+.field6 {
+    border-right: 4px solid #226293;
+    border-top: 4px solid #226293;
+}
+
+.field7 {
+    border-top: 4px solid #226293;
+}
+
+.field8 {
+    border-left: 4px solid #226293;
+    border-top: 4px solid #226293;
+}
+
+.main__container-statistics {
+    width: 180px;
+    height: 200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.title-statistics-field {
+    width: 100%;
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    color: black;
+}
+
+.title-user {
+    width: 70%;
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    color: black;
+}
+
+.result-game {
+    width: 30%;
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    color: black;
+}
+
+.draw {
+    width: 70%;
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    color: black;
+}
+
+.result-game {
+    width: 30%;
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    color: black;
+}
+
+.footer {
+    height: 90px;
+    background: grey;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.footer__container {
+    display: flex;
+    max-width: 1440px;
+    height: 58px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    margin: auto;
+}
+
+.date {
+    width: max-content;
+    height: 28px;
+    margin-left: 0;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400; 
+}
+
+.link-school {
+    width: max-content;
+    height: 28px;
+    cursor: pointer;
+}
+
+.icon-school {
+    width: auto;
+    height: 28px;
+}
+
+.link-github {
+    width: max-content;
+    height: 28px;
+    margin-right: 0;
+    cursor: pointer;
+}
+
+.icon-github {
+    width: 28px;
+    height: 28px;
+}
+
+@media(max-width: 500px) {
+    .main_container {
+        flex-direction: column;
+    }
+
+    .main_container-section-game {
+        width: 100%;
+        height: 50%;
+    }
+
+    .main_container-section-statistic{
+        width: 100%;
+        height: 50%;
+    }
+
+    .main__container-game{
+        width: 180px;
+        height: 180px;
+    }
+
+    .playing-field {
+        width: 60px;
+        height: 60px;
+    }
+
+    .main__container-statistics {
+        width: 178px;
+        height: 160px;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+
+    .title-statistics-field,
+    .title-user,
+    .result-game,
+    .draw {
+        height: 40px;
+    }
+}

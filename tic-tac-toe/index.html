@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css">
+    <title>Tic tac toe</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header__container">
+                <h1>Tic Tac Toe</h1>
+            </div>
+        </header>
+        <main class="main">
+            <div class="main_container">
+                <div class="main_container-section-game">
+                    <div class="main__container-game">
+                        <div data-cell-index="0" class="playing-field field0"></div>
+                        <div data-cell-index="1" class="playing-field field1"></div>
+                        <div data-cell-index="2" class="playing-field field2"></div>
+                        <div data-cell-index="3" class="playing-field field3"></div>
+                        <div data-cell-index="4" class="playing-field field4"></div>
+                        <div data-cell-index="5" class="playing-field field5"></div>
+                        <div data-cell-index="6" class="playing-field field6"></div>
+                        <div data-cell-index="7" class="playing-field field7"></div>
+                        <div data-cell-index="8" class="playing-field field8"></div>
+                    </div>
+                </div>
+                <div class="main_container-section-statistic">
+                    <div class="main__container-statistics">
+                        <div class="title-statistics-field">Statistics</div>
+                        <div class="title-user x-User">User X</div>
+                        <div class="result-game x-winner"></div>
+                        <div class="title-user o-User">User O</div>
+                        <div class="result-game o-winner"></div>
+                        <div class="draw">Draw</div>
+                        <div class="result-game xo-draw"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="footer">
+            <div class="footer__container">
+                <div class="date">2023</div>
+                <div class="link-school"><a href="https://rs.school/js-stage0/" target="_blank"><img class="icon-school" src="./svg/rs_school_js.svg" alt="iconRSSchool"></a></div>
+                <div class="link-github"><a href="https://github.com/UmarovAsan" target="_blank"><img class="icon-github" src="./img/github-logo-24.png" alt="icon github"></a></div>
+            </div>
+        </div>
+    </div>
+    <script defer src="./main.js"></script>
+</body>
+</html>

@@ -4,18 +4,6 @@ const oUser = document.querySelector('.o-User');
 const xoDraw = document.querySelector('.xo-draw');
 let player = "x";
 
-let stat = {
-    'x': 0,
-    'o': 0,
-    'd': 0
-}
-
-const storedStat = JSON.parse(localStorage.getItem('stat'));
-if (storedStat) {
-    stat = storedStat;
-    updateStat();
-}
-
 const winIndex = [
     [0, 1, 2],
     [3, 4, 5],
@@ -26,6 +14,36 @@ const winIndex = [
     [0, 4, 8],
     [2, 4, 6]
 ];
+
+let stat = {
+    'x': 0,
+    'o': 0,
+    'd': 0
+}
+
+function restart(text) {
+    alert(text);
+    for (let i = 0; i < playingField.length; i++) {
+        playingField[i].innerHTML = '';
+    }
+
+    localStorage.setItem('stat', JSON.stringify(stat));
+    updateStat();
+}
+
+function updateStat() {
+    document.querySelector('.x-winner').innerHTML = stat.x;
+    document.querySelector('.o-winner').innerHTML = stat.o;
+    document.querySelector('.xo-draw').innerHTML = stat.d;
+}
+
+updateStat();
+
+const storedStat = JSON.parse(localStorage.getItem('stat'));
+if (storedStat) {
+    stat = storedStat;
+    updateStat();
+}
 
 for (let i = 0; i < playingField.length; i++) {
     playingField[i].addEventListener('click', playingFieldClick, false);
@@ -50,7 +68,7 @@ function playingFieldClick() {
         stat[player] += 1;
         updateStat();
         setTimeout(function() {
-            restart("Winner: " + player);
+            restart("Winner: " + player.toUpperCase());
         }, 400);
     } else {
         let draw = true;
@@ -63,13 +81,11 @@ function playingFieldClick() {
         if (draw) {
             stat.d += 1;
             updateStat();
-            setTimeout(function() {
-                restart("Draw");
-            }, 400);
+            restart("Draw");
+        } else {
+            player = player === "x" ? "o" : "x";
         }
     }
-
-    player = player === "x" ? "o" : "x";
 }
 
 function checkWin(data) {
@@ -87,21 +103,3 @@ function checkWin(data) {
     }
     return false;
 }
-
-function restart(text) {
-    alert(text);
-    for (let i = 0; i < playingField.length; i++) {
-        playingField[i].innerHTML = '';
-    }
-
-    localStorage.setItem('stat', JSON.stringify(stat));
-    updateStat();
-}
-
-function updateStat() {
-    document.querySelector('.result-game.x-winner').innerHTML = stat.x;
-    document.querySelector('.result-game.o-winner').innerHTML = stat.o;
-    document.querySelector('.result-game.xo-draw').innerHTML = stat.d;
-}
-
-updateStat();

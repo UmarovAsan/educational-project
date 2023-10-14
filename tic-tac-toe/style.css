@@ -49,12 +49,12 @@ h1,h2,h3,h4,h5,h6 {font-size:inherit;font-weight: 400;}
 .container {
     width: 100%;
     height: 100%;
-    background: #fff;
+    background: #226293;
 }
 
 .header {
     border-bottom: 3px solid blue;
-    background: gray;
+    /* background: gray; */
 }
 
 .header__container {
@@ -255,9 +255,10 @@ h1,h2,h3,h4,h5,h6 {font-size:inherit;font-weight: 400;}
 
 .footer {
     height: 90px;
-    background: grey;
+    background: #226293;
     padding-top: 16px;
     padding-bottom: 16px;
+    border-top: 3px solid blue;
 }
 
 .footer__container {
